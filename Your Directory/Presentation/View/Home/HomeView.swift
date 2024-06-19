@@ -8,17 +8,35 @@
 import SwiftUI
 
 struct HomeView: View {
-
+    
     @StateObject var viewModel = HomeViewModel()
     let userInfor: SignUp
-
+    
+    @State var isPresentSheet = false
+    
     var body: some View {
-        VStack {
-            Text("name: \(userInfor.name)")
+        VStack(alignment: .leading) {
+            makeHeader()
+                .padding(.horizontal, 16)
+            Spacer()
+            makeBottomTabBar()
         }
+        .ignoresSafeArea(edges: .bottom)
+        .frame(
+            width: UIScreen.main.bounds.size.width
+        )
+        .background(LinearGradient(
+            colors: [.lightBlue, .lightPink],
+            startPoint: .leading,
+            endPoint: .trailing)
+        )
+        .sheet(isPresented: $isPresentSheet, content: {
+            CreateVocabularyView()
+            .presentationDetents([.medium])
+        })
     }
 }
-//
-//#Preview {
-//    HomeView()
-//}
+
+#Preview {
+    HomeView(userInfor: SignUp(name: "Luana"))
+}
