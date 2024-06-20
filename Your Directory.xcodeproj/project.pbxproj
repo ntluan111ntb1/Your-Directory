@@ -36,6 +36,13 @@
 		0EA6DF7C2C23E1CE00128A3B /* notebook.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0EA6DF7B2C23E1CE00128A3B /* notebook.gif */; };
 		0EA6DF7E2C23E2D500128A3B /* sound.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0EA6DF7D2C23E2D500128A3B /* sound.gif */; };
 		0EA6DF802C23E30000128A3B /* description.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0EA6DF7F2C23E30000128A3B /* description.gif */; };
+		0EA6DF822C24027000128A3B /* Vocabulary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF812C24027000128A3B /* Vocabulary.swift */; };
+		0EA6DF852C2402C600128A3B /* Vocabularys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF842C2402C600128A3B /* Vocabularys.swift */; };
+		0EA6DF872C2403E600128A3B /* TextFieldImageGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF862C2403E600128A3B /* TextFieldImageGif.swift */; };
+		0EA6DF892C24057500128A3B /* search.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0EA6DF882C24057500128A3B /* search.gif */; };
+		0EA6DF8B2C24082F00128A3B /* HomeView+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF8A2C24082F00128A3B /* HomeView+Search.swift */; };
+		0EA6DF8D2C240C2900128A3B /* HomeView+ListVocabulary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF8C2C240C2900128A3B /* HomeView+ListVocabulary.swift */; };
+		0EA6DF902C240CEE00128A3B /* VocabularyCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF8F2C240CEE00128A3B /* VocabularyCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +75,13 @@
 		0EA6DF7B2C23E1CE00128A3B /* notebook.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = notebook.gif; sourceTree = "<group>"; };
 		0EA6DF7D2C23E2D500128A3B /* sound.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = sound.gif; sourceTree = "<group>"; };
 		0EA6DF7F2C23E30000128A3B /* description.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = description.gif; sourceTree = "<group>"; };
+		0EA6DF812C24027000128A3B /* Vocabulary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vocabulary.swift; sourceTree = "<group>"; };
+		0EA6DF842C2402C600128A3B /* Vocabularys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vocabularys.swift; sourceTree = "<group>"; };
+		0EA6DF862C2403E600128A3B /* TextFieldImageGif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldImageGif.swift; sourceTree = "<group>"; };
+		0EA6DF882C24057500128A3B /* search.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = search.gif; sourceTree = "<group>"; };
+		0EA6DF8A2C24082F00128A3B /* HomeView+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeView+Search.swift"; sourceTree = "<group>"; };
+		0EA6DF8C2C240C2900128A3B /* HomeView+ListVocabulary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeView+ListVocabulary.swift"; sourceTree = "<group>"; };
+		0EA6DF8F2C240CEE00128A3B /* VocabularyCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyCardView.swift; sourceTree = "<group>"; };
 		7CEF74F2E25348C11AF363B4 /* Pods-Your Directory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Your Directory.release.xcconfig"; path = "Target Support Files/Pods-Your Directory/Pods-Your Directory.release.xcconfig"; sourceTree = "<group>"; };
 		8D8BCDC631AEB02680BFE605 /* Pods_Your_Directory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Your_Directory.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1BE25A21F6144FA9B33F505 /* Pods-Your Directory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Your Directory.debug.xcconfig"; path = "Target Support Files/Pods-Your Directory/Pods-Your Directory.debug.xcconfig"; sourceTree = "<group>"; };
@@ -90,6 +104,8 @@
 			children = (
 				08875FB82C2316C500C4E6C6 /* HomeViewHeader.swift */,
 				08875FBC2C231C6B00C4E6C6 /* HomeView+BottonTabBar.swift */,
+				0EA6DF8A2C24082F00128A3B /* HomeView+Search.swift */,
+				0EA6DF8C2C240C2900128A3B /* HomeView+ListVocabulary.swift */,
 			);
 			path = Inner;
 			sourceTree = "<group>";
@@ -191,6 +207,8 @@
 			isa = PBXGroup;
 			children = (
 				0EA6DF4C2C213F5200128A3B /* SignUp.swift */,
+				0EA6DF812C24027000128A3B /* Vocabulary.swift */,
+				0EA6DF842C2402C600128A3B /* Vocabularys.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -241,6 +259,7 @@
 				0EA6DF592C2143B900128A3B /* RoundedCornersShape.swift */,
 				08875FBA2C231B3E00C4E6C6 /* ButtonIcon.swift */,
 				0EA6DF772C23DAA500128A3B /* QLImage.swift */,
+				0EA6DF862C2403E600128A3B /* TextFieldImageGif.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -274,6 +293,7 @@
 		0EA6DF6D2C2288E100128A3B /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				0EA6DF8E2C240CD900128A3B /* Components */,
 				08875FB72C2316BE00C4E6C6 /* Inner */,
 				0EA6DF6E2C2288EB00128A3B /* HomeView.swift */,
 			);
@@ -299,11 +319,20 @@
 		0EA6DF7A2C23E1C000128A3B /* gif */ = {
 			isa = PBXGroup;
 			children = (
+				0EA6DF882C24057500128A3B /* search.gif */,
 				0EA6DF7B2C23E1CE00128A3B /* notebook.gif */,
 				0EA6DF7D2C23E2D500128A3B /* sound.gif */,
 				0EA6DF7F2C23E30000128A3B /* description.gif */,
 			);
 			path = gif;
+			sourceTree = "<group>";
+		};
+		0EA6DF8E2C240CD900128A3B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				0EA6DF8F2C240CEE00128A3B /* VocabularyCardView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		25F0E20E8CDDC2A04027B2AE /* Frameworks */ = {
@@ -389,6 +418,7 @@
 				0EA6DF382C212D2E00128A3B /* Preview Assets.xcassets in Resources */,
 				0EA6DF7E2C23E2D500128A3B /* sound.gif in Resources */,
 				0EA6DF352C212D2E00128A3B /* Assets.xcassets in Resources */,
+				0EA6DF892C24057500128A3B /* search.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,12 +471,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EA6DF902C240CEE00128A3B /* VocabularyCardView.swift in Sources */,
+				0EA6DF822C24027000128A3B /* Vocabulary.swift in Sources */,
+				0EA6DF8B2C24082F00128A3B /* HomeView+Search.swift in Sources */,
 				0EA6DF732C22B0F100128A3B /* HomeViewModel.swift in Sources */,
 				08875FBB2C231B3E00C4E6C6 /* ButtonIcon.swift in Sources */,
 				0EA6DF4A2C213F1F00128A3B /* SignUpView.swift in Sources */,
 				08875FBD2C231C6B00C4E6C6 /* HomeView+BottonTabBar.swift in Sources */,
 				0EA6DF762C22B60400128A3B /* SplashViewModel.swift in Sources */,
 				0EA6DF5C2C21441900128A3B /* Color.swift in Sources */,
+				0EA6DF852C2402C600128A3B /* Vocabularys.swift in Sources */,
 				08875FB92C2316C500C4E6C6 /* HomeViewHeader.swift in Sources */,
 				0EA6DF642C22849B00128A3B /* Keys.swift in Sources */,
 				0EA6DF5A2C2143B900128A3B /* RoundedCornersShape.swift in Sources */,
@@ -454,11 +488,13 @@
 				0EA6DF312C212D2B00128A3B /* Your_DirectoryApp.swift in Sources */,
 				0EA6DF5E2C216ECB00128A3B /* ButtonFullWidthView.swift in Sources */,
 				0EA6DF682C22853500128A3B /* SetDataLocal.swift in Sources */,
+				0EA6DF872C2403E600128A3B /* TextFieldImageGif.swift in Sources */,
 				0EA6DF582C21423500128A3B /* TextFieldCustomize.swift in Sources */,
 				0EA6DF4D2C213F5200128A3B /* SignUp.swift in Sources */,
 				0EA6DF662C22852E00128A3B /* GetDataLocal.swift in Sources */,
 				0EA6DF402C212D5800128A3B /* SplashView.swift in Sources */,
 				0EA6DF6F2C2288EB00128A3B /* HomeView.swift in Sources */,
+				0EA6DF8D2C240C2900128A3B /* HomeView+ListVocabulary.swift in Sources */,
 				0EA6DF442C2135C500128A3B /* LottieView.swift in Sources */,
 				08875FC22C23233900C4E6C6 /* CreateVocabularyView.swift in Sources */,
 				0EA6DF782C23DAA500128A3B /* QLImage.swift in Sources */,

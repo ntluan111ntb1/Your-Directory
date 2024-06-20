@@ -11,6 +11,7 @@ struct CreateVocabularyView: View {
     
     @State var vocabulary = ""
     @State var ipa = ""
+    @State var description = ""
     @Binding var isPresentSheet: Bool
     var body: some View {
         VStack(spacing: 16) {
@@ -29,23 +30,26 @@ struct CreateVocabularyView: View {
                 }
                 .padding(.horizontal, 16)
                 Divider()
-                HStack {
-                    GIFView(type: .name("notebook"))
-                        .frame(width: 40, height: 40)
-                    TextField("Bạn muốn thêm từ nào", text: $vocabulary)
-                }
+                TextFieldImageGif(
+                    text: $vocabulary,
+                    imageName: "notebook",
+                    placeholder: "Bạn muốn thêm từ nào",
+                    sizeImage: 40
+                )
                 Divider()
-                HStack {
-                    GIFView(type: .name("sound"))
-                        .frame(width: 40, height: 40)
-                    TextField("Thêm phiên âm cho nó chứ", text: $vocabulary)
-                }
+                TextFieldImageGif(
+                    text: $ipa,
+                    imageName: "sound",
+                    placeholder: "Thêm phiên âm cho nó chứ",
+                    sizeImage: 40
+                )
                 Divider()
-                HStack {
-                    GIFView(type: .name("description"))
-                        .frame(width: 40, height: 40)
-                    TextField("Thêm một chút mô tả cho nó nhé", text: $vocabulary)
-                }
+                TextFieldImageGif(
+                    text: $description,
+                    imageName: "description",
+                    placeholder: "Thêm một chút mô tả cho nó nhé",
+                    sizeImage: 40
+                )
             }
             .padding(16)
             .background(

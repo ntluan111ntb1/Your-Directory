@@ -8,16 +8,23 @@
 import SwiftUI
 
 struct HomeView: View {
-    
+
     @StateObject var viewModel = HomeViewModel()
-    let userInfor: SignUp
-    
+
+    @State var search = ""
     @State var isPresentSheet = false
-    
+
+    let userInfor: SignUp
+    let layout = [
+        GridItem(.flexible(minimum: 80, maximum: 320)),
+        GridItem(.flexible(minimum: 80, maximum: 320)),
+    ]
     var body: some View {
         VStack(alignment: .leading) {
             makeHeader()
                 .padding(.horizontal, 16)
+            makeSearch()
+            makeListVocabulary()
             Spacer()
             makeBottomTabBar()
         }
@@ -26,7 +33,7 @@ struct HomeView: View {
             width: UIScreen.main.bounds.size.width
         )
         .background(LinearGradient(
-            colors: [.lightBlue, .lightPink],
+            colors: [.lightBlue.opacity(0.5), .lightPink.opacity(0.5)],
             startPoint: .leading,
             endPoint: .trailing)
         )
@@ -36,6 +43,14 @@ struct HomeView: View {
             .presentationCornerRadius(38)
         })
     }
+
+    let vocabularys = Vocabularys(vocabularys: [
+        Vocabulary(vocabulary: "Description1222222", ipa: "/dɪˈskrɪpʃn/", description: "a piece of writing or speech that says what somebody/something is like; the act of writing or saying in words what somebody/something is like", background: "gra_1"),
+        Vocabulary(vocabulary: "Description2", ipa: "/dɪˈskrɪpʃn/", description: "a piece of writing or speech that says what somebody/something is like; the act of writing or saying in words what somebody/something is like", background: "gra_2"),
+        Vocabulary(vocabulary: "1221", ipa: "/dɪˈskrɪpʃn/", description: "a piece of writing or speech that says what somebody/something is like; the act of writing or saying in words what somebody/something is like", background: "gra_3"),
+        Vocabulary(vocabulary: "Description4", ipa: "/dɪˈskrɪpʃn/", description: "a piece of writing or speech that says what somebody/something is like; the act of writing or saying in words what somebody/something is like", background: "gra_4"),
+        Vocabulary(vocabulary: "Description5", ipa: "/dɪˈskrɪpʃn/", description: "a piece of writing or speech that says what somebody/something is like; the act of writing or saying in words what somebody/something is like", background: "gra_5")
+    ])
 }
 
 #Preview {
