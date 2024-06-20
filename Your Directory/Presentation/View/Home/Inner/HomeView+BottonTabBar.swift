@@ -11,7 +11,9 @@ extension HomeView {
     func makeBottomTabBar() -> some View {
         HStack(alignment: .bottom) {
             Spacer()
-            ButtonIcons(name: "home", size: 40) { }
+            ButtonIcons(name: "home", size: 36) { }
+                .padding(.bottom, 16)
+                .padding(.top, 8)
             Spacer()
             Button {
                 isPresentSheet.toggle()
@@ -20,9 +22,11 @@ extension HomeView {
                     .resizable()
                     .frame(width: 60, height: 60)
             }
-            .offset(x:0, y: -30)
+            .offset(x:0, y: -34)
             Spacer()
-            ButtonIcons(name: "profile", size: 40) { }
+            ButtonIcons(name: "profile", size: 36) { }
+                .padding(.bottom, 16)
+                .padding(.top, 8)
             Spacer()
         }
         .background {
@@ -30,6 +34,5 @@ extension HomeView {
                 .fill(.white)
                 .shadow(radius: 4)
         }
-        
     }
 }

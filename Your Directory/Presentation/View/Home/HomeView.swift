@@ -31,8 +31,9 @@ struct HomeView: View {
             endPoint: .trailing)
         )
         .sheet(isPresented: $isPresentSheet, content: {
-            CreateVocabularyView()
+            CreateVocabularyView(isPresentSheet: $isPresentSheet)
             .presentationDetents([.medium])
+            .presentationCornerRadius(38)
         })
     }
 }

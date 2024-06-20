@@ -14,7 +14,7 @@ struct SplashView: View {
     var body: some View {
         NavigationStack {
             if let userInfor = viewModel.userInfor {
-                SignUpView()
+                HomeView(userInfor: userInfor)
             } else {
                 SignUpView()
             }

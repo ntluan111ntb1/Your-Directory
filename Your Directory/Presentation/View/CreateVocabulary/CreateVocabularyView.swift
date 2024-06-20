@@ -11,26 +11,49 @@ struct CreateVocabularyView: View {
     
     @State var vocabulary = ""
     @State var ipa = ""
-    
+    @Binding var isPresentSheet: Bool
     var body: some View {
         VStack(spacing: 16) {
-            Text("Thêm từ vựng nhé...")
-                .font(.title)
-            TextFieldCustomize(
-                text: $vocabulary,
-                label: "Bạn muốn thêm từ nào?",
-                placeholder: "Nhập từ vựng ở đây nè!!!"
+            VStack {
+                HStack {
+                    Text("Tạo mới từ vựng")
+                        .fontStyle(.largeBold)
+                    Spacer()
+                    Button {
+                        isPresentSheet.toggle()
+                    } label: {
+                        Image(systemName: "xmark")
+                            .font(.title2)
+                            .foregroundStyle(.black)
+                    }
+                }
+                .padding(.horizontal, 16)
+                Divider()
+                HStack {
+                    GIFView(type: .name("notebook"))
+                        .frame(width: 40, height: 40)
+                    TextField("Bạn muốn thêm từ nào", text: $vocabulary)
+                }
+                Divider()
+                HStack {
+                    GIFView(type: .name("sound"))
+                        .frame(width: 40, height: 40)
+                    TextField("Thêm phiên âm cho nó chứ", text: $vocabulary)
+                }
+                Divider()
+                HStack {
+                    GIFView(type: .name("description"))
+                        .frame(width: 40, height: 40)
+                    TextField("Thêm một chút mô tả cho nó nhé", text: $vocabulary)
+                }
+            }
+            .padding(16)
+            .background(
+                RoundedCornersShape(corners: .allCorners, radius: 38)
+                    .fill(.white)
+                    .shadow(radius: 4)
             )
-            TextFieldCustomize(
-                text: $ipa,
-                label: "Thêm phiên âm cho nó chứ?",
-                placeholder: "Nhập phiên âm ở đây nè!!!"
-            )
-            TextFieldCustomize(
-                text: $ipa,
-                label: "Thêm một chút mô tả cho nó nhé?",
-                placeholder: "Nhập mô tả ở đây nè!!!"
-            )
+            Spacer()
             ButtonFullWidthView(
                 lable: "Tạo thôi nào",
                 color: .purpleCustomize,
@@ -39,9 +62,6 @@ struct CreateVocabularyView: View {
                 }
         }
         .padding(16)
+        .background(Image("sheet"))
     }
-}
-
-#Preview {
-    CreateVocabularyView()
 }

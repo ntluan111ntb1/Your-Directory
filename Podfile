@@ -8,4 +8,5 @@ target 'Your Directory' do
   # Pods for Your Directory
   pod 'lottie-ios'
   pod 'Alamofire'
+  pod 'FLAnimatedImage'
 end
