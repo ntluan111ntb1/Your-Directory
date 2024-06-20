@@ -16,7 +16,7 @@ extension HomeView {
                 .padding(.top, 8)
             Spacer()
             Button {
-                isPresentSheet.toggle()
+                isPresentCreateVocabulary.toggle()
             } label: {
                 Image("button_plus")
                     .resizable()

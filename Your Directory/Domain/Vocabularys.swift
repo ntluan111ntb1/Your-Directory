@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct Vocabularys {
-    let vocabularys: [Vocabulary]
+struct Vocabularys: Codable {
+    var vocabularys: [Vocabulary]
 }

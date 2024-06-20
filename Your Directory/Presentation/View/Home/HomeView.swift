@@ -12,12 +12,15 @@ struct HomeView: View {
     @StateObject var viewModel = HomeViewModel()
 
     @State var search = ""
-    @State var isPresentSheet = false
+    @State var isPresentCreateVocabulary = false
+    @State var isPresentDetailVocabulary = false
+    @State var selectedVocabulary: Vocabulary? = nil
 
     let userInfor: SignUp
+
     let layout = [
-        GridItem(.flexible(minimum: 80, maximum: 320)),
-        GridItem(.flexible(minimum: 80, maximum: 320)),
+        GridItem(.flexible(minimum: 120, maximum: 320)),
+        GridItem(.flexible(minimum: 120, maximum: 320)),
     ]
     var body: some View {
         VStack(alignment: .leading) {
@@ -28,6 +31,9 @@ struct HomeView: View {
             Spacer()
             makeBottomTabBar()
         }
+        .onAppear {
+            viewModel.getVocabularys()
+        }
         .ignoresSafeArea(edges: .bottom)
         .frame(
             width: UIScreen.main.bounds.size.width
@@ -37,20 +43,23 @@ struct HomeView: View {
             startPoint: .leading,
             endPoint: .trailing)
         )
-        .sheet(isPresented: $isPresentSheet, content: {
-            CreateVocabularyView(isPresentSheet: $isPresentSheet)
+        .sheet(isPresented: $isPresentCreateVocabulary, content: {
+            CreateVocabularyView(isPresentSheet: $isPresentCreateVocabulary) { vocabulary in
+                viewModel.setVocabulary(vocabulary: vocabulary)
+                isPresentCreateVocabulary.toggle()
+            }
             .presentationDetents([.medium])
             .presentationCornerRadius(38)
         })
+        .sheet(item: $selectedVocabulary, content: { vocabulary in
+            VStack {
+                Text(vocabulary.vocabulary)
+                Text(vocabulary.ipa)
+                Text(vocabulary.description)
+            }
+            .presentationDetents([.medium, .large])
+        })
     }
-
-    let vocabularys = Vocabularys(vocabularys: [
-        Vocabulary(vocabulary: "Description1222222", ipa: "/dɪˈskrɪpʃn/", description: "a piece of writing or speech that says what somebody/something is like; the act of writing or saying in words what somebody/something is like", background: "gra_1"),
-        Vocabulary(vocabulary: "Description2", ipa: "/dɪˈskrɪpʃn/", description: "a piece of writing or speech that says what somebody/something is like; the act of writing or saying in words what somebody/something is like", background: "gra_2"),
-        Vocabulary(vocabulary: "1221", ipa: "/dɪˈskrɪpʃn/", description: "a piece of writing or speech that says what somebody/something is like; the act of writing or saying in words what somebody/something is like", background: "gra_3"),
-        Vocabulary(vocabulary: "Description4", ipa: "/dɪˈskrɪpʃn/", description: "a piece of writing or speech that says what somebody/something is like; the act of writing or saying in words what somebody/something is like", background: "gra_4"),
-        Vocabulary(vocabulary: "Description5", ipa: "/dɪˈskrɪpʃn/", description: "a piece of writing or speech that says what somebody/something is like; the act of writing or saying in words what somebody/something is like", background: "gra_5")
-    ])
 }
 
 #Preview {

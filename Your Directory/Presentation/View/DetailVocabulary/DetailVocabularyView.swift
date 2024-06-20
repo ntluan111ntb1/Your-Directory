@@ -1,20 +1,15 @@
 //
-//  CreateVocabularyView.swift
+//  DetailVocabularyView.swift
 //  Your Directory
 //
-//  Created by Nguyễn Luân on 19/06/2024.
+//  Created by LuanNT29 on 20/06/2024.
 //
 
 import SwiftUI
 
-struct CreateVocabularyView: View {
-    @StateObject var viewModel = CreateVocabularyViewModel()
-    @State var vocabulary = ""
-    @State var ipa = ""
-    @State var description = ""
-    @Binding var isPresentSheet: Bool
+struct DetailVocabularyView: View {
 
-    let createVocabulary: (Vocabulary) -> Void
+    @Binding var vocabulary: Vocabulary
 
     var body: some View {
         VStack(spacing: 16) {
@@ -24,7 +19,6 @@ struct CreateVocabularyView: View {
                         .fontStyle(.largeBold)
                     Spacer()
                     Button {
-                        isPresentSheet.toggle()
                     } label: {
                         Image(systemName: "xmark")
                             .font(.title2)
@@ -33,24 +27,24 @@ struct CreateVocabularyView: View {
                 }
                 .padding(.horizontal, 16)
                 Divider()
-                TextFieldImageGif(
-                    text: $vocabulary,
+                TextFieldImage(
+                    text: $vocabulary.vocabulary,
                     imageName: "notebook",
-                    placeholder: "Bạn muốn thêm từ nào",
+                    placeholder: vocabulary.vocabulary,
                     sizeImage: 40
                 )
                 Divider()
-                TextFieldImageGif(
-                    text: $ipa,
+                TextFieldImage(
+                    text: $vocabulary.ipa,
                     imageName: "sound",
-                    placeholder: "Thêm phiên âm cho nó chứ",
+                    placeholder: vocabulary.ipa,
                     sizeImage: 40
                 )
                 Divider()
-                TextFieldImageGif(
-                    text: $description,
+                TextFieldImage(
+                    text: $vocabulary.description,
                     imageName: "description",
-                    placeholder: "Thêm một chút mô tả cho nó nhé",
+                    placeholder: vocabulary.description,
                     sizeImage: 40
                 )
             }
@@ -65,10 +59,14 @@ struct CreateVocabularyView: View {
                 lable: "Tạo thôi nào",
                 color: .purpleCustomize,
                 foregroundColor: .white) {
-                    createVocabulary(Vocabulary(vocabulary: vocabulary, ipa: ipa, description: description, background: "gra_1"))
+                    ///toDO
                 }
         }
         .padding(16)
         .background(Image("sheet"))
     }
+}
+
+#Preview {
+    DetailVocabularyView(vocabulary: .constant(Vocabulary(vocabulary: "Description", ipa: "sdsdsds", description: "dsdssdsadasdasdasdasdasasdasdadasdasdasd", background: "gra_1")))
 }

@@ -7,9 +7,10 @@
 
 import Foundation
 
-struct Vocabulary {
-    let vocabulary: String
-    let ipa: String
-    let description: String
-    let background: String
+struct Vocabulary: Codable, Identifiable {
+    let id = UUID()
+    var vocabulary: String
+    var ipa: String
+    var description: String
+    var background: String
 }

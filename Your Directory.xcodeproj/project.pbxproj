@@ -43,6 +43,9 @@
 		0EA6DF8B2C24082F00128A3B /* HomeView+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF8A2C24082F00128A3B /* HomeView+Search.swift */; };
 		0EA6DF8D2C240C2900128A3B /* HomeView+ListVocabulary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF8C2C240C2900128A3B /* HomeView+ListVocabulary.swift */; };
 		0EA6DF902C240CEE00128A3B /* VocabularyCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF8F2C240CEE00128A3B /* VocabularyCardView.swift */; };
+		0EA6DF932C2418C400128A3B /* CreateVocabularyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF922C2418C400128A3B /* CreateVocabularyViewModel.swift */; };
+		0EA6DF962C24301A00128A3B /* DetailVocabularyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF952C24301A00128A3B /* DetailVocabularyView.swift */; };
+		0EA6DF982C2430A400128A3B /* TextFieldImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF972C2430A400128A3B /* TextFieldImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +85,9 @@
 		0EA6DF8A2C24082F00128A3B /* HomeView+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeView+Search.swift"; sourceTree = "<group>"; };
 		0EA6DF8C2C240C2900128A3B /* HomeView+ListVocabulary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeView+ListVocabulary.swift"; sourceTree = "<group>"; };
 		0EA6DF8F2C240CEE00128A3B /* VocabularyCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyCardView.swift; sourceTree = "<group>"; };
+		0EA6DF922C2418C400128A3B /* CreateVocabularyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateVocabularyViewModel.swift; sourceTree = "<group>"; };
+		0EA6DF952C24301A00128A3B /* DetailVocabularyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVocabularyView.swift; sourceTree = "<group>"; };
+		0EA6DF972C2430A400128A3B /* TextFieldImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldImage.swift; sourceTree = "<group>"; };
 		7CEF74F2E25348C11AF363B4 /* Pods-Your Directory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Your Directory.release.xcconfig"; path = "Target Support Files/Pods-Your Directory/Pods-Your Directory.release.xcconfig"; sourceTree = "<group>"; };
 		8D8BCDC631AEB02680BFE605 /* Pods_Your_Directory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Your_Directory.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1BE25A21F6144FA9B33F505 /* Pods-Your Directory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Your Directory.debug.xcconfig"; path = "Target Support Files/Pods-Your Directory/Pods-Your Directory.debug.xcconfig"; sourceTree = "<group>"; };
@@ -161,6 +167,7 @@
 		0EA6DF3E2C212D3B00128A3B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0EA6DF942C24300D00128A3B /* DetailVocabulary */,
 				08875FC02C23232900C4E6C6 /* CreateVocabulary */,
 				0EA6DF6D2C2288E100128A3B /* Home */,
 				0EA6DF482C213EE000128A3B /* SignUp */,
@@ -226,6 +233,7 @@
 		0EA6DF4F2C213F9800128A3B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				0EA6DF912C2418AB00128A3B /* CreateVocabulary */,
 				0EA6DF742C22B5F100128A3B /* Splash */,
 				0EA6DF702C22B0AF00128A3B /* Home */,
 				0EA6DF6C2C2288D300128A3B /* SignUp */,
@@ -260,6 +268,7 @@
 				08875FBA2C231B3E00C4E6C6 /* ButtonIcon.swift */,
 				0EA6DF772C23DAA500128A3B /* QLImage.swift */,
 				0EA6DF862C2403E600128A3B /* TextFieldImageGif.swift */,
+				0EA6DF972C2430A400128A3B /* TextFieldImage.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -333,6 +342,22 @@
 				0EA6DF8F2C240CEE00128A3B /* VocabularyCardView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		0EA6DF912C2418AB00128A3B /* CreateVocabulary */ = {
+			isa = PBXGroup;
+			children = (
+				0EA6DF922C2418C400128A3B /* CreateVocabularyViewModel.swift */,
+			);
+			path = CreateVocabulary;
+			sourceTree = "<group>";
+		};
+		0EA6DF942C24300D00128A3B /* DetailVocabulary */ = {
+			isa = PBXGroup;
+			children = (
+				0EA6DF952C24301A00128A3B /* DetailVocabularyView.swift */,
+			);
+			path = DetailVocabulary;
 			sourceTree = "<group>";
 		};
 		25F0E20E8CDDC2A04027B2AE /* Frameworks */ = {
@@ -474,10 +499,12 @@
 				0EA6DF902C240CEE00128A3B /* VocabularyCardView.swift in Sources */,
 				0EA6DF822C24027000128A3B /* Vocabulary.swift in Sources */,
 				0EA6DF8B2C24082F00128A3B /* HomeView+Search.swift in Sources */,
+				0EA6DF962C24301A00128A3B /* DetailVocabularyView.swift in Sources */,
 				0EA6DF732C22B0F100128A3B /* HomeViewModel.swift in Sources */,
 				08875FBB2C231B3E00C4E6C6 /* ButtonIcon.swift in Sources */,
 				0EA6DF4A2C213F1F00128A3B /* SignUpView.swift in Sources */,
 				08875FBD2C231C6B00C4E6C6 /* HomeView+BottonTabBar.swift in Sources */,
+				0EA6DF982C2430A400128A3B /* TextFieldImage.swift in Sources */,
 				0EA6DF762C22B60400128A3B /* SplashViewModel.swift in Sources */,
 				0EA6DF5C2C21441900128A3B /* Color.swift in Sources */,
 				0EA6DF852C2402C600128A3B /* Vocabularys.swift in Sources */,
@@ -489,6 +516,7 @@
 				0EA6DF5E2C216ECB00128A3B /* ButtonFullWidthView.swift in Sources */,
 				0EA6DF682C22853500128A3B /* SetDataLocal.swift in Sources */,
 				0EA6DF872C2403E600128A3B /* TextFieldImageGif.swift in Sources */,
+				0EA6DF932C2418C400128A3B /* CreateVocabularyViewModel.swift in Sources */,
 				0EA6DF582C21423500128A3B /* TextFieldCustomize.swift in Sources */,
 				0EA6DF4D2C213F5200128A3B /* SignUp.swift in Sources */,
 				0EA6DF662C22852E00128A3B /* GetDataLocal.swift in Sources */,

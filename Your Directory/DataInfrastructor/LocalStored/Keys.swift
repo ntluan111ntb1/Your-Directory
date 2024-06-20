@@ -9,4 +9,5 @@ import Foundation
 
 struct Keys {
     static let userInfor = "userInfor"
+    static let vocabularys = "vocabularys"
 }

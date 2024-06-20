@@ -11,6 +11,7 @@ class SplashViewModel: ObservableObject {
     @Published var userInfor: SignUp?
 
     let getDataLocal = GetDataLocal()
+
     func getUserInfor() {
         guard let userInfor = getDataLocal.getData(key: Keys.userInfor, objectType: SignUp.self) else {return}
         self.userInfor = userInfor

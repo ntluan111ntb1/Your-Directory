@@ -64,7 +64,9 @@ struct SignUpView: View {
         })
         .ignoresSafeArea()
         .navigationDestination(isPresented: $isHomePresent) {
-            HomeView(userInfor: viewModel.userInfor)
+            HomeView(
+                userInfor: viewModel.userInfor
+            )
         }
     }
 
