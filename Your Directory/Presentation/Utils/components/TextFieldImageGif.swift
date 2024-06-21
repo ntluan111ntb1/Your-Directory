@@ -19,6 +19,21 @@ struct TextFieldImageGif: View {
             GIFView(type: .name(imageName))
                 .frame(width: sizeImage, height: sizeImage)
             TextField(placeholder, text: $text)
+            Button {
+                text = ""
+            } label: {
+                Image(systemName: "xmark")
+            }
+            Button {
+                handlePaste()
+            } label: {
+                Image(systemName: "doc.on.clipboard")
+            }
+        }
+    }
+    private func handlePaste() {
+        if let pasteboardString = UIPasteboard.general.string {
+            text = pasteboardString
         }
     }
 }

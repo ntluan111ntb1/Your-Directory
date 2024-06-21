@@ -13,13 +13,10 @@ struct VocabularyCardView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-                Text(vocabulary.vocabulary)
+                Text(vocabulary.word)
                     .fontStyle(.mediumBold)
-                Text(vocabulary.ipa)
+                Text(vocabulary.phonetics)
                     .fontStyle(.mediumLight)
-            Text(vocabulary.description)
-                .fontStyle(.smallLight)
-                .lineLimit(2)
         }
         .padding(16)
         .background(

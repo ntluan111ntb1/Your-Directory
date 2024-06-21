@@ -65,7 +65,7 @@ struct CreateVocabularyView: View {
                 lable: "Tạo thôi nào",
                 color: .purpleCustomize,
                 foregroundColor: .white) {
-                    createVocabulary(Vocabulary(vocabulary: vocabulary, ipa: ipa, description: description, background: "gra_1"))
+//                    createVocabulary(Vocabulary(word: vocabulary, phonetics: ipa, description: description, background: "gra_1"))
                 }
         }
         .padding(16)

@@ -11,14 +11,21 @@ struct DetailVocabularyView: View {
 
     @Binding var vocabulary: Vocabulary
 
+    let dismiss: () -> Void
+    let deteleHandle: () -> Void
+
+    @State var statePlaySound = false
+    @StateObject private var soundManager = SoundManager()
+
     var body: some View {
         VStack(spacing: 16) {
             VStack {
                 HStack {
-                    Text("Tạo mới từ vựng")
+                    Text("Chi tiết từ vựng")
                         .fontStyle(.largeBold)
                     Spacer()
                     Button {
+                        dismiss()
                     } label: {
                         Image(systemName: "xmark")
                             .font(.title2)
@@ -27,26 +34,31 @@ struct DetailVocabularyView: View {
                 }
                 .padding(.horizontal, 16)
                 Divider()
-                TextFieldImage(
-                    text: $vocabulary.vocabulary,
-                    imageName: "notebook",
-                    placeholder: vocabulary.vocabulary,
-                    sizeImage: 40
-                )
-                Divider()
-                TextFieldImage(
-                    text: $vocabulary.ipa,
-                    imageName: "sound",
-                    placeholder: vocabulary.ipa,
-                    sizeImage: 40
-                )
-                Divider()
-                TextFieldImage(
-                    text: $vocabulary.description,
-                    imageName: "description",
-                    placeholder: vocabulary.description,
-                    sizeImage: 40
-                )
+                VStack(spacing: 12) {
+                    Text(vocabulary.word)
+                        .font(.largeTitle)
+                    Button {
+                        soundManager.playSound(sound: vocabulary.audio)
+                        statePlaySound.toggle()
+                        if statePlaySound{
+                            soundManager.audioPlayer?.play()
+                        } else {
+                            soundManager.audioPlayer?.pause()
+                        }
+                    } label: {
+                        HStack {
+                            Image(systemName: statePlaySound ? "speaker.wave.3.fill" : "speaker.wave.1.fill")
+                            Text(vocabulary.phonetics)
+                                .fontStyle(.mediumLight)
+                        }
+                    }
+                }
+//                TextFieldImage(
+//                    text: $vocabulary.description,
+//                    imageName: "description",
+//                    placeholder: vocabulary.description,
+//                    sizeImage: 40
+//                )
             }
             .padding(16)
             .background(
@@ -56,10 +68,10 @@ struct DetailVocabularyView: View {
             )
             Spacer()
             ButtonFullWidthView(
-                lable: "Tạo thôi nào",
-                color: .purpleCustomize,
+                lable: "Delete",
+                color: .orangeCustomize,
                 foregroundColor: .white) {
-                    ///toDO
+                    deteleHandle()
                 }
         }
         .padding(16)
@@ -68,5 +80,16 @@ struct DetailVocabularyView: View {
 }
 
 #Preview {
-    DetailVocabularyView(vocabulary: .constant(Vocabulary(vocabulary: "Description", ipa: "sdsdsds", description: "dsdssdsadasdasdasdasdasasdasdadasdasdasd", background: "gra_1")))
+    DetailVocabularyView(vocabulary: .constant(Vocabulary(
+        word: "word",
+        phonetics: "/dɪsˈmɪs/",
+        audio: "audio",
+        description: [
+            Vocabulary.Definition(definition: "definition", example: "example"),
+            Vocabulary.Definition(definition: "definition2", example: ""),
+            Vocabulary.Definition(definition: "definition3", example: "example"),
+        ],
+        partOfSpeech: "partOfSpeech",
+        background: ""
+    )    ), dismiss: {}) { }
 }

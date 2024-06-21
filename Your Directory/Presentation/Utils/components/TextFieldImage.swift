@@ -20,13 +20,6 @@ struct TextFieldImage: View {
             Image(imageName)
                 .frame(width: sizeImage, height: sizeImage)
             TextField(placeholder, text: $text)
-                .disabled(true)
-            Button {
-                isEdit.toggle()
-            } label: {
-                Image(systemName: "pencil.circle")
-            }
-
         }
     }
 }

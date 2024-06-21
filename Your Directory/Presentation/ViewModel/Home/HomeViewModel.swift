@@ -6,10 +6,14 @@
 //
 
 import Foundation
+import Combine
 
 class HomeViewModel: ObservableObject {
+    private var disposables = Set<AnyCancellable>()
+
     @Published var userInfor = SignUp(name: "name")
     @Published var vocabularys = Vocabularys(vocabularys: [])
+    @Published var searchVocabulary: Vocabulary?
 
     let getDataLocal = GetDataLocal()
     let setDateLocal = SetDataLocal()
@@ -27,8 +31,31 @@ class HomeViewModel: ObservableObject {
         self.vocabularys = vocabularys
     }
 
-    func setVocabulary(vocabulary: Vocabulary) {
+    func addNewVocabulary(vocabulary: Vocabulary) {
         vocabularys.vocabularys.append(vocabulary)
         setDateLocal.setData(key: Keys.vocabularys, object: vocabularys)
+    }
+
+    func deleteVocabulary(vocabulary: Vocabulary) {
+        vocabularys.vocabularys.removeAll(where: { $0.id == vocabulary.id})
+        setDateLocal.setData(key: Keys.vocabularys, object: vocabularys)
+    }
+
+    func searchVocabulary(vocabulary: String) {
+        DirectionHttp.getVocabulary(vocabulary: vocabulary)
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure(let error):
+                    print("==> error: \(error)")
+                }
+            } receiveValue: { [self] response in
+                searchVocabulary = response
+                print("==> searchVocabulary: \(searchVocabulary)")
+            }
+            .store(in: &disposables)
+
     }
 }

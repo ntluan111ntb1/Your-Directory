@@ -15,7 +15,6 @@ extension HomeView {
                     VocabularyCardView(vocabulary: vocabulary)
                         .onTapGesture {
                             selectedVocabulary = vocabulary
-                            isPresentDetailVocabulary.toggle()
                         }
                 }
             }

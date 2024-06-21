@@ -13,7 +13,7 @@ struct HomeView: View {
 
     @State var search = ""
     @State var isPresentCreateVocabulary = false
-    @State var isPresentDetailVocabulary = false
+    @State var isPresentSearchView = false
     @State var selectedVocabulary: Vocabulary? = nil
 
     let userInfor: SignUp
@@ -43,22 +43,35 @@ struct HomeView: View {
             startPoint: .leading,
             endPoint: .trailing)
         )
-        .sheet(isPresented: $isPresentCreateVocabulary, content: {
-            CreateVocabularyView(isPresentSheet: $isPresentCreateVocabulary) { vocabulary in
-                viewModel.setVocabulary(vocabulary: vocabulary)
-                isPresentCreateVocabulary.toggle()
-            }
-            .presentationDetents([.medium])
-            .presentationCornerRadius(38)
-        })
-        .sheet(item: $selectedVocabulary, content: { vocabulary in
+        .sheet(item: $viewModel.searchVocabulary, onDismiss: {
+            viewModel.searchVocabulary = nil
+        }, content: { vocabulary in
             VStack {
-                Text(vocabulary.vocabulary)
-                Text(vocabulary.ipa)
-                Text(vocabulary.description)
+                if let selectedVocabulary = viewModel.searchVocabulary {
+                    DetailVocabularyView(
+                        vocabulary: .constant(selectedVocabulary)) {
+                            viewModel.searchVocabulary = nil
+                        } deteleHandle: {
+                        }
+                        .presentationDetents([.medium, .large])
+                }
             }
-            .presentationDetents([.medium, .large])
         })
+//        .sheet(isPresented: $isPresentCreateVocabulary, content: {
+//            CreateVocabularyView(isPresentSheet: $isPresentCreateVocabulary) { vocabulary in
+//                viewModel.addNewVocabulary(vocabulary: vocabulary)
+//                isPresentCreateVocabulary.toggle()
+//            }
+//            .presentationDetents([.medium])
+//            .presentationCornerRadius(38)
+//        })
+//        .sheet(isPresented: $isPresentSearchView) {
+//            DetailVocabularyView(
+//                vocabulary: $viewModel.searchVocabulary) {
+//                } deteleHandle: {
+//                }
+//                .presentationDetents([.medium, .large])
+//        }
     }
 }
 

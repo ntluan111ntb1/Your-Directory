@@ -9,12 +9,23 @@ import SwiftUI
 
 extension HomeView {
     func makeSearch() -> some View {
-        TextFieldImageGif(
-            text: $search,
-            imageName: "search",
-            placeholder: "Bạn muốn tìm từ vựng nào?",
-            sizeImage: 40
-        )
+        HStack {
+            GIFView(type: .name("search"))
+                .frame(width: 40, height: 40)
+                .onTapGesture {
+                    viewModel.searchVocabulary(vocabulary: search)
+                }
+            TextField("Bạn muốn tìm từ vựng nào?", text: $search)
+                .onSubmit {
+                    viewModel.searchVocabulary(vocabulary: search)
+                    isPresentSearchView.toggle()
+                }
+            Button {
+                search = ""
+            } label: {
+                Image(systemName: "xmark")
+            }
+        }
         .padding(.horizontal, 16)
         .padding(.vertical, 4)
         .background(
