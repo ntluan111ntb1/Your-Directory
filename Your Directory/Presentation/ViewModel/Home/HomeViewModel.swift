@@ -31,7 +31,9 @@ class HomeViewModel: ObservableObject {
         self.vocabularys = vocabularys
     }
 
-    func addNewVocabulary(vocabulary: Vocabulary) {
+    func addNewVocabulary(note: String) {
+        guard var vocabulary = searchVocabulary else { return }
+        vocabulary.vocabularyNote = note
         vocabularys.vocabularys.append(vocabulary)
         setDateLocal.setData(key: Keys.vocabularys, object: vocabularys)
     }
@@ -53,9 +55,10 @@ class HomeViewModel: ObservableObject {
                 }
             } receiveValue: { [self] response in
                 searchVocabulary = response
-                print("==> searchVocabulary: \(searchVocabulary)")
             }
             .store(in: &disposables)
-
+    }
+    func searchHandle() {
+        
     }
 }

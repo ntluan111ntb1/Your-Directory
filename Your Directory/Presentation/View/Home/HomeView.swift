@@ -19,8 +19,8 @@ struct HomeView: View {
     let userInfor: SignUp
 
     let layout = [
-        GridItem(.flexible(minimum: 120, maximum: 320)),
-        GridItem(.flexible(minimum: 120, maximum: 320)),
+        GridItem(.flexible()),
+        GridItem(.flexible()),
     ]
     var body: some View {
         VStack(alignment: .leading) {
@@ -45,17 +45,31 @@ struct HomeView: View {
         )
         .sheet(item: $viewModel.searchVocabulary, onDismiss: {
             viewModel.searchVocabulary = nil
-        }, content: { vocabulary in
+        }, content: { searchVocabulary in
             VStack {
-                if let selectedVocabulary = viewModel.searchVocabulary {
-                    DetailVocabularyView(
-                        vocabulary: .constant(selectedVocabulary)) {
-                            viewModel.searchVocabulary = nil
-                        } deteleHandle: {
-                        }
-                        .presentationDetents([.medium, .large])
+                DetailVocabularyView(
+                    vocabulary: .constant(searchVocabulary),
+                    textButton: "Thêm từ này"
+                ) {
+                    viewModel.searchVocabulary = nil
+                } addVocabulary: { note in
+                    viewModel.addNewVocabulary(note: note)
+                    viewModel.searchVocabulary = nil
                 }
             }
+            .presentationDetents([.medium, .large])
+            .presentationCornerRadius(38)
+        })
+        .sheet(item: $selectedVocabulary, content: { selectedContent in
+            DetailVocabularyView(
+                vocabulary: .constant(selectedContent), textButton: "Xóa từ này") {
+                    selectedVocabulary = nil
+                } deleteVocabulary: {
+                    viewModel.deleteVocabulary(vocabulary: selectedContent)
+                    selectedVocabulary = nil
+                }
+                .presentationDetents([.medium, .large])
+                .presentationCornerRadius(38)
         })
 //        .sheet(isPresented: $isPresentCreateVocabulary, content: {
 //            CreateVocabularyView(isPresentSheet: $isPresentCreateVocabulary) { vocabulary in
@@ -65,13 +79,6 @@ struct HomeView: View {
 //            .presentationDetents([.medium])
 //            .presentationCornerRadius(38)
 //        })
-//        .sheet(isPresented: $isPresentSearchView) {
-//            DetailVocabularyView(
-//                vocabulary: $viewModel.searchVocabulary) {
-//                } deteleHandle: {
-//                }
-//                .presentationDetents([.medium, .large])
-//        }
     }
 }
 

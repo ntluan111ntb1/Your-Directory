@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0801C7622C2599270014AC60 /* DetailVocabularyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0801C7612C2599270014AC60 /* DetailVocabularyViewModel.swift */; };
 		08875FB92C2316C500C4E6C6 /* HomeViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08875FB82C2316C500C4E6C6 /* HomeViewHeader.swift */; };
 		08875FBB2C231B3E00C4E6C6 /* ButtonIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08875FBA2C231B3E00C4E6C6 /* ButtonIcon.swift */; };
 		08875FBD2C231C6B00C4E6C6 /* HomeView+BottonTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08875FBC2C231C6B00C4E6C6 /* HomeView+BottonTabBar.swift */; };
@@ -56,6 +57,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0801C7612C2599270014AC60 /* DetailVocabularyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVocabularyViewModel.swift; sourceTree = "<group>"; };
 		08875FB82C2316C500C4E6C6 /* HomeViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewHeader.swift; sourceTree = "<group>"; };
 		08875FBA2C231B3E00C4E6C6 /* ButtonIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonIcon.swift; sourceTree = "<group>"; };
 		08875FBC2C231C6B00C4E6C6 /* HomeView+BottonTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeView+BottonTabBar.swift"; sourceTree = "<group>"; };
@@ -119,6 +121,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0801C7602C2599150014AC60 /* DetailVocabulary */ = {
+			isa = PBXGroup;
+			children = (
+				0801C7612C2599270014AC60 /* DetailVocabularyViewModel.swift */,
+			);
+			path = DetailVocabulary;
+			sourceTree = "<group>";
+		};
 		08875FB72C2316BE00C4E6C6 /* Inner */ = {
 			isa = PBXGroup;
 			children = (
@@ -248,6 +258,7 @@
 		0EA6DF4F2C213F9800128A3B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				0801C7602C2599150014AC60 /* DetailVocabulary */,
 				0EA6DF912C2418AB00128A3B /* CreateVocabulary */,
 				0EA6DF742C22B5F100128A3B /* Splash */,
 				0EA6DF702C22B0AF00128A3B /* Home */,
@@ -580,6 +591,7 @@
 				0EA6DF852C2402C600128A3B /* Vocabularys.swift in Sources */,
 				08875FB92C2316C500C4E6C6 /* HomeViewHeader.swift in Sources */,
 				0EFB78582C2555260013FFD8 /* DictionaryHttp.swift in Sources */,
+				0801C7622C2599270014AC60 /* DetailVocabularyViewModel.swift in Sources */,
 				0EA6DF642C22849B00128A3B /* Keys.swift in Sources */,
 				0EA6DF5A2C2143B900128A3B /* RoundedCornersShape.swift in Sources */,
 				0EA6DF542C21411D00128A3B /* Text.swift in Sources */,

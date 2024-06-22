@@ -10,22 +10,27 @@ import SwiftUI
 struct VocabularyCardView: View {
 
     let vocabulary: Vocabulary
+    
+    let tapHandle: () -> Void
 
     var body: some View {
         VStack(alignment: .leading) {
-                Text(vocabulary.word)
-                    .fontStyle(.mediumBold)
+                HStack {
+                    Text(vocabulary.word)
+                        .fontStyle(.mediumBold)
+                    Spacer()
+                }
                 Text(vocabulary.phonetics)
                     .fontStyle(.mediumLight)
         }
         .padding(16)
         .background(
-            Image(vocabulary.background)
-                .resizable()
-                .scaledToFit()
-                .clipShape(RoundedCornersShape(corners: .allCorners, radius: 24))
-                .shadow(radius: 4, x:0, y: 4)
+            RoundedCornersShape(corners: .allCorners, radius: 12)
+                .fill(.white)
+                .shadow(radius: 2, x: 0, y: 4)
         )
-        .padding(.horizontal, 16)
+        .onTapGesture {
+            tapHandle()
+        }
     }
 }

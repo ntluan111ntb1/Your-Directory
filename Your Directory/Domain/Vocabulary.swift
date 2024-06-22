@@ -12,9 +12,9 @@ struct Vocabulary: Codable, Identifiable {
     var word: String
     var phonetics: String
     var audio: String
-    var description: [Definition]
+    var descriptions: [Definition]
     var partOfSpeech: String
-    var background: String
+    var vocabularyNote: String?
 
     struct Definition: Codable {
         let definition: String?

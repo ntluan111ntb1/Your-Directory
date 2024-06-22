@@ -28,13 +28,11 @@ class AlamofireNetworkService {
         .publishDecodable(type: T.self, decoder: decoder)
         .tryMap { response in
             guard let value = response.value else {
-                print("==> \(response)")
                 throw NetworkError(
                     status: response.response?.statusCode ?? 400,
                     message: "Bad Request \(response)"
                 )
             }
-            print("Res")
             return value
         }
         .mapError({ error in

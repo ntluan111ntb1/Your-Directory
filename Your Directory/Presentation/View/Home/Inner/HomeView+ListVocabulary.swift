@@ -12,12 +12,12 @@ extension HomeView {
         ScrollView(showsIndicators: false) {
             LazyVGrid(columns: layout) {
                 ForEach(viewModel.vocabularys.vocabularys, id: \.id) { vocabulary in
-                    VocabularyCardView(vocabulary: vocabulary)
-                        .onTapGesture {
-                            selectedVocabulary = vocabulary
-                        }
+                    VocabularyCardView(vocabulary: vocabulary) {
+                        selectedVocabulary = vocabulary
+                    }
                 }
             }
+            .padding(.horizontal)
         }
     }
 }

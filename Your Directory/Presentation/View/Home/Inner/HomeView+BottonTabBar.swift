@@ -29,6 +29,7 @@ extension HomeView {
                 .padding(.top, 8)
             Spacer()
         }
+        .padding(.bottom)
         .background {
             RoundedCornersShape(corners: [.topLeft, .topRight], radius: 24)
                 .fill(.white)

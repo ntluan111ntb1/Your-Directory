@@ -16,12 +16,12 @@ struct VocabularyEntityMapper {
             })?.text)) ?? "",
             audio: (entity.phonetics?.first(where: { phonetic in
                 phonetic.audio != nil
-            })?.text) ?? "",
-            description: entity.meanings?.first?.definitions?.map({ definition in
+            })?.audio) ?? "",
+            descriptions: entity.meanings?.first?.definitions?.map({ definition in
                 Vocabulary.Definition(definition: definition.definition, example: definition.example)
             }) ?? [],
             partOfSpeech: entity.meanings?.first?.partOfSpeech ?? "",
-            background: ""
+            vocabularyNote: nil
         )
     }
 }
