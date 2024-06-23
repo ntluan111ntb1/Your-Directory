@@ -12,10 +12,10 @@ struct HomeView: View {
     @StateObject var viewModel = HomeViewModel()
 
     @State var search = ""
-    @State var isPresentCreateVocabulary = false
+    @State var isPresentCreateCategory = false
     @State var isPresentSearchView = false
     @State var selectedVocabulary: Vocabulary? = nil
-
+    @State var selectedCategory: Category? = nil
     let userInfor: SignUp
 
     let layout = [
@@ -27,12 +27,14 @@ struct HomeView: View {
             makeHeader()
                 .padding(.horizontal, 16)
             makeSearch()
+            makeListCategory()
             makeListVocabulary()
             Spacer()
             makeBottomTabBar()
         }
         .onAppear {
             viewModel.getVocabularys()
+            viewModel.getCategorys()
         }
         .ignoresSafeArea(edges: .bottom)
         .frame(
@@ -71,14 +73,19 @@ struct HomeView: View {
                 .presentationDetents([.medium, .large])
                 .presentationCornerRadius(38)
         })
-//        .sheet(isPresented: $isPresentCreateVocabulary, content: {
-//            CreateVocabularyView(isPresentSheet: $isPresentCreateVocabulary) { vocabulary in
-//                viewModel.addNewVocabulary(vocabulary: vocabulary)
-//                isPresentCreateVocabulary.toggle()
-//            }
-//            .presentationDetents([.medium])
-//            .presentationCornerRadius(38)
-//        })
+        .sheet(isPresented: $isPresentCreateCategory, content: {
+            CreateCategoryView(isPresentSheet: $isPresentCreateCategory) { category in
+                viewModel.addNewCategory(category: category)
+                isPresentCreateCategory.toggle()
+            }
+            .presentationDetents([.medium])
+            .presentationCornerRadius(38)
+        })
+        .sheet(item: $selectedCategory, content: { selectedContent in
+            DetailCategoryVIew(category: .constant(selectedContent))
+                .presentationDetents([.medium, .large])
+                .presentationCornerRadius(38)
+        })
     }
 }
 

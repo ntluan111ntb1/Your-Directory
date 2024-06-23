@@ -16,7 +16,7 @@ extension HomeView {
                 .padding(.top, 8)
             Spacer()
             Button {
-                isPresentCreateVocabulary.toggle()
+                isPresentCreateCategory.toggle()
             } label: {
                 Image("button_plus")
                     .resizable()

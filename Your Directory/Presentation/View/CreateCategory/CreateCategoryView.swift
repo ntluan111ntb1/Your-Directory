@@ -1,5 +1,5 @@
 //
-//  CreateVocabularyView.swift
+//  CreateCategoryView.swift
 //  Your Directory
 //
 //  Created by Nguyễn Luân on 19/06/2024.
@@ -7,20 +7,20 @@
 
 import SwiftUI
 
-struct CreateVocabularyView: View {
-    @StateObject var viewModel = CreateVocabularyViewModel()
-    @State var vocabulary = ""
-    @State var ipa = ""
-    @State var description = ""
+struct CreateCategoryView: View {
+    @StateObject var viewModel = CreateCategoryViewModel()
     @Binding var isPresentSheet: Bool
 
-    let createVocabulary: (Vocabulary) -> Void
+    @State var category = ""
+    @State private var selectedColor: CustomColor = .vividViolet
+    
+    let createCategory: (Category) -> Void
 
     var body: some View {
         VStack(spacing: 16) {
             VStack {
                 HStack {
-                    Text("Tạo mới từ vựng")
+                    Text("Tạo mới thể loại")
                         .fontStyle(.largeBold)
                     Spacer()
                     Button {
@@ -34,25 +34,28 @@ struct CreateVocabularyView: View {
                 .padding(.horizontal, 16)
                 Divider()
                 TextFieldImageGif(
-                    text: $vocabulary,
+                    text: $category,
                     imageName: "notebook",
-                    placeholder: "Bạn muốn thêm từ nào",
+                    placeholder: "Tên của thể loại",
                     sizeImage: 40
                 )
-                Divider()
-                TextFieldImageGif(
-                    text: $ipa,
-                    imageName: "sound",
-                    placeholder: "Thêm phiên âm cho nó chứ",
-                    sizeImage: 40
-                )
-                Divider()
-                TextFieldImageGif(
-                    text: $description,
-                    imageName: "description",
-                    placeholder: "Thêm một chút mô tả cho nó nhé",
-                    sizeImage: 40
-                )
+                VStack {
+                    Form {
+                        Picker("Select a Color", selection: $selectedColor) {
+                            ForEach(CustomColor.allCases) { color in
+                                HStack {
+                                    Circle()
+                                        .fill(color.color)
+                                        .frame(width: 30, height: 30)
+                                    Text(color.name)
+                                        .foregroundColor(.primary)
+                                }
+                                .tag(color)
+                            }
+                        }
+                        .pickerStyle(.inline)
+                    }
+                }
             }
             .padding(16)
             .background(
@@ -65,7 +68,7 @@ struct CreateVocabularyView: View {
                 lable: "Tạo thôi nào",
                 color: .purpleCustomize,
                 foregroundColor: .white) {
-//                    createVocabulary(Vocabulary(word: vocabulary, phonetics: ipa, description: description, background: "gra_1"))
+                    createCategory(Category(name: category, color: selectedColor.rawValue))
                 }
         }
         .padding(16)

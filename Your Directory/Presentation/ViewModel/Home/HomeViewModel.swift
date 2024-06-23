@@ -13,6 +13,7 @@ class HomeViewModel: ObservableObject {
 
     @Published var userInfor = SignUp(name: "name")
     @Published var vocabularys = Vocabularys(vocabularys: [])
+    @Published var categorys = Categorys(categorys: [])
     @Published var searchVocabulary: Vocabulary?
 
     let getDataLocal = GetDataLocal()
@@ -37,6 +38,20 @@ class HomeViewModel: ObservableObject {
         vocabularys.vocabularys.append(vocabulary)
         setDateLocal.setData(key: Keys.vocabularys, object: vocabularys)
     }
+    
+    func getCategorys() {
+        guard let categorys = getDataLocal.getData(
+            key: Keys.categorys,
+            objectType: Categorys.self
+        ) else {return}
+        self.categorys = categorys
+    }
+    
+    func addNewCategory(category: Category) {
+        categorys.categorys.append(category)
+        setDateLocal.setData(key: Keys.categorys, object: categorys)
+    }
+
 
     func deleteVocabulary(vocabulary: Vocabulary) {
         vocabularys.vocabularys.removeAll(where: { $0.id == vocabulary.id})
