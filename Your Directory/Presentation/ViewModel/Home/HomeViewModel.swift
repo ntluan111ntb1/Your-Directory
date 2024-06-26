@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import CoreData
 
 class HomeViewModel: ObservableObject {
     private var disposables = Set<AnyCancellable>()
@@ -39,19 +40,16 @@ class HomeViewModel: ObservableObject {
         setDateLocal.setData(key: Keys.vocabularys, object: vocabularys)
     }
     
-    func getCategorys() {
-        guard let categorys = getDataLocal.getData(
-            key: Keys.categorys,
-            objectType: [Category].self
-        ) else {return}
-        self.categorys = categorys
+    func getCategorys(context: NSManagedObjectContext) -> [Category] {
+        let fetchRequest = NSFetchRequest<CategoryEntity>(entityName: "CategoryEntity")
+        do {
+            let results = try context.fetch(fetchRequest)
+            return results.map { Category(id: $0.id, name: $0.name, color: $0.color) }
+        } catch {
+            print("Failed to fetch persons: \(error)")
+            return []
+        }
     }
-    
-    func addNewCategory(category: Category) {
-        categorys.append(category)
-        setDateLocal.setData(key: Keys.categorys, object: categorys)
-    }
-
 
     func deleteVocabulary(vocabulary: Vocabulary) {
         vocabularys.vocabularys.removeAll(where: { $0.id == vocabulary.id})

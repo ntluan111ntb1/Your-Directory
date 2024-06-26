@@ -8,14 +8,13 @@
 import SwiftUI
 
 struct CreateCategoryView: View {
+    @Environment(\.managedObjectContext) private var viewContext
+    
     @StateObject var viewModel = CreateCategoryViewModel()
     @Binding var isPresentSheet: Bool
-
     @State var category = ""
     @State private var selectedColor: CustomColor = .vividViolet
     
-    let createCategory: (Category) -> Void
-
     var body: some View {
         VStack(spacing: 16) {
             VStack {
@@ -68,7 +67,11 @@ struct CreateCategoryView: View {
                 lable: "Tạo thôi nào",
                 color: .purpleCustomize,
                 foregroundColor: .white) {
-                    createCategory(Category(name: category, color: selectedColor.rawValue))
+                    viewModel.createPerson(
+                        category: Category(name: category, color: selectedColor.rawValue),
+                        context: viewContext
+                    )
+                    isPresentSheet.toggle()
                 }
         }
         .padding(16)

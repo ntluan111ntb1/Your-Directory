@@ -8,7 +8,7 @@
 import Foundation
 
 struct CategoryEntityMapper {
-    func map(entity: CategoryEntity) -> Category {
-        Category(id: entity.id, name: entity.name, color: entity.color)
-    }
+//    func map(entity: CategoryEntity) -> Category {
+//        Category(id: entity.id, name: entity.name, color: entity.color)
+//    }
 }

@@ -10,6 +10,8 @@
 		08067FEC2C26C0C0009BBD51 /* DetailVocabularyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08067FEB2C26C0C0009BBD51 /* DetailVocabularyViewModel.swift */; };
 		08399C752C2C359C00211D26 /* CategoryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08399C742C2C359C00211D26 /* CategoryEntity.swift */; };
 		08399C7A2C2C36A400211D26 /* CategoryEntityMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08399C792C2C36A400211D26 /* CategoryEntityMapper.swift */; };
+		08399C7C2C2C3A2C00211D26 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08399C7B2C2C3A2C00211D26 /* PersistenceController.swift */; };
+		08399C802C2C427D00211D26 /* CategoryDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 08399C7E2C2C427D00211D26 /* CategoryDataModel.xcdatamodeld */; };
 		08875FB92C2316C500C4E6C6 /* HomeViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08875FB82C2316C500C4E6C6 /* HomeViewHeader.swift */; };
 		08875FBB2C231B3E00C4E6C6 /* ButtonIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08875FBA2C231B3E00C4E6C6 /* ButtonIcon.swift */; };
 		08875FBD2C231C6B00C4E6C6 /* HomeView+BottonTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08875FBC2C231C6B00C4E6C6 /* HomeView+BottonTabBar.swift */; };
@@ -51,7 +53,7 @@
 		0EA6DF8B2C24082F00128A3B /* HomeView+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF8A2C24082F00128A3B /* HomeView+Search.swift */; };
 		0EA6DF8D2C240C2900128A3B /* HomeView+ListVocabulary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF8C2C240C2900128A3B /* HomeView+ListVocabulary.swift */; };
 		0EA6DF902C240CEE00128A3B /* VocabularyCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF8F2C240CEE00128A3B /* VocabularyCardView.swift */; };
-		0EA6DF932C2418C400128A3B /* CreateVocabularyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF922C2418C400128A3B /* CreateVocabularyViewModel.swift */; };
+		0EA6DF932C2418C400128A3B /* CreateCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF922C2418C400128A3B /* CreateCategoryViewModel.swift */; };
 		0EA6DF962C24301A00128A3B /* DetailVocabularyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF952C24301A00128A3B /* DetailVocabularyView.swift */; };
 		0EA6DF982C2430A400128A3B /* TextFieldImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF972C2430A400128A3B /* TextFieldImage.swift */; };
 		0EFB78512C253A8D0013FFD8 /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFB78502C253A8D0013FFD8 /* Audio.swift */; };
@@ -67,6 +69,8 @@
 		08067FEB2C26C0C0009BBD51 /* DetailVocabularyViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailVocabularyViewModel.swift; sourceTree = "<group>"; };
 		08399C742C2C359C00211D26 /* CategoryEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryEntity.swift; sourceTree = "<group>"; };
 		08399C792C2C36A400211D26 /* CategoryEntityMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryEntityMapper.swift; sourceTree = "<group>"; };
+		08399C7B2C2C3A2C00211D26 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		08399C7F2C2C427D00211D26 /* CategoryDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CategoryDataModel.xcdatamodel; sourceTree = "<group>"; };
 		08875FB82C2316C500C4E6C6 /* HomeViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewHeader.swift; sourceTree = "<group>"; };
 		08875FBA2C231B3E00C4E6C6 /* ButtonIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonIcon.swift; sourceTree = "<group>"; };
 		08875FBC2C231C6B00C4E6C6 /* HomeView+BottonTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeView+BottonTabBar.swift"; sourceTree = "<group>"; };
@@ -108,7 +112,7 @@
 		0EA6DF8A2C24082F00128A3B /* HomeView+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeView+Search.swift"; sourceTree = "<group>"; };
 		0EA6DF8C2C240C2900128A3B /* HomeView+ListVocabulary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeView+ListVocabulary.swift"; sourceTree = "<group>"; };
 		0EA6DF8F2C240CEE00128A3B /* VocabularyCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyCardView.swift; sourceTree = "<group>"; };
-		0EA6DF922C2418C400128A3B /* CreateVocabularyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateVocabularyViewModel.swift; sourceTree = "<group>"; };
+		0EA6DF922C2418C400128A3B /* CreateCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCategoryViewModel.swift; sourceTree = "<group>"; };
 		0EA6DF952C24301A00128A3B /* DetailVocabularyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVocabularyView.swift; sourceTree = "<group>"; };
 		0EA6DF972C2430A400128A3B /* TextFieldImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldImage.swift; sourceTree = "<group>"; };
 		0EFB78502C253A8D0013FFD8 /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
@@ -167,6 +171,14 @@
 				08399C792C2C36A400211D26 /* CategoryEntityMapper.swift */,
 			);
 			path = EntityMapper;
+			sourceTree = "<group>";
+		};
+		08399C7D2C2C427200211D26 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				08399C7E2C2C427D00211D26 /* CategoryDataModel.xcdatamodeld */,
+			);
+			path = DataModel;
 			sourceTree = "<group>";
 		};
 		08875FB72C2316BE00C4E6C6 /* Inner */ = {
@@ -289,6 +301,7 @@
 			children = (
 				0EA6DF522C21410C00128A3B /* Extendsion */,
 				0EA6DF462C213D6000128A3B /* SplashData.json */,
+				08399C7B2C2C3A2C00211D26 /* PersistenceController.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -327,7 +340,7 @@
 			children = (
 				08E92FBD2C2723360027E207 /* Utils */,
 				0801C7602C2599150014AC60 /* DetailVocabulary */,
-				0EA6DF912C2418AB00128A3B /* CreateVocabulary */,
+				0EA6DF912C2418AB00128A3B /* Category */,
 				0EA6DF742C22B5F100128A3B /* Splash */,
 				0EA6DF702C22B0AF00128A3B /* Home */,
 				0EA6DF6C2C2288D300128A3B /* SignUp */,
@@ -381,6 +394,7 @@
 		0EA6DF602C22847A00128A3B /* LocalStored */ = {
 			isa = PBXGroup;
 			children = (
+				08399C7D2C2C427200211D26 /* DataModel */,
 				08399C782C2C365600211D26 /* EntityMapper */,
 				08399C762C2C363F00211D26 /* Entity */,
 				0EA6DF632C22849B00128A3B /* Keys.swift */,
@@ -443,12 +457,12 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		0EA6DF912C2418AB00128A3B /* CreateVocabulary */ = {
+		0EA6DF912C2418AB00128A3B /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				0EA6DF922C2418C400128A3B /* CreateVocabularyViewModel.swift */,
+				0EA6DF922C2418C400128A3B /* CreateCategoryViewModel.swift */,
 			);
-			path = CreateVocabulary;
+			path = Category;
 			sourceTree = "<group>";
 		};
 		0EA6DF942C24300D00128A3B /* DetailVocabulary */ = {
@@ -659,6 +673,7 @@
 				0EA6DF762C22B60400128A3B /* SplashViewModel.swift in Sources */,
 				0EA6DF5C2C21441900128A3B /* Color.swift in Sources */,
 				0EA6DF852C2402C600128A3B /* Vocabularys.swift in Sources */,
+				08399C7C2C2C3A2C00211D26 /* PersistenceController.swift in Sources */,
 				08875FB92C2316C500C4E6C6 /* HomeViewHeader.swift in Sources */,
 				0EFB78582C2555260013FFD8 /* DictionaryHttp.swift in Sources */,
 				08067FEC2C26C0C0009BBD51 /* DetailVocabularyViewModel.swift in Sources */,
@@ -671,7 +686,7 @@
 				0EA6DF682C22853500128A3B /* SetDataLocal.swift in Sources */,
 				0EA6DF872C2403E600128A3B /* TextFieldImageGif.swift in Sources */,
 				08E92FBF2C2723430027E207 /* ConvertColor.swift in Sources */,
-				0EA6DF932C2418C400128A3B /* CreateVocabularyViewModel.swift in Sources */,
+				0EA6DF932C2418C400128A3B /* CreateCategoryViewModel.swift in Sources */,
 				08E92FC32C2723FA0027E207 /* ColorEnum.swift in Sources */,
 				0EA6DF582C21423500128A3B /* TextFieldCustomize.swift in Sources */,
 				0EA6DF4D2C213F5200128A3B /* SignUp.swift in Sources */,
@@ -691,6 +706,7 @@
 				0EA6DF512C213FA600128A3B /* SignUpViewModel.swift in Sources */,
 				08399C7A2C2C36A400211D26 /* CategoryEntityMapper.swift in Sources */,
 				08E92FC52C27357E0027E207 /* HomeView+ListCategory.swift in Sources */,
+				08399C802C2C427D00211D26 /* CategoryDataModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -904,6 +920,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		08399C7E2C2C427D00211D26 /* CategoryDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				08399C7F2C2C427D00211D26 /* CategoryDataModel.xcdatamodel */,
+			);
+			currentVersion = 08399C7F2C2C427D00211D26 /* CategoryDataModel.xcdatamodel */;
+			name = CategoryDataModel.xcdatamodeld;
+			path = "/Users/nguyenluan/Documents/Your Directory/Your Directory/DataInfrastructor/LocalStored/DataModel/CategoryDataModel.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0EA6DF252C212D2B00128A3B /* Project object */;
 }

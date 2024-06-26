@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import CoreData
 
 @main
 struct Your_DirectoryApp: App {
+    let persistenceController = PersistenceController.shared
+    
     var body: some Scene {
         WindowGroup {
             SplashView()
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }

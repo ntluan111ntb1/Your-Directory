@@ -8,14 +8,20 @@
 import SwiftUI
 
 struct HomeView: View {
-
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \CategoryEntity.name, ascending: true)],
+        animation: .default
+    )
+    var categorys: FetchedResults<CategoryEntity>
+    
     @StateObject var viewModel = HomeViewModel()
 
     @State var search = ""
     @State var isPresentCreateCategory = false
     @State var isPresentSearchView = false
     @State var selectedVocabulary: Vocabulary? = nil
-    @State var selectedCategory: Category? = nil
+    @State var selectedCategory: CategoryEntity? = nil
     let userInfor: SignUp
 
     let layout = [
@@ -34,7 +40,7 @@ struct HomeView: View {
         }
         .onAppear {
             viewModel.getVocabularys()
-            viewModel.getCategorys()
+//            viewModel.getCategorys(context: viewContext)
         }
         .ignoresSafeArea(edges: .bottom)
         .frame(
@@ -74,18 +80,15 @@ struct HomeView: View {
                 .presentationCornerRadius(38)
         })
         .sheet(isPresented: $isPresentCreateCategory, content: {
-            CreateCategoryView(isPresentSheet: $isPresentCreateCategory) { category in
-                viewModel.addNewCategory(category: category)
-                isPresentCreateCategory.toggle()
-            }
+            CreateCategoryView(isPresentSheet: $isPresentCreateCategory)
             .presentationDetents([.medium])
             .presentationCornerRadius(38)
         })
-        .sheet(item: $selectedCategory, content: { selectedContent in
-            DetailCategoryVIew(category: .constant(selectedContent))
-                .presentationDetents([.medium, .large])
-                .presentationCornerRadius(38)
-        })
+//        .sheet(item: $selectedCategory, content: { selectedContent in
+//            DetailCategoryVIew(category: .constant(selectedContent))
+//                .presentationDetents([.medium, .large])
+//                .presentationCornerRadius(38)
+//        })
     }
 }
 
