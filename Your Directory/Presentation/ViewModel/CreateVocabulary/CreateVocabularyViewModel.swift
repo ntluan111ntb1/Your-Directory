@@ -8,12 +8,12 @@
 import Foundation
 
 class CreateCategoryViewModel: ObservableObject {
-    @Published var categorys: Categorys?
+    @Published var categorys: [Category]?
 
     let setDateLocal = SetDataLocal()
 
     func setCategory(category: Category) {
-        categorys?.categorys.append(category)
+        categorys?.append(category)
         setDateLocal.setData(key: Keys.categorys, object: categorys)
     }
 }

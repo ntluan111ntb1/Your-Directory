@@ -19,7 +19,7 @@ final class DirectionHttp {
             .eraseToAnyPublisher()
         }
         return AlamofireNetworkService.shared.fetchData(baseUrl: baseUrl)
-            .flatMap { (response: [VocabularyEntities]) -> AnyPublisher<Vocabulary, NetworkError> in
+            .flatMap { (response: [VocabularyEntity]) -> AnyPublisher<Vocabulary, NetworkError> in
                 let mappedResult = VocabularyEntityMapper.map(entity: response[0])
                 return Result.Publisher(mappedResult).eraseToAnyPublisher()
             }

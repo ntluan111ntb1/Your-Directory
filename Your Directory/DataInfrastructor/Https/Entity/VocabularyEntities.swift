@@ -10,7 +10,7 @@ import Foundation
 import Foundation
 
 // MARK: - Response
-struct VocabularyEntities: Codable {
+struct VocabularyEntity: Codable {
     let word: String
     let phonetic: String?
     let phonetics: [Phonetic]?

@@ -8,7 +8,7 @@
 import Foundation
 
 struct VocabularyEntityMapper {
-    static func map(entity: VocabularyEntities) -> Vocabulary {
+    static func map(entity: VocabularyEntity) -> Vocabulary {
         Vocabulary(
             word: entity.word,
             phonetics: (entity.phonetic ?? (entity.phonetics?.first(where: { phonetic in
