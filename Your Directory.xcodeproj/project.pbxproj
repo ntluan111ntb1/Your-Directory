@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		08067FEC2C26C0C0009BBD51 /* DetailVocabularyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08067FEB2C26C0C0009BBD51 /* DetailVocabularyViewModel.swift */; };
-		08399C752C2C359C00211D26 /* CategoryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08399C742C2C359C00211D26 /* CategoryEntity.swift */; };
+		08399C752C2C359C00211D26 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08399C742C2C359C00211D26 /* Category.swift */; };
 		08399C7C2C2C3A2C00211D26 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08399C7B2C2C3A2C00211D26 /* PersistenceController.swift */; };
 		08399C802C2C427D00211D26 /* CategoryDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 08399C7E2C2C427D00211D26 /* CategoryDataModel.xcdatamodeld */; };
 		08875FB92C2316C500C4E6C6 /* HomeViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08875FB82C2316C500C4E6C6 /* HomeViewHeader.swift */; };
@@ -65,7 +65,7 @@
 
 /* Begin PBXFileReference section */
 		08067FEB2C26C0C0009BBD51 /* DetailVocabularyViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailVocabularyViewModel.swift; sourceTree = "<group>"; };
-		08399C742C2C359C00211D26 /* CategoryEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryEntity.swift; sourceTree = "<group>"; };
+		08399C742C2C359C00211D26 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		08399C7B2C2C3A2C00211D26 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		08399C7F2C2C427D00211D26 /* CategoryDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CategoryDataModel.xcdatamodel; sourceTree = "<group>"; };
 		08875FB82C2316C500C4E6C6 /* HomeViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewHeader.swift; sourceTree = "<group>"; };
@@ -297,7 +297,7 @@
 		0EA6DF4B2C213F4500128A3B /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				08399C742C2C359C00211D26 /* CategoryEntity.swift */,
+				08399C742C2C359C00211D26 /* Category.swift */,
 				0EA6DF4C2C213F5200128A3B /* SignUp.swift */,
 				0EA6DF812C24027000128A3B /* Vocabulary.swift */,
 				0EA6DF842C2402C600128A3B /* Vocabularys.swift */,
@@ -639,7 +639,7 @@
 			files = (
 				0EFB78602C25583D0013FFD8 /* VocabularyEntityMapper.swift in Sources */,
 				0EA6DF902C240CEE00128A3B /* VocabularyCardView.swift in Sources */,
-				08399C752C2C359C00211D26 /* CategoryEntity.swift in Sources */,
+				08399C752C2C359C00211D26 /* Category.swift in Sources */,
 				0EA6DF822C24027000128A3B /* Vocabulary.swift in Sources */,
 				0EA6DF8B2C24082F00128A3B /* HomeView+Search.swift in Sources */,
 				0EA6DF962C24301A00128A3B /* DetailVocabularyView.swift in Sources */,
