@@ -68,7 +68,8 @@ struct CreateCategoryView: View {
                 color: .purpleCustomize,
                 foregroundColor: .white) {
                     viewModel.createPerson(
-                        category: Category(name: category, color: selectedColor.rawValue),
+                        name: category,
+                        color: selectedColor.rawValue,
                         context: viewContext
                     )
                     isPresentSheet.toggle()

@@ -12,11 +12,11 @@ class CreateCategoryViewModel: ObservableObject {
 
     let setDateLocal = SetDataLocal()
     
-    func createPerson(category: Category, context: NSManagedObjectContext) {
-        let newCategory = CategoryEntity(context: context)
+    func createPerson(name: String, color: String, context: NSManagedObjectContext) {
+        let newCategory = Category(context: context)
         newCategory.id = UUID()
-        newCategory.name = category.name
-        newCategory.color = category.color
+        newCategory.name = name
+        newCategory.color = color
         saveContext(context: context)
     }
 

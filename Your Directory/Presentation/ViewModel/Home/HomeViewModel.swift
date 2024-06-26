@@ -41,10 +41,10 @@ class HomeViewModel: ObservableObject {
     }
     
     func getCategorys(context: NSManagedObjectContext) -> [Category] {
-        let fetchRequest = NSFetchRequest<CategoryEntity>(entityName: "CategoryEntity")
+        let fetchRequest = NSFetchRequest<Category>(entityName: "Category")
         do {
             let results = try context.fetch(fetchRequest)
-            return results.map { Category(id: $0.id, name: $0.name, color: $0.color) }
+            return results
         } catch {
             print("Failed to fetch persons: \(error)")
             return []

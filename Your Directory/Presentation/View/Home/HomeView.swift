@@ -10,10 +10,10 @@ import SwiftUI
 struct HomeView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \CategoryEntity.name, ascending: true)],
+        sortDescriptors: [NSSortDescriptor(keyPath: \Category.name, ascending: true)],
         animation: .default
     )
-    var categorys: FetchedResults<CategoryEntity>
+    var categorys: FetchedResults<Category>
     
     @StateObject var viewModel = HomeViewModel()
 
@@ -21,7 +21,7 @@ struct HomeView: View {
     @State var isPresentCreateCategory = false
     @State var isPresentSearchView = false
     @State var selectedVocabulary: Vocabulary? = nil
-    @State var selectedCategory: CategoryEntity? = nil
+    @State var selectedCategory: Category? = nil
     let userInfor: SignUp
 
     let layout = [
