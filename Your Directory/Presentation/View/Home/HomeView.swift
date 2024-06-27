@@ -6,16 +6,12 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct HomeView: View {
-    @Environment(\.managedObjectContext) private var viewContext
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Category.name, ascending: true)],
-        animation: .default
-    )
-    var categorys: FetchedResults<Category>
     
     @StateObject var viewModel = HomeViewModel()
+    @StateObject var categoryViewModel: CreateCategoryViewModel
 
     @State var search = ""
     @State var isPresentCreateCategory = false
@@ -28,6 +24,11 @@ struct HomeView: View {
         GridItem(.flexible()),
         GridItem(.flexible()),
     ]
+    
+    init(context: NSManagedObjectContext) {
+        _categoryViewModel = StateObject(wrappedValue: CreateCategoryViewModel(context: context))
+    }
+    
     var body: some View {
         VStack(alignment: .leading) {
             makeHeader()
@@ -93,5 +94,8 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView(userInfor: SignUp(name: "Luana"))
+    HomeView(
+        context: PersistenceController.preview.container.viewContext,
+        userInfor: SignUp(name: "Luana")
+    )
 }
