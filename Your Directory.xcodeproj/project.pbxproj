@@ -53,6 +53,7 @@
 		0EA6DF932C2418C400128A3B /* CreateVocabularyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF922C2418C400128A3B /* CreateVocabularyViewModel.swift */; };
 		0EA6DF962C24301A00128A3B /* DetailVocabularyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF952C24301A00128A3B /* DetailVocabularyView.swift */; };
 		0EA6DF982C2430A400128A3B /* TextFieldImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF972C2430A400128A3B /* TextFieldImage.swift */; };
+		0EABCDF52C33FEA00073B7EF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0EABCDF42C33FEA00073B7EF /* GoogleService-Info.plist */; };
 		0EFB78512C253A8D0013FFD8 /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFB78502C253A8D0013FFD8 /* Audio.swift */; };
 		0EFB78552C2554B00013FFD8 /* AlamofireNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFB78542C2554B00013FFD8 /* AlamofireNetworkService.swift */; };
 		0EFB78582C2555260013FFD8 /* DictionaryHttp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFB78572C2555260013FFD8 /* DictionaryHttp.swift */; };
@@ -109,6 +110,7 @@
 		0EA6DF922C2418C400128A3B /* CreateVocabularyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateVocabularyViewModel.swift; sourceTree = "<group>"; };
 		0EA6DF952C24301A00128A3B /* DetailVocabularyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVocabularyView.swift; sourceTree = "<group>"; };
 		0EA6DF972C2430A400128A3B /* TextFieldImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldImage.swift; sourceTree = "<group>"; };
+		0EABCDF42C33FEA00073B7EF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0EFB78502C253A8D0013FFD8 /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 		0EFB78542C2554B00013FFD8 /* AlamofireNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireNetworkService.swift; sourceTree = "<group>"; };
 		0EFB78572C2555260013FFD8 /* DictionaryHttp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryHttp.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 		0EA6DF2F2C212D2B00128A3B /* Your Directory */ = {
 			isa = PBXGroup;
 			children = (
+				0EABCDF42C33FEA00073B7EF /* GoogleService-Info.plist */,
 				0EA6DF5F2C22845300128A3B /* DataInfrastructor */,
 				0EA6DF4B2C213F4500128A3B /* Domain */,
 				0EA6DF4E2C213F8D00128A3B /* Presentation */,
@@ -560,6 +563,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0EA6DF472C213D6000128A3B /* SplashData.json in Resources */,
+				0EABCDF52C33FEA00073B7EF /* GoogleService-Info.plist in Resources */,
 				0EA6DF802C23E30000128A3B /* description.gif in Resources */,
 				0EA6DF7C2C23E1CE00128A3B /* notebook.gif in Resources */,
 				0EA6DF382C212D2E00128A3B /* Preview Assets.xcassets in Resources */,
@@ -812,7 +816,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "none.Your-Directory";
+				PRODUCT_BUNDLE_IDENTIFIER = com.luannt29.dictionary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -845,7 +849,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "none.Your-Directory";
+				PRODUCT_BUNDLE_IDENTIFIER = com.luannt29.dictionary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;

@@ -9,4 +9,9 @@ target 'Your Directory' do
   pod 'lottie-ios'
   pod 'Alamofire'
   pod 'FLAnimatedImage'
+  # Add the pods for any other Firebase products you want to use in your app
+  # For example, to use Firebase Authentication and Cloud Firestore
+  pod 'FirebaseAuth'
+  pod 'FirebaseFirestore'
+  pod 'GoogleSignIn'
 end
