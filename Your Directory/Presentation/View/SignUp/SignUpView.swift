@@ -6,9 +6,13 @@
 //
 
 import SwiftUI
+import GoogleSignInSwift
+import GoogleSignIn
+import FirebaseCore
 
 struct SignUpView: View {
     @StateObject var viewModel = SignUpViewModel()
+    @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
 
     @State var name = ""
     @State var age = ""
@@ -41,6 +45,7 @@ struct SignUpView: View {
                         placeholder: "Nhập tên của bạn ở đây nè...") {
                             handleHomePresent()
                         }
+                    GoogleSignInButton(action: authenticationViewModel.signIn)
                     Spacer()
                     ButtonFullWidthView(
                         lable: "Let's Go",

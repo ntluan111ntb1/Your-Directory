@@ -6,12 +6,27 @@
 //
 
 import SwiftUI
+import FirebaseCore
+
 
 @main
 struct Your_DirectoryApp: App {
+    @StateObject var viewModel = AuthenticationViewModel()
+
+    init() {
+        setupAuthentication()
+    }
+
     var body: some Scene {
         WindowGroup {
             SplashView()
+                .environmentObject(viewModel)
         }
+    }
+}
+
+extension Your_DirectoryApp {
+    private func setupAuthentication() {
+        FirebaseApp.configure()
     }
 }

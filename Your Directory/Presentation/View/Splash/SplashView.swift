@@ -7,20 +7,23 @@
 
 import SwiftUI
 import Lottie
+import FirebaseCore
+import GoogleSignIn
 
 struct SplashView: View {
-    @StateObject var viewModel = SplashViewModel()
+    @StateObject var splashViewModel = SplashViewModel()
+    @EnvironmentObject var viewModel: AuthenticationViewModel
+    
+    @State var isPresentHomeView = false
 
     var body: some View {
         NavigationStack {
-            if let userInfor = viewModel.userInfor {
-                HomeView(userInfor: userInfor)
-            } else {
+            switch viewModel.state {
+            case .signedIn:
+                HomeView(userInfor: SignUp(name: "Luan"))
+            case .signedOut:
                 SignUpView()
             }
-        }
-        .onAppear {
-            viewModel.getUserInfor()
         }
     }
 }
