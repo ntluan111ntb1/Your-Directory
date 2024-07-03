@@ -12,17 +12,22 @@ import GoogleSignIn
 
 struct SplashView: View {
     @StateObject var splashViewModel = SplashViewModel()
-    @EnvironmentObject var viewModel: AuthenticationViewModel
-    
+    @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
+
     @State var isPresentHomeView = false
 
     var body: some View {
         NavigationStack {
-            switch viewModel.state {
+            switch authenticationViewModel.state {
             case .signedIn:
                 HomeView(userInfor: SignUp(name: "Luan"))
             case .signedOut:
                 SignUpView()
+            case .unknown:
+                VStack {
+                    Text("Splash View")
+                        .fontStyle(.largeBold)
+                }
             }
         }
     }

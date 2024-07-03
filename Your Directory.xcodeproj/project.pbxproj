@@ -55,6 +55,7 @@
 		0EA6DF982C2430A400128A3B /* TextFieldImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF972C2430A400128A3B /* TextFieldImage.swift */; };
 		0EABCDFB2C34E8350073B7EF /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EABCDFA2C34E8350073B7EF /* AuthenticationViewModel.swift */; };
 		0EABCDFF2C352B920073B7EF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0EABCDFE2C352B920073B7EF /* GoogleService-Info.plist */; };
+		0EABCE012C3539780073B7EF /* NetworkImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EABCE002C3539780073B7EF /* NetworkImage.swift */; };
 		0EFB78512C253A8D0013FFD8 /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFB78502C253A8D0013FFD8 /* Audio.swift */; };
 		0EFB78552C2554B00013FFD8 /* AlamofireNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFB78542C2554B00013FFD8 /* AlamofireNetworkService.swift */; };
 		0EFB78582C2555260013FFD8 /* DictionaryHttp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFB78572C2555260013FFD8 /* DictionaryHttp.swift */; };
@@ -114,6 +115,7 @@
 		0EABCDF82C34E6F90073B7EF /* Your-Directory-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Your-Directory-Info.plist"; sourceTree = SOURCE_ROOT; };
 		0EABCDFA2C34E8350073B7EF /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		0EABCDFE2C352B920073B7EF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0EABCE002C3539780073B7EF /* NetworkImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkImage.swift; sourceTree = "<group>"; };
 		0EFB78502C253A8D0013FFD8 /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 		0EFB78542C2554B00013FFD8 /* AlamofireNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireNetworkService.swift; sourceTree = "<group>"; };
 		0EFB78572C2555260013FFD8 /* DictionaryHttp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryHttp.swift; sourceTree = "<group>"; };
@@ -346,6 +348,7 @@
 				0EA6DF862C2403E600128A3B /* TextFieldImageGif.swift */,
 				0EA6DF972C2430A400128A3B /* TextFieldImage.swift */,
 				0EFB78502C253A8D0013FFD8 /* Audio.swift */,
+				0EABCE002C3539780073B7EF /* NetworkImage.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -666,6 +669,7 @@
 				08E92FC32C2723FA0027E207 /* ColorEnum.swift in Sources */,
 				0EA6DF582C21423500128A3B /* TextFieldCustomize.swift in Sources */,
 				0EA6DF4D2C213F5200128A3B /* SignUp.swift in Sources */,
+				0EABCE012C3539780073B7EF /* NetworkImage.swift in Sources */,
 				0EA6DF662C22852E00128A3B /* GetDataLocal.swift in Sources */,
 				0EFB785B2C2556B50013FFD8 /* VocabularyEntities.swift in Sources */,
 				0EFB78512C253A8D0013FFD8 /* Audio.swift in Sources */,

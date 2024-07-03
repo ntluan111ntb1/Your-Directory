@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import GoogleSignIn
 
 struct HomeView: View {
+    @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
+    let user = GIDSignIn.sharedInstance.currentUser
 
     @StateObject var viewModel = HomeViewModel()
 
@@ -22,6 +25,7 @@ struct HomeView: View {
         GridItem(.flexible()),
         GridItem(.flexible()),
     ]
+    
     var body: some View {
         VStack(alignment: .leading) {
             makeHeader()

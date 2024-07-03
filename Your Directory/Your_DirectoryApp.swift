@@ -20,6 +20,9 @@ struct Your_DirectoryApp: App {
     var body: some Scene {
         WindowGroup {
             SplashView()
+                .onAppear {
+                    viewModel.checkSignInState()
+                }
                 .environmentObject(viewModel)
         }
     }

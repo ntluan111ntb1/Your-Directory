@@ -14,21 +14,28 @@ class AuthenticationViewModel: ObservableObject {
     enum SignInState {
         case signedIn
         case signedOut
+        case unknown
     }
 
-    @Published var state: SignInState = .signedOut
+    @Published var state: SignInState = .unknown
 
-    func signIn() {
-        // 1
+    func checkSignInState() {
         if GIDSignIn.sharedInstance.hasPreviousSignIn() {
             GIDSignIn.sharedInstance.restorePreviousSignIn { [unowned self] user, error in
                 authenticateUser(for: user, with: error)
             }
         } else {
-            // 2
-            guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+            state = .signedOut
+        }
+    }
 
-            // Create Google Sign In configuration object.
+    func signIn() {
+        if GIDSignIn.sharedInstance.hasPreviousSignIn() {
+            GIDSignIn.sharedInstance.restorePreviousSignIn { [unowned self] user, error in
+                authenticateUser(for: user, with: error)
+            }
+        } else {
+            guard let clientID = FirebaseApp.app()?.options.clientID else { return }
             let config = GIDConfiguration(clientID: clientID)
 
             GIDSignIn.sharedInstance.configuration = config
@@ -47,30 +54,32 @@ class AuthenticationViewModel: ObservableObject {
     private func authenticateUser(for user: GIDGoogleUser?, with error: Error?) {
         if let error = error {
             print("There is an error signing the user in ==> \(error)")
+            self.state = .signedOut
             return
         }
-        guard let user = user, let idToken = user.idToken?.tokenString else { return }
-        let credential = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: user.accessToken.tokenString)
+        guard let user = user, let idToken = user.idToken?.tokenString else { 
+            self.state = .signedOut
+            return
+        }
+        let credential = GoogleAuthProvider.credential(
+            withIDToken: idToken,
+            accessToken: user.accessToken.tokenString
+        )
 
         Auth.auth().signIn(with: credential) { authResult, error in
             if error != nil {
+                self.state = .signedOut
                 print(error)
             } else {
                 self.state = .signedIn
-                print("==> email: \(authResult?.user.email)")
-                print("==> photo: \(authResult?.user.photoURL!.absoluteString)")
             }
         }
     }
 
     func signOut() {
-        // 1
         GIDSignIn.sharedInstance.signOut()
-
         do {
-            // 2
             try Auth.auth().signOut()
-
             state = .signedOut
         } catch {
             print(error.localizedDescription)
