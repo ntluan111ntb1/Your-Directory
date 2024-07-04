@@ -11,7 +11,6 @@ import GoogleSignIn
 import FirebaseCore
 
 struct SignUpView: View {
-    @StateObject var viewModel = SignUpViewModel()
     @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
 
     @State var name = ""
@@ -69,14 +68,11 @@ struct SignUpView: View {
         })
         .ignoresSafeArea()
         .navigationDestination(isPresented: $isHomePresent) {
-            HomeView(
-                userInfor: viewModel.userInfor
-            )
+            HomeView()
         }
     }
 
     func handleHomePresent() {
-        viewModel.setUserInfor(userInfor: SignUp(name: name))
         isHomePresent = true
     }
 }

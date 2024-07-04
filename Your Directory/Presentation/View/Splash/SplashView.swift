@@ -11,7 +11,6 @@ import FirebaseCore
 import GoogleSignIn
 
 struct SplashView: View {
-    @StateObject var splashViewModel = SplashViewModel()
     @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
 
     @State var isPresentHomeView = false
@@ -20,7 +19,7 @@ struct SplashView: View {
         NavigationStack {
             switch authenticationViewModel.state {
             case .signedIn:
-                HomeView(userInfor: SignUp(name: "Luan"))
+                HomeView()
             case .signedOut:
                 SignUpView()
             case .unknown:

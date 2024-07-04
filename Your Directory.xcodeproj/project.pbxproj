@@ -26,8 +26,6 @@
 		0EA6DF442C2135C500128A3B /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF432C2135C500128A3B /* LottieView.swift */; };
 		0EA6DF472C213D6000128A3B /* SplashData.json in Resources */ = {isa = PBXBuildFile; fileRef = 0EA6DF462C213D6000128A3B /* SplashData.json */; };
 		0EA6DF4A2C213F1F00128A3B /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF492C213F1F00128A3B /* SignUpView.swift */; };
-		0EA6DF4D2C213F5200128A3B /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF4C2C213F5200128A3B /* SignUp.swift */; };
-		0EA6DF512C213FA600128A3B /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF502C213FA600128A3B /* SignUpViewModel.swift */; };
 		0EA6DF542C21411D00128A3B /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF532C21411D00128A3B /* Text.swift */; };
 		0EA6DF582C21423500128A3B /* TextFieldCustomize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF572C21423400128A3B /* TextFieldCustomize.swift */; };
 		0EA6DF5A2C2143B900128A3B /* RoundedCornersShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF592C2143B900128A3B /* RoundedCornersShape.swift */; };
@@ -38,7 +36,6 @@
 		0EA6DF682C22853500128A3B /* SetDataLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF672C22853500128A3B /* SetDataLocal.swift */; };
 		0EA6DF6F2C2288EB00128A3B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF6E2C2288EB00128A3B /* HomeView.swift */; };
 		0EA6DF732C22B0F100128A3B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF722C22B0F100128A3B /* HomeViewModel.swift */; };
-		0EA6DF762C22B60400128A3B /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF752C22B60400128A3B /* SplashViewModel.swift */; };
 		0EA6DF782C23DAA500128A3B /* QLImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF772C23DAA500128A3B /* QLImage.swift */; };
 		0EA6DF7C2C23E1CE00128A3B /* notebook.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0EA6DF7B2C23E1CE00128A3B /* notebook.gif */; };
 		0EA6DF7E2C23E2D500128A3B /* sound.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0EA6DF7D2C23E2D500128A3B /* sound.gif */; };
@@ -86,8 +83,6 @@
 		0EA6DF432C2135C500128A3B /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		0EA6DF462C213D6000128A3B /* SplashData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SplashData.json; sourceTree = "<group>"; };
 		0EA6DF492C213F1F00128A3B /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
-		0EA6DF4C2C213F5200128A3B /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
-		0EA6DF502C213FA600128A3B /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		0EA6DF532C21411D00128A3B /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 		0EA6DF572C21423400128A3B /* TextFieldCustomize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCustomize.swift; sourceTree = "<group>"; };
 		0EA6DF592C2143B900128A3B /* RoundedCornersShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornersShape.swift; sourceTree = "<group>"; };
@@ -98,7 +93,6 @@
 		0EA6DF672C22853500128A3B /* SetDataLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetDataLocal.swift; sourceTree = "<group>"; };
 		0EA6DF6E2C2288EB00128A3B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		0EA6DF722C22B0F100128A3B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		0EA6DF752C22B60400128A3B /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		0EA6DF772C23DAA500128A3B /* QLImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QLImage.swift; sourceTree = "<group>"; };
 		0EA6DF7B2C23E1CE00128A3B /* notebook.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = notebook.gif; sourceTree = "<group>"; };
 		0EA6DF7D2C23E2D500128A3B /* sound.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = sound.gif; sourceTree = "<group>"; };
@@ -168,14 +162,6 @@
 				08875FC12C23233900C4E6C6 /* CreateCategoryView.swift */,
 			);
 			path = CreateCategory;
-			sourceTree = "<group>";
-		};
-		08E92FBD2C2723360027E207 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				08E92FBE2C2723430027E207 /* ConvertColor.swift */,
-			);
-			path = Utils;
 			sourceTree = "<group>";
 		};
 		08E92FC12C2723EF0027E207 /* enum */ = {
@@ -289,7 +275,6 @@
 		0EA6DF4B2C213F4500128A3B /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				0EA6DF4C2C213F5200128A3B /* SignUp.swift */,
 				0EA6DF812C24027000128A3B /* Vocabulary.swift */,
 				0EA6DF842C2402C600128A3B /* Vocabularys.swift */,
 				08E92FB92C27190F0027E207 /* Category.swift */,
@@ -312,11 +297,8 @@
 			isa = PBXGroup;
 			children = (
 				0EABCDF92C34E8160073B7EF /* Authentication */,
-				08E92FBD2C2723360027E207 /* Utils */,
 				0801C7602C2599150014AC60 /* DetailVocabulary */,
-				0EA6DF742C22B5F100128A3B /* Splash */,
 				0EA6DF702C22B0AF00128A3B /* Home */,
-				0EA6DF6C2C2288D300128A3B /* SignUp */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -333,6 +315,7 @@
 		0EA6DF552C2141D100128A3B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				08E92FBE2C2723430027E207 /* ConvertColor.swift */,
 				08E92FC12C2723EF0027E207 /* enum */,
 				0EA6DF7A2C23E1C000128A3B /* gif */,
 				0EA6DF562C2141D800128A3B /* components */,
@@ -377,14 +360,6 @@
 			path = LocalStored;
 			sourceTree = "<group>";
 		};
-		0EA6DF6C2C2288D300128A3B /* SignUp */ = {
-			isa = PBXGroup;
-			children = (
-				0EA6DF502C213FA600128A3B /* SignUpViewModel.swift */,
-			);
-			path = SignUp;
-			sourceTree = "<group>";
-		};
 		0EA6DF6D2C2288E100128A3B /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -401,14 +376,6 @@
 				0EA6DF722C22B0F100128A3B /* HomeViewModel.swift */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		0EA6DF742C22B5F100128A3B /* Splash */ = {
-			isa = PBXGroup;
-			children = (
-				0EA6DF752C22B60400128A3B /* SplashViewModel.swift */,
-			);
-			path = Splash;
 			sourceTree = "<group>";
 		};
 		0EA6DF7A2C23E1C000128A3B /* gif */ = {
@@ -652,7 +619,6 @@
 				0EABCDFB2C34E8350073B7EF /* AuthenticationViewModel.swift in Sources */,
 				08875FBD2C231C6B00C4E6C6 /* HomeView+BottonTabBar.swift in Sources */,
 				0EA6DF982C2430A400128A3B /* TextFieldImage.swift in Sources */,
-				0EA6DF762C22B60400128A3B /* SplashViewModel.swift in Sources */,
 				0EA6DF5C2C21441900128A3B /* Color.swift in Sources */,
 				0EA6DF852C2402C600128A3B /* Vocabularys.swift in Sources */,
 				08E92FBC2C271ABD0027E207 /* Categorys.swift in Sources */,
@@ -670,7 +636,6 @@
 				08E92FBF2C2723430027E207 /* ConvertColor.swift in Sources */,
 				08E92FC32C2723FA0027E207 /* ColorEnum.swift in Sources */,
 				0EA6DF582C21423500128A3B /* TextFieldCustomize.swift in Sources */,
-				0EA6DF4D2C213F5200128A3B /* SignUp.swift in Sources */,
 				0EABCE042C363DFA0073B7EF /* FirestoreManager.swift in Sources */,
 				0EABCE062C3642A90073B7EF /* AppConstants.swift in Sources */,
 				0EABCE012C3539780073B7EF /* NetworkImage.swift in Sources */,
@@ -687,7 +652,6 @@
 				0EFB785D2C2557A00013FFD8 /* NetworkError.swift in Sources */,
 				0EA6DF782C23DAA500128A3B /* QLImage.swift in Sources */,
 				08E92FC82C2736670027E207 /* DetailCategoryVIew.swift in Sources */,
-				0EA6DF512C213FA600128A3B /* SignUpViewModel.swift in Sources */,
 				08E92FC52C27357E0027E207 /* HomeView+ListCategory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

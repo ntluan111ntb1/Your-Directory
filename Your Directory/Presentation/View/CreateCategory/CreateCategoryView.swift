@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct CreateCategoryView: View {
-    @StateObject var viewModel = CreateCategoryViewModel()
     @Binding var isPresentSheet: Bool
 
     @State var category = ""

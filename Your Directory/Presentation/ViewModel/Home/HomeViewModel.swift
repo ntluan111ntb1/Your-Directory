@@ -11,7 +11,6 @@ import Combine
 class HomeViewModel: ObservableObject {
     private var disposables = Set<AnyCancellable>()
 
-    @Published var userInfor = SignUp(name: "name")
     @Published var vocabularys = Vocabularys(vocabularys: [])
     @Published var categorys = Categorys(categorys: [])
     @Published var searchVocabulary: Vocabulary?
@@ -19,11 +18,6 @@ class HomeViewModel: ObservableObject {
     let getDataLocal = GetDataLocal()
     let setDateLocal = SetDataLocal()
     let firestoreManager = FirestoreManager()
-
-    func getUserInfor() {
-        guard let userInfor = getDataLocal.getData(key: Keys.userInfor, objectType: SignUp.self) else {return}
-        self.userInfor = userInfor
-    }
 
     func getVocabularys() {
         guard let vocabularys = getDataLocal.getData(

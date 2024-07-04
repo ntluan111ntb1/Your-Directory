@@ -19,7 +19,6 @@ struct HomeView: View {
     @State var isPresentSearchView = false
     @State var selectedVocabulary: Vocabulary? = nil
     @State var selectedCategory: Category? = nil
-    let userInfor: SignUp
 
     let layout = [
         GridItem(.flexible()),
@@ -94,5 +93,5 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView(userInfor: SignUp(name: "Luana"))
+    HomeView()
 }
