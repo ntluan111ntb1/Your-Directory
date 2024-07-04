@@ -35,7 +35,11 @@ class HomeViewModel: ObservableObject {
     }
     
     func getCategorys() {
-        firestoreManager.fetchData(document: AppConstants.categorysCollection) {
+        let collectionPath = ""
+        firestoreManager.fetchData(
+            collectionPath: collectionPath,
+            document: AppConstants.categorysDocument
+        ) {
             (categorys: Categorys?, error) in
             if let error = error {
                 print("Error fetching data: \(error)")
@@ -44,15 +48,16 @@ class HomeViewModel: ObservableObject {
                     return
                 }
                 self.categorys = categorys
-                print("==> get categorys: \(categorys.categorys)")
             }
         }
     }
     
     func addNewCategory(category: Category) {
         categorys.categorys.append(category)
+        let collectionPath = ""
         firestoreManager.addData(
-            document: AppConstants.categorysCollection,
+            collectionPath: collectionPath,
+            document: AppConstants.categorysDocument,
             data: categorys
         ) { error in
             if let error = error {

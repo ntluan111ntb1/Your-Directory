@@ -12,7 +12,12 @@ import FirebaseAuth
 class FirestoreManager {
     private let db = Firestore.firestore()
 
-    func addData<T: Encodable>(document: String, data: T, completion: @escaping (Error?) -> Void) {
+    func addData<T: Encodable>(
+        collectionPath: String,
+        document: String,
+        data: T,
+        completion: @escaping (Error?) -> Void
+    ) {
         guard let user = Auth.auth().currentUser else {
             completion(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "User not signed in"]))
             return
@@ -24,7 +29,7 @@ class FirestoreManager {
                 completion(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to convert data to dictionary"]))
                 return
             }
-            db.collection(user.uid).document(document).setData(dictionary) { error in
+            db.collection("\(user.uid)/\(collectionPath)").document(document).setData(dictionary) { error in
                 completion(error)
             }
         } catch {
@@ -32,13 +37,17 @@ class FirestoreManager {
         }
     }
 
-    func fetchData<T: Decodable>(document: String, completion: @escaping (T?, Error?) -> Void) {
+    func fetchData<T: Decodable>(
+        collectionPath: String,
+        document: String,
+        completion: @escaping (T?, Error?) -> Void
+    ) {
         guard let user = Auth.auth().currentUser else {
             completion(nil, NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "User not signed in"]))
             return
         }
 
-        db.collection(user.uid).document(document).getDocument { document, error in
+        db.collection("\(user.uid)/\(collectionPath)").document(document).getDocument { document, error in
             if let error = error {
                 completion(nil, error)
                 return

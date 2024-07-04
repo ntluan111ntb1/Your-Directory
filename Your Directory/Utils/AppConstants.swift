@@ -8,5 +8,5 @@
 import Foundation
 
 struct AppConstants {
-    static let categorysCollection = "categorys"
+    static let categorysDocument = "categorys"
 }
