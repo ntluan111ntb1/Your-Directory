@@ -12,7 +12,7 @@ import FirebaseAuth
 class FirestoreManager {
     private let db = Firestore.firestore()
 
-    func addData<T: Encodable>(collection: String, data: T, completion: @escaping (Error?) -> Void) {
+    func addData<T: Encodable>(document: String, data: T, completion: @escaping (Error?) -> Void) {
         guard let user = Auth.auth().currentUser else {
             completion(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "User not signed in"]))
             return
@@ -24,7 +24,7 @@ class FirestoreManager {
                 completion(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to convert data to dictionary"]))
                 return
             }
-            db.collection(collection).document(user.uid).setData(dictionary) { error in
+            db.collection(user.uid).document(document).setData(dictionary) { error in
                 completion(error)
             }
         } catch {
@@ -32,13 +32,13 @@ class FirestoreManager {
         }
     }
 
-    func fetchData<T: Decodable>(collection: String, completion: @escaping (T?, Error?) -> Void) {
+    func fetchData<T: Decodable>(document: String, completion: @escaping (T?, Error?) -> Void) {
         guard let user = Auth.auth().currentUser else {
             completion(nil, NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "User not signed in"]))
             return
         }
 
-        db.collection(collection).document(user.uid).getDocument { document, error in
+        db.collection(user.uid).document(document).getDocument { document, error in
             if let error = error {
                 completion(nil, error)
                 return
@@ -47,7 +47,7 @@ class FirestoreManager {
                 completion(nil, NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Document does not exist"]))
                 return
             }
-            
+
             do {
                 let data = try document.data(as: T.self)
                 completion(data, nil)
