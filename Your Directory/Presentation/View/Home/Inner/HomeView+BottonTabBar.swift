@@ -11,7 +11,9 @@ extension HomeView {
     func makeBottomTabBar() -> some View {
         HStack(alignment: .bottom) {
             Spacer()
-            ButtonIcons(name: "home", size: 36) { }
+            ButtonIcons(name: "home", size: 36) {
+                viewModel.getCategorys()
+            }
                 .padding(.bottom, 16)
                 .padding(.top, 8)
             Spacer()

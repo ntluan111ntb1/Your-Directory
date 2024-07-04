@@ -50,12 +50,13 @@
 		0EA6DF8B2C24082F00128A3B /* HomeView+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF8A2C24082F00128A3B /* HomeView+Search.swift */; };
 		0EA6DF8D2C240C2900128A3B /* HomeView+ListVocabulary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF8C2C240C2900128A3B /* HomeView+ListVocabulary.swift */; };
 		0EA6DF902C240CEE00128A3B /* VocabularyCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF8F2C240CEE00128A3B /* VocabularyCardView.swift */; };
-		0EA6DF932C2418C400128A3B /* CreateVocabularyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF922C2418C400128A3B /* CreateVocabularyViewModel.swift */; };
 		0EA6DF962C24301A00128A3B /* DetailVocabularyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF952C24301A00128A3B /* DetailVocabularyView.swift */; };
 		0EA6DF982C2430A400128A3B /* TextFieldImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF972C2430A400128A3B /* TextFieldImage.swift */; };
 		0EABCDFB2C34E8350073B7EF /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EABCDFA2C34E8350073B7EF /* AuthenticationViewModel.swift */; };
 		0EABCDFF2C352B920073B7EF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0EABCDFE2C352B920073B7EF /* GoogleService-Info.plist */; };
 		0EABCE012C3539780073B7EF /* NetworkImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EABCE002C3539780073B7EF /* NetworkImage.swift */; };
+		0EABCE042C363DFA0073B7EF /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EABCE032C363DFA0073B7EF /* FirestoreManager.swift */; };
+		0EABCE062C3642A90073B7EF /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EABCE052C3642A90073B7EF /* AppConstants.swift */; };
 		0EFB78512C253A8D0013FFD8 /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFB78502C253A8D0013FFD8 /* Audio.swift */; };
 		0EFB78552C2554B00013FFD8 /* AlamofireNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFB78542C2554B00013FFD8 /* AlamofireNetworkService.swift */; };
 		0EFB78582C2555260013FFD8 /* DictionaryHttp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFB78572C2555260013FFD8 /* DictionaryHttp.swift */; };
@@ -109,13 +110,14 @@
 		0EA6DF8A2C24082F00128A3B /* HomeView+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeView+Search.swift"; sourceTree = "<group>"; };
 		0EA6DF8C2C240C2900128A3B /* HomeView+ListVocabulary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeView+ListVocabulary.swift"; sourceTree = "<group>"; };
 		0EA6DF8F2C240CEE00128A3B /* VocabularyCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyCardView.swift; sourceTree = "<group>"; };
-		0EA6DF922C2418C400128A3B /* CreateVocabularyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateVocabularyViewModel.swift; sourceTree = "<group>"; };
 		0EA6DF952C24301A00128A3B /* DetailVocabularyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVocabularyView.swift; sourceTree = "<group>"; };
 		0EA6DF972C2430A400128A3B /* TextFieldImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldImage.swift; sourceTree = "<group>"; };
 		0EABCDF82C34E6F90073B7EF /* Your-Directory-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Your-Directory-Info.plist"; sourceTree = SOURCE_ROOT; };
 		0EABCDFA2C34E8350073B7EF /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		0EABCDFE2C352B920073B7EF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0EABCE002C3539780073B7EF /* NetworkImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkImage.swift; sourceTree = "<group>"; };
+		0EABCE032C363DFA0073B7EF /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
+		0EABCE052C3642A90073B7EF /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		0EFB78502C253A8D0013FFD8 /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 		0EFB78542C2554B00013FFD8 /* AlamofireNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireNetworkService.swift; sourceTree = "<group>"; };
 		0EFB78572C2555260013FFD8 /* DictionaryHttp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryHttp.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 		0EA6DF2F2C212D2B00128A3B /* Your Directory */ = {
 			isa = PBXGroup;
 			children = (
+				0EABCE022C363DE10073B7EF /* Manager */,
 				0EABCDF82C34E6F90073B7EF /* Your-Directory-Info.plist */,
 				0EABCDFE2C352B920073B7EF /* GoogleService-Info.plist */,
 				0EA6DF5F2C22845300128A3B /* DataInfrastructor */,
@@ -270,6 +273,7 @@
 			children = (
 				0EA6DF522C21410C00128A3B /* Extendsion */,
 				0EA6DF462C213D6000128A3B /* SplashData.json */,
+				0EABCE052C3642A90073B7EF /* AppConstants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -310,7 +314,6 @@
 				0EABCDF92C34E8160073B7EF /* Authentication */,
 				08E92FBD2C2723360027E207 /* Utils */,
 				0801C7602C2599150014AC60 /* DetailVocabulary */,
-				0EA6DF912C2418AB00128A3B /* CreateVocabulary */,
 				0EA6DF742C22B5F100128A3B /* Splash */,
 				0EA6DF702C22B0AF00128A3B /* Home */,
 				0EA6DF6C2C2288D300128A3B /* SignUp */,
@@ -427,14 +430,6 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		0EA6DF912C2418AB00128A3B /* CreateVocabulary */ = {
-			isa = PBXGroup;
-			children = (
-				0EA6DF922C2418C400128A3B /* CreateVocabularyViewModel.swift */,
-			);
-			path = CreateVocabulary;
-			sourceTree = "<group>";
-		};
 		0EA6DF942C24300D00128A3B /* DetailVocabulary */ = {
 			isa = PBXGroup;
 			children = (
@@ -449,6 +444,14 @@
 				0EABCDFA2C34E8350073B7EF /* AuthenticationViewModel.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		0EABCE022C363DE10073B7EF /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				0EABCE032C363DFA0073B7EF /* FirestoreManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		0EFB78522C2554940013FFD8 /* Network */ = {
@@ -665,10 +668,11 @@
 				0EA6DF682C22853500128A3B /* SetDataLocal.swift in Sources */,
 				0EA6DF872C2403E600128A3B /* TextFieldImageGif.swift in Sources */,
 				08E92FBF2C2723430027E207 /* ConvertColor.swift in Sources */,
-				0EA6DF932C2418C400128A3B /* CreateVocabularyViewModel.swift in Sources */,
 				08E92FC32C2723FA0027E207 /* ColorEnum.swift in Sources */,
 				0EA6DF582C21423500128A3B /* TextFieldCustomize.swift in Sources */,
 				0EA6DF4D2C213F5200128A3B /* SignUp.swift in Sources */,
+				0EABCE042C363DFA0073B7EF /* FirestoreManager.swift in Sources */,
+				0EABCE062C3642A90073B7EF /* AppConstants.swift in Sources */,
 				0EABCE012C3539780073B7EF /* NetworkImage.swift in Sources */,
 				0EA6DF662C22852E00128A3B /* GetDataLocal.swift in Sources */,
 				0EFB785B2C2556B50013FFD8 /* VocabularyEntities.swift in Sources */,

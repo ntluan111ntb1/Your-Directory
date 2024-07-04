@@ -18,6 +18,7 @@ class HomeViewModel: ObservableObject {
 
     let getDataLocal = GetDataLocal()
     let setDateLocal = SetDataLocal()
+    let firestoreManager = FirestoreManager()
 
     func getUserInfor() {
         guard let userInfor = getDataLocal.getData(key: Keys.userInfor, objectType: SignUp.self) else {return}
@@ -40,16 +41,34 @@ class HomeViewModel: ObservableObject {
     }
     
     func getCategorys() {
-        guard let categorys = getDataLocal.getData(
-            key: Keys.categorys,
-            objectType: Categorys.self
-        ) else {return}
-        self.categorys = categorys
+        firestoreManager.fetchData(collection: AppConstants.categorysCollection) {
+            (categorys: Categorys?, error) in
+            if let error = error {
+                print("Error fetching data: \(error)")
+            } else {
+                guard let categorys = categorys else {
+                    return
+                }
+                self.categorys = categorys
+                print("==> get categorys: \(categorys.categorys)")
+            }
+        }
     }
     
     func addNewCategory(category: Category) {
+        print("==> before set categorys: \(categorys.categorys)")
         categorys.categorys.append(category)
-        setDateLocal.setData(key: Keys.categorys, object: categorys)
+        print("==> affter set categorys: \(categorys.categorys)")
+        firestoreManager.addData(
+            collection: AppConstants.categorysCollection,
+            data: categorys
+        ) { error in
+            if let error = error {
+                print("Error adding document: \(error)")
+            } else {
+                print("Document added successfully")
+            }
+        }
     }
 
 

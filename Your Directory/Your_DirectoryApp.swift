@@ -7,6 +7,7 @@
 
 import SwiftUI
 import FirebaseCore
+import FirebaseFirestore
 
 
 @main
@@ -14,7 +15,7 @@ struct Your_DirectoryApp: App {
     @StateObject var viewModel = AuthenticationViewModel()
 
     init() {
-        setupAuthentication()
+        setupFirebase()
     }
 
     var body: some Scene {
@@ -29,7 +30,8 @@ struct Your_DirectoryApp: App {
 }
 
 extension Your_DirectoryApp {
-    private func setupAuthentication() {
+    private func setupFirebase() {
         FirebaseApp.configure()
+        Firestore.firestore()
     }
 }
