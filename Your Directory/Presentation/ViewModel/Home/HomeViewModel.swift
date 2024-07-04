@@ -20,18 +20,39 @@ class HomeViewModel: ObservableObject {
     let firestoreManager = FirestoreManager()
 
     func getVocabularys() {
-        guard let vocabularys = getDataLocal.getData(
-            key: Keys.vocabularys,
-            objectType: Vocabularys.self
-        ) else {return}
-        self.vocabularys = vocabularys
+        let collectionPath = ""
+        firestoreManager.fetchData(
+            collectionPath: collectionPath,
+            document: AppConstants.vocabularysDocument
+        ) {
+            (vocabularys: Vocabularys?, error) in
+            if let error = error {
+                print("Error fetching data: \(error)")
+            } else {
+                guard let vocabularys = vocabularys else {
+                    return
+                }
+                self.vocabularys = vocabularys
+            }
+        }
     }
 
     func addNewVocabulary(note: String) {
         guard var vocabulary = searchVocabulary else { return }
         vocabulary.vocabularyNote = note
         vocabularys.vocabularys.append(vocabulary)
-        setDateLocal.setData(key: Keys.vocabularys, object: vocabularys)
+        let collectionPath = ""
+        firestoreManager.addData(
+            collectionPath: collectionPath,
+            document: AppConstants.vocabularysDocument,
+            data: vocabularys
+        ) { error in
+            if let error = error {
+                print("Error adding document: \(error)")
+            } else {
+                print("Document added successfully")
+            }
+        }
     }
     
     func getCategorys() {
