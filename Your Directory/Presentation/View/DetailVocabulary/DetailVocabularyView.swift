@@ -8,88 +8,23 @@
 import SwiftUI
 
 struct DetailVocabularyView: View {
-    
+
     @StateObject var viewModel = DetailVocabularyViewModel()
-    
+
     @Binding var vocabulary: Vocabulary
     @State var note = ""
-    
+
     let textButton: String
     let dismiss: () -> Void
     var addVocabulary: ((String) -> Void)? = nil
     var deleteVocabulary: (() -> Void)? = nil
-    
+
     var body: some View {
         VStack(spacing: 16) {
             VStack {
-                HStack {
-                    Text("Chi tiết từ vựng")
-                        .fontStyle(.largeBold)
-                    Spacer()
-                    Button {
-                        dismiss()
-                    } label: {
-                        Image(systemName: "xmark")
-                            .font(.title2)
-                            .foregroundStyle(.black)
-                    }
-                }
-                .padding(.horizontal)
+                makeHeader()
                 Divider()
-                VStack {
-                    VStack(alignment: .leading) {
-                        HStack(alignment: .bottom) {
-                            Text(vocabulary.word)
-                                .font(.largeTitle)
-                            Text("(\(vocabulary.partOfSpeech))")
-                                .fontStyle(.mediumLight)
-                            Spacer()
-                        }
-                        Button {
-                            viewModel.handleSound(sound: vocabulary.audio)
-                        } label: {
-                            HStack {
-                                Image(systemName: viewModel.statePlaySound ? "speaker.wave.3.fill" : "speaker.wave.1.fill")
-                                Text(vocabulary.phonetics)
-                                    .fontStyle(.medium)
-                            }
-                        }
-                        Divider()
-                    }
-                    .padding(.horizontal)
-                    ScrollView() {
-                        VStack(alignment: .leading) {
-                            HStack {
-                                Text("Definition")
-                                    .fontStyle(.mediumBold)
-                                Spacer()
-                            }
-                            VStack(alignment: .leading, spacing: 8) {
-                                ForEach(vocabulary.descriptions, id: \.definition) { description in
-                                    if let des = description.definition {
-                                        Text("- \(des)")
-                                            .fontStyle(.medium)
-                                    }
-                                    if let example = description.example {
-                                        Text("ex: \(example)")
-                                            .fontStyle(.smallLight)
-                                    }
-                                }
-                            }
-                        }
-                        .padding(.horizontal)
-                    }
-                    Divider()
-                    TextFieldImageGif(
-                        text: vocabulary.vocabularyNote == nil
-                        ? $note
-                        : .constant(vocabulary.vocabularyNote ?? ""),
-                        imageName: "notebook",
-                        placeholder: "Ghi chú ở đây",
-                        sizeImage: 32
-                    )
-                    .padding(.horizontal)
-                }
+                makeContentOfVocabulary()
             }
             .padding(.vertical)
             .background(
@@ -100,10 +35,11 @@ struct DetailVocabularyView: View {
             ButtonFullWidthView(
                 lable: textButton,
                 color: .orangeCustomize,
-                foregroundColor: .white) {
-                    addVocabulary?(note)
-                    deleteVocabulary?()
-                }
+                foregroundColor: .white
+            ) {
+                addVocabulary?(note)
+                deleteVocabulary?()
+            }
         }
         .padding(16)
         .background(Image("sheet"))

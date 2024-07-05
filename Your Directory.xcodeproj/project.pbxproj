@@ -51,13 +51,16 @@
 		0EABCE012C3539780073B7EF /* NetworkImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EABCE002C3539780073B7EF /* NetworkImage.swift */; };
 		0EABCE042C363DFA0073B7EF /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EABCE032C363DFA0073B7EF /* FirestoreManager.swift */; };
 		0EABCE062C3642A90073B7EF /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EABCE052C3642A90073B7EF /* AppConstants.swift */; };
+		0EABCE0E2C37A13E0073B7EF /* DetailVocabulary+Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EABCE0D2C37A13E0073B7EF /* DetailVocabulary+Header.swift */; };
+		0EABCE122C37A1EC0073B7EF /* DetailVocabulary+Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EABCE112C37A1EC0073B7EF /* DetailVocabulary+Content.swift */; };
+		0EABCE152C37A2690073B7EF /* CreateCategory+Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EABCE142C37A2690073B7EF /* CreateCategory+Header.swift */; };
+		0EABCE172C37A2B40073B7EF /* CreateCategory+Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EABCE162C37A2B40073B7EF /* CreateCategory+Content.swift */; };
 		0EFB78512C253A8D0013FFD8 /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFB78502C253A8D0013FFD8 /* Audio.swift */; };
 		0EFB78552C2554B00013FFD8 /* AlamofireNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFB78542C2554B00013FFD8 /* AlamofireNetworkService.swift */; };
 		0EFB78582C2555260013FFD8 /* DictionaryHttp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFB78572C2555260013FFD8 /* DictionaryHttp.swift */; };
 		0EFB785B2C2556B50013FFD8 /* VocabularyEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFB785A2C2556B50013FFD8 /* VocabularyEntities.swift */; };
 		0EFB785D2C2557A00013FFD8 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFB785C2C2557A00013FFD8 /* NetworkError.swift */; };
 		0EFB78602C25583D0013FFD8 /* VocabularyEntityMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFB785F2C25583D0013FFD8 /* VocabularyEntityMapper.swift */; };
-		0EFB78662C25775B0013FFD8 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFB78652C25775B0013FFD8 /* SearchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,13 +109,16 @@
 		0EABCE002C3539780073B7EF /* NetworkImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkImage.swift; sourceTree = "<group>"; };
 		0EABCE032C363DFA0073B7EF /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		0EABCE052C3642A90073B7EF /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		0EABCE0D2C37A13E0073B7EF /* DetailVocabulary+Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailVocabulary+Header.swift"; sourceTree = "<group>"; };
+		0EABCE112C37A1EC0073B7EF /* DetailVocabulary+Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailVocabulary+Content.swift"; sourceTree = "<group>"; };
+		0EABCE142C37A2690073B7EF /* CreateCategory+Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CreateCategory+Header.swift"; sourceTree = "<group>"; };
+		0EABCE162C37A2B40073B7EF /* CreateCategory+Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CreateCategory+Content.swift"; sourceTree = "<group>"; };
 		0EFB78502C253A8D0013FFD8 /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 		0EFB78542C2554B00013FFD8 /* AlamofireNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireNetworkService.swift; sourceTree = "<group>"; };
 		0EFB78572C2555260013FFD8 /* DictionaryHttp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryHttp.swift; sourceTree = "<group>"; };
 		0EFB785A2C2556B50013FFD8 /* VocabularyEntities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyEntities.swift; sourceTree = "<group>"; };
 		0EFB785C2C2557A00013FFD8 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		0EFB785F2C25583D0013FFD8 /* VocabularyEntityMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyEntityMapper.swift; sourceTree = "<group>"; };
-		0EFB78652C25775B0013FFD8 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		7CEF74F2E25348C11AF363B4 /* Pods-Your Directory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Your Directory.release.xcconfig"; path = "Target Support Files/Pods-Your Directory/Pods-Your Directory.release.xcconfig"; sourceTree = "<group>"; };
 		8D8BCDC631AEB02680BFE605 /* Pods_Your_Directory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Your_Directory.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1BE25A21F6144FA9B33F505 /* Pods-Your Directory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Your Directory.debug.xcconfig"; path = "Target Support Files/Pods-Your Directory/Pods-Your Directory.debug.xcconfig"; sourceTree = "<group>"; };
@@ -153,6 +159,7 @@
 		08875FC02C23232900C4E6C6 /* CreateCategory */ = {
 			isa = PBXGroup;
 			children = (
+				0EABCE132C37A2560073B7EF /* Inner */,
 				08875FC12C23233900C4E6C6 /* CreateCategoryView.swift */,
 			);
 			path = CreateCategory;
@@ -220,7 +227,6 @@
 			isa = PBXGroup;
 			children = (
 				08E92FC62C2736590027E207 /* DetailCategory */,
-				0EFB78642C25774C0013FFD8 /* SearchView */,
 				0EA6DF942C24300D00128A3B /* DetailVocabulary */,
 				08875FC02C23232900C4E6C6 /* CreateCategory */,
 				0EA6DF6D2C2288E100128A3B /* Home */,
@@ -383,6 +389,7 @@
 		0EA6DF942C24300D00128A3B /* DetailVocabulary */ = {
 			isa = PBXGroup;
 			children = (
+				0EABCE0C2C37A1170073B7EF /* Inner */,
 				0EA6DF952C24301A00128A3B /* DetailVocabularyView.swift */,
 			);
 			path = DetailVocabulary;
@@ -394,6 +401,24 @@
 				0EABCDFA2C34E8350073B7EF /* AuthenticationViewModel.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		0EABCE0C2C37A1170073B7EF /* Inner */ = {
+			isa = PBXGroup;
+			children = (
+				0EABCE0D2C37A13E0073B7EF /* DetailVocabulary+Header.swift */,
+				0EABCE112C37A1EC0073B7EF /* DetailVocabulary+Content.swift */,
+			);
+			path = Inner;
+			sourceTree = "<group>";
+		};
+		0EABCE132C37A2560073B7EF /* Inner */ = {
+			isa = PBXGroup;
+			children = (
+				0EABCE142C37A2690073B7EF /* CreateCategory+Header.swift */,
+				0EABCE162C37A2B40073B7EF /* CreateCategory+Content.swift */,
+			);
+			path = Inner;
 			sourceTree = "<group>";
 		};
 		0EFB78522C2554940013FFD8 /* Network */ = {
@@ -436,14 +461,6 @@
 				0EFB785F2C25583D0013FFD8 /* VocabularyEntityMapper.swift */,
 			);
 			path = EntityMapper;
-			sourceTree = "<group>";
-		};
-		0EFB78642C25774C0013FFD8 /* SearchView */ = {
-			isa = PBXGroup;
-			children = (
-				0EFB78652C25775B0013FFD8 /* SearchView.swift */,
-			);
-			path = SearchView;
 			sourceTree = "<group>";
 		};
 		25F0E20E8CDDC2A04027B2AE /* Frameworks */ = {
@@ -585,6 +602,7 @@
 			files = (
 				0EFB78602C25583D0013FFD8 /* VocabularyEntityMapper.swift in Sources */,
 				0EA6DF902C240CEE00128A3B /* VocabularyCardView.swift in Sources */,
+				0EABCE0E2C37A13E0073B7EF /* DetailVocabulary+Header.swift in Sources */,
 				0EA6DF822C24027000128A3B /* Vocabulary.swift in Sources */,
 				0EA6DF8B2C24082F00128A3B /* HomeView+Search.swift in Sources */,
 				0EA6DF962C24301A00128A3B /* DetailVocabularyView.swift in Sources */,
@@ -597,6 +615,7 @@
 				0EA6DF5C2C21441900128A3B /* Color.swift in Sources */,
 				0EA6DF852C2402C600128A3B /* Vocabularys.swift in Sources */,
 				08E92FBC2C271ABD0027E207 /* Categorys.swift in Sources */,
+				0EABCE152C37A2690073B7EF /* CreateCategory+Header.swift in Sources */,
 				08875FB92C2316C500C4E6C6 /* HomeViewHeader.swift in Sources */,
 				0EFB78582C2555260013FFD8 /* DictionaryHttp.swift in Sources */,
 				08067FEC2C26C0C0009BBD51 /* DetailVocabularyViewModel.swift in Sources */,
@@ -604,7 +623,7 @@
 				0EA6DF542C21411D00128A3B /* Text.swift in Sources */,
 				0EA6DF312C212D2B00128A3B /* Your_DirectoryApp.swift in Sources */,
 				0EA6DF5E2C216ECB00128A3B /* ButtonFullWidthView.swift in Sources */,
-				0EFB78662C25775B0013FFD8 /* SearchView.swift in Sources */,
+				0EABCE172C37A2B40073B7EF /* CreateCategory+Content.swift in Sources */,
 				0EA6DF872C2403E600128A3B /* TextFieldImageGif.swift in Sources */,
 				08E92FBF2C2723430027E207 /* ConvertColor.swift in Sources */,
 				08E92FC32C2723FA0027E207 /* ColorEnum.swift in Sources */,
@@ -616,6 +635,7 @@
 				0EFB78512C253A8D0013FFD8 /* Audio.swift in Sources */,
 				0EA6DF402C212D5800128A3B /* SplashView.swift in Sources */,
 				08E92FBA2C27190F0027E207 /* Category.swift in Sources */,
+				0EABCE122C37A1EC0073B7EF /* DetailVocabulary+Content.swift in Sources */,
 				0EA6DF6F2C2288EB00128A3B /* HomeView.swift in Sources */,
 				0EFB78552C2554B00013FFD8 /* AlamofireNetworkService.swift in Sources */,
 				0EA6DF8D2C240C2900128A3B /* HomeView+ListVocabulary.swift in Sources */,
