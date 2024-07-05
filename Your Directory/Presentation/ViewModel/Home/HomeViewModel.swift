@@ -15,8 +15,6 @@ class HomeViewModel: ObservableObject {
     @Published var categorys = Categorys(categorys: [])
     @Published var searchVocabulary: Vocabulary?
 
-    let getDataLocal = GetDataLocal()
-    let setDateLocal = SetDataLocal()
     let firestoreManager = FirestoreManager()
 
     func getVocabularys() {
@@ -87,12 +85,6 @@ class HomeViewModel: ObservableObject {
                 print("Document added successfully")
             }
         }
-    }
-
-
-    func deleteVocabulary(vocabulary: Vocabulary) {
-        vocabularys.vocabularys.removeAll(where: { $0.id == vocabulary.id})
-        setDateLocal.setData(key: Keys.vocabularys, object: vocabularys)
     }
 
     func searchVocabulary(vocabulary: String) {

@@ -31,9 +31,6 @@
 		0EA6DF5A2C2143B900128A3B /* RoundedCornersShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF592C2143B900128A3B /* RoundedCornersShape.swift */; };
 		0EA6DF5C2C21441900128A3B /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF5B2C21441900128A3B /* Color.swift */; };
 		0EA6DF5E2C216ECB00128A3B /* ButtonFullWidthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF5D2C216ECB00128A3B /* ButtonFullWidthView.swift */; };
-		0EA6DF642C22849B00128A3B /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF632C22849B00128A3B /* Keys.swift */; };
-		0EA6DF662C22852E00128A3B /* GetDataLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF652C22852E00128A3B /* GetDataLocal.swift */; };
-		0EA6DF682C22853500128A3B /* SetDataLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF672C22853500128A3B /* SetDataLocal.swift */; };
 		0EA6DF6F2C2288EB00128A3B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF6E2C2288EB00128A3B /* HomeView.swift */; };
 		0EA6DF732C22B0F100128A3B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF722C22B0F100128A3B /* HomeViewModel.swift */; };
 		0EA6DF782C23DAA500128A3B /* QLImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF772C23DAA500128A3B /* QLImage.swift */; };
@@ -88,9 +85,6 @@
 		0EA6DF592C2143B900128A3B /* RoundedCornersShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornersShape.swift; sourceTree = "<group>"; };
 		0EA6DF5B2C21441900128A3B /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		0EA6DF5D2C216ECB00128A3B /* ButtonFullWidthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonFullWidthView.swift; sourceTree = "<group>"; };
-		0EA6DF632C22849B00128A3B /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
-		0EA6DF652C22852E00128A3B /* GetDataLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDataLocal.swift; sourceTree = "<group>"; };
-		0EA6DF672C22853500128A3B /* SetDataLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetDataLocal.swift; sourceTree = "<group>"; };
 		0EA6DF6E2C2288EB00128A3B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		0EA6DF722C22B0F100128A3B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		0EA6DF772C23DAA500128A3B /* QLImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QLImage.swift; sourceTree = "<group>"; };
@@ -201,7 +195,6 @@
 		0EA6DF2F2C212D2B00128A3B /* Your Directory */ = {
 			isa = PBXGroup;
 			children = (
-				0EABCE022C363DE10073B7EF /* Manager */,
 				0EABCDF82C34E6F90073B7EF /* Your-Directory-Info.plist */,
 				0EABCDFE2C352B920073B7EF /* GoogleService-Info.plist */,
 				0EA6DF5F2C22845300128A3B /* DataInfrastructor */,
@@ -258,8 +251,9 @@
 			isa = PBXGroup;
 			children = (
 				0EA6DF522C21410C00128A3B /* Extendsion */,
-				0EA6DF462C213D6000128A3B /* SplashData.json */,
+				0EABCE032C363DFA0073B7EF /* FirestoreManager.swift */,
 				0EABCE052C3642A90073B7EF /* AppConstants.swift */,
+				0EA6DF462C213D6000128A3B /* SplashData.json */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -345,19 +339,8 @@
 				0EFB785E2C2558290013FFD8 /* EntityMapper */,
 				0EFB78592C25569C0013FFD8 /* Entities */,
 				0EFB78522C2554940013FFD8 /* Network */,
-				0EA6DF602C22847A00128A3B /* LocalStored */,
 			);
 			path = DataInfrastructor;
-			sourceTree = "<group>";
-		};
-		0EA6DF602C22847A00128A3B /* LocalStored */ = {
-			isa = PBXGroup;
-			children = (
-				0EA6DF632C22849B00128A3B /* Keys.swift */,
-				0EA6DF652C22852E00128A3B /* GetDataLocal.swift */,
-				0EA6DF672C22853500128A3B /* SetDataLocal.swift */,
-			);
-			path = LocalStored;
 			sourceTree = "<group>";
 		};
 		0EA6DF6D2C2288E100128A3B /* Home */ = {
@@ -411,14 +394,6 @@
 				0EABCDFA2C34E8350073B7EF /* AuthenticationViewModel.swift */,
 			);
 			path = Authentication;
-			sourceTree = "<group>";
-		};
-		0EABCE022C363DE10073B7EF /* Manager */ = {
-			isa = PBXGroup;
-			children = (
-				0EABCE032C363DFA0073B7EF /* FirestoreManager.swift */,
-			);
-			path = Manager;
 			sourceTree = "<group>";
 		};
 		0EFB78522C2554940013FFD8 /* Network */ = {
@@ -625,13 +600,11 @@
 				08875FB92C2316C500C4E6C6 /* HomeViewHeader.swift in Sources */,
 				0EFB78582C2555260013FFD8 /* DictionaryHttp.swift in Sources */,
 				08067FEC2C26C0C0009BBD51 /* DetailVocabularyViewModel.swift in Sources */,
-				0EA6DF642C22849B00128A3B /* Keys.swift in Sources */,
 				0EA6DF5A2C2143B900128A3B /* RoundedCornersShape.swift in Sources */,
 				0EA6DF542C21411D00128A3B /* Text.swift in Sources */,
 				0EA6DF312C212D2B00128A3B /* Your_DirectoryApp.swift in Sources */,
 				0EA6DF5E2C216ECB00128A3B /* ButtonFullWidthView.swift in Sources */,
 				0EFB78662C25775B0013FFD8 /* SearchView.swift in Sources */,
-				0EA6DF682C22853500128A3B /* SetDataLocal.swift in Sources */,
 				0EA6DF872C2403E600128A3B /* TextFieldImageGif.swift in Sources */,
 				08E92FBF2C2723430027E207 /* ConvertColor.swift in Sources */,
 				08E92FC32C2723FA0027E207 /* ColorEnum.swift in Sources */,
@@ -639,7 +612,6 @@
 				0EABCE042C363DFA0073B7EF /* FirestoreManager.swift in Sources */,
 				0EABCE062C3642A90073B7EF /* AppConstants.swift in Sources */,
 				0EABCE012C3539780073B7EF /* NetworkImage.swift in Sources */,
-				0EA6DF662C22852E00128A3B /* GetDataLocal.swift in Sources */,
 				0EFB785B2C2556B50013FFD8 /* VocabularyEntities.swift in Sources */,
 				0EFB78512C253A8D0013FFD8 /* Audio.swift in Sources */,
 				0EA6DF402C212D5800128A3B /* SplashView.swift in Sources */,

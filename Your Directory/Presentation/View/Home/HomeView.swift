@@ -70,7 +70,6 @@ struct HomeView: View {
                 vocabulary: .constant(selectedContent), textButton: "Xóa từ này") {
                     selectedVocabulary = nil
                 } deleteVocabulary: {
-                    viewModel.deleteVocabulary(vocabulary: selectedContent)
                     selectedVocabulary = nil
                 }
                 .presentationDetents([.medium, .large])
