@@ -12,9 +12,12 @@ struct DetailVocabularyView: View {
     @StateObject var viewModel = DetailVocabularyViewModel()
 
     @Binding var vocabulary: Vocabulary
+    @Binding var categorys: Categorys
     @State var note = ""
+    @State var chonsedCategory = Category(name: "", color: "")
 
     let textButton: String
+
     let dismiss: () -> Void
     var addVocabulary: ((String) -> Void)? = nil
     var deleteVocabulary: (() -> Void)? = nil
@@ -25,6 +28,8 @@ struct DetailVocabularyView: View {
                 makeHeader()
                 Divider()
                 makeContentOfVocabulary()
+                Divider()
+                makeInput()
             }
             .padding(.vertical)
             .background(
@@ -54,26 +59,13 @@ struct DetailVocabularyView: View {
                 phonetics: "/həˈləʊ/",
                 audio: "https://api.dictionaryapi.dev/media/pronunciations/en/hello-au.mp3",
                 descriptions: [
-                    Vocabulary.Definition(definition: "definition", example: "example"),
-                    Vocabulary.Definition(definition: "definition2", example: nil),
-                    Vocabulary.Definition(definition: "definition3", example: "example"),
-                    Vocabulary.Definition(definition: "definition3", example: "example"),
-                    Vocabulary.Definition(definition: "definition3", example: "example"),
-                    Vocabulary.Definition(definition: "definition3", example: "example"),
-                    Vocabulary.Definition(definition: "definition3", example: "example"),
-                    Vocabulary.Definition(definition: "definition3", example: "example"),
-                    Vocabulary.Definition(definition: "definition3", example: "example"),
-                    Vocabulary.Definition(definition: "definition3", example: "example"),
-                    Vocabulary.Definition(definition: "definition3", example: "example"),
-                    Vocabulary.Definition(definition: "definition3", example: "example"),
-                    Vocabulary.Definition(definition: "definition3", example: "example"),
-                    Vocabulary.Definition(definition: "definition3", example: "example"),
-                    Vocabulary.Definition(definition: "definition3", example: "example"),
+                    Vocabulary.Definition(definition: "definition", example: "example")
                 ],
                 partOfSpeech: "noun",
                 vocabularyNote: ""
             )
         ),
+        categorys: .constant(Categorys(categorys: [])),
         textButton: "Thêm từ này",
         dismiss: {}
     )

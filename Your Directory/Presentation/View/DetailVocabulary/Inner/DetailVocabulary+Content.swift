@@ -52,16 +52,6 @@ extension DetailVocabularyView {
                 }
                 .padding(.horizontal)
             }
-            Divider()
-            TextFieldImageGif(
-                text: vocabulary.vocabularyNote == nil
-                ? $note
-                : .constant(vocabulary.vocabularyNote ?? ""),
-                imageName: "notebook",
-                placeholder: "Ghi chú ở đây",
-                sizeImage: 32
-            )
-            .padding(.horizontal)
         }
     }
 }

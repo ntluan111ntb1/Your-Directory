@@ -15,4 +15,6 @@ target 'Your Directory' do
   pod 'FirebaseAuth'
   pod 'FirebaseFirestore'
   pod 'GoogleSignIn'
+  # Popup
+  pod 'ExytePopupView'
 end

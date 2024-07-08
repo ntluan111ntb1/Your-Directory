@@ -52,14 +52,16 @@ struct HomeView: View {
             viewModel.searchVocabulary = nil
         }, content: { searchVocabulary in
             VStack {
-                DetailVocabularyView(
-                    vocabulary: .constant(searchVocabulary),
-                    textButton: "Thêm từ này"
-                ) {
-                    viewModel.searchVocabulary = nil
-                } addVocabulary: { note in
-                    viewModel.addNewVocabulary(note: note)
-                    viewModel.searchVocabulary = nil
+                NavigationStack {
+                    DetailVocabularyView(
+                        vocabulary: .constant(searchVocabulary),
+                        categorys: .constant(viewModel.categorys),
+                        textButton: "Thêm từ này"
+                    ) {
+                        viewModel.searchVocabulary = nil
+                    } addVocabulary: { note in
+                        isPresentCreateCategory.toggle()
+                    }
                 }
             }
             .presentationDetents([.medium, .large])
@@ -67,7 +69,9 @@ struct HomeView: View {
         })
         .sheet(item: $selectedVocabulary, content: { selectedContent in
             DetailVocabularyView(
-                vocabulary: .constant(selectedContent), textButton: "Xóa từ này") {
+                vocabulary: .constant(selectedContent), 
+                categorys: .constant(viewModel.categorys),
+                textButton: "Xóa từ này") {
                     selectedVocabulary = nil
                 } deleteVocabulary: {
                     selectedVocabulary = nil

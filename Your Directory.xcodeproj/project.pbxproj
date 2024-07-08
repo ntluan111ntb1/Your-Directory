@@ -55,6 +55,8 @@
 		0EABCE122C37A1EC0073B7EF /* DetailVocabulary+Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EABCE112C37A1EC0073B7EF /* DetailVocabulary+Content.swift */; };
 		0EABCE152C37A2690073B7EF /* CreateCategory+Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EABCE142C37A2690073B7EF /* CreateCategory+Header.swift */; };
 		0EABCE172C37A2B40073B7EF /* CreateCategory+Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EABCE162C37A2B40073B7EF /* CreateCategory+Content.swift */; };
+		0EB8A2542C3BCC5F0001C521 /* folder.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0EB8A2532C3BCC5F0001C521 /* folder.gif */; };
+		0EB8A2562C3BCE0D0001C521 /* DetailVocabulary+Input.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB8A2552C3BCE0D0001C521 /* DetailVocabulary+Input.swift */; };
 		0EFB78512C253A8D0013FFD8 /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFB78502C253A8D0013FFD8 /* Audio.swift */; };
 		0EFB78552C2554B00013FFD8 /* AlamofireNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFB78542C2554B00013FFD8 /* AlamofireNetworkService.swift */; };
 		0EFB78582C2555260013FFD8 /* DictionaryHttp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFB78572C2555260013FFD8 /* DictionaryHttp.swift */; };
@@ -113,6 +115,8 @@
 		0EABCE112C37A1EC0073B7EF /* DetailVocabulary+Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailVocabulary+Content.swift"; sourceTree = "<group>"; };
 		0EABCE142C37A2690073B7EF /* CreateCategory+Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CreateCategory+Header.swift"; sourceTree = "<group>"; };
 		0EABCE162C37A2B40073B7EF /* CreateCategory+Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CreateCategory+Content.swift"; sourceTree = "<group>"; };
+		0EB8A2532C3BCC5F0001C521 /* folder.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = folder.gif; sourceTree = "<group>"; };
+		0EB8A2552C3BCE0D0001C521 /* DetailVocabulary+Input.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailVocabulary+Input.swift"; sourceTree = "<group>"; };
 		0EFB78502C253A8D0013FFD8 /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 		0EFB78542C2554B00013FFD8 /* AlamofireNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireNetworkService.swift; sourceTree = "<group>"; };
 		0EFB78572C2555260013FFD8 /* DictionaryHttp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryHttp.swift; sourceTree = "<group>"; };
@@ -370,6 +374,7 @@
 		0EA6DF7A2C23E1C000128A3B /* gif */ = {
 			isa = PBXGroup;
 			children = (
+				0EB8A2532C3BCC5F0001C521 /* folder.gif */,
 				0EA6DF882C24057500128A3B /* search.gif */,
 				0EA6DF7B2C23E1CE00128A3B /* notebook.gif */,
 				0EA6DF7D2C23E2D500128A3B /* sound.gif */,
@@ -408,6 +413,7 @@
 			children = (
 				0EABCE0D2C37A13E0073B7EF /* DetailVocabulary+Header.swift */,
 				0EABCE112C37A1EC0073B7EF /* DetailVocabulary+Content.swift */,
+				0EB8A2552C3BCE0D0001C521 /* DetailVocabulary+Input.swift */,
 			);
 			path = Inner;
 			sourceTree = "<group>";
@@ -543,6 +549,7 @@
 				0EABCDFF2C352B920073B7EF /* GoogleService-Info.plist in Resources */,
 				0EA6DF472C213D6000128A3B /* SplashData.json in Resources */,
 				0EA6DF802C23E30000128A3B /* description.gif in Resources */,
+				0EB8A2542C3BCC5F0001C521 /* folder.gif in Resources */,
 				0EA6DF7C2C23E1CE00128A3B /* notebook.gif in Resources */,
 				0EA6DF382C212D2E00128A3B /* Preview Assets.xcassets in Resources */,
 				0EA6DF7E2C23E2D500128A3B /* sound.gif in Resources */,
@@ -605,6 +612,7 @@
 				0EABCE0E2C37A13E0073B7EF /* DetailVocabulary+Header.swift in Sources */,
 				0EA6DF822C24027000128A3B /* Vocabulary.swift in Sources */,
 				0EA6DF8B2C24082F00128A3B /* HomeView+Search.swift in Sources */,
+				0EB8A2562C3BCE0D0001C521 /* DetailVocabulary+Input.swift in Sources */,
 				0EA6DF962C24301A00128A3B /* DetailVocabularyView.swift in Sources */,
 				0EA6DF732C22B0F100128A3B /* HomeViewModel.swift in Sources */,
 				08875FBB2C231B3E00C4E6C6 /* ButtonIcon.swift in Sources */,
