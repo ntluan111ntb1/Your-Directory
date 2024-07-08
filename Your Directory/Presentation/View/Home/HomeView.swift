@@ -59,8 +59,9 @@ struct HomeView: View {
                         textButton: "Thêm từ này"
                     ) {
                         viewModel.searchVocabulary = nil
-                    } addVocabulary: { note in
-                        isPresentCreateCategory.toggle()
+                    } addVocabulary: { note, category in
+                        viewModel.addVocabulary(note: note, category: category)
+                        viewModel.searchVocabulary = nil
                     }
                 }
             }

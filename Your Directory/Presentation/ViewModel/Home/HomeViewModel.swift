@@ -35,9 +35,10 @@ class HomeViewModel: ObservableObject {
         }
     }
 
-    func addNewVocabulary(note: String) {
+    func addVocabulary(note: String, category: Category) {
         guard var vocabulary = searchVocabulary else { return }
         vocabulary.vocabularyNote = note
+        vocabulary.category = category
         vocabularys.vocabularys.append(vocabulary)
         let collectionPath = ""
         firestoreManager.addData(

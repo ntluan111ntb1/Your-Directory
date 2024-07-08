@@ -14,12 +14,12 @@ struct DetailVocabularyView: View {
     @Binding var vocabulary: Vocabulary
     @Binding var categorys: Categorys
     @State var note = ""
-    @State var chonsedCategory = Category(name: "", color: "")
+    @State var selectedCategory = Category(name: "", color: "")
 
     let textButton: String
 
     let dismiss: () -> Void
-    var addVocabulary: ((String) -> Void)? = nil
+    var addVocabulary: ((String, Category) -> Void)? = nil
     var deleteVocabulary: (() -> Void)? = nil
 
     var body: some View {
@@ -42,7 +42,7 @@ struct DetailVocabularyView: View {
                 color: .orangeCustomize,
                 foregroundColor: .white
             ) {
-                addVocabulary?(note)
+                addVocabulary?(note, selectedCategory)
                 deleteVocabulary?()
             }
         }
@@ -62,6 +62,7 @@ struct DetailVocabularyView: View {
                     Vocabulary.Definition(definition: "definition", example: "example")
                 ],
                 partOfSpeech: "noun",
+                category: nil,
                 vocabularyNote: ""
             )
         ),

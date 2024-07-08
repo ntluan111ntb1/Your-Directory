@@ -8,12 +8,13 @@
 import Foundation
 
 struct Vocabulary: Codable, Identifiable {
-    let id = UUID()
+    var id = UUID()
     var word: String
     var phonetics: String
     var audio: String
     var descriptions: [Definition]
     var partOfSpeech: String
+    var category: Category?
     var vocabularyNote: String?
 
     struct Definition: Codable {

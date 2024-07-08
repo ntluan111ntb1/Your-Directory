@@ -22,7 +22,11 @@ extension DetailVocabularyView {
             HStack {
                 GIFView(type: .name("folder"))
                     .frame(width: 32, height: 32)
-                Picker("Chọn danh mục", selection: $chonsedCategory) {
+                Picker(
+                    "Chọn danh mục",
+                    selection: vocabulary.category == nil
+                    ? $selectedCategory
+                    : .constant(vocabulary.category ?? Category(name: "", color: ""))) {
                     ForEach(categorys.categorys) { category in
                         HStack {
                             Circle()
