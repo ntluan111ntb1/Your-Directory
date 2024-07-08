@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-extension CreateCategoryView: View {
+extension CreateCategoryView {
     func makeHeader() -> some View {
         HStack {
             Text("Tạo mới thể loại")

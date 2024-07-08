@@ -11,7 +11,7 @@ struct CreateCategoryView: View {
     @Binding var isPresentSheet: Bool
 
     @State var category = ""
-    @State private var selectedColor: CustomColor = .vividViolet
+    @State var selectedColor: CustomColor = .vividViolet
     
     let createCategory: (Category) -> Void
 

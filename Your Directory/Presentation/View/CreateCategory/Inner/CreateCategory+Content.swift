@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-extension CreateCategoryView: View {
+extension CreateCategoryView {
     func makeContentOfCategory() -> some View {
         VStack(spacing: 0) {
             TextFieldImageGif(
