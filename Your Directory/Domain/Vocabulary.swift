@@ -7,7 +7,12 @@
 
 import Foundation
 
-struct Vocabulary: Codable, Identifiable {
+struct Vocabulary: Codable, Identifiable, Equatable {
+    static func == (lhs: Vocabulary, rhs: Vocabulary) -> Bool {
+        lhs.id == rhs.id
+        && lhs.word == rhs.word
+    }
+    
     var id = UUID()
     var word: String
     var phonetics: String

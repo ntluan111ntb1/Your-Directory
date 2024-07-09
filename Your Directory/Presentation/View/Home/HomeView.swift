@@ -75,6 +75,7 @@ struct HomeView: View {
                 textButton: "Xóa từ này") {
                     selectedVocabulary = nil
                 } deleteVocabulary: {
+                    viewModel.deleteVocabulary(vocabulary: selectedContent)
                     selectedVocabulary = nil
                 }
                 .presentationDetents([.medium, .large])
@@ -82,7 +83,7 @@ struct HomeView: View {
         })
         .sheet(isPresented: $isPresentCreateFolder, content: {
             CreateFolderView(isPresentSheet: $isPresentCreateFolder) { folder in
-                viewModel.addNewFolder(folder: folder)
+                viewModel.addFolder(folder: folder)
                 isPresentCreateFolder.toggle()
             }
             .presentationDetents([.medium])

@@ -10,7 +10,14 @@ import FirebaseFirestore
 import FirebaseAuth
 
 class FirestoreManager {
-    private let db = Firestore.firestore()
+
+    func makeDataBaseOfUser() -> DocumentReference? {
+        guard let user = Auth.auth().currentUser else {
+            print("Error: User not loggin")
+            return nil
+        }
+        return Firestore.firestore().collection("users").document(user.uid)
+    }
 
     func addData<T: Encodable>(
         collection: String,
@@ -18,20 +25,16 @@ class FirestoreManager {
         data: T,
         completion: @escaping (Error?) -> Void
     ) {
-        guard let user = Auth.auth().currentUser else {
-            completion(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "User not signed in"]))
+        guard let userDb = makeDataBaseOfUser() else {
             return
         }
-
         do {
             let jsonData = try JSONEncoder().encode(data)
             guard let dictionary = try JSONSerialization.jsonObject(with: jsonData, options: .allowFragments) as? [String: Any] else {
                 completion(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to convert data to dictionary"]))
                 return
             }
-            db
-                .collection("users")
-                .document(user.uid)
+            userDb
                 .collection(collection)
                 .document(document)
                 .setData(dictionary) { error in
@@ -46,13 +49,10 @@ class FirestoreManager {
         collection: String,
         completion: @escaping ([T]?, Error?) -> Void
     ) {
-        guard let user = Auth.auth().currentUser else {
-            completion(nil, NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "User not signed in"]))
+        guard let userDb = makeDataBaseOfUser() else {
             return
         }
-
-        let collectionRef = db.collection("users").document(user.uid).collection(collection)
-            collectionRef.getDocuments { snapshot, error in
+        userDb.collection(collection).getDocuments { snapshot, error in
             if let error = error {
                 completion(nil, error)
                 return
@@ -74,18 +74,16 @@ class FirestoreManager {
         }
     }
 
-//    func deleteData(
-//        collectionPath: String,
-//        document: String,
-//        completion: @escaping (T?, Error?) -> Void
-//    ) {
-//        guard let user = Auth.auth().currentUser else {
-//            completion(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "User not signed in"]))
-//            return
-//        }
-//
-//        db.collection(collection).document(user.uid).delete { error in
-//            completion(error)
-//        }
-//    }
+    func deleteData(
+        collection: String,
+        document: String,
+        completion: @escaping (Error?) -> Void
+    ) {
+        guard let userDb = makeDataBaseOfUser() else {
+            return
+        }
+        userDb.collection(collection).document(document).delete { error in
+            completion(error)
+        }
+    }
 }
