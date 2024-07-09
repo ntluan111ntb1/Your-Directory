@@ -15,7 +15,9 @@ extension HomeView {
                     HStack {
                         Spacer()
                         Text(folder.name)
+                            .fontStyle(.mediumBold)
                             .padding(8)
+                            .padding(.horizontal, 16)
                             .background(RoundedCornersShape(corners: .allCorners, radius: 16).fill(ConvertColor.colorFromHex(folder.color)))
                         Spacer()
                     }
@@ -26,11 +28,5 @@ extension HomeView {
             }
         }
         .padding(.vertical, 8)
-        .background(
-            RoundedCornersShape(corners: .allCorners, radius: 8)
-                .fill(.white)
-                .shadow(radius: 4)
-        )
-        .padding()
     }
 }

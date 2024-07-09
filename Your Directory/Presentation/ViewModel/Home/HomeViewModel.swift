@@ -12,7 +12,12 @@ class HomeViewModel: ObservableObject {
     private var disposables = Set<AnyCancellable>()
 
     @Published var vocabularys = [Vocabulary]()
-    @Published var folders = [Folder]()
+    @Published var folders = [
+        Folder(name: "Hihihi", color: "FFE9D0"),
+        Folder(name: "Danh Từ", color: "FFFED3"),
+        Folder(name: "Động từ", color: "BBE9FF"),
+        Folder(name: "Trạng từ", color: "B1AFFF"),
+    ]
     @Published var searchVocabulary: Vocabulary?
 
     let firestoreManager = FirestoreManager()

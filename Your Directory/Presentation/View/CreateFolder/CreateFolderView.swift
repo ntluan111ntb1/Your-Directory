@@ -11,7 +11,7 @@ struct CreateFolderView: View {
     @Binding var isPresentSheet: Bool
 
     @State var folder = ""
-    @State var selectedColor: CustomColor = .vividViolet
+    @State var selectedColor: CustomColor = .style1
     
     let createFolder: (Folder) -> Void
 

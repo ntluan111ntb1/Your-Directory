@@ -8,13 +8,13 @@
 import SwiftUI
 
 enum CustomColor: String, CaseIterable, Identifiable {
-    case vividViolet = "#A43AFF"
-    case softMintGreen = "#CEEBC7"
-    case vibrantOrangeRed = "#FF6D3B"
-    case brightYellow = "#FAD13F"
-    case paleLavender = "#EFCCFF"
-    case lightSkyBlue = "#B3E5FF"
-    
+    case style1 = "#FFE9D0"
+    case style2 = "#FFFED3"
+    case style3 = "#BBE9FF"
+    case style4 = "#B1AFFF"
+    case style5 = "#D8EFD3"
+    case style6 = "#95D2B3"
+
     var id: String { self.rawValue }
     
     var color: Color {
@@ -23,12 +23,12 @@ enum CustomColor: String, CaseIterable, Identifiable {
     
     var name: String {
         switch self {
-        case .vividViolet: return "Vivid Violet"
-        case .softMintGreen: return "Soft Mint Green"
-        case .vibrantOrangeRed: return "Vibrant Orange Red"
-        case .brightYellow: return "Bright Yellow"
-        case .paleLavender: return "Pale Lavender"
-        case .lightSkyBlue: return "Light Sky Blue"
+        case .style1: return "style1"
+        case .style2: return "style2"
+        case .style3: return "style3"
+        case .style4: return "style4"
+        case .style5: return "style5"
+        case .style6: return "style6"
         }
     }
 }

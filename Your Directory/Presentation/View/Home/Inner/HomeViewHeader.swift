@@ -11,8 +11,13 @@ extension HomeView {
     func makeHeader() -> some View {
         HStack {
             VStack(alignment: .leading) {
-                Text("Hi, \(user?.profile?.name ?? "")")
-                    .fontStyle(.largeBold)
+                HStack(spacing: 0){
+                    Text("Hi, ")
+                        .fontStyle(.largeBold)
+                    Text("\(user?.profile?.name ?? "")")
+                        .fontStyle(.largeBold)
+                        .foregroundStyle(Color.orangeCustomize)
+                }
                 Text("Wellcome back")
             }
             Spacer()
@@ -24,6 +29,7 @@ extension HomeView {
                     authenticationViewModel.signOut()
                 }
         }
+        .padding(.horizontal, 16)
     }
 }
 

@@ -11,30 +11,28 @@ extension HomeView {
     func makeBottomTabBar() -> some View {
         HStack(alignment: .bottom) {
             Spacer()
-            ButtonIcons(name: "home", size: 36) {
+            ButtonIcons(name: "home", size: 44) {
                 viewModel.getFolders()
             }
-                .padding(.bottom, 16)
-                .padding(.top, 8)
+            .padding(.bottom, 16)
             Spacer()
             Button {
                 isPresentCreateFolder.toggle()
             } label: {
-                Image("button_plus")
+                Image("add")
                     .resizable()
                     .frame(width: 60, height: 60)
             }
             .offset(x:0, y: -34)
             Spacer()
-            ButtonIcons(name: "profile", size: 36) { }
+            ButtonIcons(name: "folder", size: 40) { }
                 .padding(.bottom, 16)
-                .padding(.top, 8)
             Spacer()
         }
         .padding(.bottom)
         .background {
             RoundedCornersShape(corners: [.topLeft, .topRight], radius: 24)
-                .fill(.white)
+                .fill(ConvertColor.colorFromHex("d6d0b6"))
                 .shadow(radius: 4)
         }
     }

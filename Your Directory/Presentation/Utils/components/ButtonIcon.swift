@@ -22,10 +22,6 @@ struct ButtonIcons: View {
                 .resizable()
                 .frame(width: size, height: size)
                 .padding(4)
-                .background(
-                    RoundedCornersShape(corners: [.topLeft, .topRight], radius: 8)
-                        .fill(.white)
-                )
                 .shadow(radius: isPressed ? 4 : 0)
         }
     }

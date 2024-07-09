@@ -28,7 +28,6 @@ struct HomeView: View {
     var body: some View {
         VStack(alignment: .leading) {
             makeHeader()
-                .padding(.horizontal, 16)
             makeSearch()
             makeListFolder()
             makeListVocabulary()
@@ -43,11 +42,7 @@ struct HomeView: View {
         .frame(
             width: UIScreen.main.bounds.size.width
         )
-        .background(LinearGradient(
-            colors: [.lightBlue.opacity(0.5), .lightPink.opacity(0.5)],
-            startPoint: .leading,
-            endPoint: .trailing)
-        )
+        .background(ConvertColor.colorFromHex("aebebc"))
         .sheet(item: $viewModel.searchVocabulary, onDismiss: {
             viewModel.searchVocabulary = nil
         }, content: { searchVocabulary in
