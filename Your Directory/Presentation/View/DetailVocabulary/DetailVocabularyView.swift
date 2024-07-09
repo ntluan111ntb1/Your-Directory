@@ -39,8 +39,8 @@ struct DetailVocabularyView: View {
             )
             ButtonFullWidthView(
                 lable: textButton,
-                color: .orangeCustomize,
-                foregroundColor: .white
+                color: .yellowCustome,
+                foregroundColor: .black
             ) {
                 addVocabulary?(note, selectedFolder)
                 deleteVocabulary?()

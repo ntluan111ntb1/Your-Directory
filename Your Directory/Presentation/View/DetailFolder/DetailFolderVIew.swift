@@ -43,8 +43,8 @@ struct DetailFolderView: View {
             Spacer()
             ButtonFullWidthView(
                 lable: "Xóa folder này",
-                color: .purpleCustomize,
-                foregroundColor: .white
+                color: .yellowCustome,
+                foregroundColor: .black
             ) {
                 remove()
             }

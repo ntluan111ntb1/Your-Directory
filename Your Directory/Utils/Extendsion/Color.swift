@@ -18,11 +18,11 @@ extension Color {
     }
 
     static var orangeCustomize: Color {
-        return Color(UIColor(red: 255 / 255, green: 109 / 255, blue: 59 / 255, alpha: 1.0))
+        return ConvertColor.colorFromHex("d6d0b6")
     }
 
-    static var yellow: Color {
-        return Color(UIColor(red: 250 / 255, green: 209 / 255, blue: 63 / 255, alpha: 1.0))
+    static var yellowCustome: Color {
+        return ConvertColor.colorFromHex("fdc80a")
     }
 
     static var lightPink: Color {

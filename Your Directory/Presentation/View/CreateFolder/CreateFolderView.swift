@@ -12,7 +12,7 @@ struct CreateFolderView: View {
 
     @State var folder = ""
     @State var selectedColor: CustomColor = .style1
-    
+
     let createFolder: (Folder) -> Void
 
     var body: some View {
@@ -31,12 +31,12 @@ struct CreateFolderView: View {
             Spacer()
             ButtonFullWidthView(
                 lable: "Tạo thôi nào",
-                color: .purpleCustomize,
-                foregroundColor: .white) {
+                color: .yellowCustome,
+                foregroundColor: .black) {
                     createFolder(Folder(name: folder, color: selectedColor.rawValue))
                 }
         }
         .padding(16)
-        .background(Image("sheet"))
+        .background(Color.orangeCustomize)
     }
 }

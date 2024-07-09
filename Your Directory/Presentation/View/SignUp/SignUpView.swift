@@ -48,8 +48,8 @@ struct SignUpView: View {
                     Spacer()
                     ButtonFullWidthView(
                         lable: "Let's Go",
-                        color: Color.purpleCustomize,
-                        foregroundColor: .white) {
+                        color: .yellowCustome,
+                        foregroundColor: .black) {
                             handleHomePresent()
                         }
                 }

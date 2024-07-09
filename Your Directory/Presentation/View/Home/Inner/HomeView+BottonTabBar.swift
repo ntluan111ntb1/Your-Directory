@@ -32,7 +32,7 @@ extension HomeView {
         .padding(.bottom)
         .background {
             RoundedCornersShape(corners: [.topLeft, .topRight], radius: 24)
-                .fill(ConvertColor.colorFromHex("d6d0b6"))
+                .fill(Color.orangeCustomize)
                 .shadow(radius: 4)
         }
     }

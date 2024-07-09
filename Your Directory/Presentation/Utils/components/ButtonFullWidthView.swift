@@ -28,10 +28,9 @@ struct ButtonFullWidthView: View {
         .foregroundStyle(foregroundColor)
         .background(color)
         .overlay {
-            RoundedRectangle(cornerRadius: 64)
-                .stroke(Color.lightBlue, lineWidth: 4)
+            RoundedRectangle(cornerRadius: 62)
+                .stroke(.black, lineWidth: 4)
         }
         .cornerRadius(62)
-        .shadow(color: Color.lightBlue, radius: 4, x: 0, y: 4)
     }
 }
