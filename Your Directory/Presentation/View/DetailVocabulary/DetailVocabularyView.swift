@@ -12,14 +12,14 @@ struct DetailVocabularyView: View {
     @StateObject var viewModel = DetailVocabularyViewModel()
 
     @Binding var vocabulary: Vocabulary
-    @Binding var categorys: Categorys
+    @Binding var categorys: [Folder]
     @State var note = ""
-    @State var selectedCategory = Category(name: "", color: "")
+    @State var selectedCategory = Folder(name: "", color: "")
 
     let textButton: String
 
     let dismiss: () -> Void
-    var addVocabulary: ((String, Category) -> Void)? = nil
+    var addVocabulary: ((String, Folder) -> Void)? = nil
     var deleteVocabulary: (() -> Void)? = nil
 
     var body: some View {
@@ -66,7 +66,7 @@ struct DetailVocabularyView: View {
                 vocabularyNote: ""
             )
         ),
-        categorys: .constant(Categorys(categorys: [])),
+        categorys: .constant([]),
         textButton: "Thêm từ này",
         dismiss: {}
     )

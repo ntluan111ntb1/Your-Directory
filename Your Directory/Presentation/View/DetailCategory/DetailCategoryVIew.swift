@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DetailCategoryVIew: View {
-    @Binding var category: Category
+    @Binding var category: Folder
     
     var body: some View {
         VStack(spacing: 16) {

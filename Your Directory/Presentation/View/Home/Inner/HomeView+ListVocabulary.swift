@@ -11,7 +11,7 @@ extension HomeView {
     func makeListVocabulary() -> some View {
         ScrollView(showsIndicators: false) {
             LazyVGrid(columns: layout) {
-                ForEach(viewModel.vocabularys.vocabularys, id: \.id) { vocabulary in
+                ForEach(viewModel.vocabularys, id: \.id) { vocabulary in
                     VocabularyCardView(vocabulary: vocabulary) {
                         selectedVocabulary = vocabulary
                     }

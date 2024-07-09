@@ -18,7 +18,7 @@ struct HomeView: View {
     @State var isPresentCreateCategory = false
     @State var isPresentSearchView = false
     @State var selectedVocabulary: Vocabulary? = nil
-    @State var selectedCategory: Category? = nil
+    @State var selectedCategory: Folder? = nil
 
     let layout = [
         GridItem(.flexible()),
@@ -37,7 +37,7 @@ struct HomeView: View {
         }
         .onAppear {
             viewModel.getVocabularys()
-            viewModel.getCategorys()
+            viewModel.getFolders()
         }
         .ignoresSafeArea(edges: .bottom)
         .frame(
@@ -55,7 +55,7 @@ struct HomeView: View {
                 NavigationStack {
                     DetailVocabularyView(
                         vocabulary: .constant(searchVocabulary),
-                        categorys: .constant(viewModel.categorys),
+                        categorys: .constant(viewModel.folders),
                         textButton: "Thêm từ này"
                     ) {
                         viewModel.searchVocabulary = nil
@@ -71,7 +71,7 @@ struct HomeView: View {
         .sheet(item: $selectedVocabulary, content: { selectedContent in
             DetailVocabularyView(
                 vocabulary: .constant(selectedContent), 
-                categorys: .constant(viewModel.categorys),
+                categorys: .constant(viewModel.folders),
                 textButton: "Xóa từ này") {
                     selectedVocabulary = nil
                 } deleteVocabulary: {

@@ -26,8 +26,8 @@ extension DetailVocabularyView {
                     "Chọn danh mục",
                     selection: vocabulary.category == nil
                     ? $selectedCategory
-                    : .constant(vocabulary.category ?? Category(name: "", color: ""))) {
-                    ForEach(categorys.categorys) { category in
+                    : .constant(vocabulary.category ?? Folder(name: "", color: ""))) {
+                    ForEach(categorys) { category in
                         HStack {
                             Circle()
                                 .fill(ConvertColor.colorFromHex(category.color))

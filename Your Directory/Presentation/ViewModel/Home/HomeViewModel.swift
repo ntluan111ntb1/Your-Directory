@@ -11,19 +11,17 @@ import Combine
 class HomeViewModel: ObservableObject {
     private var disposables = Set<AnyCancellable>()
 
-    @Published var vocabularys = Vocabularys(vocabularys: [])
-    @Published var categorys = Categorys(categorys: [])
+    @Published var vocabularys = [Vocabulary]()
+    @Published var folders = [Folder]()
     @Published var searchVocabulary: Vocabulary?
 
     let firestoreManager = FirestoreManager()
 
     func getVocabularys() {
-        let collectionPath = ""
         firestoreManager.fetchData(
-            collectionPath: collectionPath,
-            document: AppConstants.vocabularysDocument
+            collection: AppConstants.vocabularysCollection
         ) {
-            (vocabularys: Vocabularys?, error) in
+            (vocabularys: [Vocabulary]?, error) in
             if let error = error {
                 print("Error fetching data: \(error)")
             } else {
@@ -35,16 +33,15 @@ class HomeViewModel: ObservableObject {
         }
     }
 
-    func addVocabulary(note: String, category: Category) {
+    func addVocabulary(note: String, category: Folder) {
         guard var vocabulary = searchVocabulary else { return }
         vocabulary.vocabularyNote = note
         vocabulary.category = category
-        vocabularys.vocabularys.append(vocabulary)
-        let collectionPath = ""
+        vocabularys.append(vocabulary)
         firestoreManager.addData(
-            collectionPath: collectionPath,
-            document: AppConstants.vocabularysDocument,
-            data: vocabularys
+            collection: AppConstants.vocabularysCollection,
+            document: vocabulary.word,
+            data: vocabulary
         ) { error in
             if let error = error {
                 print("Error adding document: \(error)")
@@ -54,31 +51,29 @@ class HomeViewModel: ObservableObject {
         }
     }
     
-    func getCategorys() {
+    func getFolders() {
         let collectionPath = ""
         firestoreManager.fetchData(
-            collectionPath: collectionPath,
-            document: AppConstants.categorysDocument
+            collection: AppConstants.categorysCollection
         ) {
-            (categorys: Categorys?, error) in
+            (categorys: [Folder]?, error) in
             if let error = error {
                 print("Error fetching data: \(error)")
             } else {
                 guard let categorys = categorys else {
                     return
                 }
-                self.categorys = categorys
+                self.folders = categorys
             }
         }
     }
     
-    func addNewCategory(category: Category) {
-        categorys.categorys.append(category)
-        let collectionPath = ""
+    func addNewCategory(category: Folder) {
+        folders.append(category)
         firestoreManager.addData(
-            collectionPath: collectionPath,
-            document: AppConstants.categorysDocument,
-            data: categorys
+            collection: AppConstants.categorysCollection,
+            document: category.name,
+            data: category
         ) { error in
             if let error = error {
                 print("Error adding document: \(error)")

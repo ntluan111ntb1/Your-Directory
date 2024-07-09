@@ -14,7 +14,7 @@ struct Vocabulary: Codable, Identifiable {
     var audio: String
     var descriptions: [Definition]
     var partOfSpeech: String
-    var category: Category?
+    var category: Folder?
     var vocabularyNote: String?
 
     struct Definition: Codable {

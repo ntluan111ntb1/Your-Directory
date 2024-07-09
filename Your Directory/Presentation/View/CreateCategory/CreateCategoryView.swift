@@ -13,7 +13,7 @@ struct CreateCategoryView: View {
     @State var category = ""
     @State var selectedColor: CustomColor = .vividViolet
     
-    let createCategory: (Category) -> Void
+    let createCategory: (Folder) -> Void
 
     var body: some View {
         VStack(spacing: 16) {
@@ -33,7 +33,7 @@ struct CreateCategoryView: View {
                 lable: "Tạo thôi nào",
                 color: .purpleCustomize,
                 foregroundColor: .white) {
-                    createCategory(Category(name: category, color: selectedColor.rawValue))
+                    createCategory(Folder(name: category, color: selectedColor.rawValue))
                 }
         }
         .padding(16)

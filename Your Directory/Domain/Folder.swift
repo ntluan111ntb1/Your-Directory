@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Category: Codable, Identifiable, Hashable {
+struct Folder: Codable, Identifiable, Hashable {
     var id = UUID()
     var name: String
     var color: String

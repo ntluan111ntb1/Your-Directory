@@ -11,7 +11,7 @@ extension HomeView {
     func makeListCategory() -> some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
-                ForEach(viewModel.categorys.categorys) { category in
+                ForEach(viewModel.folders) { category in
                     HStack {
                         Spacer()
                         Text(category.name)

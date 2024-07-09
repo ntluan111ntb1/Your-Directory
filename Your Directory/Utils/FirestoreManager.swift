@@ -13,7 +13,7 @@ class FirestoreManager {
     private let db = Firestore.firestore()
 
     func addData<T: Encodable>(
-        collectionPath: String,
+        collection: String,
         document: String,
         data: T,
         completion: @escaping (Error?) -> Void
@@ -29,41 +29,63 @@ class FirestoreManager {
                 completion(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to convert data to dictionary"]))
                 return
             }
-            db.collection("\(user.uid)/\(collectionPath)").document(document).setData(dictionary) { error in
-                completion(error)
-            }
+            db
+                .collection("users")
+                .document(user.uid)
+                .collection(collection)
+                .document(document)
+                .setData(dictionary) { error in
+                    completion(error)
+                }
         } catch {
             completion(error)
         }
     }
 
     func fetchData<T: Decodable>(
-        collectionPath: String,
-        document: String,
-        completion: @escaping (T?, Error?) -> Void
+        collection: String,
+        completion: @escaping ([T]?, Error?) -> Void
     ) {
         guard let user = Auth.auth().currentUser else {
             completion(nil, NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "User not signed in"]))
             return
         }
 
-        db.collection("\(user.uid)/\(collectionPath)").document(document).getDocument { document, error in
+        let collectionRef = db.collection("users").document(user.uid).collection(collection)
+            collectionRef.getDocuments { snapshot, error in
             if let error = error {
                 completion(nil, error)
                 return
             }
-            guard let document = document, document.exists else {
-                completion(nil, NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Document does not exist"]))
+            guard let documents = snapshot?.documents else {
+                completion(nil, NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "No documents found"]))
                 return
             }
 
             do {
-                let data = try document.data(as: T.self)
+                let data = try documents.map { document in
+                    try document.data(as: T.self)
+                }
                 completion(data, nil)
             } catch {
-                print("==> Error decoding document data: \(error.localizedDescription)")
+                print("==> Error decoding documents: \(error.localizedDescription)")
                 completion(nil, error)
             }
         }
     }
+
+//    func deleteData(
+//        collectionPath: String,
+//        document: String,
+//        completion: @escaping (T?, Error?) -> Void
+//    ) {
+//        guard let user = Auth.auth().currentUser else {
+//            completion(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "User not signed in"]))
+//            return
+//        }
+//
+//        db.collection(collection).document(user.uid).delete { error in
+//            completion(error)
+//        }
+//    }
 }
