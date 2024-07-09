@@ -15,10 +15,10 @@ struct HomeView: View {
     @StateObject var viewModel = HomeViewModel()
 
     @State var search = ""
-    @State var isPresentCreateCategory = false
+    @State var isPresentCreateFolder = false
     @State var isPresentSearchView = false
     @State var selectedVocabulary: Vocabulary? = nil
-    @State var selectedCategory: Folder? = nil
+    @State var selectedFolder: Folder? = nil
 
     let layout = [
         GridItem(.flexible()),
@@ -30,7 +30,7 @@ struct HomeView: View {
             makeHeader()
                 .padding(.horizontal, 16)
             makeSearch()
-            makeListCategory()
+            makeListFolder()
             makeListVocabulary()
             Spacer()
             makeBottomTabBar()
@@ -55,12 +55,12 @@ struct HomeView: View {
                 NavigationStack {
                     DetailVocabularyView(
                         vocabulary: .constant(searchVocabulary),
-                        categorys: .constant(viewModel.folders),
+                        folders: .constant(viewModel.folders),
                         textButton: "Thêm từ này"
                     ) {
                         viewModel.searchVocabulary = nil
-                    } addVocabulary: { note, category in
-                        viewModel.addVocabulary(note: note, category: category)
+                    } addVocabulary: { note, folder in
+                        viewModel.addVocabulary(note: note, folder: folder)
                         viewModel.searchVocabulary = nil
                     }
                 }
@@ -71,7 +71,7 @@ struct HomeView: View {
         .sheet(item: $selectedVocabulary, content: { selectedContent in
             DetailVocabularyView(
                 vocabulary: .constant(selectedContent), 
-                categorys: .constant(viewModel.folders),
+                folders: .constant(viewModel.folders),
                 textButton: "Xóa từ này") {
                     selectedVocabulary = nil
                 } deleteVocabulary: {
@@ -80,16 +80,16 @@ struct HomeView: View {
                 .presentationDetents([.medium, .large])
                 .presentationCornerRadius(38)
         })
-        .sheet(isPresented: $isPresentCreateCategory, content: {
-            CreateCategoryView(isPresentSheet: $isPresentCreateCategory) { category in
-                viewModel.addNewCategory(category: category)
-                isPresentCreateCategory.toggle()
+        .sheet(isPresented: $isPresentCreateFolder, content: {
+            CreateFolderView(isPresentSheet: $isPresentCreateFolder) { folder in
+                viewModel.addNewFolder(folder: folder)
+                isPresentCreateFolder.toggle()
             }
             .presentationDetents([.medium])
             .presentationCornerRadius(38)
         })
-        .sheet(item: $selectedCategory, content: { selectedContent in
-            DetailCategoryVIew(category: .constant(selectedContent))
+        .sheet(item: $selectedFolder, content: { selectedContent in
+            DetailFolderView(folder: .constant(selectedContent))
                 .presentationDetents([.medium, .large])
                 .presentationCornerRadius(38)
         })

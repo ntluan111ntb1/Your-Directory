@@ -1,5 +1,5 @@
 //
-//  Category.swift
+//  Folder.swift
 //  Your Directory
 //
 //  Created by Nguyễn Luân on 22/06/2024.

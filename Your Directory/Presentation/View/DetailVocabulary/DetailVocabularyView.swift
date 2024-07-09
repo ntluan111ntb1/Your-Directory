@@ -12,9 +12,9 @@ struct DetailVocabularyView: View {
     @StateObject var viewModel = DetailVocabularyViewModel()
 
     @Binding var vocabulary: Vocabulary
-    @Binding var categorys: [Folder]
+    @Binding var folders: [Folder]
     @State var note = ""
-    @State var selectedCategory = Folder(name: "", color: "")
+    @State var selectedFolder = Folder(name: "", color: "")
 
     let textButton: String
 
@@ -42,7 +42,7 @@ struct DetailVocabularyView: View {
                 color: .orangeCustomize,
                 foregroundColor: .white
             ) {
-                addVocabulary?(note, selectedCategory)
+                addVocabulary?(note, selectedFolder)
                 deleteVocabulary?()
             }
         }
@@ -62,11 +62,11 @@ struct DetailVocabularyView: View {
                     Vocabulary.Definition(definition: "definition", example: "example")
                 ],
                 partOfSpeech: "noun",
-                category: nil,
+                folder: nil,
                 vocabularyNote: ""
             )
         ),
-        categorys: .constant([]),
+        folders: .constant([]),
         textButton: "Thêm từ này",
         dismiss: {}
     )

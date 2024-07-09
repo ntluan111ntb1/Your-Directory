@@ -1,5 +1,5 @@
 //
-//  DetailCategoryVIew.swift
+//  CreateFolderView.swift
 //  Your Directory
 //
 //  Created by Nguyễn Luân on 22/06/2024.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct DetailCategoryVIew: View {
-    @Binding var category: Folder
+struct DetailFolderView: View {
+    @Binding var folder: Folder
     
     var body: some View {
         VStack(spacing: 16) {
@@ -27,7 +27,7 @@ struct DetailCategoryVIew: View {
                 .padding(.horizontal, 16)
                 Divider()
                 TextFieldImageGif(
-                    text: $category.name,
+                    text: $folder.name,
                     imageName: "notebook",
                     placeholder: "Tên của thể loại",
                     sizeImage: 40
@@ -41,7 +41,7 @@ struct DetailCategoryVIew: View {
             )
             Spacer()
             ButtonFullWidthView(
-                lable: "Xóa category này",
+                lable: "Xóa folder này",
                 color: .purpleCustomize,
                 foregroundColor: .white) {
 /// TOdo

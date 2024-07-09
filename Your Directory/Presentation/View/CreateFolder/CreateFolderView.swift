@@ -1,5 +1,5 @@
 //
-//  CreateCategoryView.swift
+//  CreateFolderView.swift
 //  Your Directory
 //
 //  Created by Nguyễn Luân on 19/06/2024.
@@ -7,20 +7,20 @@
 
 import SwiftUI
 
-struct CreateCategoryView: View {
+struct CreateFolderView: View {
     @Binding var isPresentSheet: Bool
 
-    @State var category = ""
+    @State var folder = ""
     @State var selectedColor: CustomColor = .vividViolet
     
-    let createCategory: (Folder) -> Void
+    let createFolder: (Folder) -> Void
 
     var body: some View {
         VStack(spacing: 16) {
             VStack {
                 makeHeader()
                 Divider()
-                makeContentOfCategory()
+                makeContentOfFolder()
             }
             .padding(16)
             .background(
@@ -33,7 +33,7 @@ struct CreateCategoryView: View {
                 lable: "Tạo thôi nào",
                 color: .purpleCustomize,
                 foregroundColor: .white) {
-                    createCategory(Folder(name: category, color: selectedColor.rawValue))
+                    createFolder(Folder(name: folder, color: selectedColor.rawValue))
                 }
         }
         .padding(16)

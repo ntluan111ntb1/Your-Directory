@@ -1,5 +1,5 @@
 //
-//  CreateCategory+Header.swift
+//  CreateFolder+Header.swift
 //  Your Directory
 //
 //  Created by LuanNT29 on 05/07/2024.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-extension CreateCategoryView {
+extension CreateFolderView {
     func makeHeader() -> some View {
         HStack {
             Text("Tạo mới thể loại")

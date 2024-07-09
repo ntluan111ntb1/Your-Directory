@@ -33,10 +33,10 @@ class HomeViewModel: ObservableObject {
         }
     }
 
-    func addVocabulary(note: String, category: Folder) {
+    func addVocabulary(note: String, folder: Folder) {
         guard var vocabulary = searchVocabulary else { return }
         vocabulary.vocabularyNote = note
-        vocabulary.category = category
+        vocabulary.folder = folder
         vocabularys.append(vocabulary)
         firestoreManager.addData(
             collection: AppConstants.vocabularysCollection,
@@ -54,26 +54,26 @@ class HomeViewModel: ObservableObject {
     func getFolders() {
         let collectionPath = ""
         firestoreManager.fetchData(
-            collection: AppConstants.categorysCollection
+            collection: AppConstants.foldersCollection
         ) {
-            (categorys: [Folder]?, error) in
+            (folders: [Folder]?, error) in
             if let error = error {
                 print("Error fetching data: \(error)")
             } else {
-                guard let categorys = categorys else {
+                guard let folders = folders else {
                     return
                 }
-                self.folders = categorys
+                self.folders = folders
             }
         }
     }
     
-    func addNewCategory(category: Folder) {
-        folders.append(category)
+    func addNewFolder(folder: Folder) {
+        folders.append(folder)
         firestoreManager.addData(
-            collection: AppConstants.categorysCollection,
-            document: category.name,
-            data: category
+            collection: AppConstants.foldersCollection,
+            document: folder.name,
+            data: folder
         ) { error in
             if let error = error {
                 print("Error adding document: \(error)")

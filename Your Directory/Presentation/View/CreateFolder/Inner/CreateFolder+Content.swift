@@ -1,5 +1,5 @@
 //
-//  CreateCategory+Content.swift
+//  CreateFolder+Content.swift
 //  Your Directory
 //
 //  Created by LuanNT29 on 05/07/2024.
@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-extension CreateCategoryView {
-    func makeContentOfCategory() -> some View {
+extension CreateFolderView {
+    func makeContentOfFolder() -> some View {
         VStack(spacing: 0) {
             TextFieldImageGif(
-                text: $category,
+                text: $folder,
                 imageName: "notebook",
                 placeholder: "Tên của thể loại",
                 sizeImage: 40

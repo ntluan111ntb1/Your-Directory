@@ -1,5 +1,5 @@
 //
-//  HomeView+ListCategory.swift
+//  HomeView+ListFolder.swift
 //  Your Directory
 //
 //  Created by Nguyễn Luân on 22/06/2024.
@@ -8,19 +8,19 @@
 import SwiftUI
 
 extension HomeView {
-    func makeListCategory() -> some View {
+    func makeListFolder() -> some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
-                ForEach(viewModel.folders) { category in
+                ForEach(viewModel.folders) { folder in
                     HStack {
                         Spacer()
-                        Text(category.name)
+                        Text(folder.name)
                             .padding(8)
-                            .background(RoundedCornersShape(corners: .allCorners, radius: 16).fill(ConvertColor.colorFromHex(category.color)))
+                            .background(RoundedCornersShape(corners: .allCorners, radius: 16).fill(ConvertColor.colorFromHex(folder.color)))
                         Spacer()
                     }
                     .onTapGesture {
-                        selectedCategory = category
+                        selectedFolder = folder
                     }
                 }
             }

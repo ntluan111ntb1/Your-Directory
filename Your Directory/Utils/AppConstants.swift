@@ -8,6 +8,6 @@
 import Foundation
 
 struct AppConstants {
-    static let categorysCollection = "categorys"
+    static let foldersCollection = "folders"
     static let vocabularysCollection = "vocabularys"
 }

@@ -24,18 +24,18 @@ extension DetailVocabularyView {
                     .frame(width: 32, height: 32)
                 Picker(
                     "Chọn danh mục",
-                    selection: vocabulary.category == nil
-                    ? $selectedCategory
-                    : .constant(vocabulary.category ?? Folder(name: "", color: ""))) {
-                    ForEach(categorys) { category in
+                    selection: vocabulary.folder == nil
+                    ? $selectedFolder
+                    : .constant(vocabulary.folder ?? Folder(name: "", color: ""))) {
+                    ForEach(folders) { folder in
                         HStack {
                             Circle()
-                                .fill(ConvertColor.colorFromHex(category.color))
+                                .fill(ConvertColor.colorFromHex(folder.color))
                                 .frame(width: 30, height: 30)
-                            Text(category.name)
+                            Text(folder.name)
                                 .foregroundColor(.primary)
                         }
-                        .tag(category)
+                        .tag(folder)
                     }
                 }
             }
