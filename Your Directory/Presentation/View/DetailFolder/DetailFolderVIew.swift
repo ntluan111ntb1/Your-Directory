@@ -9,7 +9,8 @@ import SwiftUI
 
 struct DetailFolderView: View {
     @Binding var folder: Folder
-    
+    let remove: () -> Void
+
     var body: some View {
         VStack(spacing: 16) {
             VStack {
@@ -43,9 +44,10 @@ struct DetailFolderView: View {
             ButtonFullWidthView(
                 lable: "Xóa folder này",
                 color: .purpleCustomize,
-                foregroundColor: .white) {
-/// TOdo
-                }
+                foregroundColor: .white
+            ) {
+                remove()
+            }
         }
         .padding(16)
         .background(Image("sheet"))

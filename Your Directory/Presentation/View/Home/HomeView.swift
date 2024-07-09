@@ -90,9 +90,12 @@ struct HomeView: View {
             .presentationCornerRadius(38)
         })
         .sheet(item: $selectedFolder, content: { selectedContent in
-            DetailFolderView(folder: .constant(selectedContent))
-                .presentationDetents([.medium, .large])
-                .presentationCornerRadius(38)
+            DetailFolderView(folder: .constant(selectedContent)) {
+                viewModel.deleteFolder(folder: selectedContent)
+                selectedFolder = nil
+            }
+            .presentationDetents([.medium, .large])
+            .presentationCornerRadius(38)
         })
     }
 }

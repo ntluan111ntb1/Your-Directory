@@ -67,6 +67,26 @@ extension HomeViewModel {
             }
         }
     }
+
+    func deleteFolder(folder: Folder) {
+        firestoreManager.deleteData(
+            collection: AppConstants.foldersCollection,
+            document: folder.name
+        ) { error in
+            if let error = error {
+                print("Error adding document: \(error)")
+            } else {
+                if let index = self.folders.firstIndex(of: folder) {
+                    self.folders.remove(at: index)
+                } else {
+                    print("Can not found \(folder.name)")
+                }
+
+                print("remove successfully")
+            }
+
+        }
+    }
 }
 
 // Handle for vocabulary
