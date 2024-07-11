@@ -12,7 +12,7 @@ struct Vocabulary: Codable, Identifiable, Equatable {
         lhs.id == rhs.id
         && lhs.word == rhs.word
     }
-    
+
     var id = UUID()
     var word: String
     var phonetics: String
@@ -27,4 +27,3 @@ struct Vocabulary: Codable, Identifiable, Equatable {
         let example: String?
     }
 }
-

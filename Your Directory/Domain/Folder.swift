@@ -8,7 +8,7 @@
 import Foundation
 
 struct Folder: Codable, Identifiable, Hashable {
-    let id = UUID()
+    var id = UUID()
     var name: String
     var color: String
 }

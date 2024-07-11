@@ -112,7 +112,10 @@ struct HomeView: View {
                 .autohideIn(3)
         }
         .navigationDestination(for: Folder.self) { folder in
-            DetailFolderView(folder: $viewModel.selectedFolder) {
+            DetailFolderView(
+                folder: $viewModel.selectedFolder,
+                vocabularys: viewModel.vocabularys
+            ) {
                 viewModel.deleteFolder(folder: folder) { status, message in
                     self.message = message
                     self.toastStatus = status

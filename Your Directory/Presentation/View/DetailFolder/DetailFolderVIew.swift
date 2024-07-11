@@ -8,38 +8,32 @@
 import SwiftUI
 
 struct DetailFolderView: View {
+    @StateObject var viewModel = DetailFolderViewModel()
     @Binding var folder: Folder
+    @State var selectedVocabulary: Vocabulary? = nil
+
+    let vocabularys: [Vocabulary]
+    
     let remove: () -> Void
+    let layout = [
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+    ]
 
     var body: some View {
         VStack(spacing: 16) {
-            VStack {
-                HStack {
-                    Text("Tạo mới thể loại")
-                        .fontStyle(.largeBold)
-                    Spacer()
-                    Button {
-                    } label: {
-                        Image(systemName: "xmark")
-                            .font(.title2)
-                            .foregroundStyle(.black)
+            ScrollView(showsIndicators: false) {
+                LazyVGrid(columns: layout) {
+                    ForEach(viewModel.vocabularys, id: \.id) { vocabulary in
+                        VocabularyCardView(vocabulary: vocabulary) {
+                            selectedVocabulary = vocabulary
+                        } playSound: {
+                            viewModel.handleSound(sound: vocabulary.audio)
+                        }
                     }
                 }
-                .padding(.horizontal, 16)
-                Divider()
-                TextFieldImageGif(
-                    text: $folder.name,
-                    imageName: "notebook",
-                    placeholder: "Tên của thể loại",
-                    sizeImage: 40
-                )
+                .padding(.horizontal)
             }
-            .padding(16)
-            .background(
-                RoundedCornersShape(corners: .allCorners, radius: 38)
-                    .fill(.white)
-                    .shadow(radius: 4)
-            )
             Spacer()
             ButtonFullWidthView(
                 lable: "Xóa folder này",
@@ -49,7 +43,12 @@ struct DetailFolderView: View {
                 remove()
             }
         }
+        .onAppear {
+            viewModel.getVocabulary(vocabularys: vocabularys, folderId: folder.id)
+        }
         .padding(16)
         .background(Image("sheet"))
+        .navigationTitle(folder.name)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }

@@ -57,6 +57,7 @@
 		0EB8A2562C3BCE0D0001C521 /* DetailVocabulary+Input.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB8A2552C3BCE0D0001C521 /* DetailVocabulary+Input.swift */; };
 		0EB8A2582C3E635C0001C521 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB8A2572C3E635C0001C521 /* ToastView.swift */; };
 		0EB8A25A2C3E69110001C521 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB8A2592C3E69110001C521 /* Status.swift */; };
+		0EB8A25D2C3FBACF0001C521 /* DetailFolderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB8A25C2C3FBACF0001C521 /* DetailFolderViewModel.swift */; };
 		0EFB78512C253A8D0013FFD8 /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFB78502C253A8D0013FFD8 /* Audio.swift */; };
 		0EFB78552C2554B00013FFD8 /* AlamofireNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFB78542C2554B00013FFD8 /* AlamofireNetworkService.swift */; };
 		0EFB78582C2555260013FFD8 /* DictionaryHttp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFB78572C2555260013FFD8 /* DictionaryHttp.swift */; };
@@ -117,6 +118,7 @@
 		0EB8A2552C3BCE0D0001C521 /* DetailVocabulary+Input.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailVocabulary+Input.swift"; sourceTree = "<group>"; };
 		0EB8A2572C3E635C0001C521 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		0EB8A2592C3E69110001C521 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		0EB8A25C2C3FBACF0001C521 /* DetailFolderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFolderViewModel.swift; sourceTree = "<group>"; };
 		0EFB78502C253A8D0013FFD8 /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 		0EFB78542C2554B00013FFD8 /* AlamofireNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireNetworkService.swift; sourceTree = "<group>"; };
 		0EFB78572C2555260013FFD8 /* DictionaryHttp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryHttp.swift; sourceTree = "<group>"; };
@@ -299,6 +301,7 @@
 		0EA6DF4F2C213F9800128A3B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				0EB8A25B2C3FBAB40001C521 /* DetailFolder */,
 				0EABCDF92C34E8160073B7EF /* Authentication */,
 				0801C7602C2599150014AC60 /* DetailVocabulary */,
 				0EA6DF702C22B0AF00128A3B /* Home */,
@@ -425,6 +428,14 @@
 				0EABCE162C37A2B40073B7EF /* CreateFolder+Content.swift */,
 			);
 			path = Inner;
+			sourceTree = "<group>";
+		};
+		0EB8A25B2C3FBAB40001C521 /* DetailFolder */ = {
+			isa = PBXGroup;
+			children = (
+				0EB8A25C2C3FBACF0001C521 /* DetailFolderViewModel.swift */,
+			);
+			path = DetailFolder;
 			sourceTree = "<group>";
 		};
 		0EFB78522C2554940013FFD8 /* Network */ = {
@@ -653,6 +664,7 @@
 				0EA6DF782C23DAA500128A3B /* QLImage.swift in Sources */,
 				08E92FC82C2736670027E207 /* DetailFolderVIew.swift in Sources */,
 				08E92FC52C27357E0027E207 /* HomeView+ListCategory.swift in Sources */,
+				0EB8A25D2C3FBACF0001C521 /* DetailFolderViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
