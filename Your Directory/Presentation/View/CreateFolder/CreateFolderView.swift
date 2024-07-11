@@ -25,7 +25,7 @@ struct CreateFolderView: View {
             .padding(16)
             .background(
                 RoundedCornersShape(corners: .allCorners, radius: 38)
-                    .fill(.white)
+                    .fill(Color.white)
                     .shadow(radius: 4)
             )
             Spacer()

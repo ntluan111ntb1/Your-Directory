@@ -25,7 +25,9 @@ extension HomeView {
             }
             .offset(x:0, y: -34)
             Spacer()
-            ButtonIcons(name: "folder", size: 40) { }
+            ButtonIcons(name: "folder", size: 40) {
+                isShowToast.toggle()
+            }
                 .padding(.bottom, 16)
             Spacer()
         }

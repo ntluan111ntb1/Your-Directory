@@ -11,7 +11,15 @@ import Combine
 class HomeViewModel: ObservableObject {
     private var disposables = Set<AnyCancellable>()
 
-    @Published var vocabularys = [Vocabulary]()
+    @Published var vocabularys = [
+        Vocabulary(word: "Play", phonetics: "sssa", audio: "", descriptions: [], partOfSpeech: "", folder: Folder(name: "", color: "FFE9D0"), vocabularyNote: nil),
+        Vocabulary(word: "Play", phonetics: "sssa", audio: "", descriptions: [], partOfSpeech: "", folder: Folder(name: "", color: "FFE9D0"), vocabularyNote: nil),
+        Vocabulary(word: "Play", phonetics: "sssa", audio: "", descriptions: [], partOfSpeech: "", folder: Folder(name: "", color: "FFE9D0"), vocabularyNote: nil),
+        Vocabulary(word: "Play", phonetics: "sssa", audio: "", descriptions: [], partOfSpeech: "", folder: Folder(name: "", color: "FFE9D0"), vocabularyNote: nil),
+        Vocabulary(word: "Play", phonetics: "sssa", audio: "", descriptions: [], partOfSpeech: "", folder: Folder(name: "", color: "FFE9D0"), vocabularyNote: nil),
+        Vocabulary(word: "Play", phonetics: "sssa", audio: "", descriptions: [], partOfSpeech: "", folder: Folder(name: "", color: "FFE9D0"), vocabularyNote: nil),
+        Vocabulary(word: "Play", phonetics: "sssa", audio: "", descriptions: [], partOfSpeech: "", folder: Folder(name: "", color: "FFE9D0"), vocabularyNote: nil),
+    ]
     @Published var folders = [
         Folder(name: "Hihihi", color: "FFE9D0"),
         Folder(name: "Danh Từ", color: "FFFED3"),
@@ -19,6 +27,7 @@ class HomeViewModel: ObservableObject {
         Folder(name: "Trạng từ", color: "B1AFFF"),
     ]
     @Published var searchVocabulary: Vocabulary?
+    @Published var statePlaySound = false
 
     let firestoreManager = FirestoreManager()
 
@@ -37,12 +46,25 @@ class HomeViewModel: ObservableObject {
             }
             .store(in: &disposables)
     }
+
+    func handleSound(sound: String ) {
+        SoundManager.shared.playSound(sound: sound)
+        statePlaySound.toggle()
+        if statePlaySound {
+            SoundManager.shared.audioPlayer?.play()
+        } else {
+            SoundManager.shared.audioPlayer?.pause()
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in
+            guard let self else { return }
+            self.statePlaySound.toggle()
+        }
+    }
 }
 
 // Handle for folder
 extension HomeViewModel {
     func getFolders() {
-        let collectionPath = ""
         firestoreManager.fetchData(
             collection: AppConstants.foldersCollection
         ) {
@@ -58,7 +80,7 @@ extension HomeViewModel {
         }
     }
 
-    func addFolder(folder: Folder) {
+    func addFolder(folder: Folder, completion: @escaping (Status, String) -> Void) {
         firestoreManager.addData(
             collection: AppConstants.foldersCollection,
             document: folder.name,
@@ -66,27 +88,31 @@ extension HomeViewModel {
         ) { error in
             if let error = error {
                 print("Error adding document: \(error)")
+                completion(.fail, "Pùn!!! Không thể thêm folder")
             } else {
                 self.folders.append(folder)
                 print("Document added successfully")
+                completion(.success, "Thêm folder thành công rồi nè, Hí!!!")
             }
         }
     }
 
-    func deleteFolder(folder: Folder) {
+    func deleteFolder(folder: Folder, completion: @escaping (Status, String) -> Void) {
         firestoreManager.deleteData(
             collection: AppConstants.foldersCollection,
             document: folder.name
         ) { error in
             if let error = error {
-                print("Error adding document: \(error)")
+                print("Error delete document: \(error)")
+                completion(.fail, "Pùn!!! Không thể xóa folder")
             } else {
                 if let index = self.folders.firstIndex(of: folder) {
                     self.folders.remove(at: index)
+                    completion(.success, "Xóa folder thành công rồi nè, Hí!!!")
                 } else {
                     print("Can not found \(folder.name)")
+                    completion(.fail, "Ủa!!! Không tìm thấy \(folder.name)")
                 }
-
                 print("remove successfully")
             }
 
@@ -112,7 +138,11 @@ extension HomeViewModel {
         }
     }
 
-    func addVocabulary(note: String, folder: Folder) {
+    func addVocabulary(
+        note: String,
+        folder: Folder,
+        completion: @escaping (Status, String) -> Void
+    ) {
         guard var vocabulary = searchVocabulary else { return }
         vocabulary.vocabularyNote = note
         vocabulary.folder = folder
@@ -123,28 +153,34 @@ extension HomeViewModel {
         ) { error in
             if let error = error {
                 print("Error adding document: \(error)")
+                completion(.fail, "Pùn!!! Không thể thêm vocabulary")
             } else {
                 self.vocabularys.append(vocabulary)
-                print("Document added successfully")
+                completion(.success, "Thêm vocabulary thành công rồi nè, Hí!!!")
             }
         }
     }
 
-    func deleteVocabulary(vocabulary: Vocabulary) {
+    func deleteVocabulary(
+        vocabulary: Vocabulary,
+        completion: @escaping (Status, String) -> Void
+    ) {
         firestoreManager.deleteData(
             collection: AppConstants.vocabularysCollection,
             document: vocabulary.word
         ) { error in
             if let error = error {
-                print("Error adding document: \(error)")
+                print("Error delete document: \(error)")
+                completion(.fail, "Pùn!!! Không thể xóa vocabulary")
             } else {
                 if let index = self.vocabularys.firstIndex(of: vocabulary) {
                     self.vocabularys.remove(at: index)
+                    print("remove successfully")
+                    completion(.success, "Xóa vocabulary thành công rồi nè, Hí!!!")
                 } else {
                     print("Can not found \(vocabulary.word)")
+                    completion(.fail, "Ủa!!! Không tìm thấy \(vocabulary.word)")
                 }
-
-                print("remove successfully")
             }
 
         }

@@ -18,15 +18,20 @@ extension HomeView {
                             .fontStyle(.mediumBold)
                             .padding(8)
                             .padding(.horizontal, 16)
-                            .background(RoundedCornersShape(corners: .allCorners, radius: 16).fill(ConvertColor.colorFromHex(folder.color)))
+                            .background(
+                                RoundedCornersShape(corners: .allCorners, radius: 16)
+                                .fill(ConvertColor.colorFromHex(folder.color))
+                                .shadow(radius: 2, x:0, y: 4)
+                            )
                         Spacer()
                     }
+                    .padding(.bottom, 8)
                     .onTapGesture {
                         selectedFolder = folder
                     }
                 }
             }
         }
-        .padding(.vertical, 8)
+        .padding(.top, 8)
     }
 }

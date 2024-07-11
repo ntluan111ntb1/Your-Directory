@@ -25,6 +25,14 @@ extension Color {
         return ConvertColor.colorFromHex("fdc80a")
     }
 
+    static var greenLight: Color {
+        return ConvertColor.colorFromHex("d6dcc6")
+    }
+
+    static var greenDark: Color {
+        return ConvertColor.colorFromHex("acb7a1")
+    }
+
     static var lightPink: Color {
         return Color(UIColor(red: 239 / 255, green: 204 / 255, blue: 255 / 255, alpha: 1.0))
     }

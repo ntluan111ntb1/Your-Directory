@@ -14,6 +14,8 @@ extension HomeView {
                 ForEach(viewModel.vocabularys, id: \.id) { vocabulary in
                     VocabularyCardView(vocabulary: vocabulary) {
                         selectedVocabulary = vocabulary
+                    } playSound: {
+                        viewModel.handleSound(sound: vocabulary.audio)
                     }
                 }
             }

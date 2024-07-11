@@ -7,6 +7,7 @@
 
 import SwiftUI
 import GoogleSignIn
+import ExytePopupView
 
 struct HomeView: View {
     @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
@@ -19,6 +20,11 @@ struct HomeView: View {
     @State var isPresentSearchView = false
     @State var selectedVocabulary: Vocabulary? = nil
     @State var selectedFolder: Folder? = nil
+
+    // Toast
+    @State var isShowToast = false
+    @State var message: String? = nil
+    @State var toastStatus: Status? = nil
 
     let layout = [
         GridItem(.flexible()),
@@ -55,7 +61,11 @@ struct HomeView: View {
                     ) {
                         viewModel.searchVocabulary = nil
                     } addVocabulary: { note, folder in
-                        viewModel.addVocabulary(note: note, folder: folder)
+                        viewModel.addVocabulary(note: note, folder: folder) { status, message in
+                            self.message = message
+                            self.toastStatus = status
+                            isShowToast.toggle()
+                        }
                         viewModel.searchVocabulary = nil
                     }
                 }
@@ -70,7 +80,11 @@ struct HomeView: View {
                 textButton: "Xóa từ này") {
                     selectedVocabulary = nil
                 } deleteVocabulary: {
-                    viewModel.deleteVocabulary(vocabulary: selectedContent)
+                    viewModel.deleteVocabulary(vocabulary: selectedContent) { status, message in
+                        self.message = message
+                        self.toastStatus = status
+                        isShowToast.toggle()
+                    }
                     selectedVocabulary = nil
                 }
                 .presentationDetents([.medium, .large])
@@ -78,7 +92,11 @@ struct HomeView: View {
         })
         .sheet(isPresented: $isPresentCreateFolder, content: {
             CreateFolderView(isPresentSheet: $isPresentCreateFolder) { folder in
-                viewModel.addFolder(folder: folder)
+                viewModel.addFolder(folder: folder) { status, message in
+                    self.message = message
+                    self.toastStatus = status
+                    isShowToast.toggle()
+                }
                 isPresentCreateFolder.toggle()
             }
             .presentationDetents([.medium])
@@ -86,12 +104,26 @@ struct HomeView: View {
         })
         .sheet(item: $selectedFolder, content: { selectedContent in
             DetailFolderView(folder: .constant(selectedContent)) {
-                viewModel.deleteFolder(folder: selectedContent)
+                viewModel.deleteFolder(folder: selectedContent) { status, message in
+                    self.message = message
+                    self.toastStatus = status
+                    isShowToast.toggle()
+                }
                 selectedFolder = nil
             }
             .presentationDetents([.medium, .large])
             .presentationCornerRadius(38)
         })
+        .popup(isPresented: $isShowToast) {
+            ToastView(message: message ?? "", state: toastStatus ?? .fail)
+        } customize: {
+            $0
+                .type(.floater())
+                .position(.top)
+                .animation(.spring())
+                .closeOnTapOutside(true)
+                .autohideIn(3)
+        }
     }
 }
 

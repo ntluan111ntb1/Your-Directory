@@ -9,7 +9,8 @@ import Foundation
 import AVFoundation
 import AVFAudio
 
-class SoundManager : ObservableObject {
+class SoundManager {
+    static let shared = SoundManager()
     var audioPlayer: AVPlayer?
 
     func playSound(sound: String){

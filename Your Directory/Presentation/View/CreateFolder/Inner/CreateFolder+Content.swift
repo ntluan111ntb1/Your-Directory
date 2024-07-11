@@ -9,28 +9,38 @@ import SwiftUI
 
 extension CreateFolderView {
     func makeContentOfFolder() -> some View {
-        VStack(spacing: 0) {
-            TextFieldImageGif(
-                text: $folder,
-                imageName: "notebook",
-                placeholder: "Tên của thể loại",
-                sizeImage: 40
-            )
-            VStack {
-                Form {
-                    Picker("Select a Color", selection: $selectedColor) {
-                        ForEach(CustomColor.allCases) { color in
-                            HStack {
-                                Circle()
-                                    .fill(color.color)
-                                    .frame(width: 30, height: 30)
-                                Text(color.name)
-                                    .foregroundColor(.primary)
-                            }
-                            .tag(color)
+        VStack(alignment: .leading, spacing: 16) {
+            VStack(alignment: .leading) {
+                Text("Tên của thư mục:")
+                    .fontStyle(.mediumBold)
+                TextFieldImageGif(
+                    text: $folder,
+                    imageName: "notebook",
+                    placeholder: "Tên của thể loại",
+                    sizeImage: 40
+                )
+            }
+            Text("Màu của thư mục:")
+                .fontStyle(.mediumBold)
+            VStack(alignment: .center) {
+                HStack(alignment: .center, spacing: 12) {
+                    ForEach(CustomColor.allCases) { color in
+                        Button(action: {
+                            self.selectedColor = color
+                        }) {
+                            Circle()
+                                .fill(color.color)
+                                .frame(width: 36, height: 36)
+                                .overlay(
+                                    Circle()
+                                        .stroke(
+                                            Color.black,
+                                            lineWidth: self.selectedColor == color ? 3 : 0
+                                        )
+                                )
                         }
                     }
-                    .pickerStyle(.inline)
+                    .padding(4)
                 }
             }
         }

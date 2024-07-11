@@ -9,17 +9,17 @@ import Foundation
 
 class DetailVocabularyViewModel: ObservableObject {
     @Published var statePlaySound = false
-    @Published var soundManager = SoundManager()
     
     func handleSound(sound: String ) {
-        soundManager.playSound(sound: sound)
+        SoundManager.shared.playSound(sound: sound)
         statePlaySound.toggle()
         if statePlaySound{
-            soundManager.audioPlayer?.play()
+            SoundManager.shared.audioPlayer?.play()
         } else {
-            soundManager.audioPlayer?.pause()
+            SoundManager.shared.audioPlayer?.pause()
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5){
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in
+            guard let self else { return }
             self.statePlaySound.toggle()
         }
     }
