@@ -28,6 +28,7 @@ class HomeViewModel: ObservableObject {
     ]
     @Published var searchVocabulary: Vocabulary?
     @Published var statePlaySound = false
+    @Published var selectedFolder = Folder(name: "", color: "")
 
     let firestoreManager = FirestoreManager()
 

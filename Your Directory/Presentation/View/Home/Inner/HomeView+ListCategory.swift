@@ -12,25 +12,28 @@ extension HomeView {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
                 ForEach(viewModel.folders) { folder in
-                    HStack {
-                        Spacer()
-                        Text(folder.name)
-                            .fontStyle(.mediumBold)
-                            .padding(8)
-                            .padding(.horizontal, 16)
-                            .background(
-                                RoundedCornersShape(corners: .allCorners, radius: 16)
-                                .fill(ConvertColor.colorFromHex(folder.color))
-                                .shadow(radius: 2, x:0, y: 4)
-                            )
-                        Spacer()
+                    NavigationLink(value: folder) {
+                        HStack {
+                            Spacer()
+                            Text(folder.name)
+                                .fontStyle(.mediumBold)
+                                .padding(8)
+                                .padding(.horizontal, 16)
+                                .background(
+                                    RoundedCornersShape(corners: .allCorners, radius: 16)
+                                        .fill(ConvertColor.colorFromHex(folder.color))
+                                        .shadow(radius: 2, x:0, y: 4)
+                                )
+                            Spacer()
+                        }
                     }
+                    .simultaneousGesture(TapGesture().onEnded {
+                        viewModel.selectedFolder = folder
+                    })
                     .padding(.bottom, 8)
-                    .onTapGesture {
-                        selectedFolder = folder
-                    }
                 }
             }
+            .foregroundStyle(.black)
         }
         .padding(.top, 8)
     }

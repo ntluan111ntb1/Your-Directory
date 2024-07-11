@@ -19,7 +19,6 @@ struct HomeView: View {
     @State var isPresentCreateFolder = false
     @State var isPresentSearchView = false
     @State var selectedVocabulary: Vocabulary? = nil
-    @State var selectedFolder: Folder? = nil
 
     // Toast
     @State var isShowToast = false
@@ -102,18 +101,6 @@ struct HomeView: View {
             .presentationDetents([.medium])
             .presentationCornerRadius(38)
         })
-        .sheet(item: $selectedFolder, content: { selectedContent in
-            DetailFolderView(folder: .constant(selectedContent)) {
-                viewModel.deleteFolder(folder: selectedContent) { status, message in
-                    self.message = message
-                    self.toastStatus = status
-                    isShowToast.toggle()
-                }
-                selectedFolder = nil
-            }
-            .presentationDetents([.medium, .large])
-            .presentationCornerRadius(38)
-        })
         .popup(isPresented: $isShowToast) {
             ToastView(message: message ?? "", state: toastStatus ?? .fail)
         } customize: {
@@ -123,6 +110,15 @@ struct HomeView: View {
                 .animation(.spring())
                 .closeOnTapOutside(true)
                 .autohideIn(3)
+        }
+        .navigationDestination(for: Folder.self) { folder in
+            DetailFolderView(folder: $viewModel.selectedFolder) {
+                viewModel.deleteFolder(folder: folder) { status, message in
+                    self.message = message
+                    self.toastStatus = status
+                    isShowToast.toggle()
+                }
+            }
         }
     }
 }
