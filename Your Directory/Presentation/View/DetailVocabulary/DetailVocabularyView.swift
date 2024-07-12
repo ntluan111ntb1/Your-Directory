@@ -48,6 +48,9 @@ struct DetailVocabularyView: View {
         }
         .padding(16)
         .background(Image("sheet"))
+        .onAppear {
+            self.selectedFolder = folders.first ?? Folder(name: "", color: "")
+        }
     }
 }
 

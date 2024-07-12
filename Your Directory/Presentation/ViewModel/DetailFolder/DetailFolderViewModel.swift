@@ -12,7 +12,7 @@ class DetailFolderViewModel: ObservableObject {
 
     func getVocabulary(vocabularys: [Vocabulary], folderId: UUID) {
         self.vocabularys = vocabularys.filter { vocabulary in
-            return vocabulary.folder.id == folderId
+            return vocabulary.folder?.id == folderId
         }
     }
 }
