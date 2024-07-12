@@ -13,14 +13,14 @@ class HomeViewModel: ObservableObject {
 
     @Published var vocabularys = AppConstants.mockVocabularies
     @Published var folders = [
-        Folder(name: "Hihihi", color: "FFE9D0"),
-        Folder(name: "Danh Từ", color: "FFFED3"),
-        Folder(name: "Động từ", color: "BBE9FF"),
-        Folder(name: "Trạng từ", color: "B1AFFF"),
+        Folder(name: "Hihihi", color: "FFE9D0", publishAt: ""),
+        Folder(name: "Danh Từ", color: "FFFED3", publishAt: ""),
+        Folder(name: "Động từ", color: "BBE9FF", publishAt: ""),
+        Folder(name: "Trạng từ", color: "B1AFFF", publishAt: ""),
     ]
     @Published var searchVocabulary: Vocabulary?
     @Published var statePlaySound = false
-    @Published var selectedFolder = Folder(name: "", color: "")
+    @Published var selectedFolder = Folder(name: "", color: "", publishAt: "")
 
     let firestoreManager = FirestoreManager()
 
@@ -68,22 +68,29 @@ extension HomeViewModel {
                 guard let folders = folders else {
                     return
                 }
-                self.folders = folders
+                self.folders = folders.sorted(by: { folder1, folder2 -> Bool in
+                    guard let date1 = folder1.publishDate, let date2 = folder2.publishDate else {
+                        return false
+                    }
+                    return date1 > date2
+                })
             }
         }
     }
 
-    func addFolder(folder: Folder, completion: @escaping (Status, String) -> Void) {
+    func addFolder(folderName: String, folderColor: String, completion: @escaping (Status, String) -> Void) {
+        let dateFormatter = ISO8601DateFormatter()
+        let folderTerm = Folder(name: folderName, color: folderColor, publishAt: dateFormatter.string(from: Date()))
         firestoreManager.addData(
             collection: AppConstants.foldersCollection,
-            document: folder.name,
-            data: folder
+            document: folderName,
+            data: folderTerm
         ) { error in
             if let error = error {
                 print("Error adding document: \(error)")
                 completion(.fail, "Pùn!!! Không thể thêm folder")
             } else {
-                self.folders.append(folder)
+                self.folders.insert(folderTerm, at: 0)
                 print("Document added successfully")
                 completion(.success, "Thêm folder thành công rồi nè, Hí!!!")
             }

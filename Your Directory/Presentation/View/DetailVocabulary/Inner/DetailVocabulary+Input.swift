@@ -26,7 +26,7 @@ extension DetailVocabularyView {
                     "Chọn danh mục",
                     selection: vocabulary.folder == nil
                     ? $selectedFolder
-                    : .constant(vocabulary.folder ?? Folder(name: "", color: ""))) {
+                    : .constant(vocabulary.folder ?? Folder(name: "", color: "", publishAt: ""))) {
                     ForEach(folders) { folder in
                         HStack {
                             Circle()

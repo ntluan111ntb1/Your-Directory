@@ -45,6 +45,6 @@ struct DetailFolderView: View {
 
 #Preview {
     DetailFolderView(
-        folder: .constant(Folder(name: "folder name", color: "")),
+        folder: .constant(Folder(name: "folder name", color: "", publishAt: "")),
         vocabularys: AppConstants.mockVocabularies) { }
 }

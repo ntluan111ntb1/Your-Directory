@@ -86,7 +86,7 @@ struct HomeView: View {
         })
         .sheet(isPresented: $isPresentCreateFolder, content: {
             CreateFolderView(isPresentSheet: $isPresentCreateFolder) { folder in
-                viewModel.addFolder(folder: folder) { status, message in
+                viewModel.addFolder(folderName: folder.name, folderColor: folder.color) { status, message in
                     self.message = message
                     self.toastStatus = status
                     isShowToast.toggle()

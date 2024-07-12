@@ -14,7 +14,7 @@ struct DetailVocabularyView: View {
     @Binding var vocabulary: Vocabulary
     @Binding var folders: [Folder]
     @State var note = ""
-    @State var selectedFolder = Folder(name: "", color: "")
+    @State var selectedFolder = Folder(name: "", color: "", publishAt: "")
 
     let textButton: String
 
@@ -49,7 +49,7 @@ struct DetailVocabularyView: View {
         .padding(16)
         .background(Image("sheet"))
         .onAppear {
-            self.selectedFolder = folders.first ?? Folder(name: "", color: "")
+            self.selectedFolder = folders.first ?? Folder(name: "", color: "", publishAt: "")
         }
     }
 }
@@ -65,7 +65,7 @@ struct DetailVocabularyView: View {
                     Vocabulary.Definition(definition: "definition", example: "example")
                 ],
                 partOfSpeech: "noun",
-                folder: Folder(name: "", color: ""),
+                folder: Folder(name: "", color: "", publishAt: ""),
                 vocabularyNote: "",
                 publishAt: ""
             )

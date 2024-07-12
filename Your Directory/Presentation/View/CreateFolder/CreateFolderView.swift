@@ -33,7 +33,7 @@ struct CreateFolderView: View {
                 lable: "Tạo thôi nào",
                 color: .yellowCustome,
                 foregroundColor: .black) {
-                    createFolder(Folder(name: folder, color: selectedColor.rawValue))
+                    createFolder(Folder(name: folder, color: selectedColor.rawValue, publishAt: ""))
                 }
         }
         .padding(16)
