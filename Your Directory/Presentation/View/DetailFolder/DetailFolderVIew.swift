@@ -22,7 +22,7 @@ struct DetailFolderView: View {
 
     var body: some View {
         VStack(spacing: 16) {
-            ListVocabularyView(vocabularies: vocabularys) { vocabulary in
+            ListVocabularyView(vocabularies: viewModel.vocabularys) { vocabulary in
                 selectedVocabulary = vocabulary
             }
             Spacer()
