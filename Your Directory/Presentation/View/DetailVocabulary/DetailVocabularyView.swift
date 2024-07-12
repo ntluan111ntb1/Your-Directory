@@ -62,8 +62,9 @@ struct DetailVocabularyView: View {
                     Vocabulary.Definition(definition: "definition", example: "example")
                 ],
                 partOfSpeech: "noun",
-                folder: nil,
-                vocabularyNote: ""
+                folder: Folder(name: "", color: ""),
+                vocabularyNote: "",
+                publishAt: ""
             )
         ),
         folders: .constant([]),

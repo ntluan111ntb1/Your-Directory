@@ -19,11 +19,17 @@ struct Vocabulary: Codable, Identifiable, Equatable {
     var audio: String
     var descriptions: [Definition]
     var partOfSpeech: String
-    var folder: Folder?
+    var folder: Folder
     var vocabularyNote: String?
+    var publishAt: String
 
     struct Definition: Codable {
         let definition: String?
         let example: String?
+    }
+
+    var publishDate: Date? {
+        let dateFormatter = ISO8601DateFormatter()
+        return dateFormatter.date(from: publishAt)
     }
 }

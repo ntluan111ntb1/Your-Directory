@@ -30,11 +30,11 @@ struct VocabularyCardView: View {
             ZStack {
                 RoundedCornersShape(corners: .allCorners, radius: 12)
                     .fill(
-                        ConvertColor.colorFromHex(vocabulary.folder?.color ?? "")
+                        ConvertColor.colorFromHex(vocabulary.folder.color)
                             .opacity(0.1)
                     )
                 Triangle()
-                    .fill(ConvertColor.colorFromHex(vocabulary.folder?.color ?? ""))
+                    .fill(ConvertColor.colorFromHex(vocabulary.folder.color))
                     .frame(width: width, height: 80)
                     .clipShape(RoundedCornersShape(corners: .allCorners, radius: 12))
 

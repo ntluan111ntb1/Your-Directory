@@ -126,7 +126,12 @@ extension HomeViewModel {
                 guard let vocabularys = vocabularys else {
                     return
                 }
-                self.vocabularys = vocabularys
+                self.vocabularys = vocabularys.sorted(by: { vocab1, vocab2 -> Bool in
+                    guard let date1 = vocab1.publishDate, let date2 = vocab2.publishDate else {
+                        return false
+                    }
+                    return date1 > date2
+                })
             }
         }
     }
@@ -139,6 +144,8 @@ extension HomeViewModel {
         guard var vocabulary = searchVocabulary else { return }
         vocabulary.vocabularyNote = note
         vocabulary.folder = folder
+        let dateFormatter = ISO8601DateFormatter()
+        vocabulary.publishAt = dateFormatter.string(from: Date())
         firestoreManager.addData(
             collection: AppConstants.vocabularysCollection,
             document: vocabulary.word,
@@ -148,7 +155,7 @@ extension HomeViewModel {
                 print("Error adding document: \(error)")
                 completion(.fail, "Pùn!!! Không thể thêm vocabulary")
             } else {
-                self.vocabularys.append(vocabulary)
+                self.vocabularys.insert(vocabulary, at: 0)
                 completion(.success, "Thêm vocabulary thành công rồi nè, Hí!!!")
             }
         }
