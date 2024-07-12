@@ -11,15 +11,7 @@ import Combine
 class HomeViewModel: ObservableObject {
     private var disposables = Set<AnyCancellable>()
 
-    @Published var vocabularys = [
-        Vocabulary(word: "Play", phonetics: "sssa", audio: "", descriptions: [], partOfSpeech: "", folder: Folder(name: "", color: "FFE9D0"), vocabularyNote: nil),
-        Vocabulary(word: "Play", phonetics: "sssa", audio: "", descriptions: [], partOfSpeech: "", folder: Folder(name: "", color: "FFE9D0"), vocabularyNote: nil),
-        Vocabulary(word: "Play", phonetics: "sssa", audio: "", descriptions: [], partOfSpeech: "", folder: Folder(name: "", color: "FFE9D0"), vocabularyNote: nil),
-        Vocabulary(word: "Play", phonetics: "sssa", audio: "", descriptions: [], partOfSpeech: "", folder: Folder(name: "", color: "FFE9D0"), vocabularyNote: nil),
-        Vocabulary(word: "Play", phonetics: "sssa", audio: "", descriptions: [], partOfSpeech: "", folder: Folder(name: "", color: "FFE9D0"), vocabularyNote: nil),
-        Vocabulary(word: "Play", phonetics: "sssa", audio: "", descriptions: [], partOfSpeech: "", folder: Folder(name: "", color: "FFE9D0"), vocabularyNote: nil),
-        Vocabulary(word: "Play", phonetics: "sssa", audio: "", descriptions: [], partOfSpeech: "", folder: Folder(name: "", color: "FFE9D0"), vocabularyNote: nil),
-    ]
+    @Published var vocabularys = AppConstants.mockVocabularies
     @Published var folders = [
         Folder(name: "Hihihi", color: "FFE9D0"),
         Folder(name: "Danh Từ", color: "FFFED3"),
@@ -56,7 +48,7 @@ class HomeViewModel: ObservableObject {
         } else {
             SoundManager.shared.audioPlayer?.pause()
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
             guard let self else { return }
             self.statePlaySound.toggle()
         }

@@ -24,11 +24,6 @@ struct HomeView: View {
     @State var isShowToast = false
     @State var message: String? = nil
     @State var toastStatus: Status? = nil
-
-    let layout = [
-        GridItem(.flexible()),
-        GridItem(.flexible()),
-    ]
     
     var body: some View {
         VStack(alignment: .leading) {

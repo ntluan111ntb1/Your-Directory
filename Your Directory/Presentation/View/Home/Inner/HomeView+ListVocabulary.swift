@@ -9,17 +9,8 @@ import SwiftUI
 
 extension HomeView {
     func makeListVocabulary() -> some View {
-        ScrollView(showsIndicators: false) {
-            LazyVGrid(columns: layout) {
-                ForEach(viewModel.vocabularys, id: \.id) { vocabulary in
-                    VocabularyCardView(vocabulary: vocabulary) {
-                        selectedVocabulary = vocabulary
-                    } playSound: {
-                        viewModel.handleSound(sound: vocabulary.audio)
-                    }
-                }
-            }
-            .padding(.horizontal)
+        ListVocabularyView(vocabularies: viewModel.vocabularys) { vocabulary in
+            selectedVocabulary = vocabulary
         }
     }
 }

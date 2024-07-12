@@ -22,17 +22,8 @@ struct DetailFolderView: View {
 
     var body: some View {
         VStack(spacing: 16) {
-            ScrollView(showsIndicators: false) {
-                LazyVGrid(columns: layout) {
-                    ForEach(viewModel.vocabularys, id: \.id) { vocabulary in
-                        VocabularyCardView(vocabulary: vocabulary) {
-                            selectedVocabulary = vocabulary
-                        } playSound: {
-                            viewModel.handleSound(sound: vocabulary.audio)
-                        }
-                    }
-                }
-                .padding(.horizontal)
+            ListVocabularyView(vocabularies: vocabularys) { vocabulary in
+                selectedVocabulary = vocabulary
             }
             Spacer()
             ButtonFullWidthView(
@@ -46,9 +37,14 @@ struct DetailFolderView: View {
         .onAppear {
             viewModel.getVocabulary(vocabularys: vocabularys, folderId: folder.id)
         }
-        .padding(16)
         .background(Image("sheet"))
         .navigationTitle(folder.name)
         .navigationBarTitleDisplayMode(.inline)
     }
+}
+
+#Preview {
+    DetailFolderView(
+        folder: .constant(Folder(name: "folder name", color: "")),
+        vocabularys: AppConstants.mockVocabularies) { }
 }

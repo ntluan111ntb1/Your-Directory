@@ -29,9 +29,10 @@ struct VocabularyCardView: View {
         GeometryReader { geometry in
             ZStack {
                 RoundedCornersShape(corners: .allCorners, radius: 12)
-                    .fill(.white)
-                    .shadow(radius: 2, x: 0, y: 4)
-
+                    .fill(
+                        ConvertColor.colorFromHex(vocabulary.folder?.color ?? "")
+                            .opacity(0.1)
+                    )
                 Triangle()
                     .fill(ConvertColor.colorFromHex(vocabulary.folder?.color ?? ""))
                     .frame(width: width, height: 80)
@@ -55,6 +56,7 @@ struct VocabularyCardView: View {
                         .resizable()
                         .frame(width: 20, height: 20)
                         .padding(.trailing)
+                        .offset(x: 0, y: 8)
                         .onTapGesture {
                             playSound()
                         },
@@ -62,7 +64,10 @@ struct VocabularyCardView: View {
                 )
             }
         }
-        .background(.blue)
+        .background(
+            RoundedCornersShape(corners: .allCorners, radius: 12).fill(.white)
+                .shadow(radius: 2, x: 0, y: 4)
+        )
         .frame(height: 80)
         .onTapGesture {
             tapHandle()

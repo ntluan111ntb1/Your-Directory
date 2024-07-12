@@ -58,6 +58,8 @@
 		0EB8A2582C3E635C0001C521 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB8A2572C3E635C0001C521 /* ToastView.swift */; };
 		0EB8A25A2C3E69110001C521 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB8A2592C3E69110001C521 /* Status.swift */; };
 		0EB8A25D2C3FBACF0001C521 /* DetailFolderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB8A25C2C3FBACF0001C521 /* DetailFolderViewModel.swift */; };
+		0EB8A25F2C40C8820001C521 /* ListVocabularyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB8A25E2C40C8820001C521 /* ListVocabularyView.swift */; };
+		0EB8A2632C40C8D70001C521 /* ListVocabularyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB8A2622C40C8D70001C521 /* ListVocabularyViewModel.swift */; };
 		0EFB78512C253A8D0013FFD8 /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFB78502C253A8D0013FFD8 /* Audio.swift */; };
 		0EFB78552C2554B00013FFD8 /* AlamofireNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFB78542C2554B00013FFD8 /* AlamofireNetworkService.swift */; };
 		0EFB78582C2555260013FFD8 /* DictionaryHttp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFB78572C2555260013FFD8 /* DictionaryHttp.swift */; };
@@ -119,6 +121,8 @@
 		0EB8A2572C3E635C0001C521 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		0EB8A2592C3E69110001C521 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		0EB8A25C2C3FBACF0001C521 /* DetailFolderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFolderViewModel.swift; sourceTree = "<group>"; };
+		0EB8A25E2C40C8820001C521 /* ListVocabularyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVocabularyView.swift; sourceTree = "<group>"; };
+		0EB8A2622C40C8D70001C521 /* ListVocabularyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVocabularyViewModel.swift; sourceTree = "<group>"; };
 		0EFB78502C253A8D0013FFD8 /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 		0EFB78542C2554B00013FFD8 /* AlamofireNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireNetworkService.swift; sourceTree = "<group>"; };
 		0EFB78572C2555260013FFD8 /* DictionaryHttp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryHttp.swift; sourceTree = "<group>"; };
@@ -233,6 +237,7 @@
 		0EA6DF3E2C212D3B00128A3B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0EB8A2602C40C8B60001C521 /* LIstVocabulary */,
 				08E92FC62C2736590027E207 /* DetailFolder */,
 				0EA6DF942C24300D00128A3B /* DetailVocabulary */,
 				08875FC02C23232900C4E6C6 /* CreateFolder */,
@@ -301,6 +306,7 @@
 		0EA6DF4F2C213F9800128A3B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				0EB8A2612C40C8C60001C521 /* ListVocabulary */,
 				0EB8A25B2C3FBAB40001C521 /* DetailFolder */,
 				0EABCDF92C34E8160073B7EF /* Authentication */,
 				0801C7602C2599150014AC60 /* DetailVocabulary */,
@@ -436,6 +442,22 @@
 				0EB8A25C2C3FBACF0001C521 /* DetailFolderViewModel.swift */,
 			);
 			path = DetailFolder;
+			sourceTree = "<group>";
+		};
+		0EB8A2602C40C8B60001C521 /* LIstVocabulary */ = {
+			isa = PBXGroup;
+			children = (
+				0EB8A25E2C40C8820001C521 /* ListVocabularyView.swift */,
+			);
+			path = LIstVocabulary;
+			sourceTree = "<group>";
+		};
+		0EB8A2612C40C8C60001C521 /* ListVocabulary */ = {
+			isa = PBXGroup;
+			children = (
+				0EB8A2622C40C8D70001C521 /* ListVocabularyViewModel.swift */,
+			);
+			path = ListVocabulary;
 			sourceTree = "<group>";
 		};
 		0EFB78522C2554940013FFD8 /* Network */ = {
@@ -636,7 +658,9 @@
 				08875FB92C2316C500C4E6C6 /* HomeViewHeader.swift in Sources */,
 				0EFB78582C2555260013FFD8 /* DictionaryHttp.swift in Sources */,
 				0EB8A25A2C3E69110001C521 /* Status.swift in Sources */,
+				0EB8A25F2C40C8820001C521 /* ListVocabularyView.swift in Sources */,
 				08067FEC2C26C0C0009BBD51 /* DetailVocabularyViewModel.swift in Sources */,
+				0EB8A2632C40C8D70001C521 /* ListVocabularyViewModel.swift in Sources */,
 				0EA6DF5A2C2143B900128A3B /* RoundedCornersShape.swift in Sources */,
 				0EA6DF542C21411D00128A3B /* Text.swift in Sources */,
 				0EA6DF312C212D2B00128A3B /* Your_DirectoryApp.swift in Sources */,
