@@ -10,28 +10,28 @@ import Lottie
 
 struct LottieView: UIViewRepresentable {
 
-    var url: URL
+    var animationName: String
+    var loopMode: LottieLoopMode
 
     func makeUIView(context: UIViewRepresentableContext<LottieView>) -> some UIView {
         let view = UIView(frame: .zero)
         let animationView = LottieAnimationView()
 
-        animationView.contentMode = .scaleAspectFit
-        animationView.loopMode = .loop
-        LottieAnimation.loadedFrom(
-            url: url,
-            closure: { animation in
-                animationView.animation = animation
-                animationView.play()
+        animationView.contentMode = .scaleAspectFill
+        animationView.loopMode = loopMode
 
-            },
-            animationCache: DefaultAnimationCache.sharedCache
-        )
+        if let animation = LottieAnimation.named(animationName) {
+            animationView.animation = animation
+            animationView.play()
+        }
+
         view.addSubview(animationView)
         animationView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            animationView.heightAnchor.constraint(equalTo: view.heightAnchor),
-            animationView.widthAnchor.constraint(equalTo: view.widthAnchor)
+            animationView.topAnchor.constraint(equalTo: view.topAnchor),
+            animationView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            animationView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            animationView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
         return view
     }

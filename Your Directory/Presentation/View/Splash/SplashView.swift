@@ -13,21 +13,35 @@ import GoogleSignIn
 struct SplashView: View {
     @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
 
-    @State var isPresentHomeView = false
+    @State var isPresentSplashView = true
 
     var body: some View {
         NavigationStack {
-            switch authenticationViewModel.state {
-            case .signedIn:
-                HomeView()
-            case .signedOut:
-                SignUpView()
-            case .unknown:
-                VStack {
-                    Text("Splash View")
-                        .fontStyle(.largeBold)
+            VStack {
+                if isPresentSplashView {
+                    LottieView(animationName: "splash_view", loopMode: .playOnce)
+                        .ignoresSafeArea()
+                } else {
+                    switch authenticationViewModel.state {
+                    case .signedIn:
+                        HomeView()
+                    case .signedOut:
+                        SignUpView()
+                    case .unknown:
+                        LottieView(animationName: "splash_view", loopMode: .playOnce)
+                            .ignoresSafeArea()
+                    }
                 }
             }
         }
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                isPresentSplashView.toggle()
+            }
+        }
     }
+}
+
+#Preview {
+    SplashView()
 }
