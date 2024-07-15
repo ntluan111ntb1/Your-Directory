@@ -13,6 +13,7 @@ import GoogleSignIn
 struct SplashView: View {
     @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
 
+    @StateObject var viewModel = HomeViewModel()
     @State var isPresentSplashView = true
 
     var body: some View {
@@ -24,7 +25,7 @@ struct SplashView: View {
                 } else {
                     switch authenticationViewModel.state {
                     case .signedIn:
-                        HomeView()
+                        HomeView(viewModel: viewModel)
                     case .signedOut:
                         SignUpView()
                     case .unknown:
@@ -35,6 +36,8 @@ struct SplashView: View {
             }
         }
         .onAppear {
+            viewModel.getVocabularys()
+            viewModel.getFolders()
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
                 isPresentSplashView.toggle()
             }

@@ -13,7 +13,7 @@ struct HomeView: View {
     @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
     let user = GIDSignIn.sharedInstance.currentUser
 
-    @StateObject var viewModel = HomeViewModel()
+    @ObservedObject var viewModel: HomeViewModel
 
     @State var search = ""
     @State var isPresentCreateFolder = false
@@ -33,10 +33,6 @@ struct HomeView: View {
             makeListVocabulary()
             Spacer()
             makeBottomTabBar()
-        }
-        .onAppear {
-            viewModel.getVocabularys()
-            viewModel.getFolders()
         }
         .ignoresSafeArea(edges: .bottom)
         .frame(
@@ -122,5 +118,5 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView()
+    HomeView(viewModel: .init())
 }

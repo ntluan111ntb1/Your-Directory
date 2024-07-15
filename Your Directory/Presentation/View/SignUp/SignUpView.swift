@@ -15,7 +15,6 @@ struct SignUpView: View {
 
     @State var name = ""
     @State var age = ""
-    @State var isHomePresent = false
     var body: some View {
         GeometryReader(content: { geometry in
             VStack() {
@@ -67,13 +66,10 @@ struct SignUpView: View {
             }
         })
         .ignoresSafeArea()
-        .navigationDestination(isPresented: $isHomePresent) {
-            HomeView()
-        }
     }
 
     func handleHomePresent() {
-        isHomePresent = true
+        authenticationViewModel.state = .signedIn
     }
 }
 
