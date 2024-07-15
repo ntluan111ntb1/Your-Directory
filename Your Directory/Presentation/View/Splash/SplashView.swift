@@ -27,7 +27,7 @@ struct SplashView: View {
                     case .signedIn:
                         HomeView(viewModel: viewModel)
                     case .signedOut:
-                        SignUpView()
+                        SignInView()
                     case .unknown:
                         LottieView(animationName: "splash_view", loopMode: .playOnce)
                             .ignoresSafeArea()
