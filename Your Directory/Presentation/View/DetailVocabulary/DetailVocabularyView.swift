@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ExytePopupView
 
 struct DetailVocabularyView: View {
 
@@ -14,6 +15,7 @@ struct DetailVocabularyView: View {
     @Binding var vocabulary: Vocabulary
     @Binding var folders: [Folder]
     @State var note = ""
+    @State var isPresentPopup = false
     @State var selectedFolder = Folder(name: "", color: "", publishAt: "")
 
     let textButton: String
@@ -43,9 +45,28 @@ struct DetailVocabularyView: View {
                 foregroundColor: .black
             ) {
                 addVocabulary?(note, selectedFolder)
-                deleteVocabulary?()
+                isPresentPopup.toggle()
             }
         }
+        .popup(isPresented: $isPresentPopup, view: {
+            PopupView(
+                image: "question",
+                title: "Xóa Từ Vựng Này ?",
+                content: "Bạn có chắc muốn xóa từ vựng này hong?",
+                textButtonAgree: "Xóa luôn",
+                textButtonCancel: "Thôi",
+                handleAgree: {
+                    deleteVocabulary?()
+                }
+            ) {
+                isPresentPopup.toggle()
+            }
+        }, customize: {
+            $0
+                .type(.floater())
+                .position(.bottom)
+                .animation(.spring)
+        })
         .padding(16)
         .background(Image("sheet"))
     }
