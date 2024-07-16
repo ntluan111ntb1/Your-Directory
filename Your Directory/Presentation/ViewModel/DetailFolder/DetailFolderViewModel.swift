@@ -9,10 +9,15 @@ import Foundation
 
 class DetailFolderViewModel: ObservableObject {
     @Published var vocabularys = [Vocabulary]()
+    @Published var isRemoveFolder = false
 
     func getVocabulary(vocabularys: [Vocabulary], folderId: UUID) {
         self.vocabularys = vocabularys.filter { vocabulary in
             return vocabulary.folder?.id == folderId
         }
+    }
+
+    func removeFolder() {
+        isRemoveFolder.toggle()
     }
 }

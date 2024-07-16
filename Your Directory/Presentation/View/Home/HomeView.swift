@@ -38,7 +38,7 @@ struct HomeView: View {
         .frame(
             width: UIScreen.main.bounds.size.width
         )
-        .background(ConvertColor.colorFromHex("aebebc"))
+        .background(Color.background)
         .sheet(item: $viewModel.searchVocabulary, onDismiss: {
             viewModel.searchVocabulary = nil
         }, content: { searchVocabulary in
