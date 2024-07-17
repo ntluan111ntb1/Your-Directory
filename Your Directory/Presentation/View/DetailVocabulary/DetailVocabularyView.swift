@@ -22,6 +22,7 @@ struct DetailVocabularyView: View {
 
     let dismiss: () -> Void
     var addVocabulary: ((String, Folder) -> Void)? = nil
+    var updateVocabulary: ((String, Folder) -> Void)? = nil
     var deleteVocabulary: (() -> Void)? = nil
 
     var body: some View {
@@ -45,7 +46,7 @@ struct DetailVocabularyView: View {
                 foregroundColor: .black
             ) {
                 addVocabulary?(note, selectedFolder)
-                isPresentPopup.toggle()
+                updateVocabulary?(note, selectedFolder)
             }
         }
         .popup(isPresented: $isPresentPopup, view: {

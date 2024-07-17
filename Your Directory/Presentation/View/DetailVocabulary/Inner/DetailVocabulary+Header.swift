@@ -10,6 +10,15 @@ import SwiftUI
 extension DetailVocabularyView {
     func makeHeader() -> some View {
         HStack {
+            if deleteVocabulary != nil {
+                Button(action: {
+                    isPresentPopup.toggle()
+                }, label: {
+                    Image(systemName: "trash")
+                        .font(.title2)
+                })
+                Spacer()
+            }
             Text("Chi tiết từ vựng")
                 .fontStyle(.largeBold)
             Spacer()
@@ -18,7 +27,6 @@ extension DetailVocabularyView {
             } label: {
                 Image(systemName: "xmark")
                     .font(.title2)
-                    .foregroundStyle(.black)
             }
         }
         .padding(.horizontal)
