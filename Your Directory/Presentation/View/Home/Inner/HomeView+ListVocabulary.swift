@@ -10,7 +10,8 @@ import SwiftUI
 extension HomeView {
     func makeListVocabulary() -> some View {
         ListVocabularyView(vocabularies: viewModel.vocabularys) { vocabulary in
-            selectedVocabulary = vocabulary
+            viewModel.vocabulary = vocabulary
+            typeOfVocabularyView = .detail
         }
     }
 }

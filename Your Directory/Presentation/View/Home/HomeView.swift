@@ -18,7 +18,7 @@ struct HomeView: View {
     @State var search = ""
     @State var isPresentCreateFolder = false
     @State var isPresentSearchView = false
-    @State var selectedVocabulary: Vocabulary? = nil
+    @State var typeOfVocabularyView: TypeOfVocabularyView = .search
 
     // Toast
     @State var isShowToast = false
@@ -39,46 +39,40 @@ struct HomeView: View {
             width: UIScreen.main.bounds.size.width
         )
         .background(Color.background)
-        .sheet(item: $viewModel.searchVocabulary, onDismiss: {
-            viewModel.searchVocabulary = nil
+        .sheet(item: $viewModel.vocabulary, onDismiss: {
+            viewModel.vocabulary = nil
         }, content: { searchVocabulary in
             VStack {
                 NavigationStack {
                     DetailVocabularyView(
                         vocabulary: .constant(searchVocabulary),
                         folders: .constant(viewModel.folders),
-                        textButton: "Thêm từ này"
-                    ) {
-                        viewModel.searchVocabulary = nil
-                    } addVocabulary: { note, folder in
-                        viewModel.addVocabulary(note: note, folder: folder) { status, message in
-                            self.message = message
-                            self.toastStatus = status
-                            isShowToast.toggle()
-                        }
-                        viewModel.searchVocabulary = nil
-                    }
+                        typeOfView: typeOfVocabularyView,
+                        dismiss: {
+                            viewModel.vocabulary = nil
+                        },
+                        handleVocabulary: { note, folder in
+                            viewModel.addVocabulary(note: note, folder: folder) { 
+                                status, message in
+                                self.message = message
+                                self.toastStatus = status
+                                isShowToast.toggle()
+                            }
+                            viewModel.vocabulary = nil
+                        },
+                        deleteVocabulary: {
+                            viewModel.deleteVocabulary(vocabulary: searchVocabulary) { 
+                                status, message in
+                                self.message = message
+                                self.toastStatus = status
+                                isShowToast.toggle()
+                            }
+                            viewModel.vocabulary = nil
+                        })
                 }
             }
             .presentationDetents([.medium, .large])
             .presentationCornerRadius(38)
-        })
-        .sheet(item: $selectedVocabulary, content: { selectedContent in
-            DetailVocabularyView(
-                vocabulary: .constant(selectedContent), 
-                folders: .constant(viewModel.folders),
-                textButton: "Xóa từ này") {
-                    selectedVocabulary = nil
-                } deleteVocabulary: {
-                    viewModel.deleteVocabulary(vocabulary: selectedContent) { status, message in
-                        self.message = message
-                        self.toastStatus = status
-                        isShowToast.toggle()
-                    }
-                    selectedVocabulary = nil
-                }
-                .presentationDetents([.medium, .large])
-                .presentationCornerRadius(38)
         })
         .sheet(isPresented: $isPresentCreateFolder, content: {
             CreateFolderView(isPresentSheet: $isPresentCreateFolder) { folder in

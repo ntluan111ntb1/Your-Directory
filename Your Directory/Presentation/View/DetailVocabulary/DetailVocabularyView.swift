@@ -14,15 +14,15 @@ struct DetailVocabularyView: View {
 
     @Binding var vocabulary: Vocabulary
     @Binding var folders: [Folder]
+
     @State var note = ""
     @State var isPresentPopup = false
     @State var selectedFolder = Folder(name: "", color: "", publishAt: "")
 
-    let textButton: String
+    let typeOfView: TypeOfVocabularyView
 
     let dismiss: () -> Void
-    var addVocabulary: ((String, Folder) -> Void)? = nil
-    var updateVocabulary: ((String, Folder) -> Void)? = nil
+    var handleVocabulary: ((String, Folder) -> Void)? = nil
     var deleteVocabulary: (() -> Void)? = nil
 
     var body: some View {
@@ -41,12 +41,11 @@ struct DetailVocabularyView: View {
                     .shadow(radius: 4)
             )
             ButtonFullWidthView(
-                lable: textButton,
+                lable: typeOfView.textButton,
                 color: .yellowCustome,
                 foregroundColor: .black
             ) {
-                addVocabulary?(note, selectedFolder)
-                updateVocabulary?(note, selectedFolder)
+                handleVocabulary?(note, selectedFolder)
             }
         }
         .popup(isPresented: $isPresentPopup, view: {
@@ -90,7 +89,7 @@ struct DetailVocabularyView: View {
             )
         ),
         folders: .constant([]),
-        textButton: "Thêm từ này",
+        typeOfView: .detail,
         dismiss: {}
     )
 }

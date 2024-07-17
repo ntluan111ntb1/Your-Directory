@@ -18,7 +18,7 @@ class HomeViewModel: ObservableObject {
         Folder(name: "Động từ", color: "BBE9FF", publishAt: ""),
         Folder(name: "Trạng từ", color: "B1AFFF", publishAt: ""),
     ]
-    @Published var searchVocabulary: Vocabulary?
+    @Published var vocabulary: Vocabulary?
     @Published var statePlaySound = false
     @Published var selectedFolder = Folder(name: "", color: "", publishAt: "")
 
@@ -35,7 +35,7 @@ class HomeViewModel: ObservableObject {
                     print("==> error: \(error)")
                 }
             } receiveValue: { [self] response in
-                searchVocabulary = response
+                vocabulary = response
             }
             .store(in: &disposables)
     }
@@ -148,7 +148,7 @@ extension HomeViewModel {
         folder: Folder,
         completion: @escaping (Status, String) -> Void
     ) {
-        guard var vocabulary = searchVocabulary else { return }
+        guard var vocabulary = vocabulary else { return }
         vocabulary.vocabularyNote = note
         vocabulary.folder = folder
         let dateFormatter = ISO8601DateFormatter()
