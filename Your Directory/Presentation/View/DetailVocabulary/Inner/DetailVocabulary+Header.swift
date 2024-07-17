@@ -12,7 +12,7 @@ extension DetailVocabularyView {
         HStack {
             if typeOfView == .detail {
                 Button(action: {
-                    isPresentPopup.toggle()
+                    isShowPopupDelete = true
                 }, label: {
                     Image(systemName: "trash")
                         .font(.title2)

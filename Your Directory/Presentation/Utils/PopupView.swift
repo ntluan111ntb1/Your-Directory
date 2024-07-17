@@ -52,7 +52,6 @@ struct PopupView: View {
             .padding()
             .background(Color.popupBackground.cornerRadius(20))
         }
-        .padding(.horizontal)
     }
 }
 

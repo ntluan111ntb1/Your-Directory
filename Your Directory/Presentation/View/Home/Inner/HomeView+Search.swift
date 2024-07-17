@@ -13,11 +13,11 @@ extension HomeView {
             GIFView(type: .name("search"))
                 .frame(width: 40, height: 40)
                 .onTapGesture {
-                    viewModel.searchVocabulary(vocabulary: search)
+                    viewModel.searchVocabulary(word: search)
                 }
             TextField("Bạn muốn tìm từ vựng nào?", text: $search)
                 .onSubmit {
-                    viewModel.searchVocabulary(vocabulary: search)
+                    viewModel.searchVocabulary(word: search)
                     typeOfVocabularyView = .search
                     isPresentSearchView.toggle()
                 }

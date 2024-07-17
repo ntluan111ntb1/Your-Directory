@@ -24,8 +24,8 @@ class HomeViewModel: ObservableObject {
 
     let firestoreManager = FirestoreManager()
 
-    func searchVocabulary(vocabulary: String) {
-        DirectionHttp.getVocabulary(vocabulary: vocabulary)
+    func searchVocabulary(word: String) {
+        DirectionHttp.getVocabulary(vocabulary: word)
             .receive(on: DispatchQueue.main)
             .sink { completion in
                 switch completion {

@@ -16,7 +16,7 @@ struct DetailVocabularyView: View {
     @Binding var folders: [Folder]
 
     @State var note = ""
-    @State var isPresentPopup = false
+    @State var isShowPopupDelete = false
     @State var selectedFolder = Folder(name: "", color: "", publishAt: "")
 
     let typeOfView: TypeOfVocabularyView
@@ -48,7 +48,7 @@ struct DetailVocabularyView: View {
                 handleVocabulary?(note, selectedFolder)
             }
         }
-        .popup(isPresented: $isPresentPopup, view: {
+        .popup(isPresented: $isShowPopupDelete, view: {
             PopupView(
                 image: "question",
                 title: "Xóa Từ Vựng Này ?",
@@ -57,10 +57,11 @@ struct DetailVocabularyView: View {
                 textButtonCancel: "Thôi",
                 handleAgree: {
                     deleteVocabulary?()
+                },
+                handleCancel: {
+                    isShowPopupDelete = false
                 }
-            ) {
-                isPresentPopup.toggle()
-            }
+            )
         }, customize: {
             $0
                 .type(.floater())

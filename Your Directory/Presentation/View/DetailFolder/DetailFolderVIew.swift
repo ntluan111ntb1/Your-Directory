@@ -15,6 +15,8 @@ struct DetailFolderView: View {
     @StateObject var viewModel = DetailFolderViewModel()
     @Binding var folder: Folder
     @State var selectedVocabulary: Vocabulary? = nil
+    @State var isShowPopupDetele = false
+
 
     let vocabularys: [Vocabulary]
 
@@ -37,7 +39,7 @@ struct DetailFolderView: View {
         .background(Color.background)
         .navigationTitle(folder.name)
         .navigationBarTitleDisplayMode(.inline)
-        .popup(isPresented: $viewModel.isRemoveFolder, view: {
+        .popup(isPresented: $isShowPopupDetele, view: {
             PopupView(
                 image: "question",
                 title: "Xóa Folder Này ?",
@@ -47,10 +49,12 @@ struct DetailFolderView: View {
                 handleAgree: {
                     presentationMode.wrappedValue.dismiss()
                     remove()
+                },
+                handleCancel: {
+                    isShowPopupDetele = false
                 }
-            ) {
-                viewModel.isRemoveFolder.toggle()
-            }
+            )
+            .padding(.horizontal)
         }, customize: {
             $0
                 .type(.floater())
@@ -67,7 +71,7 @@ struct DetailFolderView: View {
                         Image(systemName: "pencil")
                     }
                     Button(action: {
-                        viewModel.isRemoveFolder.toggle()
+                        isShowPopupDetele = true
                     }) {
                         Text("Xóa")
                         Image(systemName: "trash")
