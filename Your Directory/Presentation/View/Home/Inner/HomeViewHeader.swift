@@ -16,18 +16,23 @@ extension HomeView {
                         .fontStyle(.largeBold)
                     Text("\(user?.profile?.name ?? "")")
                         .fontStyle(.largeBold)
-                        .foregroundStyle(Color.orangeCustomize)
+                        .foregroundStyle(Color.yellowCustome)
                 }
-                Text("Wellcome back")
+                Text("Chào mừng bạn trở lại.")
             }
             Spacer()
-            NetworkImage(url: user?.profile?.imageURL(withDimension: 200))
-                .scaledToFill()
-                .frame(width: 52, height: 52)
-                .clipShape(Circle())
-                .onTapGesture {
-                    authenticationViewModel.signOut()
+            Menu {
+                Button {
+                    isShowPopupLogout = true
+                } label: {
+                    Text("Logout")
                 }
+            } label: {
+                NetworkImage(url: user?.profile?.imageURL(withDimension: 200))
+                    .scaledToFill()
+                    .frame(width: 52, height: 52)
+                    .clipShape(Circle())
+            }
         }
         .padding(.horizontal, 16)
     }

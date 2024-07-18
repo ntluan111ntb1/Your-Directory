@@ -18,6 +18,7 @@ struct HomeView: View {
     @State var search = ""
     @State var isPresentCreateFolder = false
     @State var isPresentSearchView = false
+    @State var isShowPopupLogout = false
     @State var typeOfVocabularyView: TypeOfVocabularyView = .search
 
     // Toast
@@ -102,6 +103,28 @@ struct HomeView: View {
                 .closeOnTapOutside(true)
                 .autohideIn(3)
         }
+        .popup(isPresented: $isShowPopupLogout, view: {
+            PopupView(
+                image: "question",
+                title: "Đăng Xuất ?",
+                content: "Bạn có chắc muốn đăng xuất hong?",
+                textButtonAgree: "Đăng xuất",
+                textButtonCancel: "Thôi",
+                handleAgree: {
+                    authenticationViewModel.signOut()
+                },
+                handleCancel: {
+                    isShowPopupLogout = false
+                }
+            )
+            .padding(.horizontal)
+        }, customize: {
+            $0
+                .type(.floater())
+                .position(.bottom)
+                .animation(.spring)
+                .closeOnTapOutside(true)
+        })
         .navigationDestination(for: Folder.self) { folder in
             DetailFolderView(
                 folder: $viewModel.selectedFolder,
