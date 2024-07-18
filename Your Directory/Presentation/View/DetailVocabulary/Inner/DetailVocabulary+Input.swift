@@ -11,9 +11,7 @@ extension DetailVocabularyView {
     func makeInput() -> some View {
         VStack {
             TextFieldImageGif(
-                text: vocabulary.vocabularyNote == nil
-                ? $note
-                : .constant(vocabulary.vocabularyNote ?? ""),
+                text: $note,
                 imageName: "notebook",
                 placeholder: "Ghi chú ở đây",
                 sizeImage: 32
@@ -24,9 +22,8 @@ extension DetailVocabularyView {
                     .frame(width: 32, height: 32)
                 Picker(
                     "Chọn danh mục",
-                    selection: vocabulary.folder == nil
-                    ? $selectedFolder
-                    : .constant(vocabulary.folder ?? Folder(name: "", color: "", publishAt: ""))) {
+                    selection: $selectedFolder
+                ) {
                     ForEach(folders) { folder in
                         HStack {
                             Circle()

@@ -143,7 +143,8 @@ extension HomeViewModel {
         }
     }
 
-    func addVocabulary(
+    func handleVocabulary(
+        typeOfHandle: TypeOfVocabularyView,
         note: String,
         folder: Folder,
         completion: @escaping (Status, String) -> Void
@@ -151,21 +152,45 @@ extension HomeViewModel {
         guard var vocabulary = vocabulary else { return }
         vocabulary.vocabularyNote = note
         vocabulary.folder = folder
-        let dateFormatter = ISO8601DateFormatter()
-        vocabulary.publishAt = dateFormatter.string(from: Date())
-        firestoreManager.addData(
-            collection: AppConstants.vocabularysCollection,
-            document: vocabulary.word,
-            data: vocabulary
-        ) { error in
-            if let error = error {
-                print("Error adding document: \(error)")
-                completion(.fail, "Pùn!!! Không thể thêm vocabulary")
-            } else {
-                self.vocabularys.insert(vocabulary, at: 0)
-                completion(.success, "Thêm vocabulary thành công rồi nè, Hí!!!")
+        switch typeOfHandle {
+        case .search:
+            firestoreManager.addData(
+                collection: AppConstants.vocabularysCollection,
+                document: vocabulary.word,
+                data: vocabulary
+            ) { error in
+                if let error = error {
+                    print("Error adding document: \(error)")
+                    completion(.fail, "Pùn!!! Không thể thêm vocabulary")
+                } else {
+                    let dateFormatter = ISO8601DateFormatter()
+                    vocabulary.publishAt = dateFormatter.string(from: Date())
+                    self.vocabularys.insert(vocabulary, at: 0)
+                    completion(.success, "Thêm vocabulary thành công rồi nè, Hí!!!")
+                }
             }
+        case .detail:
+            firestoreManager.updateData(
+                collection: AppConstants.vocabularysCollection,
+                document: vocabulary.word,
+                data: vocabulary) { error in
+                    if let error = error {
+                        print("Error update document: \(error)")
+                        completion(.fail, "Pùn!!! Không thể thêm vocabulary")
+                    } else {
+                        if let index = self.vocabularys.firstIndex(of: vocabulary) {
+                            self.vocabularys[index].vocabularyNote = note
+                            self.vocabularys[index].folder = folder
+                            print("update successfully")
+                            completion(.success, "Update vocabulary thành công rồi nè, Hí!!!")
+                        } else {
+                            print("Can not found \(vocabulary.word)")
+                            completion(.fail, "Ủa!!! Không tìm thấy \(vocabulary.word)")
+                        }
+                    }
+                }
         }
+
     }
 
     func deleteVocabulary(

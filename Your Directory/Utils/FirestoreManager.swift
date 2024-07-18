@@ -45,6 +45,29 @@ class FirestoreManager {
         }
     }
 
+    func updateData<T: Encodable>(
+        collection: String,
+        document: String,
+        data: T,
+        completion: @escaping (Error?) -> Void
+    ) {
+        guard let userDb = makeDataBaseOfUser() else {
+            return
+        }
+        do {
+            let jsonData = try JSONEncoder().encode(data)
+            guard let dictionary = try JSONSerialization.jsonObject(with: jsonData, options: .allowFragments) as? [String: Any] else {
+                completion(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to convert data to dictionary"]))
+                return
+            }
+            userDb.collection(collection).document(document).updateData(dictionary) { error in
+                completion(error)
+            }
+        } catch {
+            completion(error)
+        }
+    }
+
     func fetchData<T: Decodable>(
         collection: String,
         completion: @escaping ([T]?, Error?) -> Void

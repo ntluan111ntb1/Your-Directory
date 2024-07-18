@@ -14,10 +14,12 @@ struct DetailVocabularyView: View {
 
     @Binding var vocabulary: Vocabulary
     @Binding var folders: [Folder]
+    @State var note: String
+    @State var selectedFolder: Folder
 
-    @State var note = ""
     @State var isShowPopupDelete = false
-    @State var selectedFolder = Folder(name: "", color: "", publishAt: "")
+    @State var isDisableButton = true
+    @State var isFirstAppear = true
 
     let typeOfView: TypeOfVocabularyView
 
@@ -43,9 +45,13 @@ struct DetailVocabularyView: View {
             ButtonFullWidthView(
                 lable: typeOfView.textButton,
                 color: .yellowCustome,
-                foregroundColor: .black
+                foregroundColor: .black,
+                isDisable: isDisableButton
             ) {
-                handleVocabulary?(note, selectedFolder)
+                handleVocabulary?(
+                    note ?? "",
+                    selectedFolder ?? Folder(name: "", color: "", publishAt: "")
+                )
             }
         }
         .popup(isPresented: $isShowPopupDelete, view: {
@@ -69,7 +75,26 @@ struct DetailVocabularyView: View {
                 .animation(.spring)
         })
         .padding(16)
-        .background(Image("sheet"))
+        .background(Color.background)
+        .onChange(of: note) {
+            isDisableButton = false
+        }
+        .onChange(of: selectedFolder) {
+            isDisableButton = false
+        }
+//        .onAppear {
+//            note = vocabulary.vocabularyNote ?? ""
+//            if isFirstAppear {
+//                if let folder = vocabulary.folder {
+//                    selectedFolder = folder
+//                } else {
+//                    selectedFolder = folders.first ?? Folder(name: "", color: "", publishAt: "")
+//                }
+//                isDisableButton = true
+//                isFirstAppear = false
+//            }
+//        }
+
     }
 }
 
@@ -90,6 +115,8 @@ struct DetailVocabularyView: View {
             )
         ),
         folders: .constant([]),
+        note: "",
+        selectedFolder: Folder(name: "", color: "", publishAt: ""),
         typeOfView: .detail,
         dismiss: {}
     )

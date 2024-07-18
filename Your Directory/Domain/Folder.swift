@@ -17,4 +17,8 @@ struct Folder: Codable, Identifiable, Hashable {
         let dateFormatter = ISO8601DateFormatter()
         return dateFormatter.date(from: publishAt)
     }
+
+    var isEmpty: Bool {
+        return name.isEmpty || color.isEmpty
+    }
 }

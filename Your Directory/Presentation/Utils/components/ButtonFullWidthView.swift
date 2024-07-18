@@ -6,11 +6,11 @@
 //
 
 import SwiftUI
-
 struct ButtonFullWidthView: View {
     let lable: String
     let color: Color
     let foregroundColor: Color
+    var isDisable: Bool? = false
 
     var action: () -> Void
 
@@ -23,10 +23,11 @@ struct ButtonFullWidthView: View {
                 Spacer()
             }
         }
+        .disabled(isDisable ?? false)
         .padding(.vertical, 12)
         .padding(.horizontal, 24)
         .foregroundStyle(foregroundColor)
-        .background(color)
+        .background(isDisable ?? false ? .gray : color)
         .overlay {
             RoundedRectangle(cornerRadius: 62)
                 .stroke(.black, lineWidth: 4)

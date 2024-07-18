@@ -47,12 +47,18 @@ struct HomeView: View {
                     DetailVocabularyView(
                         vocabulary: .constant(searchVocabulary),
                         folders: .constant(viewModel.folders),
+                        note: searchVocabulary.vocabularyNote ?? "",
+                        selectedFolder: (searchVocabulary.folder ?? viewModel.folders.first) ?? Folder(name: "", color: "", publishAt: ""),
                         typeOfView: typeOfVocabularyView,
                         dismiss: {
                             viewModel.vocabulary = nil
                         },
                         handleVocabulary: { note, folder in
-                            viewModel.addVocabulary(note: note, folder: folder) { 
+                            viewModel.handleVocabulary(
+                                typeOfHandle: typeOfVocabularyView,
+                                note: note,
+                                folder: folder
+                            ) {
                                 status, message in
                                 self.message = message
                                 self.toastStatus = status
