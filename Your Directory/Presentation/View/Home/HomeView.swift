@@ -15,6 +15,8 @@ struct HomeView: View {
 
     @ObservedObject var viewModel: HomeViewModel
 
+    @Binding var vocabularies: [Vocabulary]
+
     @State var search = ""
     @State var isPresentCreateFolder = false
     @State var isPresentSearchView = false
@@ -23,9 +25,9 @@ struct HomeView: View {
 
     // Toast
     @State var isShowToast = false
-    @State var message: String? = nil
+    @State var toastMessage: String? = nil
     @State var toastStatus: Status? = nil
-    
+
     var body: some View {
         VStack(alignment: .leading) {
             makeHeader()
@@ -59,29 +61,28 @@ struct HomeView: View {
                         typeOfView: typeOfVocabularyView,
                         dismiss: {
                             viewModel.vocabulary = nil
-                        },
-                        handleVocabulary: { note, folder in
-                            viewModel.handleVocabulary(
-                                typeOfHandle: typeOfVocabularyView,
-                                note: note,
-                                folder: folder
-                            ) {
-                                status, message in
-                                self.message = message
-                                self.toastStatus = status
-                                isShowToast.toggle()
+                        }
+                    ) { toastStatus, toastMessage, vocabulary in
+                        self.toastMessage = toastMessage
+                        self.toastStatus = toastStatus
+                        switch typeOfVocabularyView {
+                        case .search:
+                            guard let newVocabulary = vocabulary else { return }
+                            vocabularies.insert(newVocabulary, at: 0)
+                        case .detail:
+                            guard let vocabulry = viewModel.vocabulary else { return }
+                            if let index = self.vocabularies.firstIndex(of: vocabulry) {
+                                if let vocabularyUpdated = vocabulary {
+                                    self.vocabularies[index].vocabularyNote = vocabularyUpdated.vocabularyNote
+                                    self.vocabularies[index].folder = vocabularyUpdated.folder
+                                } else {
+                                    self.vocabularies.remove(at: index)
+                                }
                             }
-                            viewModel.vocabulary = nil
-                        },
-                        deleteVocabulary: {
-                            viewModel.deleteVocabulary(vocabulary: searchVocabulary) { 
-                                status, message in
-                                self.message = message
-                                self.toastStatus = status
-                                isShowToast.toggle()
-                            }
-                            viewModel.vocabulary = nil
-                        })
+                        }
+                        viewModel.vocabulary = nil
+                        isShowToast = true
+                    }
                 }
             }
             .presentationDetents([.medium, .large])
@@ -90,7 +91,7 @@ struct HomeView: View {
         .sheet(isPresented: $isPresentCreateFolder, content: {
             CreateFolderView(isPresentSheet: $isPresentCreateFolder) { folder in
                 viewModel.addFolder(folderName: folder.name, folderColor: folder.color) { status, message in
-                    self.message = message
+                    self.toastMessage = message
                     self.toastStatus = status
                     isShowToast.toggle()
                 }
@@ -100,7 +101,7 @@ struct HomeView: View {
             .presentationCornerRadius(38)
         })
         .popup(isPresented: $isShowToast) {
-            ToastView(message: message ?? "", state: toastStatus ?? .fail)
+            ToastView(message: toastMessage ?? "", state: toastStatus ?? .fail)
         } customize: {
             $0
                 .type(.floater())
@@ -134,10 +135,10 @@ struct HomeView: View {
         .navigationDestination(for: Folder.self) { folder in
             DetailFolderView(
                 folder: $viewModel.selectedFolder,
-                vocabularys: viewModel.vocabularys
+                vocabularys: vocabularies
             ) {
                 viewModel.deleteFolder(folder: folder) { status, message in
-                    self.message = message
+                    self.toastMessage = message
                     self.toastStatus = status
                     isShowToast.toggle()
                 }
@@ -147,5 +148,8 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView(viewModel: .init())
+    HomeView(
+        viewModel: .init(),
+        vocabularies: .constant(AppConstants.mockVocabularies)
+    )
 }

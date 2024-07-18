@@ -11,13 +11,13 @@ import Combine
 class HomeViewModel: ObservableObject {
     private var disposables = Set<AnyCancellable>()
 
-    @Published var vocabularys = AppConstants.mockVocabularies
     @Published var folders = [
         Folder(name: "Hihihi", color: "FFE9D0", publishAt: ""),
         Folder(name: "Danh Từ", color: "FFFED3", publishAt: ""),
         Folder(name: "Động từ", color: "BBE9FF", publishAt: ""),
         Folder(name: "Trạng từ", color: "B1AFFF", publishAt: ""),
     ]
+    
     @Published var vocabulary: Vocabulary?
     @Published var statePlaySound = false
     @Published var selectedFolder = Folder(name: "", color: "", publishAt: "")
@@ -61,7 +61,7 @@ class HomeViewModel: ObservableObject {
 extension HomeViewModel {
     func getFolders() {
         isLoading = true
-        firestoreManager.fetchData(
+        FirestoreManager.fetchData(
             collection: AppConstants.foldersCollection
         ) {
             (folders: [Folder]?, error) in
@@ -87,7 +87,7 @@ extension HomeViewModel {
     func addFolder(folderName: String, folderColor: String, completion: @escaping (Status, String) -> Void) {
         let dateFormatter = ISO8601DateFormatter()
         let folderTerm = Folder(name: folderName, color: folderColor, publishAt: dateFormatter.string(from: Date()))
-        firestoreManager.addData(
+        FirestoreManager.addData(
             collection: AppConstants.foldersCollection,
             document: folderName,
             data: folderTerm
@@ -104,7 +104,7 @@ extension HomeViewModel {
     }
 
     func deleteFolder(folder: Folder, completion: @escaping (Status, String) -> Void) {
-        firestoreManager.deleteData(
+        FirestoreManager.deleteData(
             collection: AppConstants.foldersCollection,
             document: folder.name
         ) { error in
@@ -126,105 +126,4 @@ extension HomeViewModel {
     }
 }
 
-// Handle for vocabulary
-extension HomeViewModel {
-    func getVocabularys() {
-        isLoading = true
-        firestoreManager.fetchData(
-            collection: AppConstants.vocabularysCollection
-        ) {
-            (vocabularys: [Vocabulary]?, error) in
-            if let error = error {
-                print("Error fetching data: \(error)")
-            } else {
-                guard let vocabularys = vocabularys else {
-                    return
-                }
-                self.vocabularys = vocabularys.sorted(by: { vocab1, vocab2 -> Bool in
-                    guard let date1 = vocab1.publishDate, let date2 = vocab2.publishDate else {
-                        return false
-                    }
-                    return date1 > date2
-                })
-            }
-            DispatchQueue.main.asyncAfterUnsafe(deadline: .now() + 5) {
-                self.isLoading = false
-            }
-        }
-    }
 
-    func handleVocabulary(
-        typeOfHandle: TypeOfVocabularyView,
-        note: String,
-        folder: Folder,
-        completion: @escaping (Status, String) -> Void
-    ) {
-        guard var vocabulary = vocabulary else { return }
-        vocabulary.vocabularyNote = note
-        vocabulary.folder = folder
-        switch typeOfHandle {
-        case .search:
-            firestoreManager.addData(
-                collection: AppConstants.vocabularysCollection,
-                document: vocabulary.word,
-                data: vocabulary
-            ) { error in
-                if let error = error {
-                    print("Error adding document: \(error)")
-                    completion(.fail, "Pùn!!! Không thể thêm vocabulary")
-                } else {
-                    let dateFormatter = ISO8601DateFormatter()
-                    vocabulary.publishAt = dateFormatter.string(from: Date())
-                    self.vocabularys.insert(vocabulary, at: 0)
-                    completion(.success, "Thêm vocabulary thành công rồi nè, Hí!!!")
-                }
-            }
-        case .detail:
-            firestoreManager.updateData(
-                collection: AppConstants.vocabularysCollection,
-                document: vocabulary.word,
-                data: vocabulary) { error in
-                    if let error = error {
-                        print("Error update document: \(error)")
-                        completion(.fail, "Pùn!!! Không thể thêm vocabulary")
-                    } else {
-                        if let index = self.vocabularys.firstIndex(of: vocabulary) {
-                            self.vocabularys[index].vocabularyNote = note
-                            self.vocabularys[index].folder = folder
-                            print("update successfully")
-                            completion(.success, "Update vocabulary thành công rồi nè, Hí!!!")
-                        } else {
-                            print("Can not found \(vocabulary.word)")
-                            completion(.fail, "Ủa!!! Không tìm thấy \(vocabulary.word)")
-                        }
-                    }
-                }
-        }
-
-    }
-
-    func deleteVocabulary(
-        vocabulary: Vocabulary,
-        completion: @escaping (Status, String) -> Void
-    ) {
-        firestoreManager.deleteData(
-            collection: AppConstants.vocabularysCollection,
-            document: vocabulary.word
-        ) { error in
-            if let error = error {
-                print("Error delete document: \(error)")
-                completion(.fail, "Pùn!!! Không thể xóa vocabulary")
-            } else {
-                if let index = self.vocabularys.firstIndex(of: vocabulary) {
-                    self.vocabularys.remove(at: index)
-                    print("remove successfully")
-                    completion(.success, "Xóa vocabulary thành công rồi nè, Hí!!!")
-                } else {
-                    print("Can not found \(vocabulary.word)")
-                    completion(.fail, "Ủa!!! Không tìm thấy \(vocabulary.word)")
-                }
-            }
-
-        }
-    }
-}

@@ -11,7 +11,7 @@ import FirebaseAuth
 
 class FirestoreManager {
 
-    func makeDataBaseOfUser() -> DocumentReference? {
+    static func makeDataBaseOfUser() -> DocumentReference? {
         guard let user = Auth.auth().currentUser else {
             print("Error: User not loggin")
             return nil
@@ -19,7 +19,7 @@ class FirestoreManager {
         return Firestore.firestore().collection("users").document(user.uid)
     }
 
-    func addData<T: Encodable>(
+    static func addData<T: Encodable>(
         collection: String,
         document: String,
         data: T,
@@ -45,7 +45,7 @@ class FirestoreManager {
         }
     }
 
-    func updateData<T: Encodable>(
+    static func updateData<T: Encodable>(
         collection: String,
         document: String,
         data: T,
@@ -68,7 +68,7 @@ class FirestoreManager {
         }
     }
 
-    func fetchData<T: Decodable>(
+    static func fetchData<T: Decodable>(
         collection: String,
         completion: @escaping ([T]?, Error?) -> Void
     ) {
@@ -97,7 +97,7 @@ class FirestoreManager {
         }
     }
 
-    func deleteData(
+    static func deleteData(
         collection: String,
         document: String,
         completion: @escaping (Error?) -> Void

@@ -24,8 +24,7 @@ struct DetailVocabularyView: View {
     let typeOfView: TypeOfVocabularyView
 
     let dismiss: () -> Void
-    var handleVocabulary: ((String, Folder) -> Void)? = nil
-    var deleteVocabulary: (() -> Void)? = nil
+    var resultHandle: ((Status, String, Vocabulary?) -> Void)
 
     var body: some View {
         VStack(spacing: 16) {
@@ -48,10 +47,14 @@ struct DetailVocabularyView: View {
                 foregroundColor: .black,
                 isDisable: isDisableButton
             ) {
-                handleVocabulary?(
-                    note ?? "",
-                    selectedFolder ?? Folder(name: "", color: "", publishAt: "")
-                )
+                viewModel.handleVocabulary(
+                    vocabulary: vocabulary,
+                    typeOfHandle: typeOfView,
+                    note: note,
+                    folder: selectedFolder
+                ) { status, message, newVocabulary in
+                    resultHandle(status, message, newVocabulary)
+                }
             }
         }
         .popup(isPresented: $isShowPopupDelete, view: {
@@ -62,7 +65,11 @@ struct DetailVocabularyView: View {
                 textButtonAgree: "Xóa luôn",
                 textButtonCancel: "Thôi",
                 handleAgree: {
-                    deleteVocabulary?()
+                    viewModel.deleteVocabulary(
+                        vocabulary: vocabulary
+                    ) { status, message in
+                        resultHandle(status, message, nil)
+                    }
                 },
                 handleCancel: {
                     isShowPopupDelete = false
@@ -119,5 +126,7 @@ struct DetailVocabularyView: View {
         selectedFolder: Folder(name: "", color: "", publishAt: ""),
         typeOfView: .detail,
         dismiss: {}
-    )
+    ) { _, _, _ in
+
+    }
 }
