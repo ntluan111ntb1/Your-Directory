@@ -31,6 +31,9 @@ struct ListVocabularyView: View {
             }
             .padding(.horizontal)
         }
+        .refreshable {
+            print("refresh")
+        }
     }
 }
 

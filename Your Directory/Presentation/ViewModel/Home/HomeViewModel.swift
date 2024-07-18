@@ -22,6 +22,8 @@ class HomeViewModel: ObservableObject {
     @Published var statePlaySound = false
     @Published var selectedFolder = Folder(name: "", color: "", publishAt: "")
 
+    @Published var isLoading = false
+
     let firestoreManager = FirestoreManager()
 
     func searchVocabulary(word: String) {
@@ -48,7 +50,7 @@ class HomeViewModel: ObservableObject {
         } else {
             SoundManager.shared.audioPlayer?.pause()
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [weak self] in
             guard let self else { return }
             self.statePlaySound.toggle()
         }
@@ -58,6 +60,7 @@ class HomeViewModel: ObservableObject {
 // Handle for folder
 extension HomeViewModel {
     func getFolders() {
+        isLoading = true
         firestoreManager.fetchData(
             collection: AppConstants.foldersCollection
         ) {
@@ -74,6 +77,9 @@ extension HomeViewModel {
                     }
                     return date1 > date2
                 })
+            }
+            DispatchQueue.main.asyncAfterUnsafe(deadline: .now() + 3) {
+                self.isLoading = false
             }
         }
     }
@@ -123,6 +129,7 @@ extension HomeViewModel {
 // Handle for vocabulary
 extension HomeViewModel {
     func getVocabularys() {
+        isLoading = true
         firestoreManager.fetchData(
             collection: AppConstants.vocabularysCollection
         ) {
@@ -139,6 +146,9 @@ extension HomeViewModel {
                     }
                     return date1 > date2
                 })
+            }
+            DispatchQueue.main.asyncAfterUnsafe(deadline: .now() + 5) {
+                self.isLoading = false
             }
         }
     }

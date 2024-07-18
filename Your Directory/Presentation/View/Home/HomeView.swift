@@ -30,8 +30,14 @@ struct HomeView: View {
         VStack(alignment: .leading) {
             makeHeader()
             makeSearch()
-            makeListFolder()
-            makeListVocabulary()
+            if viewModel.isLoading {
+                LoadingView()
+            } else {
+                VStack {
+                    makeListFolder()
+                    makeListVocabulary()
+                }
+            }
             Spacer()
             makeBottomTabBar()
         }
