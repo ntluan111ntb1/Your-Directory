@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct CreateFolderView: View {
+    @StateObject var viewModel = DetailFolderViewModel()
     @Binding var isPresentSheet: Bool
 
-    @State var folder = ""
+    @State var folderName = ""
     @State var selectedColor: CustomColor = .style1
 
-    let createFolder: (Folder) -> Void
+    let resultHanlde: (Status, String, Folder?) -> Void
 
     var body: some View {
         VStack(spacing: 16) {
@@ -33,7 +34,13 @@ struct CreateFolderView: View {
                 lable: "Tạo thôi nào",
                 color: .yellowCustome,
                 foregroundColor: .black) {
-                    createFolder(Folder(name: folder, color: selectedColor.rawValue, publishAt: ""))
+                    viewModel.addFolder(folder: Folder(
+                        name: folderName,
+                        color: selectedColor,
+                        publishAt: ""
+                    ) { status, message, newFolder in
+                        resultHanlde(status, message, newFolder)
+                    })
                 }
         }
         .padding(16)

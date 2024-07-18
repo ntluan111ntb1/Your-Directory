@@ -15,6 +15,7 @@ struct SplashView: View {
 
     @StateObject var viewModel = HomeViewModel()
     @StateObject var listVocabularyViewModel = ListVocabularyViewModel()
+    @StateObject var listFolderViewModel = ListFolderViewModel()
     @State var isPresentSplashView = true
 
     var body: some View {
@@ -28,7 +29,8 @@ struct SplashView: View {
                     case .signedIn:
                         HomeView(
                             viewModel: viewModel,
-                            vocabularies: $listVocabularyViewModel.vocabularys
+                            vocabularies: $listVocabularyViewModel.vocabularys,
+                            folders: $listFolderViewModel.folders
                         )
                     case .signedOut:
                         SignInView()
@@ -41,7 +43,7 @@ struct SplashView: View {
         }
         .onAppear {
             listVocabularyViewModel.getVocabularys()
-            viewModel.getFolders()
+            listFolderViewModel.getFolders()
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
                 isPresentSplashView.toggle()
             }

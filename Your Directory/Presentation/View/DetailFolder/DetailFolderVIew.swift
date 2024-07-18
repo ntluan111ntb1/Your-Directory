@@ -20,7 +20,7 @@ struct DetailFolderView: View {
 
     let vocabularys: [Vocabulary]
 
-    let remove: () -> Void
+    let resultHandle: (Status, String, Folder?) -> Void
     let layout = [
         GridItem(.flexible()),
         GridItem(.flexible()),
@@ -48,7 +48,9 @@ struct DetailFolderView: View {
                 textButtonCancel: "Thôi",
                 handleAgree: {
                     presentationMode.wrappedValue.dismiss()
-                    remove()
+                    viewModel.deleteFolder(folder: folder) { status, message, folder in
+                        resultHandle(status, message, folder)
+                    }
                 },
                 handleCancel: {
                     isShowPopupDetele = false
@@ -87,5 +89,5 @@ struct DetailFolderView: View {
 #Preview {
     DetailFolderView(
         folder: .constant(Folder(name: "folder name", color: "", publishAt: "")),
-        vocabularys: AppConstants.mockVocabularies) { }
+        vocabularys: AppConstants.mockVocabularies) { _,_,_ in }
 }

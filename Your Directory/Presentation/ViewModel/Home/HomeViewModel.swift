@@ -22,10 +22,6 @@ class HomeViewModel: ObservableObject {
     @Published var statePlaySound = false
     @Published var selectedFolder = Folder(name: "", color: "", publishAt: "")
 
-    @Published var isLoading = false
-
-    let firestoreManager = FirestoreManager()
-
     func searchVocabulary(word: String) {
         DirectionHttp.getVocabulary(vocabulary: word)
             .receive(on: DispatchQueue.main)
@@ -53,75 +49,6 @@ class HomeViewModel: ObservableObject {
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [weak self] in
             guard let self else { return }
             self.statePlaySound.toggle()
-        }
-    }
-}
-
-// Handle for folder
-extension HomeViewModel {
-    func getFolders() {
-        isLoading = true
-        FirestoreManager.fetchData(
-            collection: AppConstants.foldersCollection
-        ) {
-            (folders: [Folder]?, error) in
-            if let error = error {
-                print("Error fetching data: \(error)")
-            } else {
-                guard let folders = folders else {
-                    return
-                }
-                self.folders = folders.sorted(by: { folder1, folder2 -> Bool in
-                    guard let date1 = folder1.publishDate, let date2 = folder2.publishDate else {
-                        return false
-                    }
-                    return date1 > date2
-                })
-            }
-            DispatchQueue.main.asyncAfterUnsafe(deadline: .now() + 3) {
-                self.isLoading = false
-            }
-        }
-    }
-
-    func addFolder(folderName: String, folderColor: String, completion: @escaping (Status, String) -> Void) {
-        let dateFormatter = ISO8601DateFormatter()
-        let folderTerm = Folder(name: folderName, color: folderColor, publishAt: dateFormatter.string(from: Date()))
-        FirestoreManager.addData(
-            collection: AppConstants.foldersCollection,
-            document: folderName,
-            data: folderTerm
-        ) { error in
-            if let error = error {
-                print("Error adding document: \(error)")
-                completion(.fail, "Pùn!!! Không thể thêm folder")
-            } else {
-                self.folders.insert(folderTerm, at: 0)
-                print("Document added successfully")
-                completion(.success, "Thêm folder thành công rồi nè, Hí!!!")
-            }
-        }
-    }
-
-    func deleteFolder(folder: Folder, completion: @escaping (Status, String) -> Void) {
-        FirestoreManager.deleteData(
-            collection: AppConstants.foldersCollection,
-            document: folder.name
-        ) { error in
-            if let error = error {
-                print("Error delete document: \(error)")
-                completion(.fail, "Pùn!!! Không thể xóa folder")
-            } else {
-                if let index = self.folders.firstIndex(of: folder) {
-                    self.folders.remove(at: index)
-                    completion(.success, "Xóa folder thành công rồi nè, Hí!!!")
-                } else {
-                    print("Can not found \(folder.name)")
-                    completion(.fail, "Ủa!!! Không tìm thấy \(folder.name)")
-                }
-                print("remove successfully")
-            }
-
         }
     }
 }

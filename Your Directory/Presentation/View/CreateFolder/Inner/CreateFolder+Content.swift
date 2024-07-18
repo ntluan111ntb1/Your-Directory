@@ -14,7 +14,7 @@ extension CreateFolderView {
                 Text("Tên của thư mục:")
                     .fontStyle(.mediumBold)
                 TextFieldImageGif(
-                    text: $folder,
+                    text: $folderName,
                     imageName: "notebook",
                     placeholder: "Tên của thể loại",
                     sizeImage: 40

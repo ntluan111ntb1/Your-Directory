@@ -16,6 +16,7 @@ struct HomeView: View {
     @ObservedObject var viewModel: HomeViewModel
 
     @Binding var vocabularies: [Vocabulary]
+    @Binding var folders: [Folder]
 
     @State var search = ""
     @State var isPresentCreateFolder = false
@@ -88,18 +89,17 @@ struct HomeView: View {
             .presentationDetents([.medium, .large])
             .presentationCornerRadius(38)
         })
-        .sheet(isPresented: $isPresentCreateFolder, content: {
-            CreateFolderView(isPresentSheet: $isPresentCreateFolder) { folder in
-                viewModel.addFolder(folderName: folder.name, folderColor: folder.color) { status, message in
-                    self.toastMessage = message
-                    self.toastStatus = status
-                    isShowToast.toggle()
-                }
+        .sheet(isPresented: $isPresentCreateFolder) {
+            CreateFolderView(isPresentSheet: $isPresentCreateFolder) {  status, message, newFolder in
+                self.toastMessage = message
+                self.toastStatus = status
+                folders.insert(newFolder, at: 0)
+                isShowToast.toggle()
                 isPresentCreateFolder.toggle()
             }
             .presentationDetents([.medium])
             .presentationCornerRadius(38)
-        })
+        }
         .popup(isPresented: $isShowToast) {
             ToastView(message: toastMessage ?? "", state: toastStatus ?? .fail)
         } customize: {
@@ -136,20 +136,21 @@ struct HomeView: View {
             DetailFolderView(
                 folder: $viewModel.selectedFolder,
                 vocabularys: vocabularies
-            ) {
-                viewModel.deleteFolder(folder: folder) { status, message in
-                    self.toastMessage = message
-                    self.toastStatus = status
-                    isShowToast.toggle()
-                }
+            ) { status, message, folder in
+                let index = folders
+                self.toastMessage = message
+                self.toastStatus = status
+                isShowToast.toggle()
             }
         }
     }
 }
 
+
 #Preview {
     HomeView(
         viewModel: .init(),
-        vocabularies: .constant(AppConstants.mockVocabularies)
+        vocabularies: .constant(AppConstants.mockVocabularies),
+        folders: .constant(AppConstants.mockFolders)
     )
 }
