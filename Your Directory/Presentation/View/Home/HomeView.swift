@@ -33,14 +33,8 @@ struct HomeView: View {
         VStack(alignment: .leading) {
             makeHeader()
             makeSearch()
-            if viewModel.isLoading {
-                LoadingView()
-            } else {
-                VStack {
-                    makeListFolder()
-                    makeListVocabulary()
-                }
-            }
+            makeListFolder()
+            makeListVocabulary()
             Spacer()
             makeBottomTabBar()
         }
@@ -93,7 +87,9 @@ struct HomeView: View {
             CreateFolderView(isPresentSheet: $isPresentCreateFolder) {  status, message, newFolder in
                 self.toastMessage = message
                 self.toastStatus = status
-                folders.insert(newFolder, at: 0)
+                if let newFolder = newFolder {
+                    folders.insert(newFolder, at: 0)
+                }
                 isShowToast.toggle()
                 isPresentCreateFolder.toggle()
             }
@@ -137,7 +133,10 @@ struct HomeView: View {
                 folder: $viewModel.selectedFolder,
                 vocabularys: vocabularies
             ) { status, message, folder in
-                let index = folders
+                guard let folderDeleted = folder else { return }
+                if let index = folders.firstIndex(of: folderDeleted) {
+                    folders.remove(at: index)
+                }
                 self.toastMessage = message
                 self.toastStatus = status
                 isShowToast.toggle()

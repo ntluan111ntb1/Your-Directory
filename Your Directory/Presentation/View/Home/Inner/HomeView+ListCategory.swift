@@ -11,7 +11,7 @@ extension HomeView {
     func makeListFolder() -> some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
-                ForEach(viewModel.folders) { folder in
+                ForEach(folders) { folder in
                     NavigationLink(value: folder) {
                         HStack {
                             Spacer()

@@ -33,15 +33,18 @@ struct CreateFolderView: View {
             ButtonFullWidthView(
                 lable: "Tạo thôi nào",
                 color: .yellowCustome,
-                foregroundColor: .black) {
-                    viewModel.addFolder(folder: Folder(
+                foregroundColor: .black
+            ) {
+                viewModel.addFolder(
+                    folder: Folder(
                         name: folderName,
-                        color: selectedColor,
+                        color: selectedColor.rawValue,
                         publishAt: ""
-                    ) { status, message, newFolder in
-                        resultHanlde(status, message, newFolder)
-                    })
+                    )
+                ) { status, message, newFolder in
+                    resultHanlde(status, message, newFolder)
                 }
+            }
         }
         .padding(16)
         .background(Color.orangeCustomize)

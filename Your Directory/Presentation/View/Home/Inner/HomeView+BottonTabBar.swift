@@ -12,7 +12,7 @@ extension HomeView {
         HStack(alignment: .bottom) {
             Spacer()
             ButtonIcons(name: "home", size: 44) {
-                viewModel.getFolders()
+//                viewModel.getFolders()
             }
             .padding(.bottom, 16)
             Spacer()
