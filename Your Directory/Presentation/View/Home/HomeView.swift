@@ -46,42 +46,7 @@ struct HomeView: View {
         .sheet(item: $viewModel.vocabulary, onDismiss: {
             viewModel.vocabulary = nil
         }, content: { vocabulary in
-            VStack {
-                NavigationStack {
-                    DetailVocabularyView(
-                        vocabulary: .constant(vocabulary),
-                        folders: .constant(folders),
-                        note: vocabulary.vocabularyNote ?? "",
-                        selectedFolder: (vocabulary.folder ?? folders.first) ?? Folder(name: "", color: "", publishAt: ""),
-                        typeOfView: typeOfVocabularyView,
-                        dismiss: {
-                            viewModel.vocabulary = nil
-                        }
-                    ) { toastStatus, toastMessage, vocabulary in
-                        self.toastMessage = toastMessage
-                        self.toastStatus = toastStatus
-                        switch typeOfVocabularyView {
-                        case .search:
-                            guard let newVocabulary = vocabulary else { return }
-                            vocabularies.insert(newVocabulary, at: 0)
-                        case .detail:
-                            guard let vocabulry = viewModel.vocabulary else { return }
-                            if let index = self.vocabularies.firstIndex(of: vocabulry) {
-                                if let vocabularyUpdated = vocabulary {
-                                    self.vocabularies[index].vocabularyNote = vocabularyUpdated.vocabularyNote
-                                    self.vocabularies[index].folder = vocabularyUpdated.folder
-                                } else {
-                                    self.vocabularies.remove(at: index)
-                                }
-                            }
-                        }
-                        viewModel.vocabulary = nil
-                        isShowToast = true
-                    }
-                }
-            }
-            .presentationDetents([.medium, .large])
-            .presentationCornerRadius(38)
+            makeSheetContent(vocabulary: vocabulary)
         })
         .sheet(isPresented: $isPresentCreateFolder) {
             CreateFolderView(
