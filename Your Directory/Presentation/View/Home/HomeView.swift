@@ -39,9 +39,7 @@ struct HomeView: View {
             makeBottomTabBar()
         }
         .ignoresSafeArea(edges: .bottom)
-        .frame(
-            width: UIScreen.main.bounds.size.width
-        )
+        .frame(width: UIScreen.main.bounds.size.width)
         .background(Color.background)
         .sheet(item: $viewModel.vocabulary, onDismiss: {
             viewModel.vocabulary = nil
@@ -49,19 +47,7 @@ struct HomeView: View {
             makeSheetContent(vocabulary: vocabulary)
         })
         .sheet(isPresented: $isPresentCreateFolder) {
-            CreateFolderView(
-                isPresentSheet: $isPresentCreateFolder
-            ) {  status, message, newFolder in
-                self.toastMessage = message
-                self.toastStatus = status
-                if let newFolder = newFolder {
-                    folders.insert(newFolder, at: 0)
-                }
-                isShowToast.toggle()
-                isPresentCreateFolder.toggle()
-            }
-            .presentationDetents([.medium])
-            .presentationCornerRadius(38)
+            makeSheetCreateFolder()
         }
         .popupToast(isPresented: $isShowToast, message: toastMessage, state: toastStatus)
         .popupConfirm(
