@@ -45,14 +45,14 @@ struct HomeView: View {
         .background(Color.background)
         .sheet(item: $viewModel.vocabulary, onDismiss: {
             viewModel.vocabulary = nil
-        }, content: { searchVocabulary in
+        }, content: { vocabulary in
             VStack {
                 NavigationStack {
                     DetailVocabularyView(
-                        vocabulary: .constant(searchVocabulary),
-                        folders: .constant(viewModel.folders),
-                        note: searchVocabulary.vocabularyNote ?? "",
-                        selectedFolder: (searchVocabulary.folder ?? viewModel.folders.first) ?? Folder(name: "", color: "", publishAt: ""),
+                        vocabulary: .constant(vocabulary),
+                        folders: .constant(folders),
+                        note: vocabulary.vocabularyNote ?? "",
+                        selectedFolder: (vocabulary.folder ?? folders.first) ?? Folder(name: "", color: "", publishAt: ""),
                         typeOfView: typeOfVocabularyView,
                         dismiss: {
                             viewModel.vocabulary = nil
@@ -84,7 +84,9 @@ struct HomeView: View {
             .presentationCornerRadius(38)
         })
         .sheet(isPresented: $isPresentCreateFolder) {
-            CreateFolderView(isPresentSheet: $isPresentCreateFolder) {  status, message, newFolder in
+            CreateFolderView(
+                isPresentSheet: $isPresentCreateFolder
+            ) {  status, message, newFolder in
                 self.toastMessage = message
                 self.toastStatus = status
                 if let newFolder = newFolder {
@@ -96,38 +98,17 @@ struct HomeView: View {
             .presentationDetents([.medium])
             .presentationCornerRadius(38)
         }
-        .popup(isPresented: $isShowToast) {
-            ToastView(message: toastMessage ?? "", state: toastStatus ?? .fail)
-        } customize: {
-            $0
-                .type(.floater())
-                .position(.top)
-                .animation(.spring())
-                .closeOnTapOutside(true)
-                .autohideIn(3)
+        .popupToast(isPresented: $isShowToast, message: toastMessage, state: toastStatus)
+        .popupConfirm(
+            isPresented: $isShowPopupLogout,
+            image: "question",
+            title: "Đăng Xuất ?",
+            message: "Bạn có chắc muốn đăng xuất hong?",
+            textButtonAgree: "Đăng xuất",
+            textButtonCancel: "Thôi"
+        ) {
+            authenticationViewModel.signOut()
         }
-        .popup(isPresented: $isShowPopupLogout, view: {
-            PopupView(
-                image: "question",
-                title: "Đăng Xuất ?",
-                content: "Bạn có chắc muốn đăng xuất hong?",
-                textButtonAgree: "Đăng xuất",
-                textButtonCancel: "Thôi",
-                handleAgree: {
-                    authenticationViewModel.signOut()
-                },
-                handleCancel: {
-                    isShowPopupLogout = false
-                }
-            )
-            .padding(.horizontal)
-        }, customize: {
-            $0
-                .type(.floater())
-                .position(.bottom)
-                .animation(.spring)
-                .closeOnTapOutside(true)
-        })
         .navigationDestination(for: Folder.self) { folder in
             DetailFolderView(
                 folder: $viewModel.selectedFolder,

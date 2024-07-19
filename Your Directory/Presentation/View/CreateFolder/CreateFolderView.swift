@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CreateFolderView: View {
-    @StateObject var viewModel = DetailFolderViewModel()
+    @StateObject var viewModel = CreateFolderViewModel()
     @Binding var isPresentSheet: Bool
 
     @State var folderName = ""

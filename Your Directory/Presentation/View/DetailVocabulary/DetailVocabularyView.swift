@@ -57,30 +57,6 @@ struct DetailVocabularyView: View {
                 }
             }
         }
-        .popup(isPresented: $isShowPopupDelete, view: {
-            PopupView(
-                image: "question",
-                title: "Xóa Từ Vựng Này ?",
-                content: "Bạn có chắc muốn xóa từ vựng này hong?",
-                textButtonAgree: "Xóa luôn",
-                textButtonCancel: "Thôi",
-                handleAgree: {
-                    viewModel.deleteVocabulary(
-                        vocabulary: vocabulary
-                    ) { status, message in
-                        resultHandle(status, message, nil)
-                    }
-                },
-                handleCancel: {
-                    isShowPopupDelete = false
-                }
-            )
-        }, customize: {
-            $0
-                .type(.floater())
-                .position(.bottom)
-                .animation(.spring)
-        })
         .padding(16)
         .background(Color.background)
         .onChange(of: note) {
@@ -89,19 +65,18 @@ struct DetailVocabularyView: View {
         .onChange(of: selectedFolder) {
             isDisableButton = false
         }
-//        .onAppear {
-//            note = vocabulary.vocabularyNote ?? ""
-//            if isFirstAppear {
-//                if let folder = vocabulary.folder {
-//                    selectedFolder = folder
-//                } else {
-//                    selectedFolder = folders.first ?? Folder(name: "", color: "", publishAt: "")
-//                }
-//                isDisableButton = true
-//                isFirstAppear = false
-//            }
-//        }
-
+        .popupConfirm(
+            isPresented: $isShowPopupDelete,
+            image: "question",
+            title: "Xóa Từ Vựng Này ?",
+            message: "Bạn có chắc muốn xóa từ vựng này hong?",
+            textButtonAgree: "Xóa luôn",
+            textButtonCancel: "Thôi"
+        ) {
+            viewModel.deleteVocabulary(vocabulary: vocabulary) { status, message in
+                resultHandle(status, message, nil)
+            }
+        }
     }
 }
 

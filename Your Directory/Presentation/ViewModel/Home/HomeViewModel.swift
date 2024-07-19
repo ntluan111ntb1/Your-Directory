@@ -10,13 +10,6 @@ import Combine
 
 class HomeViewModel: ObservableObject {
     private var disposables = Set<AnyCancellable>()
-
-    @Published var folders = [
-        Folder(name: "Hihihi", color: "FFE9D0", publishAt: ""),
-        Folder(name: "Danh Từ", color: "FFFED3", publishAt: ""),
-        Folder(name: "Động từ", color: "BBE9FF", publishAt: ""),
-        Folder(name: "Trạng từ", color: "B1AFFF", publishAt: ""),
-    ]
     
     @Published var vocabulary: Vocabulary?
     @Published var statePlaySound = false
