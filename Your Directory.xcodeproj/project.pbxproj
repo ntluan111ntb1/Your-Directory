@@ -265,7 +265,7 @@
 		0EA6DF3E2C212D3B00128A3B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0EB8A2602C40C8B60001C521 /* LIstVocabulary */,
+				0EB8A2602C40C8B60001C521 /* ListVocabulary */,
 				08E92FC62C2736590027E207 /* DetailFolder */,
 				0EA6DF942C24300D00128A3B /* DetailVocabulary */,
 				08875FC02C23232900C4E6C6 /* CreateFolder */,
@@ -477,12 +477,12 @@
 			path = DetailFolder;
 			sourceTree = "<group>";
 		};
-		0EB8A2602C40C8B60001C521 /* LIstVocabulary */ = {
+		0EB8A2602C40C8B60001C521 /* ListVocabulary */ = {
 			isa = PBXGroup;
 			children = (
 				0EB8A25E2C40C8820001C521 /* ListVocabularyView.swift */,
 			);
-			path = LIstVocabulary;
+			path = ListVocabulary;
 			sourceTree = "<group>";
 		};
 		0EB8A2612C40C8C60001C521 /* ListVocabulary */ = {
