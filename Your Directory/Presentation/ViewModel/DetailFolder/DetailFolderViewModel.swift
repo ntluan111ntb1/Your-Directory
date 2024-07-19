@@ -8,10 +8,10 @@
 import Foundation
 
 class DetailFolderViewModel: ObservableObject {
-    @Published var vocabularys = [Vocabulary]()
+    @Published var vocabularies = [Vocabulary]()
 
-    func filterVocabulariesByFolder(vocabularys: [Vocabulary], folderId: UUID) {
-        self.vocabularys = vocabularys.filter { vocabulary in
+    func filterVocabulariesByFolder(vocabularies: [Vocabulary], folderId: UUID) {
+        self.vocabularies = vocabularies.filter { vocabulary in
             return vocabulary.folder?.id == folderId
         }
     }

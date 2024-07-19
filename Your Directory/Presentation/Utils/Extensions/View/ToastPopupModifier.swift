@@ -27,3 +27,13 @@ struct ToastPopupModifier: ViewModifier {
             }
     }
 }
+
+extension View {
+    func popupToast(isPresented: Binding<Bool>, message: String?, state: Status?) -> some View {
+        self.modifier(ToastPopupModifier(
+            isPresented: isPresented,
+            message: message,
+            status: state
+        ))
+    }
+}

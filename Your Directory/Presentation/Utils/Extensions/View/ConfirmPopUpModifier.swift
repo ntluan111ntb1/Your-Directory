@@ -39,3 +39,25 @@ struct ConfirmPopUpModifier: ViewModifier {
             })
     }
 }
+
+extension View {
+    func popupConfirm(
+        isPresented: Binding<Bool>,
+        image: String,
+        title: String,
+        message: String,
+        textButtonAgree: String,
+        textButtonCancel: String,
+        handleAgree: @escaping () -> Void
+    ) -> some View {
+        self.modifier(ConfirmPopUpModifier(
+            isPresented: isPresented,
+            image: image,
+            title: title,
+            message: message,
+            textButtonAgree: textButtonAgree,
+            textButtonCancel: textButtonCancel,
+            handleAgree: handleAgree
+        ))
+    }
+}

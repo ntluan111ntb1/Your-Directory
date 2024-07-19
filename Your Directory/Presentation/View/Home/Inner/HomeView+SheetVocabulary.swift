@@ -8,12 +8,12 @@
 import SwiftUI
 
 extension HomeView {
-    func makeSheetContent(vocabulary: Vocabulary) -> some View {
+    func makeSheetVocabulary(vocabulary: Vocabulary) -> some View {
         VStack {
             NavigationStack {
                 DetailVocabularyView(
                     vocabulary: .constant(vocabulary),
-                    folders: .constant(folders),
+                    folders: $folders,
                     note: vocabulary.vocabularyNote ?? "",
                     selectedFolder: (vocabulary.folder ?? folders.first) ?? Folder(name: "", color: "", publishAt: ""),
                     typeOfView: typeOfVocabularyView,

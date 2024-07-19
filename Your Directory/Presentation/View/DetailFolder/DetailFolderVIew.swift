@@ -14,7 +14,8 @@ struct DetailFolderView: View {
     @StateObject var viewModel = DetailFolderViewModel()
 
     @Binding var folder: Folder
-    let vocabularys: [Vocabulary]
+    @Binding var vocabularies: [Vocabulary]
+    let folders: [Folder]
     let resultHandle: (Status, String, Folder?) -> Void
 
     @State var selectedVocabulary: Vocabulary? = nil
@@ -25,19 +26,28 @@ struct DetailFolderView: View {
         GridItem(.flexible()),
     ]
 
+    // Toast
+    @State var isShowToast = false
+    @State var toastMessage: String? = nil
+    @State var toastStatus: Status? = nil
+
     var body: some View {
         VStack(spacing: 16) {
-            ListVocabularyView(vocabularies: viewModel.vocabularys) { vocabulary in
+            ListVocabularyView(vocabularies: viewModel.vocabularies) { vocabulary in
                 selectedVocabulary = vocabulary
             }
             Spacer()
         }
         .onAppear {
-            viewModel.filterVocabulariesByFolder(vocabularys: vocabularys, folderId: folder.id)
+            viewModel.filterVocabulariesByFolder(vocabularies: vocabularies, folderId: folder.id)
         }
         .background(Color.background)
         .navigationTitle(folder.name)
         .navigationBarTitleDisplayMode(.inline)
+        .popupToast(isPresented: $isShowToast, message: toastMessage, state: toastStatus)
+        .sheet(item: $selectedVocabulary, content: { vocabulary in
+            makeSheetVocabulary(vocabulary: vocabulary)
+        })
         .popupConfirm(
             isPresented: $isShowPopupDetele,
             image: "question",
@@ -62,5 +72,8 @@ struct DetailFolderView: View {
 #Preview {
     DetailFolderView(
         folder: .constant(Folder(name: "folder name", color: "", publishAt: "")),
-        vocabularys: AppConstants.mockVocabularies) { _,_,_ in }
+        vocabularies: .constant(AppConstants.mockVocabularies),
+        folders: AppConstants.mockFolders
+
+    ) { _,_,_ in }
 }

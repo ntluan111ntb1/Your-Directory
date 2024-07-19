@@ -44,7 +44,7 @@ struct HomeView: View {
         .sheet(item: $viewModel.vocabulary, onDismiss: {
             viewModel.vocabulary = nil
         }, content: { vocabulary in
-            makeSheetContent(vocabulary: vocabulary)
+            makeSheetVocabulary(vocabulary: vocabulary)
         })
         .sheet(isPresented: $isPresentCreateFolder) {
             makeSheetCreateFolder()
@@ -63,7 +63,8 @@ struct HomeView: View {
         .navigationDestination(for: Folder.self) { folder in
             DetailFolderView(
                 folder: $viewModel.selectedFolder,
-                vocabularys: vocabularies
+                vocabularies: $vocabularies,
+                folders: folders
             ) { status, message, folder in
                 guard let folderDeleted = folder else { return }
                 if let index = folders.firstIndex(of: folderDeleted) {

@@ -18,7 +18,7 @@ struct DetailVocabularyView: View {
     @State var selectedFolder: Folder
 
     @State var isShowPopupDelete = false
-    @State var isDisableButton = true
+    @State var isDisableButton = false
     @State var isFirstAppear = true
 
     let typeOfView: TypeOfVocabularyView
@@ -64,6 +64,12 @@ struct DetailVocabularyView: View {
         }
         .onChange(of: selectedFolder) {
             isDisableButton = false
+        }
+        .onAppear {
+            if typeOfView == .detail && isFirstAppear {
+                isDisableButton = true
+            }
+            isFirstAppear = false
         }
         .popupConfirm(
             isPresented: $isShowPopupDelete,

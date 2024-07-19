@@ -68,10 +68,10 @@
 		0ED4777D2C4A111400B8ACFC /* CreateFolderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED4777C2C4A111400B8ACFC /* CreateFolderViewModel.swift */; };
 		0ED477832C4A12E800B8ACFC /* DetailFolderView+Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED477822C4A12E800B8ACFC /* DetailFolderView+Menu.swift */; };
 		0ED477862C4A406000B8ACFC /* ConfirmPopUpModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED477852C4A406000B8ACFC /* ConfirmPopUpModifier.swift */; };
-		0ED477892C4A40B700B8ACFC /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED477882C4A40B700B8ACFC /* ViewExtension.swift */; };
 		0ED4778C2C4A46B400B8ACFC /* ToastPopupModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED4778B2C4A46B400B8ACFC /* ToastPopupModifier.swift */; };
 		0ED4778E2C4A493500B8ACFC /* HomeView+SheetVocabulary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED4778D2C4A493500B8ACFC /* HomeView+SheetVocabulary.swift */; };
 		0ED477902C4A4DD200B8ACFC /* HomeView+SheetCreateFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED4778F2C4A4DD200B8ACFC /* HomeView+SheetCreateFolder.swift */; };
+		0ED477922C4A4FF400B8ACFC /* DetailFolderView+VocabularyDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED477912C4A4FF400B8ACFC /* DetailFolderView+VocabularyDetail.swift */; };
 		0EFB78512C253A8D0013FFD8 /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFB78502C253A8D0013FFD8 /* Audio.swift */; };
 		0EFB78552C2554B00013FFD8 /* AlamofireNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFB78542C2554B00013FFD8 /* AlamofireNetworkService.swift */; };
 		0EFB78582C2555260013FFD8 /* DictionaryHttp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFB78572C2555260013FFD8 /* DictionaryHttp.swift */; };
@@ -143,10 +143,10 @@
 		0ED4777C2C4A111400B8ACFC /* CreateFolderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFolderViewModel.swift; sourceTree = "<group>"; };
 		0ED477822C4A12E800B8ACFC /* DetailFolderView+Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailFolderView+Menu.swift"; sourceTree = "<group>"; };
 		0ED477852C4A406000B8ACFC /* ConfirmPopUpModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPopUpModifier.swift; sourceTree = "<group>"; };
-		0ED477882C4A40B700B8ACFC /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		0ED4778B2C4A46B400B8ACFC /* ToastPopupModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastPopupModifier.swift; sourceTree = "<group>"; };
 		0ED4778D2C4A493500B8ACFC /* HomeView+SheetVocabulary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeView+SheetVocabulary.swift"; sourceTree = "<group>"; };
 		0ED4778F2C4A4DD200B8ACFC /* HomeView+SheetCreateFolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeView+SheetCreateFolder.swift"; sourceTree = "<group>"; };
+		0ED477912C4A4FF400B8ACFC /* DetailFolderView+VocabularyDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailFolderView+VocabularyDetail.swift"; sourceTree = "<group>"; };
 		0EFB78502C253A8D0013FFD8 /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 		0EFB78542C2554B00013FFD8 /* AlamofireNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireNetworkService.swift; sourceTree = "<group>"; };
 		0EFB78572C2555260013FFD8 /* DictionaryHttp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryHttp.swift; sourceTree = "<group>"; };
@@ -296,7 +296,6 @@
 		0EA6DF452C213D4200128A3B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				0EA6DF522C21410C00128A3B /* Extendsion */,
 				0EABCE032C363DFA0073B7EF /* FirestoreManager.swift */,
 				0EABCE052C3642A90073B7EF /* AppConstants.swift */,
 			);
@@ -344,19 +343,10 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		0EA6DF522C21410C00128A3B /* Extendsion */ = {
-			isa = PBXGroup;
-			children = (
-				0EA6DF532C21411D00128A3B /* Text.swift */,
-				0EA6DF5B2C21441900128A3B /* Color.swift */,
-			);
-			path = Extendsion;
-			sourceTree = "<group>";
-		};
 		0EA6DF552C2141D100128A3B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				0ED477842C4A402300B8ACFC /* PopupView */,
+				0ED477842C4A402300B8ACFC /* Extensions */,
 				0EB8A2642C44BAEB0001C521 /* lottie_resources */,
 				08E92FC12C2723EF0027E207 /* enum */,
 				0EA6DF7A2C23E1C000128A3B /* gif */,
@@ -522,34 +512,28 @@
 			isa = PBXGroup;
 			children = (
 				0ED477822C4A12E800B8ACFC /* DetailFolderView+Menu.swift */,
+				0ED477912C4A4FF400B8ACFC /* DetailFolderView+VocabularyDetail.swift */,
 			);
 			path = Inner;
 			sourceTree = "<group>";
 		};
-		0ED477842C4A402300B8ACFC /* PopupView */ = {
+		0ED477842C4A402300B8ACFC /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				0ED4778A2C4A466800B8ACFC /* Toast */,
-				0ED477872C4A407900B8ACFC /* Confirm */,
-				0ED477882C4A40B700B8ACFC /* ViewExtension.swift */,
+				0ED477952C4A5A7200B8ACFC /* View */,
+				0EA6DF532C21411D00128A3B /* Text.swift */,
+				0EA6DF5B2C21441900128A3B /* Color.swift */,
 			);
-			path = PopupView;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
-		0ED477872C4A407900B8ACFC /* Confirm */ = {
-			isa = PBXGroup;
-			children = (
-				0ED477852C4A406000B8ACFC /* ConfirmPopUpModifier.swift */,
-			);
-			path = Confirm;
-			sourceTree = "<group>";
-		};
-		0ED4778A2C4A466800B8ACFC /* Toast */ = {
+		0ED477952C4A5A7200B8ACFC /* View */ = {
 			isa = PBXGroup;
 			children = (
 				0ED4778B2C4A46B400B8ACFC /* ToastPopupModifier.swift */,
+				0ED477852C4A406000B8ACFC /* ConfirmPopUpModifier.swift */,
 			);
-			path = Toast;
+			path = View;
 			sourceTree = "<group>";
 		};
 		0EFB78522C2554940013FFD8 /* Network */ = {
@@ -748,7 +732,6 @@
 				0ED4777D2C4A111400B8ACFC /* CreateFolderViewModel.swift in Sources */,
 				0EABCDFB2C34E8350073B7EF /* AuthenticationViewModel.swift in Sources */,
 				08875FBD2C231C6B00C4E6C6 /* HomeView+BottonTabBar.swift in Sources */,
-				0ED477892C4A40B700B8ACFC /* ViewExtension.swift in Sources */,
 				0ED4778C2C4A46B400B8ACFC /* ToastPopupModifier.swift in Sources */,
 				0EA6DF982C2430A400128A3B /* TextFieldImage.swift in Sources */,
 				0EA6DF5C2C21441900128A3B /* Color.swift in Sources */,
@@ -788,6 +771,7 @@
 				0ED477792C491C8B00B8ACFC /* ListFolderViewModel.swift in Sources */,
 				0EFB785D2C2557A00013FFD8 /* NetworkError.swift in Sources */,
 				0EA6DF782C23DAA500128A3B /* QLImage.swift in Sources */,
+				0ED477922C4A4FF400B8ACFC /* DetailFolderView+VocabularyDetail.swift in Sources */,
 				08E92FC82C2736670027E207 /* DetailFolderVIew.swift in Sources */,
 				08E92FC52C27357E0027E207 /* HomeView+ListCategory.swift in Sources */,
 				0ED4778E2C4A493500B8ACFC /* HomeView+SheetVocabulary.swift in Sources */,

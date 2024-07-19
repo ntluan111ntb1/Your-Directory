@@ -24,7 +24,3 @@ extension HomeView {
         .presentationCornerRadius(38)
     }
 }
-
-#Preview {
-    HomeView_SheetCreateFolder()
-}
