@@ -10,10 +10,11 @@ import SwiftUI
 struct CreateFolderView: View {
     @StateObject var viewModel = CreateFolderViewModel()
     @Binding var isPresentSheet: Bool
-
-    @State var folderName = ""
+    
+    @State var folder: Folder = Folder(name: "", color: CustomColor.style1.rawValue, publishAt: "")
     @State var selectedColor: CustomColor = .style1
-
+    
+    let eventType: EventType
     let resultHanlde: (Status, String, Folder?) -> Void
 
     var body: some View {
@@ -31,16 +32,13 @@ struct CreateFolderView: View {
             )
             Spacer()
             ButtonFullWidthView(
-                lable: "Tạo thôi nào",
+                lable: eventType.textButton,
                 color: .yellowCustome,
                 foregroundColor: .black
             ) {
-                viewModel.addFolder(
-                    folder: Folder(
-                        name: folderName,
-                        color: selectedColor.rawValue,
-                        publishAt: ""
-                    )
+                viewModel.handleFolder(
+                    folder: folder,
+                    eventType: eventType
                 ) { status, message, newFolder in
                     resultHanlde(status, message, newFolder)
                 }

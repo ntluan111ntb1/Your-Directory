@@ -18,7 +18,7 @@
 		08E92FC52C27357E0027E207 /* HomeView+ListCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E92FC42C27357E0027E207 /* HomeView+ListCategory.swift */; };
 		08E92FC82C2736670027E207 /* DetailFolderVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E92FC72C2736670027E207 /* DetailFolderVIew.swift */; };
 		0945896488D0194791FADC3E /* Pods_Your_Directory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D8BCDC631AEB02680BFE605 /* Pods_Your_Directory.framework */; };
-		0E105BBE2C476ED20073CB46 /* TypeOfVocabularyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E105BBD2C476ED20073CB46 /* TypeOfVocabularyView.swift */; };
+		0E105BBE2C476ED20073CB46 /* EventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E105BBD2C476ED20073CB46 /* EventType.swift */; };
 		0E105BC22C48CBD70073CB46 /* splash_view.json in Resources */ = {isa = PBXBuildFile; fileRef = 0E105BC12C48CBD60073CB46 /* splash_view.json */; };
 		0E105BC42C48CEE90073CB46 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E105BC32C48CEE90073CB46 /* LoadingView.swift */; };
 		0E105BC62C48CF3F0073CB46 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 0E105BC52C48CF3F0073CB46 /* loading.json */; };
@@ -91,7 +91,7 @@
 		08E92FC22C2723FA0027E207 /* ColorEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorEnum.swift; sourceTree = "<group>"; };
 		08E92FC42C27357E0027E207 /* HomeView+ListCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeView+ListCategory.swift"; sourceTree = "<group>"; };
 		08E92FC72C2736670027E207 /* DetailFolderVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFolderVIew.swift; sourceTree = "<group>"; };
-		0E105BBD2C476ED20073CB46 /* TypeOfVocabularyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOfVocabularyView.swift; sourceTree = "<group>"; };
+		0E105BBD2C476ED20073CB46 /* EventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventType.swift; sourceTree = "<group>"; };
 		0E105BC12C48CBD60073CB46 /* splash_view.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash_view.json; sourceTree = "<group>"; };
 		0E105BC32C48CEE90073CB46 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		0E105BC52C48CF3F0073CB46 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
@@ -206,7 +206,7 @@
 			children = (
 				08E92FC22C2723FA0027E207 /* ColorEnum.swift */,
 				0EB8A2592C3E69110001C521 /* Status.swift */,
-				0E105BBD2C476ED20073CB46 /* TypeOfVocabularyView.swift */,
+				0E105BBD2C476ED20073CB46 /* EventType.swift */,
 			);
 			path = enum;
 			sourceTree = "<group>";
@@ -745,7 +745,7 @@
 				0EA6DF5A2C2143B900128A3B /* RoundedCornersShape.swift in Sources */,
 				0EA6DF542C21411D00128A3B /* Text.swift in Sources */,
 				0EA6DF312C212D2B00128A3B /* Your_DirectoryApp.swift in Sources */,
-				0E105BBE2C476ED20073CB46 /* TypeOfVocabularyView.swift in Sources */,
+				0E105BBE2C476ED20073CB46 /* EventType.swift in Sources */,
 				0EA6DF5E2C216ECB00128A3B /* ButtonFullWidthView.swift in Sources */,
 				0EABCE172C37A2B40073B7EF /* CreateFolder+Content.swift in Sources */,
 				0EA6DF872C2403E600128A3B /* TextFieldImageGif.swift in Sources */,

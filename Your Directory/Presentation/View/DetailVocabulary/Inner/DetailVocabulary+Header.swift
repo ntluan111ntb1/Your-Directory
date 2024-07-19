@@ -10,7 +10,7 @@ import SwiftUI
 extension DetailVocabularyView {
     func makeHeader() -> some View {
         HStack {
-            if typeOfView == .detail {
+            if typeOfView == .update {
                 Button(action: {
                     isShowPopupDelete = true
                 }, label: {

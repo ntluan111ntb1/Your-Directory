@@ -24,10 +24,10 @@ extension HomeView {
                     self.toastMessage = toastMessage
                     self.toastStatus = toastStatus
                     switch typeOfVocabularyView {
-                    case .search:
+                    case .add:
                         guard let newVocabulary = vocabulary else { return }
                         vocabularies.insert(newVocabulary, at: 0)
-                    case .detail:
+                    case .update:
                         guard let vocabulry = viewModel.vocabulary else { return }
                         if let index = self.vocabularies.firstIndex(of: vocabulry) {
                             if let vocabularyUpdated = vocabulary {

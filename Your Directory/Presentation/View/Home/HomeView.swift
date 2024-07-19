@@ -22,7 +22,7 @@ struct HomeView: View {
     @State var isPresentCreateFolder = false
     @State var isPresentSearchView = false
     @State var isShowPopupLogout = false
-    @State var typeOfVocabularyView: TypeOfVocabularyView = .search
+    @State var typeOfVocabularyView: EventType = .add
 
     // Toast
     @State var isShowToast = false
@@ -64,7 +64,7 @@ struct HomeView: View {
             DetailFolderView(
                 folder: $viewModel.selectedFolder,
                 vocabularies: $vocabularies,
-                folders: folders
+                folders: $folders
             ) { status, message, folder in
                 guard let folderDeleted = folder else { return }
                 if let index = folders.firstIndex(of: folderDeleted) {

@@ -15,10 +15,11 @@ struct DetailFolderView: View {
 
     @Binding var folder: Folder
     @Binding var vocabularies: [Vocabulary]
-    let folders: [Folder]
+    @Binding var folders: [Folder]
     let resultHandle: (Status, String, Folder?) -> Void
 
     @State var selectedVocabulary: Vocabulary? = nil
+    @State var isUpdateFolder = false
     @State var isShowPopupDetele = false
 
     let layout = [
@@ -48,6 +49,31 @@ struct DetailFolderView: View {
         .sheet(item: $selectedVocabulary, content: { vocabulary in
             makeSheetVocabulary(vocabulary: vocabulary)
         })
+        .sheet(isPresented: $isUpdateFolder, content: {
+            CreateFolderView(
+                isPresentSheet: $isUpdateFolder,
+                folder: folder,
+                selectedColor: .style1,
+                eventType: .update
+            ) { status, message, folder in
+                if let folderUpdated = folder {
+                    self.folder.name = folderUpdated.name
+                    self.folder.color = folderUpdated.color
+                    if let index = folders.firstIndex(where: { folder in
+                        folderUpdated.id == folder.id
+                    }) {
+                        folders[index].name = folderUpdated.name
+                        folders[index].color = folderUpdated.color
+                    }
+                }
+                self.toastStatus = status
+                self.toastMessage = message
+                isShowToast.toggle()
+                isUpdateFolder.toggle()
+            }
+            .presentationDetents([.medium])
+            .presentationCornerRadius(38)
+        })
         .popupConfirm(
             isPresented: $isShowPopupDetele,
             image: "question",
@@ -73,7 +99,7 @@ struct DetailFolderView: View {
     DetailFolderView(
         folder: .constant(Folder(name: "folder name", color: "", publishAt: "")),
         vocabularies: .constant(AppConstants.mockVocabularies),
-        folders: AppConstants.mockFolders
+        folders: .constant(AppConstants.mockFolders)
 
     ) { _,_,_ in }
 }

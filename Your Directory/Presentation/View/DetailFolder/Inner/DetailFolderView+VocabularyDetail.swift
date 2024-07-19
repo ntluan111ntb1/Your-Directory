@@ -16,7 +16,7 @@ extension DetailFolderView {
                     folders: .constant(folders),
                     note: vocabulary.vocabularyNote ?? "",
                     selectedFolder: (vocabulary.folder ?? folders.first) ?? Folder(name: "", color: "", publishAt: ""),
-                    typeOfView: .detail,
+                    typeOfView: .update,
                     dismiss: {
                         selectedVocabulary = nil
                     }

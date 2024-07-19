@@ -11,7 +11,7 @@ extension HomeView {
     func makeListVocabulary() -> some View {
         ListVocabularyView(vocabularies: vocabularies) { vocabulary in
             viewModel.vocabulary = vocabulary
-            typeOfVocabularyView = .detail
+            typeOfVocabularyView = .update
         }
     }
 }

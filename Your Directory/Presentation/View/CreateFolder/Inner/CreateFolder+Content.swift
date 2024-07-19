@@ -14,7 +14,7 @@ extension CreateFolderView {
                 Text("Tên của thư mục:")
                     .fontStyle(.mediumBold)
                 TextFieldImageGif(
-                    text: $folderName,
+                    text: $folder.name,
                     imageName: "notebook",
                     placeholder: "Tên của thể loại",
                     sizeImage: 40
@@ -27,6 +27,7 @@ extension CreateFolderView {
                     ForEach(CustomColor.allCases) { color in
                         Button(action: {
                             self.selectedColor = color
+                            folder.color = color.rawValue
                         }) {
                             Circle()
                                 .fill(color.color)

@@ -11,7 +11,7 @@ extension DetailFolderView {
     func makeMenu() -> some View {
         Menu {
             Button(action: {
-                
+                isUpdateFolder = true
             }) {
                 Text("Chỉnh sửa")
                 Image(systemName: "pencil")

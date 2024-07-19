@@ -26,7 +26,7 @@ class DetailVocabularyViewModel: ObservableObject {
 
     func handleVocabulary(
         vocabulary: Vocabulary,
-        typeOfHandle: TypeOfVocabularyView,
+        typeOfHandle: EventType,
         note: String,
         folder: Folder,
         completion: @escaping (Status, String, Vocabulary?) -> Void
@@ -35,7 +35,7 @@ class DetailVocabularyViewModel: ObservableObject {
         newVocabulary.vocabularyNote = note
         newVocabulary.folder = folder
         switch typeOfHandle {
-        case .search:
+        case .add:
             FirestoreManager.addData(
                 collection: AppConstants.vocabularysCollection,
                 document: newVocabulary.word,
@@ -50,7 +50,7 @@ class DetailVocabularyViewModel: ObservableObject {
                     completion(.success, "Thêm vocabulary thành công rồi nè, Hí!!!", newVocabulary)
                 }
             }
-        case .detail:
+        case .update:
             newVocabulary.vocabularyNote = note
             newVocabulary.folder = folder
             FirestoreManager.updateData(

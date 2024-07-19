@@ -10,7 +10,8 @@ import SwiftUI
 extension HomeView {
     func makeSheetCreateFolder() -> some View {
         CreateFolderView(
-            isPresentSheet: $isPresentCreateFolder
+            isPresentSheet: $isPresentCreateFolder,
+            eventType: .add
         ) {  status, message, newFolder in
             self.toastMessage = message
             self.toastStatus = status

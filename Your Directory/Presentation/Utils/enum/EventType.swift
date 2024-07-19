@@ -7,15 +7,15 @@
 
 import Foundation
 
-enum TypeOfVocabularyView {
-    case search
-    case detail
+enum EventType {
+    case add
+    case update
 
     var textButton: String {
         switch self {
-        case .detail:
+        case .update:
             return "Chỉnh Sửa"
-        case .search :
+        case .add :
             return "Thêm Từ Này"
         }
     }

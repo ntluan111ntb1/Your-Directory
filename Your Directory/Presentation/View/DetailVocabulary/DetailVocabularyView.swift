@@ -21,7 +21,7 @@ struct DetailVocabularyView: View {
     @State var isDisableButton = false
     @State var isFirstAppear = true
 
-    let typeOfView: TypeOfVocabularyView
+    let typeOfView: EventType
 
     let dismiss: () -> Void
     var resultHandle: ((Status, String, Vocabulary?) -> Void)
@@ -66,7 +66,7 @@ struct DetailVocabularyView: View {
             isDisableButton = false
         }
         .onAppear {
-            if typeOfView == .detail && isFirstAppear {
+            if typeOfView == .update && isFirstAppear {
                 isDisableButton = true
             }
             isFirstAppear = false
@@ -105,7 +105,7 @@ struct DetailVocabularyView: View {
         folders: .constant([]),
         note: "",
         selectedFolder: Folder(name: "", color: "", publishAt: ""),
-        typeOfView: .detail,
+        typeOfView: .update,
         dismiss: {}
     ) { _, _, _ in
 
