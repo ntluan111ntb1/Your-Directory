@@ -51,4 +51,9 @@ class ListVocabularyViewModel: ObservableObject {
             }
         }
     }
+
+    func getFolder(folders: [Folder], folderId: UUID) -> Folder? {
+        return folders.first { $0.id == folderId }
+    }
+
 }

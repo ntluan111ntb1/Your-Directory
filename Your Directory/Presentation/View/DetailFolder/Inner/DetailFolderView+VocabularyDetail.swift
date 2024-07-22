@@ -15,7 +15,8 @@ extension DetailFolderView {
                     vocabulary: .constant(vocabulary),
                     folders: .constant(folders),
                     note: vocabulary.vocabularyNote ?? "",
-                    selectedFolder: (vocabulary.folder ?? folders.first) ?? Folder(name: "", color: "", publishAt: ""),
+                    selectedFolder: viewModel.getFolder(folders: folders, folderId: folder.id)
+                    ?? Folder(name: "", color: "", publishAt: ""),
                     typeOfView: .update,
                     dismiss: {
                         selectedVocabulary = nil
@@ -28,7 +29,7 @@ extension DetailFolderView {
                         if let vocabularyUpdated = vocabulary {
                             // update for another view
                             self.vocabularies[index].vocabularyNote = vocabularyUpdated.vocabularyNote
-                            self.vocabularies[index].folder = vocabularyUpdated.folder
+                            self.vocabularies[index].folderId = vocabularyUpdated.folderId
                         } else {
                             // update for another view
                             self.vocabularies.remove(at: index)

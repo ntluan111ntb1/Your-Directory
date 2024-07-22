@@ -33,7 +33,7 @@ class DetailVocabularyViewModel: ObservableObject {
     ) {
         var newVocabulary = vocabulary
         newVocabulary.vocabularyNote = note
-        newVocabulary.folder = folder
+        newVocabulary.folderId = folder.id
         switch typeOfHandle {
         case .add:
             FirestoreManager.addData(
@@ -52,7 +52,7 @@ class DetailVocabularyViewModel: ObservableObject {
             }
         case .update:
             newVocabulary.vocabularyNote = note
-            newVocabulary.folder = folder
+            newVocabulary.folderId = folder.id
             FirestoreManager.updateData(
                 collection: AppConstants.vocabularysCollection,
                 document: newVocabulary.word,

@@ -15,7 +15,9 @@ extension HomeView {
                     vocabulary: .constant(vocabulary),
                     folders: $folders,
                     note: vocabulary.vocabularyNote ?? "",
-                    selectedFolder: (vocabulary.folder ?? folders.first) ?? Folder(name: "", color: "", publishAt: ""),
+                    selectedFolder: viewModel.getFolder(folders: folders, folderId: vocabulary.folderId ?? UUID())
+                    ?? folders.first
+                    ?? Folder(name: "", color: "", publishAt: ""),
                     typeOfView: typeOfVocabularyView,
                     dismiss: {
                         viewModel.vocabulary = nil
@@ -32,7 +34,7 @@ extension HomeView {
                         if let index = self.vocabularies.firstIndex(of: vocabulry) {
                             if let vocabularyUpdated = vocabulary {
                                 self.vocabularies[index].vocabularyNote = vocabularyUpdated.vocabularyNote
-                                self.vocabularies[index].folder = vocabularyUpdated.folder
+                                self.vocabularies[index].folderId = vocabularyUpdated.folderId
                             } else {
                                 self.vocabularies.remove(at: index)
                             }

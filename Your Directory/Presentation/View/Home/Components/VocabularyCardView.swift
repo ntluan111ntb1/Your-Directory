@@ -21,6 +21,7 @@ struct Triangle: Shape {
 struct VocabularyCardView: View {
 
     let vocabulary: Vocabulary
+    let folder: Folder
     @State var width: CGFloat = 0.0
     let tapHandle: () -> Void
     let playSound: () -> Void
@@ -30,11 +31,11 @@ struct VocabularyCardView: View {
             ZStack {
                 RoundedCornersShape(corners: .allCorners, radius: 12)
                     .fill(
-                        ConvertColor.colorFromHex(vocabulary.folder?.color ?? "")
+                        ConvertColor.colorFromHex(folder.color)
                             .opacity(0.1)
                     )
                 Triangle()
-                    .fill(ConvertColor.colorFromHex(vocabulary.folder?.color ?? ""))
+                    .fill(ConvertColor.colorFromHex(folder.color))
                     .frame(width: width, height: 80)
                     .clipShape(RoundedCornersShape(corners: .allCorners, radius: 12))
 

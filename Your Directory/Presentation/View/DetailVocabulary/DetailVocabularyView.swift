@@ -97,7 +97,7 @@ struct DetailVocabularyView: View {
                     Vocabulary.Definition(definition: "definition", example: "example")
                 ],
                 partOfSpeech: "noun",
-                folder: Folder(name: "", color: "", publishAt: ""),
+                folderId: UUID(),
                 vocabularyNote: "",
                 publishAt: ""
             )

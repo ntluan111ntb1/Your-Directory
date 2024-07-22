@@ -21,7 +21,7 @@ struct VocabularyEntityMapper {
                 Vocabulary.Definition(definition: definition.definition, example: definition.example)
             }) ?? [],
             partOfSpeech: entity.meanings?.first?.partOfSpeech ?? "",
-            folder: nil,
+            folderId: nil,
             vocabularyNote: nil,
             publishAt: ""
         )
