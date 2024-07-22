@@ -12,7 +12,7 @@ extension HomeView {
         HStack(alignment: .bottom) {
             Spacer()
             ButtonIcons(name: "home", size: 44) {
-//                viewModel.getFolders()
+                bottomTabBarState = .home
             }
             .padding(.bottom, 16)
             Spacer()
@@ -26,7 +26,7 @@ extension HomeView {
             .offset(x:0, y: -34)
             Spacer()
             ButtonIcons(name: "folder", size: 40) {
-                isShowToast.toggle()
+                bottomTabBarState = .listFolder
             }
                 .padding(.bottom, 16)
             Spacer()

@@ -9,6 +9,11 @@ import SwiftUI
 import GoogleSignIn
 import ExytePopupView
 
+enum BottomTabBarState {
+    case home
+    case listFolder
+}
+
 struct HomeView: View {
     @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
     let user = GIDSignIn.sharedInstance.currentUser
@@ -23,6 +28,7 @@ struct HomeView: View {
     @State var isPresentSearchView = false
     @State var isShowPopupLogout = false
     @State var typeOfVocabularyView: EventType = .add
+    @State var bottomTabBarState: BottomTabBarState = .home
 
     // Toast
     @State var isShowToast = false
@@ -31,10 +37,15 @@ struct HomeView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            makeHeader()
-            makeSearch()
-            makeListFolder()
-            makeListVocabulary()
+            switch bottomTabBarState {
+            case .home:
+                makeHeader()
+                makeSearch()
+                makeListFolder()
+                makeListVocabulary()
+            case .listFolder:
+                ListFolderView(folders: folders, vocabularies: vocabularies)
+            }
             Spacer()
             makeBottomTabBar()
         }

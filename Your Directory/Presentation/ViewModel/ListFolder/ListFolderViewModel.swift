@@ -34,4 +34,10 @@ class ListFolderViewModel: ObservableObject {
             }
         }
     }
+
+    func getVocabularyByFolder(vocabularies: [Vocabulary], folder: Folder) -> [Vocabulary] {
+        return vocabularies.filter({ vocabulary in
+            vocabulary.folderId == folder.id
+        })
+    }
 }
