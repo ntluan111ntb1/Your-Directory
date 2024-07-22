@@ -15,9 +15,10 @@ extension HomeView {
                     vocabulary: .constant(vocabulary),
                     folders: $folders,
                     note: vocabulary.vocabularyNote ?? "",
-                    selectedFolder: viewModel.getFolder(folders: folders, folderId: vocabulary.folderId ?? UUID())
-                    ?? folders.first
-                    ?? Folder(name: "", color: "", publishAt: ""),
+                    selectedFolder: viewModel.getFolder(
+                        folders: folders,
+                        folderId: vocabulary.folderId
+                    ) ?? (folders.first ?? Folder(name: "", color: "", publishAt: "")),
                     typeOfView: typeOfVocabularyView,
                     dismiss: {
                         viewModel.vocabulary = nil

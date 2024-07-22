@@ -19,7 +19,7 @@ struct Vocabulary: Codable, Identifiable, Equatable {
     var audio: String
     var descriptions: [Definition]
     var partOfSpeech: String
-    var folderId: UUID?
+    var folderId: UUID
     var vocabularyNote: String?
     var publishAt: String
 
