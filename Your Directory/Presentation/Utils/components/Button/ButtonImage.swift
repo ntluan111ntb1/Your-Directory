@@ -7,22 +7,22 @@
 
 import SwiftUI
 
-struct ButtonIcons: View {
+struct ButtonImage: View {
     let name: String
     let size: CGFloat?
     let action: () -> Void
     
-    @State var isPressed = false
+    @State var isPressed: Bool? = false
     var body: some View {
         Button {
-            isPressed.toggle()
+            isPressed?.toggle()
             action()
         } label: {
             Image(name)
                 .resizable()
                 .frame(width: size, height: size)
                 .padding(4)
-                .shadow(radius: isPressed ? 4 : 0)
+                .shadow(radius: isPressed ?? false ? 4 : 0)
         }
     }
 }

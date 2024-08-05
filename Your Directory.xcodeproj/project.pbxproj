@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		08067FEC2C26C0C0009BBD51 /* DetailVocabularyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08067FEB2C26C0C0009BBD51 /* DetailVocabularyViewModel.swift */; };
 		08875FB92C2316C500C4E6C6 /* HomeView+Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08875FB82C2316C500C4E6C6 /* HomeView+Header.swift */; };
-		08875FBB2C231B3E00C4E6C6 /* ButtonIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08875FBA2C231B3E00C4E6C6 /* ButtonIcon.swift */; };
+		08875FBB2C231B3E00C4E6C6 /* ButtonImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08875FBA2C231B3E00C4E6C6 /* ButtonImage.swift */; };
 		08875FBD2C231C6B00C4E6C6 /* HomeView+BottonTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08875FBC2C231C6B00C4E6C6 /* HomeView+BottonTabBar.swift */; };
 		08875FC22C23233900C4E6C6 /* CreateFolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08875FC12C23233900C4E6C6 /* CreateFolderView.swift */; };
 		08E92FBA2C27190F0027E207 /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E92FB92C27190F0027E207 /* Folder.swift */; };
@@ -64,6 +64,7 @@
 		0EB8A25F2C40C8820001C521 /* ListVocabularyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB8A25E2C40C8820001C521 /* ListVocabularyView.swift */; };
 		0EB8A2632C40C8D70001C521 /* ListVocabularyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB8A2622C40C8D70001C521 /* ListVocabularyViewModel.swift */; };
 		0EB8A26C2C464F440001C521 /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB8A26B2C464F440001C521 /* PopupView.swift */; };
+		0ED248662C60889100C18BEE /* ButtonIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED248652C60889100C18BEE /* ButtonIcon.swift */; };
 		0ED477792C491C8B00B8ACFC /* ListFolderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED477782C491C8B00B8ACFC /* ListFolderViewModel.swift */; };
 		0ED4777D2C4A111400B8ACFC /* CreateFolderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED4777C2C4A111400B8ACFC /* CreateFolderViewModel.swift */; };
 		0ED477832C4A12E800B8ACFC /* DetailFolderView+Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED477822C4A12E800B8ACFC /* DetailFolderView+Menu.swift */; };
@@ -85,7 +86,7 @@
 /* Begin PBXFileReference section */
 		08067FEB2C26C0C0009BBD51 /* DetailVocabularyViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailVocabularyViewModel.swift; sourceTree = "<group>"; };
 		08875FB82C2316C500C4E6C6 /* HomeView+Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeView+Header.swift"; sourceTree = "<group>"; };
-		08875FBA2C231B3E00C4E6C6 /* ButtonIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonIcon.swift; sourceTree = "<group>"; };
+		08875FBA2C231B3E00C4E6C6 /* ButtonImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonImage.swift; sourceTree = "<group>"; };
 		08875FBC2C231C6B00C4E6C6 /* HomeView+BottonTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeView+BottonTabBar.swift"; sourceTree = "<group>"; };
 		08875FC12C23233900C4E6C6 /* CreateFolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFolderView.swift; sourceTree = "<group>"; };
 		08E92FB92C27190F0027E207 /* Folder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
@@ -141,6 +142,7 @@
 		0EB8A25E2C40C8820001C521 /* ListVocabularyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVocabularyView.swift; sourceTree = "<group>"; };
 		0EB8A2622C40C8D70001C521 /* ListVocabularyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVocabularyViewModel.swift; sourceTree = "<group>"; };
 		0EB8A26B2C464F440001C521 /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
+		0ED248652C60889100C18BEE /* ButtonIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonIcon.swift; sourceTree = "<group>"; };
 		0ED477782C491C8B00B8ACFC /* ListFolderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFolderViewModel.swift; sourceTree = "<group>"; };
 		0ED4777C2C4A111400B8ACFC /* CreateFolderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFolderViewModel.swift; sourceTree = "<group>"; };
 		0ED477822C4A12E800B8ACFC /* DetailFolderView+Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailFolderView+Menu.swift"; sourceTree = "<group>"; };
@@ -367,13 +369,10 @@
 		0EA6DF562C2141D800128A3B /* components */ = {
 			isa = PBXGroup;
 			children = (
-				0EA6DF5D2C216ECB00128A3B /* ButtonFullWidthView.swift */,
-				0EA6DF572C21423400128A3B /* TextFieldCustomize.swift */,
+				0ED248642C6087D000C18BEE /* TextField */,
+				0ED248632C6087C500C18BEE /* Button */,
 				0EA6DF592C2143B900128A3B /* RoundedCornersShape.swift */,
-				08875FBA2C231B3E00C4E6C6 /* ButtonIcon.swift */,
 				0EA6DF772C23DAA500128A3B /* QLImage.swift */,
-				0EA6DF862C2403E600128A3B /* TextFieldImageGif.swift */,
-				0EA6DF972C2430A400128A3B /* TextFieldImage.swift */,
 				0EFB78502C253A8D0013FFD8 /* Audio.swift */,
 				0EABCE002C3539780073B7EF /* NetworkImage.swift */,
 			);
@@ -495,6 +494,26 @@
 				0E105BC12C48CBD60073CB46 /* splash_view.json */,
 			);
 			path = lottie_resources;
+			sourceTree = "<group>";
+		};
+		0ED248632C6087C500C18BEE /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				0EA6DF5D2C216ECB00128A3B /* ButtonFullWidthView.swift */,
+				08875FBA2C231B3E00C4E6C6 /* ButtonImage.swift */,
+				0ED248652C60889100C18BEE /* ButtonIcon.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		0ED248642C6087D000C18BEE /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				0EA6DF572C21423400128A3B /* TextFieldCustomize.swift */,
+				0EA6DF862C2403E600128A3B /* TextFieldImageGif.swift */,
+				0EA6DF972C2430A400128A3B /* TextFieldImage.swift */,
+			);
+			path = TextField;
 			sourceTree = "<group>";
 		};
 		0ED4777A2C491C9100B8ACFC /* ListFolder */ = {
@@ -748,7 +767,7 @@
 				0ED477862C4A406000B8ACFC /* ConfirmPopUpModifier.swift in Sources */,
 				0EA6DF962C24301A00128A3B /* DetailVocabularyView.swift in Sources */,
 				0EA6DF732C22B0F100128A3B /* HomeViewModel.swift in Sources */,
-				08875FBB2C231B3E00C4E6C6 /* ButtonIcon.swift in Sources */,
+				08875FBB2C231B3E00C4E6C6 /* ButtonImage.swift in Sources */,
 				0EA6DF4A2C213F1F00128A3B /* SignInView.swift in Sources */,
 				0ED477832C4A12E800B8ACFC /* DetailFolderView+Menu.swift in Sources */,
 				0ED4777D2C4A111400B8ACFC /* CreateFolderViewModel.swift in Sources */,
@@ -783,6 +802,7 @@
 				0EFB78512C253A8D0013FFD8 /* Audio.swift in Sources */,
 				0EA6DF402C212D5800128A3B /* SplashView.swift in Sources */,
 				08E92FBA2C27190F0027E207 /* Folder.swift in Sources */,
+				0ED248662C60889100C18BEE /* ButtonIcon.swift in Sources */,
 				0EB8A2582C3E635C0001C521 /* ToastView.swift in Sources */,
 				0EABCE122C37A1EC0073B7EF /* DetailVocabulary+Content.swift in Sources */,
 				0EA6DF6F2C2288EB00128A3B /* HomeView.swift in Sources */,

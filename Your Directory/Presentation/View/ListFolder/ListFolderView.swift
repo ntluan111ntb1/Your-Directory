@@ -29,28 +29,44 @@ struct ListFolderView: View {
                     corners: [.bottomLeft], radius: 40
                 ))
                 .ignoresSafeArea()
-                .shadow(radius: 2, x:0, y: 4)
             }
-            VStack {
-                ScrollView {
-                    VStack(alignment: .leading, spacing: 8) {
-                        ForEach(folders) { folder in
-                            FolderCardView(folder: folder, vocabularyByFolder: viewModel.getVocabularyByFolder(vocabularies: vocabularies, folder: folder))
+            ScrollView {
+                VStack(alignment: .leading, spacing: 8) {
+                    ForEach(folders) { folder in
+                        HStack {
+                            FolderCardView(folder: folder, vocabularyByFolder: viewModel.getVocabularyByFolder(vocabularies: vocabularies, folder: folder)
+                            )
+                            VStack {
+                                ButtonIcon(
+                                    iconsName: "square.and.pencil.circle",
+                                    size: .title2,
+                                    color: ConvertColor.colorFromHex("FD841F")
+                                ) {
+                                }
+                                Spacer()
+                                ButtonIcon(
+                                    iconsName: "trash.circle", 
+                                    size: .title2,
+                                    color: ConvertColor.colorFromHex("CF0A0A")
+                                ) {
+                                }
+                            }
+                            .padding(8)
+                            .background(ConvertColor.colorFromHex("EDEDED").clipShape(
+                                RoundedCornersShape(
+                                    corners: .allCorners,
+                                    radius: 20
+                                )
+                            ))
                         }
                     }
-                    .padding()
                 }
+                .padding()
             }
-            .padding(.top)
-            .background {
-                Color.background.clipShape(RoundedCornersShape(
-                    corners: [.topRight], radius: 40
-                ))
-                .shadow(radius: 2, x:0, y: -4)
-            }
-
         }
-        .background()
+        .background {
+            Color.background
+        }
     }
 }
 

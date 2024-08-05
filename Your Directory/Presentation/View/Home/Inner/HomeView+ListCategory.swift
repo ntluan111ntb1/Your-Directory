@@ -33,7 +33,7 @@ extension HomeView {
                     .padding(.bottom, 8)
                 }
             }
-            .foregroundStyle(.black)
+            .foregroundStyle(.white)
         }
         .padding(.top, 8)
     }

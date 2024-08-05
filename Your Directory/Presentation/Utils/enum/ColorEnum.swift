@@ -8,12 +8,12 @@
 import SwiftUI
 
 enum CustomColor: String, CaseIterable, Identifiable {
-    case style1 = "#FFE9D0"
-    case style2 = "#FFFED3"
-    case style3 = "#BBE9FF"
-    case style4 = "#B1AFFF"
-    case style5 = "#D8EFD3"
-    case style6 = "#95D2B3"
+    case style1 = "#405D72"
+    case style2 = "#667BC6"
+    case style3 = "#153448"
+    case style4 = "#124076"
+    case style5 = "#0E5E6F"
+    case style6 = "#424769"
 
     var id: String { self.rawValue }
     
