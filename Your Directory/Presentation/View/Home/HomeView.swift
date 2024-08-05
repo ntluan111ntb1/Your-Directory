@@ -44,7 +44,9 @@ struct HomeView: View {
                 makeListFolder()
                 makeListVocabulary()
             case .listFolder:
-                ListFolderView(folders: $folders, vocabularies: $vocabularies)
+                ListFolderView(folders: $folders, vocabularies: $vocabularies) { folder in
+                    viewModel.selectedFolder = folder
+                }
             }
             Spacer()
             makeBottomTabBar()

@@ -13,11 +13,12 @@ struct ListFolderView: View {
 
     @State var isUpdateFolder = false
     @State var isShowPopupDetele = false
-    @State var selectedFolfer = Folder(name: "", color: "", publishAt: "")
+    @State var selectedFolder = Folder(name: "", color: "", publishAt: "")
 
     @Binding var folders: [Folder]
     @Binding var vocabularies: [Vocabulary]
 
+    let onTapCardFolder: (Folder) -> Void
     // Toast
     @State var isShowToast = false
     @State var toastMessage: String? = nil
@@ -25,58 +26,8 @@ struct ListFolderView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
-            HStack {
-                Text("Danh Sách Folder")
-                    .font(.title)
-                    .fontWeight(.heavy)
-                Spacer()
-            }
-            .foregroundStyle(.white)
-            .padding(.horizontal, 32)
-            .padding(.bottom)
-            .background {
-                ConvertColor.colorFromHex("5b5450").clipShape(RoundedCornersShape(
-                    corners: [.bottomLeft], radius: 40
-                ))
-                .ignoresSafeArea()
-            }
-            ScrollView {
-                VStack(alignment: .leading, spacing: 8) {
-                    ForEach(folders) { folder in
-                        HStack {
-                            FolderCardView(folder: folder, vocabularyByFolder: viewModel.getVocabularyByFolder(vocabularies: vocabularies, folder: folder)
-                            )
-                            VStack {
-                                ButtonIcon(
-                                    iconsName: "square.and.pencil.circle",
-                                    size: .title2,
-                                    color: ConvertColor.colorFromHex("FD841F")
-                                ) {
-                                    selectedFolfer = folder
-                                    isUpdateFolder = true
-                                }
-                                Spacer()
-                                ButtonIcon(
-                                    iconsName: "trash.circle", 
-                                    size: .title2,
-                                    color: ConvertColor.colorFromHex("CF0A0A")
-                                ) {
-                                    selectedFolfer = folder
-                                    isShowPopupDetele = true
-                                }
-                            }
-                            .padding(8)
-                            .background(ConvertColor.colorFromHex("EDEDED").clipShape(
-                                RoundedCornersShape(
-                                    corners: .allCorners,
-                                    radius: 20
-                                )
-                            ))
-                        }
-                    }
-                }
-                .padding()
-            }
+            makeHeader()
+            makeContent()
         }
         .background {
             Color.background
@@ -84,13 +35,13 @@ struct ListFolderView: View {
         .sheet(isPresented: $isUpdateFolder, content: {
             CreateFolderView(
                 isPresentSheet: $isUpdateFolder,
-                folder: selectedFolfer,
+                folder: selectedFolder,
                 selectedColor: .style1,
                 eventType: .update
             ) { status, message, folder in
                 if let folderUpdated = folder {
-                    self.selectedFolfer.name = folderUpdated.name
-                    self.selectedFolfer.color = folderUpdated.color
+                    self.selectedFolder.name = folderUpdated.name
+                    self.selectedFolder.color = folderUpdated.color
                     if let index = folders.firstIndex(where: { folder in
                         folderUpdated.id == folder.id
                     }) {
@@ -114,7 +65,7 @@ struct ListFolderView: View {
             textButtonAgree: "Xóa luôn",
             textButtonCancel: "Thôi"
         ) {
-            detailFolderViewModel.deleteFolder(folder: selectedFolfer) { status, message, folder in
+            detailFolderViewModel.deleteFolder(folder: selectedFolder) { status, message, folder in
                 guard let folderDeleted = folder else { return }
                 if let index = folders.firstIndex(of: folderDeleted) {
                     folders.remove(at: index)

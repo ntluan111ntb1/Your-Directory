@@ -65,6 +65,8 @@
 		0EB8A2632C40C8D70001C521 /* ListVocabularyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB8A2622C40C8D70001C521 /* ListVocabularyViewModel.swift */; };
 		0EB8A26C2C464F440001C521 /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB8A26B2C464F440001C521 /* PopupView.swift */; };
 		0ED248662C60889100C18BEE /* ButtonIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED248652C60889100C18BEE /* ButtonIcon.swift */; };
+		0ED2486A2C60B9C600C18BEE /* ListFolderView+Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED248692C60B9C600C18BEE /* ListFolderView+Content.swift */; };
+		0ED2486D2C60BA4E00C18BEE /* ListFolderView+Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED2486C2C60BA4E00C18BEE /* ListFolderView+Header.swift */; };
 		0ED477792C491C8B00B8ACFC /* ListFolderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED477782C491C8B00B8ACFC /* ListFolderViewModel.swift */; };
 		0ED4777D2C4A111400B8ACFC /* CreateFolderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED4777C2C4A111400B8ACFC /* CreateFolderViewModel.swift */; };
 		0ED477832C4A12E800B8ACFC /* DetailFolderView+Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED477822C4A12E800B8ACFC /* DetailFolderView+Menu.swift */; };
@@ -143,6 +145,8 @@
 		0EB8A2622C40C8D70001C521 /* ListVocabularyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVocabularyViewModel.swift; sourceTree = "<group>"; };
 		0EB8A26B2C464F440001C521 /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
 		0ED248652C60889100C18BEE /* ButtonIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonIcon.swift; sourceTree = "<group>"; };
+		0ED248692C60B9C600C18BEE /* ListFolderView+Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListFolderView+Content.swift"; sourceTree = "<group>"; };
+		0ED2486C2C60BA4E00C18BEE /* ListFolderView+Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListFolderView+Header.swift"; sourceTree = "<group>"; };
 		0ED477782C491C8B00B8ACFC /* ListFolderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFolderViewModel.swift; sourceTree = "<group>"; };
 		0ED4777C2C4A111400B8ACFC /* CreateFolderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFolderViewModel.swift; sourceTree = "<group>"; };
 		0ED477822C4A12E800B8ACFC /* DetailFolderView+Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailFolderView+Menu.swift"; sourceTree = "<group>"; };
@@ -516,6 +520,15 @@
 			path = TextField;
 			sourceTree = "<group>";
 		};
+		0ED248682C60B9A700C18BEE /* Inner */ = {
+			isa = PBXGroup;
+			children = (
+				0ED248692C60B9C600C18BEE /* ListFolderView+Content.swift */,
+				0ED2486C2C60BA4E00C18BEE /* ListFolderView+Header.swift */,
+			);
+			path = Inner;
+			sourceTree = "<group>";
+		};
 		0ED4777A2C491C9100B8ACFC /* ListFolder */ = {
 			isa = PBXGroup;
 			children = (
@@ -563,18 +576,19 @@
 		0ED477962C4DFE9900B8ACFC /* ListFolder */ = {
 			isa = PBXGroup;
 			children = (
-				0ED477992C4E036000B8ACFC /* Inner */,
+				0ED248682C60B9A700C18BEE /* Inner */,
+				0ED477992C4E036000B8ACFC /* Components */,
 				0ED477972C4DFEAF00B8ACFC /* ListFolderView.swift */,
 			);
 			path = ListFolder;
 			sourceTree = "<group>";
 		};
-		0ED477992C4E036000B8ACFC /* Inner */ = {
+		0ED477992C4E036000B8ACFC /* Components */ = {
 			isa = PBXGroup;
 			children = (
 				0ED4779A2C4E037400B8ACFC /* FolderCardView.swift */,
 			);
-			path = Inner;
+			path = Components;
 			sourceTree = "<group>";
 		};
 		0EFB78522C2554940013FFD8 /* Network */ = {
@@ -768,12 +782,14 @@
 				0EA6DF962C24301A00128A3B /* DetailVocabularyView.swift in Sources */,
 				0EA6DF732C22B0F100128A3B /* HomeViewModel.swift in Sources */,
 				08875FBB2C231B3E00C4E6C6 /* ButtonImage.swift in Sources */,
+				0ED2486D2C60BA4E00C18BEE /* ListFolderView+Header.swift in Sources */,
 				0EA6DF4A2C213F1F00128A3B /* SignInView.swift in Sources */,
 				0ED477832C4A12E800B8ACFC /* DetailFolderView+Menu.swift in Sources */,
 				0ED4777D2C4A111400B8ACFC /* CreateFolderViewModel.swift in Sources */,
 				0EABCDFB2C34E8350073B7EF /* AuthenticationViewModel.swift in Sources */,
 				0ED477982C4DFEAF00B8ACFC /* ListFolderView.swift in Sources */,
 				08875FBD2C231C6B00C4E6C6 /* HomeView+BottonTabBar.swift in Sources */,
+				0ED2486A2C60B9C600C18BEE /* ListFolderView+Content.swift in Sources */,
 				0ED4778C2C4A46B400B8ACFC /* ToastPopupModifier.swift in Sources */,
 				0EA6DF982C2430A400128A3B /* TextFieldImage.swift in Sources */,
 				0EA6DF5C2C21441900128A3B /* Color.swift in Sources */,
