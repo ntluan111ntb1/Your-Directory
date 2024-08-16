@@ -12,6 +12,7 @@ class HomeViewModel: ObservableObject {
     private var disposables = Set<AnyCancellable>()
     
     @Published var vocabulary: Vocabulary?
+    @Published var randomWords: Vocabulary?
     @Published var statePlaySound = false
     @Published var selectedFolder = Folder(name: "", color: "", publishAt: "")
 
@@ -27,6 +28,26 @@ class HomeViewModel: ObservableObject {
                 }
             } receiveValue: { [self] response in
                 vocabulary = response
+            }
+            .store(in: &disposables)
+    }
+
+    func getRandomWords() {
+        RandomWordsHttp.getRandomWords()
+            .receive(on: DispatchQueue.main)
+            .flatMap { response in
+                DirectionHttp.getVocabulary(vocabulary: response.word)
+            }
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure(let error):
+                    print("Error: \(error). Retrying...")
+                    self.getRandomWords()
+                }
+            } receiveValue: { [self] vocabulary in
+                randomWords = vocabulary
             }
             .store(in: &disposables)
     }

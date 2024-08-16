@@ -30,6 +30,11 @@ extension HomeView {
                     case .add:
                         guard let newVocabulary = vocabulary else { return }
                         vocabularies.insert(newVocabulary, at: 0)
+                        // Check if add vocabulary from card ramdom word
+                        // --> should be random new word
+                        if isShouldRandomWord {
+                            viewModel.getRandomWords()
+                        }
                     case .update:
                         guard let vocabulry = viewModel.vocabulary else { return }
                         if let index = self.vocabularies.firstIndex(of: vocabulry) {

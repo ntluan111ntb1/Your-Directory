@@ -27,6 +27,7 @@ struct HomeView: View {
     @State var isPresentCreateFolder = false
     @State var isPresentSearchView = false
     @State var isShowPopupLogout = false
+    @State var isShouldRandomWord = false
     @State var typeOfVocabularyView: EventType = .add
     @State var bottomTabBarState: BottomTabBarState = .home
 
@@ -36,13 +37,22 @@ struct HomeView: View {
     @State var toastStatus: Status? = nil
 
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 16) {
             switch bottomTabBarState {
             case .home:
                 makeHeader()
                 makeSearch()
-                makeListFolder()
-                makeListVocabulary()
+                RandomWordCard(vocabulary: viewModel.randomWords ?? AppConstants.vocabulary) {
+                    viewModel.getRandomWords()
+                }
+                .onTapGesture {
+                    viewModel.vocabulary = viewModel.randomWords
+                    isShouldRandomWord = true
+                }
+                VStack(spacing: 0) {
+                    makeListFolder()
+                    makeListVocabulary()
+                }
             case .listFolder:
                 ListFolderView(folders: $folders, vocabularies: $vocabularies) { folder in
                     viewModel.selectedFolder = folder
@@ -56,6 +66,7 @@ struct HomeView: View {
         .background(Color.background)
         .sheet(item: $viewModel.vocabulary, onDismiss: {
             viewModel.vocabulary = nil
+            typeOfVocabularyView = .add
         }, content: { vocabulary in
             makeSheetVocabulary(vocabulary: vocabulary)
         })

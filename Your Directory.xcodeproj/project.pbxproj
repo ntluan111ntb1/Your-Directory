@@ -22,6 +22,10 @@
 		0E105BC22C48CBD70073CB46 /* splash_view.json in Resources */ = {isa = PBXBuildFile; fileRef = 0E105BC12C48CBD60073CB46 /* splash_view.json */; };
 		0E105BC42C48CEE90073CB46 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E105BC32C48CEE90073CB46 /* LoadingView.swift */; };
 		0E105BC62C48CF3F0073CB46 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 0E105BC52C48CF3F0073CB46 /* loading.json */; };
+		0E4DA41A2C6AFD5D003B3B56 /* RandomWordCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4DA4192C6AFD5D003B3B56 /* RandomWordCard.swift */; };
+		0E5430D22C65F83B0033CD75 /* RandomWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5430D12C65F83B0033CD75 /* RandomWords.swift */; };
+		0E5430D42C65F8760033CD75 /* RandomWordsEntityMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5430D32C65F8760033CD75 /* RandomWordsEntityMapper.swift */; };
+		0E5430D62C65F8E80033CD75 /* RandomWordsHttp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5430D52C65F8E80033CD75 /* RandomWordsHttp.swift */; };
 		0EA6DF312C212D2B00128A3B /* Your_DirectoryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF302C212D2B00128A3B /* Your_DirectoryApp.swift */; };
 		0EA6DF352C212D2E00128A3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EA6DF342C212D2E00128A3B /* Assets.xcassets */; };
 		0EA6DF382C212D2E00128A3B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EA6DF372C212D2E00128A3B /* Preview Assets.xcassets */; };
@@ -100,6 +104,10 @@
 		0E105BC12C48CBD60073CB46 /* splash_view.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash_view.json; sourceTree = "<group>"; };
 		0E105BC32C48CEE90073CB46 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		0E105BC52C48CF3F0073CB46 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
+		0E4DA4192C6AFD5D003B3B56 /* RandomWordCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomWordCard.swift; sourceTree = "<group>"; };
+		0E5430D12C65F83B0033CD75 /* RandomWords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomWords.swift; sourceTree = "<group>"; };
+		0E5430D32C65F8760033CD75 /* RandomWordsEntityMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomWordsEntityMapper.swift; sourceTree = "<group>"; };
+		0E5430D52C65F8E80033CD75 /* RandomWordsHttp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomWordsHttp.swift; sourceTree = "<group>"; };
 		0EA6DF2D2C212D2B00128A3B /* Your Directory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Your Directory.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EA6DF302C212D2B00128A3B /* Your_DirectoryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Your_DirectoryApp.swift; sourceTree = "<group>"; };
 		0EA6DF342C212D2E00128A3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -326,6 +334,7 @@
 			children = (
 				0EA6DF812C24027000128A3B /* Vocabulary.swift */,
 				08E92FB92C27190F0027E207 /* Folder.swift */,
+				0E5430D12C65F83B0033CD75 /* RandomWords.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -427,6 +436,7 @@
 			isa = PBXGroup;
 			children = (
 				0EA6DF8F2C240CEE00128A3B /* VocabularyCardView.swift */,
+				0E4DA4192C6AFD5D003B3B56 /* RandomWordCard.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -613,6 +623,7 @@
 			isa = PBXGroup;
 			children = (
 				0EFB78572C2555260013FFD8 /* DictionaryHttp.swift */,
+				0E5430D52C65F8E80033CD75 /* RandomWordsHttp.swift */,
 			);
 			path = Connection;
 			sourceTree = "<group>";
@@ -629,6 +640,7 @@
 			isa = PBXGroup;
 			children = (
 				0EFB785F2C25583D0013FFD8 /* VocabularyEntityMapper.swift */,
+				0E5430D32C65F8760033CD75 /* RandomWordsEntityMapper.swift */,
 			);
 			path = EntityMapper;
 			sourceTree = "<group>";
@@ -774,6 +786,7 @@
 			files = (
 				0EFB78602C25583D0013FFD8 /* VocabularyEntityMapper.swift in Sources */,
 				0EA6DF902C240CEE00128A3B /* VocabularyCardView.swift in Sources */,
+				0E5430D22C65F83B0033CD75 /* RandomWords.swift in Sources */,
 				0EABCE0E2C37A13E0073B7EF /* DetailVocabulary+Header.swift in Sources */,
 				0EA6DF822C24027000128A3B /* Vocabulary.swift in Sources */,
 				0EA6DF8B2C24082F00128A3B /* HomeView+Search.swift in Sources */,
@@ -789,6 +802,7 @@
 				0EABCDFB2C34E8350073B7EF /* AuthenticationViewModel.swift in Sources */,
 				0ED477982C4DFEAF00B8ACFC /* ListFolderView.swift in Sources */,
 				08875FBD2C231C6B00C4E6C6 /* HomeView+BottonTabBar.swift in Sources */,
+				0E4DA41A2C6AFD5D003B3B56 /* RandomWordCard.swift in Sources */,
 				0ED2486A2C60B9C600C18BEE /* ListFolderView+Content.swift in Sources */,
 				0ED4778C2C4A46B400B8ACFC /* ToastPopupModifier.swift in Sources */,
 				0EA6DF982C2430A400128A3B /* TextFieldImage.swift in Sources */,
@@ -808,6 +822,7 @@
 				0EABCE172C37A2B40073B7EF /* CreateFolder+Content.swift in Sources */,
 				0EA6DF872C2403E600128A3B /* TextFieldImageGif.swift in Sources */,
 				08E92FBF2C2723430027E207 /* ConvertColor.swift in Sources */,
+				0E5430D42C65F8760033CD75 /* RandomWordsEntityMapper.swift in Sources */,
 				08E92FC32C2723FA0027E207 /* ColorEnum.swift in Sources */,
 				0EA6DF582C21423500128A3B /* TextFieldCustomize.swift in Sources */,
 				0EABCE042C363DFA0073B7EF /* FirestoreManager.swift in Sources */,
@@ -832,6 +847,7 @@
 				0EFB785D2C2557A00013FFD8 /* NetworkError.swift in Sources */,
 				0EA6DF782C23DAA500128A3B /* QLImage.swift in Sources */,
 				0ED477922C4A4FF400B8ACFC /* DetailFolderView+VocabularyDetail.swift in Sources */,
+				0E5430D62C65F8E80033CD75 /* RandomWordsHttp.swift in Sources */,
 				08E92FC82C2736670027E207 /* DetailFolderVIew.swift in Sources */,
 				08E92FC52C27357E0027E207 /* HomeView+ListCategory.swift in Sources */,
 				0ED4778E2C4A493500B8ACFC /* HomeView+SheetVocabulary.swift in Sources */,

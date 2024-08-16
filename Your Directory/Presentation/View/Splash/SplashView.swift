@@ -42,6 +42,7 @@ struct SplashView: View {
             }
         }
         .onAppear {
+            print(viewModel.getRandomWords())
             listVocabularyViewModel.getVocabularys()
             listFolderViewModel.getFolders()
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {

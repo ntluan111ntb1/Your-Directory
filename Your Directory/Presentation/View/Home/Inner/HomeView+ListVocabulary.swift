@@ -9,9 +9,13 @@ import SwiftUI
 
 extension HomeView {
     func makeListVocabulary() -> some View {
-        ListVocabularyView(vocabularies: vocabularies, folders: folders) { vocabulary in
-            viewModel.vocabulary = vocabulary
-            typeOfVocabularyView = .update
+        VStack {
+            Text("Danh sách từ vựng")
+                .fontStyle(.mediumBold)
+            ListVocabularyView(vocabularies: vocabularies, folders: folders) { vocabulary in
+                viewModel.vocabulary = vocabulary
+                typeOfVocabularyView = .update
+            }
         }
     }
 }

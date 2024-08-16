@@ -19,7 +19,7 @@ extension HomeView {
                                 .fontStyle(.mediumBold)
                                 .padding(8)
                                 .padding(.horizontal, 16)
-                                .background(
+                                .background(
                                     RoundedCornersShape(corners: .allCorners, radius: 16)
                                         .fill(ConvertColor.colorFromHex(folder.color))
                                         .shadow(radius: 2, x:0, y: 4)
@@ -30,11 +30,10 @@ extension HomeView {
                     .simultaneousGesture(TapGesture().onEnded {
                         viewModel.selectedFolder = folder
                     })
-                    .padding(.bottom, 8)
                 }
             }
+            .padding(.bottom)
             .foregroundStyle(.white)
         }
-        .padding(.top, 8)
     }
 }

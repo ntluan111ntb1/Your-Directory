@@ -28,7 +28,6 @@ extension HomeView {
             }
         }
         .padding(.horizontal, 16)
-        .padding(.vertical, 4)
         .background(
             RoundedCornersShape(corners: .allCorners, radius: 24)
                 .fill(.white)
