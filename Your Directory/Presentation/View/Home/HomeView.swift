@@ -37,28 +37,36 @@ struct HomeView: View {
     @State var toastStatus: Status? = nil
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
+        VStack(alignment: .leading, spacing: 0) {
             switch bottomTabBarState {
             case .home:
-                makeHeader()
-                makeSearch()
-                RandomWordCard(vocabulary: viewModel.randomWords ?? AppConstants.vocabulary) {
-                    viewModel.getRandomWords()
+                VStack(spacing: 16) {
+                    makeHeader()
+                    makeSearch()
                 }
-                .onTapGesture {
-                    viewModel.vocabulary = viewModel.randomWords
-                    isShouldRandomWord = true
-                }
-                VStack(spacing: 0) {
-                    makeListFolder()
-                    makeListVocabulary()
+                Divider()
+                    .padding(.top, 8)
+                ScrollView(showsIndicators: false) {
+                    VStack(spacing: 16) {
+                        RandomWordCard(vocabulary: viewModel.randomWords ?? AppConstants.vocabulary) {
+                            viewModel.getRandomWords()
+                        }
+                        .padding(.top, 8)
+                        .onTapGesture {
+                            viewModel.vocabulary = viewModel.randomWords
+                            isShouldRandomWord = true
+                        }
+                        VStack(spacing: 0) {
+                            makeListFolder()
+                            makeListVocabulary()
+                        }
+                    }
                 }
             case .listFolder:
                 ListFolderView(folders: $folders, vocabularies: $vocabularies) { folder in
                     viewModel.selectedFolder = folder
                 }
             }
-            Spacer()
             makeBottomTabBar()
         }
         .ignoresSafeArea(edges: .bottom)

@@ -20,22 +20,17 @@ struct ListVocabularyView: View {
     let tapHandle: (Vocabulary) -> Void
 
     var body: some View {
-        ScrollView(showsIndicators: false) {
-            LazyVGrid(columns: layout) {
-                ForEach(vocabularies, id: \.id) { vocabulary in
-                    VocabularyCardView(
-                        vocabulary: vocabulary,
-                        folder: viewModel.getFolder(folders: folders, folderId: vocabulary.folderId ) ?? Folder(name: "", color: "", publishAt: ""),
-                        tapHandle: { tapHandle(vocabulary) },
-                        playSound: { viewModel.handleSound(sound: vocabulary.audio) }
-                    )
-                }
+        LazyVGrid(columns: layout) {
+            ForEach(vocabularies, id: \.id) { vocabulary in
+                VocabularyCardView(
+                    vocabulary: vocabulary,
+                    folder: viewModel.getFolder(folders: folders, folderId: vocabulary.folderId ) ?? Folder(name: "", color: "", publishAt: ""),
+                    tapHandle: { tapHandle(vocabulary) },
+                    playSound: { viewModel.handleSound(sound: vocabulary.audio) }
+                )
             }
-            .padding(.horizontal)
         }
-        .refreshable {
-            print("refresh")
-        }
+        .padding(.horizontal)
     }
 }
 

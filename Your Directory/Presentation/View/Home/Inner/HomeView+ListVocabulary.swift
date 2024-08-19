@@ -10,8 +10,17 @@ import SwiftUI
 extension HomeView {
     func makeListVocabulary() -> some View {
         VStack {
-            Text("Danh sách từ vựng")
-                .fontStyle(.mediumBold)
+            HStack {
+                Text("Danh sách từ vựng")
+                    .fontStyle(.mediumBold)
+                Spacer()
+                Button {
+
+                } label: {
+                    Text("Xem toàn bộ")
+                }
+            }
+            .padding(.horizontal)
             ListVocabularyView(vocabularies: vocabularies, folders: folders) { vocabulary in
                 viewModel.vocabulary = vocabulary
                 typeOfVocabularyView = .update
