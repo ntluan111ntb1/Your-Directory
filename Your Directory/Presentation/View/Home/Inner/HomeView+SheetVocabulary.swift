@@ -41,6 +41,7 @@ extension HomeView {
                             if let vocabularyUpdated = vocabulary {
                                 self.vocabularies[index].vocabularyNote = vocabularyUpdated.vocabularyNote
                                 self.vocabularies[index].folderId = vocabularyUpdated.folderId
+                                self.vocabularies[index].isStudy = vocabularyUpdated.isStudy
                             } else {
                                 self.vocabularies.remove(at: index)
                             }

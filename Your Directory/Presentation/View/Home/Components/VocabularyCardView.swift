@@ -66,7 +66,8 @@ struct VocabularyCardView: View {
             }
         }
         .background(
-            RoundedCornersShape(corners: .allCorners, radius: 12).fill(.white)
+            RoundedCornersShape(corners: .allCorners, radius: 12)
+                .fill(vocabulary.isStudy ?? false ? .green : .white)
                 .shadow(radius: 2, x: 0, y: 4)
         )
         .frame(height: 80)

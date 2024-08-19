@@ -22,6 +22,7 @@ struct Vocabulary: Codable, Identifiable, Equatable {
     var folderId: UUID
     var vocabularyNote: String?
     var publishAt: String
+    var isStudy: Bool?
 
     struct Definition: Codable {
         let definition: String?

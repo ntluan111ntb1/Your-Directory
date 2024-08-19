@@ -41,19 +41,36 @@ struct DetailVocabularyView: View {
                     .fill(.white)
                     .shadow(radius: 4)
             )
-            ButtonFullWidthView(
-                lable: typeOfView.textButton,
-                color: .yellowCustome,
-                foregroundColor: .black,
-                isDisable: isDisableButton
-            ) {
-                viewModel.handleVocabulary(
-                    vocabulary: vocabulary,
-                    typeOfHandle: typeOfView,
-                    note: note,
-                    folder: selectedFolder
-                ) { status, message, newVocabulary in
-                    resultHandle(status, message, newVocabulary)
+            HStack {
+                ButtonFullWidthView(
+                    lable: typeOfView.textButton,
+                    color: .yellowCustome,
+                    foregroundColor: .black,
+                    isDisable: isDisableButton
+                ) {
+                    viewModel.handleVocabulary(
+                        vocabulary: vocabulary,
+                        typeOfHandle: typeOfView,
+                        note: note,
+                        folder: selectedFolder
+                    ) { status, message, newVocabulary in
+                        resultHandle(status, message, newVocabulary)
+                    }
+                }
+                ButtonFullWidthView(
+                    lable: "Đã Học",
+                    color: .yellowCustome,
+                    foregroundColor: .black
+                ) {
+                    viewModel.handleVocabulary(
+                        vocabulary: vocabulary,
+                        typeOfHandle: typeOfView,
+                        note: note,
+                        isStudy: true,
+                        folder: selectedFolder
+                    ) { status, message, newVocabulary in
+                        resultHandle(status, message, newVocabulary)
+                    }
                 }
             }
         }

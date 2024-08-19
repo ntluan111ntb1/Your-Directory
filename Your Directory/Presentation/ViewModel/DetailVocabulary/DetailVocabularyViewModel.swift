@@ -28,6 +28,7 @@ class DetailVocabularyViewModel: ObservableObject {
         vocabulary: Vocabulary,
         typeOfHandle: EventType,
         note: String,
+        isStudy: Bool? = false,
         folder: Folder,
         completion: @escaping (Status, String, Vocabulary?) -> Void
     ) {
@@ -46,6 +47,7 @@ class DetailVocabularyViewModel: ObservableObject {
                     completion(.fail, "Pùn!!! Không thể thêm vocabulary", nil)
                 } else {
                     let dateFormatter = ISO8601DateFormatter()
+                    newVocabulary.isStudy = isStudy
                     newVocabulary.publishAt = dateFormatter.string(from: Date())
                     completion(.success, "Thêm vocabulary thành công rồi nè, Hí!!!", newVocabulary)
                 }
@@ -53,6 +55,7 @@ class DetailVocabularyViewModel: ObservableObject {
         case .update:
             newVocabulary.vocabularyNote = note
             newVocabulary.folderId = folder.id
+            newVocabulary.isStudy = isStudy
             FirestoreManager.updateData(
                 collection: AppConstants.vocabularysCollection,
                 document: newVocabulary.word,
