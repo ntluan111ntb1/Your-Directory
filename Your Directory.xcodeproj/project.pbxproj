@@ -51,6 +51,10 @@
 		0EA6DF902C240CEE00128A3B /* VocabularyCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF8F2C240CEE00128A3B /* VocabularyCardView.swift */; };
 		0EA6DF962C24301A00128A3B /* DetailVocabularyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF952C24301A00128A3B /* DetailVocabularyView.swift */; };
 		0EA6DF982C2430A400128A3B /* TextFieldImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF972C2430A400128A3B /* TextFieldImage.swift */; };
+		0EA819572C72F277009D8D01 /* VietNamese.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA819562C72F277009D8D01 /* VietNamese.swift */; };
+		0EA819592C72F755009D8D01 /* VietNameseEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA819582C72F755009D8D01 /* VietNameseEntities.swift */; };
+		0EA8195B2C72F788009D8D01 /* VietNameseEntityMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA8195A2C72F788009D8D01 /* VietNameseEntityMapper.swift */; };
+		0EA8195D2C72F993009D8D01 /* VietNameseHttp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA8195C2C72F993009D8D01 /* VietNameseHttp.swift */; };
 		0EABCDFB2C34E8350073B7EF /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EABCDFA2C34E8350073B7EF /* AuthenticationViewModel.swift */; };
 		0EABCDFF2C352B920073B7EF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0EABCDFE2C352B920073B7EF /* GoogleService-Info.plist */; };
 		0EABCE012C3539780073B7EF /* NetworkImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EABCE002C3539780073B7EF /* NetworkImage.swift */; };
@@ -134,6 +138,10 @@
 		0EA6DF8F2C240CEE00128A3B /* VocabularyCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyCardView.swift; sourceTree = "<group>"; };
 		0EA6DF952C24301A00128A3B /* DetailVocabularyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVocabularyView.swift; sourceTree = "<group>"; };
 		0EA6DF972C2430A400128A3B /* TextFieldImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldImage.swift; sourceTree = "<group>"; };
+		0EA819562C72F277009D8D01 /* VietNamese.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VietNamese.swift; sourceTree = "<group>"; };
+		0EA819582C72F755009D8D01 /* VietNameseEntities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VietNameseEntities.swift; sourceTree = "<group>"; };
+		0EA8195A2C72F788009D8D01 /* VietNameseEntityMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VietNameseEntityMapper.swift; sourceTree = "<group>"; };
+		0EA8195C2C72F993009D8D01 /* VietNameseHttp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VietNameseHttp.swift; sourceTree = "<group>"; };
 		0EABCDF82C34E6F90073B7EF /* Your-Directory-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Your-Directory-Info.plist"; sourceTree = SOURCE_ROOT; };
 		0EABCDFA2C34E8350073B7EF /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		0EABCDFE2C352B920073B7EF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -335,6 +343,7 @@
 				0EA6DF812C24027000128A3B /* Vocabulary.swift */,
 				08E92FB92C27190F0027E207 /* Folder.swift */,
 				0E5430D12C65F83B0033CD75 /* RandomWords.swift */,
+				0EA819562C72F277009D8D01 /* VietNamese.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -624,6 +633,7 @@
 			children = (
 				0EFB78572C2555260013FFD8 /* DictionaryHttp.swift */,
 				0E5430D52C65F8E80033CD75 /* RandomWordsHttp.swift */,
+				0EA8195C2C72F993009D8D01 /* VietNameseHttp.swift */,
 			);
 			path = Connection;
 			sourceTree = "<group>";
@@ -632,6 +642,7 @@
 			isa = PBXGroup;
 			children = (
 				0EFB785A2C2556B50013FFD8 /* VocabularyEntities.swift */,
+				0EA819582C72F755009D8D01 /* VietNameseEntities.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -641,6 +652,7 @@
 			children = (
 				0EFB785F2C25583D0013FFD8 /* VocabularyEntityMapper.swift */,
 				0E5430D32C65F8760033CD75 /* RandomWordsEntityMapper.swift */,
+				0EA8195A2C72F788009D8D01 /* VietNameseEntityMapper.swift */,
 			);
 			path = EntityMapper;
 			sourceTree = "<group>";
@@ -798,6 +810,7 @@
 				0ED2486D2C60BA4E00C18BEE /* ListFolderView+Header.swift in Sources */,
 				0EA6DF4A2C213F1F00128A3B /* SignInView.swift in Sources */,
 				0ED477832C4A12E800B8ACFC /* DetailFolderView+Menu.swift in Sources */,
+				0EA819572C72F277009D8D01 /* VietNamese.swift in Sources */,
 				0ED4777D2C4A111400B8ACFC /* CreateFolderViewModel.swift in Sources */,
 				0EABCDFB2C34E8350073B7EF /* AuthenticationViewModel.swift in Sources */,
 				0ED477982C4DFEAF00B8ACFC /* ListFolderView.swift in Sources */,
@@ -834,6 +847,7 @@
 				0EA6DF402C212D5800128A3B /* SplashView.swift in Sources */,
 				08E92FBA2C27190F0027E207 /* Folder.swift in Sources */,
 				0ED248662C60889100C18BEE /* ButtonIcon.swift in Sources */,
+				0EA8195D2C72F993009D8D01 /* VietNameseHttp.swift in Sources */,
 				0EB8A2582C3E635C0001C521 /* ToastView.swift in Sources */,
 				0EABCE122C37A1EC0073B7EF /* DetailVocabulary+Content.swift in Sources */,
 				0EA6DF6F2C2288EB00128A3B /* HomeView.swift in Sources */,
@@ -843,11 +857,13 @@
 				0EA6DF442C2135C500128A3B /* LottieView.swift in Sources */,
 				0E105BC42C48CEE90073CB46 /* LoadingView.swift in Sources */,
 				08875FC22C23233900C4E6C6 /* CreateFolderView.swift in Sources */,
+				0EA819592C72F755009D8D01 /* VietNameseEntities.swift in Sources */,
 				0ED477792C491C8B00B8ACFC /* ListFolderViewModel.swift in Sources */,
 				0EFB785D2C2557A00013FFD8 /* NetworkError.swift in Sources */,
 				0EA6DF782C23DAA500128A3B /* QLImage.swift in Sources */,
 				0ED477922C4A4FF400B8ACFC /* DetailFolderView+VocabularyDetail.swift in Sources */,
 				0E5430D62C65F8E80033CD75 /* RandomWordsHttp.swift in Sources */,
+				0EA8195B2C72F788009D8D01 /* VietNameseEntityMapper.swift in Sources */,
 				08E92FC82C2736670027E207 /* DetailFolderVIew.swift in Sources */,
 				08E92FC52C27357E0027E207 /* HomeView+ListCategory.swift in Sources */,
 				0ED4778E2C4A493500B8ACFC /* HomeView+SheetVocabulary.swift in Sources */,

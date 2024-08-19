@@ -19,7 +19,7 @@ extension HomeView {
                                 .fontStyle(.mediumBold)
                                 .padding(8)
                                 .padding(.horizontal, 16)
-                                .background(
+                                .background( 
                                     RoundedCornersShape(corners: .allCorners, radius: 16)
                                         .fill(ConvertColor.colorFromHex(folder.color))
                                         .shadow(radius: 2, x:0, y: 4)

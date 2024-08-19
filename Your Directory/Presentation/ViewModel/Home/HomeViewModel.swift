@@ -19,6 +19,13 @@ class HomeViewModel: ObservableObject {
     func searchVocabulary(word: String) {
         DirectionHttp.getVocabulary(vocabulary: word)
             .receive(on: DispatchQueue.main)
+            .map { response -> Vocabulary in
+                self.vocabulary = response
+                return response
+            }
+            .flatMap { response in
+                VietNameseHttp.getVietNamese(word: response.word)
+            }
             .sink { completion in
                 switch completion {
                 case .finished:
@@ -27,7 +34,7 @@ class HomeViewModel: ObservableObject {
                     print("==> error: \(error)")
                 }
             } receiveValue: { [self] response in
-                vocabulary = response
+                vocabulary?.vocabularyNote = response.sentences[0].trans
             }
             .store(in: &disposables)
     }
