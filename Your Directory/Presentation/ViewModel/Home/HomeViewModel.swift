@@ -16,15 +16,21 @@ class HomeViewModel: ObservableObject {
     @Published var statePlaySound = false
     @Published var selectedFolder = Folder(name: "", color: "", publishAt: "")
 
+    func handleVocabularyResponse(_ response: Vocabulary) -> AnyPublisher<(Vocabulary, String?), Never> {
+        VietNameseHttp.getVietNamese(word: response.word)
+            .map { vietnameseResponse -> (Vocabulary, String?) in
+                let vietnamese = vietnameseResponse.sentences.first?.trans
+                return (response, vietnamese)
+            }
+            .catch { _ in Just((response, nil)) }
+            .eraseToAnyPublisher()
+    }
+
     func searchVocabulary(word: String) {
         DirectionHttp.getVocabulary(vocabulary: word)
             .receive(on: DispatchQueue.main)
-            .map { response -> Vocabulary in
-                self.vocabulary = response
-                return response
-            }
             .flatMap { response in
-                VietNameseHttp.getVietNamese(word: response.word)
+                self.handleVocabularyResponse(response)
             }
             .sink { completion in
                 switch completion {
@@ -33,8 +39,9 @@ class HomeViewModel: ObservableObject {
                 case .failure(let error):
                     print("==> error: \(error)")
                 }
-            } receiveValue: { [self] response in
-                vocabulary?.vocabularyNote = response.sentences[0].trans
+            } receiveValue: { [self] (vocabulary, vietnamese) in
+                self.vocabulary = vocabulary
+                self.vocabulary?.vocabularyNote = vietnamese
             }
             .store(in: &disposables)
     }
@@ -44,6 +51,7 @@ class HomeViewModel: ObservableObject {
             .receive(on: DispatchQueue.main)
             .flatMap { response in
                 DirectionHttp.getVocabulary(vocabulary: response.word)
+                    .flatMap { self.handleVocabularyResponse($0) }
             }
             .sink { completion in
                 switch completion {
@@ -53,11 +61,13 @@ class HomeViewModel: ObservableObject {
                     print("Error: \(error). Retrying...")
                     self.getRandomWords()
                 }
-            } receiveValue: { [self] vocabulary in
+            } receiveValue: { [self] (vocabulary, vietnamese) in
                 randomWords = vocabulary
+                randomWords?.vocabularyNote = vietnamese
             }
             .store(in: &disposables)
     }
+
 
     func handleSound(sound: String ) {
         SoundManager.shared.playSound(sound: sound)
