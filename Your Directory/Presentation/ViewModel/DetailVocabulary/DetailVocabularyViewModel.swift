@@ -47,7 +47,7 @@ class DetailVocabularyViewModel: ObservableObject {
                     completion(.fail, "Pùn!!! Không thể thêm vocabulary", nil)
                 } else {
                     let dateFormatter = ISO8601DateFormatter()
-                    newVocabulary.isStudy = isStudy
+                    newVocabulary.isStudy = false
                     newVocabulary.publishAt = dateFormatter.string(from: Date())
                     completion(.success, "Thêm vocabulary thành công rồi nè, Hí!!!", newVocabulary)
                 }
@@ -55,7 +55,7 @@ class DetailVocabularyViewModel: ObservableObject {
         case .update:
             newVocabulary.vocabularyNote = note
             newVocabulary.folderId = folder.id
-            newVocabulary.isStudy = isStudy
+            newVocabulary.isStudy = isStudy ?? false
             FirestoreManager.updateData(
                 collection: AppConstants.vocabularysCollection,
                 document: newVocabulary.word,

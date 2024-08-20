@@ -16,7 +16,7 @@ enum EventType {
         case .update:
             return "Chỉnh Sửa"
         case .add :
-            return "Thêm Từ Này"
+            return "Thêm Mới"
         }
     }
 }

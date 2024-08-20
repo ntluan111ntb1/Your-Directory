@@ -57,19 +57,21 @@ struct DetailVocabularyView: View {
                         resultHandle(status, message, newVocabulary)
                     }
                 }
-                ButtonFullWidthView(
-                    lable: "Đã Học",
-                    color: .yellowCustome,
-                    foregroundColor: .black
-                ) {
-                    viewModel.handleVocabulary(
-                        vocabulary: vocabulary,
-                        typeOfHandle: typeOfView,
-                        note: note,
-                        isStudy: true,
-                        folder: selectedFolder
-                    ) { status, message, newVocabulary in
-                        resultHandle(status, message, newVocabulary)
+                if typeOfView == .update {
+                    ButtonFullWidthView(
+                        lable: vocabulary.isStudy ? "Học Lại" : "Đã Học",
+                        color: .yellowCustome,
+                        foregroundColor: .black
+                    ) {
+                        viewModel.handleVocabulary(
+                            vocabulary: vocabulary,
+                            typeOfHandle: typeOfView,
+                            note: note,
+                            isStudy: !vocabulary.isStudy,
+                            folder: selectedFolder
+                        ) { status, message, newVocabulary in
+                            resultHandle(status, message, newVocabulary)
+                        }
                     }
                 }
             }
