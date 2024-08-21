@@ -17,6 +17,18 @@ extension Color {
         return Color(UIColor(red: 206 / 255, green: 235 / 255, blue: 199 / 255, alpha: 1.0))
     }
 
+    static var lightBlueCustome: Color {
+        return ConvertColor.colorFromHex("eef4ff")
+    }
+
+    static var blueCustome: Color {
+        return ConvertColor.colorFromHex("174ca2")
+    }
+
+    static var ograngeCustome: Color {
+        return ConvertColor.colorFromHex("FF5F00")
+    }
+
     static var popupBackground: Color {
         return ConvertColor.colorFromHex("467e9f")
     }

@@ -6,34 +6,42 @@
 //
 
 import SwiftUI
+struct FolderCardHomeView: View {
+    let text: String
+    let imageDefaul: String
+    let imageSelected: String
+    let isSelected: Bool
 
+    var body: some View {
+        HStack {
+            HStack {
+                Spacer()
+                VStack(spacing: 8) {
+                    HStack {
+                        Image(systemName: isSelected ? imageSelected : imageDefaul)
+                            .resizable()
+                            .frame(width: 24, height: 24)
+                            .foregroundStyle(Color.blueCustome)
+                            .padding(12)
+                    }
+                    .background(isSelected ? Color.blueCustome.opacity(0.1) : .white)
+                    .clipShape(Circle())
+                    Text(text)
+                        .fontStyle(.smallBold)
+                        .foregroundStyle(Color.blueCustome)
+                }
+                Spacer()
+            }
+        }
+    }
+}
 extension HomeView {
     func makeListFolder() -> some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack {
-                ForEach(folders) { folder in
-                    NavigationLink(value: folder) {
-                        HStack {
-                            Spacer()
-                            Text(folder.name)
-                                .fontStyle(.mediumBold)
-                                .padding(8)
-                                .padding(.horizontal, 16)
-                                .background( 
-                                    RoundedCornersShape(corners: .allCorners, radius: 16)
-                                        .fill(ConvertColor.colorFromHex(folder.color))
-                                        .shadow(radius: 2, x:0, y: 4)
-                                )
-                            Spacer()
-                        }
-                    }
-                    .simultaneousGesture(TapGesture().onEnded {
-                        viewModel.selectedFolder = folder
-                    })
-                }
-            }
-            .padding(.bottom)
-            .foregroundStyle(.white)
+        HStack {
+            FolderCardHomeView(text: "Tất Cả", imageDefaul: "square.split.2x2", imageSelected: "square.split.2x2.fill", isSelected: true)
+            FolderCardHomeView(text: "Yêu Thích", imageDefaul: "heart", imageSelected: "heart.fill", isSelected: false)
+            FolderCardHomeView(text: "Tất Cả", imageDefaul: "square.split.2x2", imageSelected: "square.split.2x2.fill", isSelected: false)
+            FolderCardHomeView(text: "Tất Cả", imageDefaul: "square.split.2x2", imageSelected: "square.split.2x2.fill", isSelected: false)
         }
     }
 }

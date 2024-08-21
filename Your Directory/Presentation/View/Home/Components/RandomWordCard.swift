@@ -12,26 +12,32 @@ struct RandomWordCard: View {
     let handleRandomNewWord: () -> Void?
     var body: some View {
         ZStack(alignment: .topTrailing) {
-            ButtonIcon(iconsName: "repeat.circle", size: .title, color: Color.yellowCustome) {
+            ButtonIcon(iconsName: "repeat.circle", size: .title, color: Color.ograngeCustome) {
                 handleRandomNewWord()
             }
-            .padding(4)
-            VStack(alignment: .leading) {
-                HStack(alignment: .bottom) {
-                    Text(vocabulary.word)
-                        .fontStyle(.largeBold)
-                    Text(vocabulary.phonetics)
-                        .fontStyle(.mediumLight)
-                    Spacer()
+            .padding(8)
+            HStack {
+                GIFView(type: .name("dice"))
+                    .frame(width: 75, height: 75)
+                VStack(alignment: .leading) {
+                    HStack(alignment: .bottom) {
+                        Text(vocabulary.word)
+                            .fontStyle(.largeBold)
+                            .foregroundStyle(Color.ograngeCustome)
+                        Text(vocabulary.phonetics)
+                            .fontStyle(.mediumLight)
+                        Spacer()
+                    }
+                    Text(vocabulary.descriptions[0].definition ?? "")
+                        .foregroundStyle(Color.blueCustome)
+                        .lineLimit(2)
                 }
-                Text(vocabulary.descriptions[0].definition ?? "")
-                    .lineLimit(1)
             }
             .padding()
         }
         .background(
-            Color.white.clipShape(RoundedCornersShape(corners: .allCorners, radius: 12))
-                .shadow(radius: 2)
+            RoundedCornersShape(corners: .allCorners, radius: 12)
+                .stroke(Color.blueCustome, lineWidth: 2)
         )
         .padding(.horizontal)
     }

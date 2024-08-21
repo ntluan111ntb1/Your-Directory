@@ -42,26 +42,33 @@ struct HomeView: View {
             case .home:
                 VStack(spacing: 16) {
                     makeHeader()
+                        .foregroundStyle(.white)
                     makeSearch()
                 }
-                Divider()
-                    .padding(.top, 8)
+                .padding(.bottom)
+                .background {
+                    Image("bg_home_header")
+                        .resizable()
+                        .scaledToFill()
+                }
                 ScrollView(showsIndicators: false) {
                     VStack(spacing: 16) {
+                        makeListFolder()
                         RandomWordCard(vocabulary: viewModel.randomWords ?? AppConstants.vocabulary) {
                             viewModel.getRandomWords()
                         }
-                        .padding(.top, 8)
                         .onTapGesture {
                             viewModel.vocabulary = viewModel.randomWords
                             isShouldRandomWord = true
                         }
-                        VStack(spacing: 0) {
-                            makeListFolder()
-                            makeListVocabulary()
-                        }
+                        makeListVocabulary()
                     }
+                    .padding(.top, 16)
                 }
+                .background(
+                    Color.lightBlueCustome
+                        .clipShape(RoundedCornersShape(corners: [.topLeft, .topRight], radius: 32))
+                )
             case .listFolder:
                 ListFolderView(folders: $folders, vocabularies: $vocabularies) { folder in
                     viewModel.selectedFolder = folder
@@ -71,7 +78,6 @@ struct HomeView: View {
         }
         .ignoresSafeArea(edges: .bottom)
         .frame(width: UIScreen.main.bounds.size.width)
-        .background(Color.background)
         .sheet(item: $viewModel.vocabulary, onDismiss: {
             viewModel.vocabulary = nil
             typeOfVocabularyView = .add
