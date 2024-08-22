@@ -12,6 +12,7 @@ extension HomeView {
         HStack {
             GIFView(type: .name("search"))
                 .frame(width: 40, height: 40)
+                .clipShape(Circle())
                 .onTapGesture {
                     viewModel.searchVocabulary(word: search)
                 }

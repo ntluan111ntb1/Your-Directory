@@ -51,19 +51,21 @@ struct HomeView: View {
                         .resizable()
                         .scaledToFill()
                 }
-                ScrollView(showsIndicators: false) {
-                    VStack(spacing: 16) {
-                        makeListFolder()
-                        RandomWordCard(vocabulary: viewModel.randomWords ?? AppConstants.vocabulary) {
-                            viewModel.getRandomWords()
+                VStack(spacing: 0) {
+                    makeListFolder()
+                        .padding(.vertical, 16)
+                    ScrollView(showsIndicators: false) {
+                        VStack(spacing: 16) {
+                            RandomWordCard(vocabulary: viewModel.randomWords ?? AppConstants.vocabulary) {
+                                viewModel.getRandomWords()
+                            }
+                            .onTapGesture {
+                                viewModel.vocabulary = viewModel.randomWords
+                                isShouldRandomWord = true
+                            }
+                            makeListVocabulary()
                         }
-                        .onTapGesture {
-                            viewModel.vocabulary = viewModel.randomWords
-                            isShouldRandomWord = true
-                        }
-                        makeListVocabulary()
                     }
-                    .padding(.top, 16)
                 }
                 .background(
                     Color.lightBlueCustome

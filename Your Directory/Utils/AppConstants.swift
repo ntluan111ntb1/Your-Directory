@@ -34,7 +34,8 @@ struct AppConstants {
             partOfSpeech: "",
             folderId: uuid1,
             vocabularyNote: nil,
-            publishAt: ""
+            publishAt: "",
+            isStudy: true
         ),
         Vocabulary(
             word: "custom",
@@ -54,7 +55,8 @@ struct AppConstants {
             partOfSpeech: "",
             folderId: uuid1,
             vocabularyNote: nil,
-            publishAt: ""
+            publishAt: "",
+            isStudy: true
         ),
         Vocabulary(
             word: "draws",
@@ -64,87 +66,8 @@ struct AppConstants {
             partOfSpeech: "",
             folderId: uuid2,
             vocabularyNote: nil,
-            publishAt: ""
-        ),
-        Vocabulary(
-            word: "triangles",
-            phonetics: "ˈtraɪæŋɡəlz",
-            audio: "",
-            descriptions: [],
-            partOfSpeech: "",
-            folderId: uuid2,
-            vocabularyNote: nil,
-            publishAt: ""
-        ),
-        Vocabulary(
-            word: "same",
-            phonetics: "seɪm",
-            audio: "",
-            descriptions: [],
-            partOfSpeech: "",
-            folderId: uuid2,
-            vocabularyNote: nil,
-            publishAt: ""
-        ),
-        Vocabulary(
-            word: "shape",
-            phonetics: "ʃeɪp",
-            audio: "",
-            descriptions: [],
-            partOfSpeech: "",
-            folderId: uuid1,
-            vocabularyNote: nil,
-            publishAt: ""
-        ),
-        Vocabulary(
-            word: "draws",
-            phonetics: "drɔːz",
-            audio: "",
-            descriptions: [],
-            partOfSpeech: "",
-            folderId: uuid2,
-            vocabularyNote: nil,
-            publishAt: ""
-        ),
-        Vocabulary(
-            word: "triangles",
-            phonetics: "ˈtraɪæŋɡəlz",
-            audio: "",
-            descriptions: [],
-            partOfSpeech: "",
-            folderId: uuid2,
-            vocabularyNote: nil,
-            publishAt: ""
-        ),
-        Vocabulary(
-            word: "same",
-            phonetics: "seɪm",
-            audio: "",
-            descriptions: [],
-            partOfSpeech: "",
-            folderId: uuid2,
-            vocabularyNote: nil,
-            publishAt: ""
-        ),
-        Vocabulary(
-            word: "shape",
-            phonetics: "ʃeɪp",
-            audio: "",
-            descriptions: [],
-            partOfSpeech: "",
-            folderId: uuid1,
-            vocabularyNote: nil,
-            publishAt: ""
-        ),
-        Vocabulary(
-            word: "draws",
-            phonetics: "drɔːz",
-            audio: "",
-            descriptions: [],
-            partOfSpeech: "",
-            folderId: uuid2,
-            vocabularyNote: nil,
-            publishAt: ""
+            publishAt: "",
+            isStudy: true
         ),
         Vocabulary(
             word: "triangles",

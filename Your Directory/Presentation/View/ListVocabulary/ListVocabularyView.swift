@@ -20,7 +20,7 @@ struct ListVocabularyView: View {
     let tapHandle: (Vocabulary) -> Void
 
     var body: some View {
-        LazyVGrid(columns: layout) {
+        VStack {
             ForEach(vocabularies, id: \.id) { vocabulary in
                 VocabularyCardView(
                     vocabulary: vocabulary,

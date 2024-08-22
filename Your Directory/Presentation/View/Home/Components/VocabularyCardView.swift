@@ -27,50 +27,35 @@ struct VocabularyCardView: View {
     let playSound: () -> Void
 
     var body: some View {
-        GeometryReader { geometry in
-            ZStack {
-                RoundedCornersShape(corners: .allCorners, radius: 12)
-                    .fill(
-                        ConvertColor.colorFromHex(folder.color)
-                            .opacity(0.1)
-                    )
-                Triangle()
-                    .fill(ConvertColor.colorFromHex(folder.color))
-                    .frame(width: width, height: 80)
-                    .clipShape(RoundedCornersShape(corners: .allCorners, radius: 12))
-
-                VStack(alignment: .leading) {
+        HStack(spacing: 16) {
+            Image("study")
+                .resizable()
+                .frame(width: 40, height: 40)
+            VStack(alignment: .leading) {
+                HStack {
+                    Text(vocabulary.word)
+                        .fontStyle(.mediumBold)
+                    Spacer()
+                }
+                Button {
+                    playSound()
+                } label: {
                     HStack {
-                        Text(vocabulary.word)
-                            .fontStyle(.mediumBold)
-                        Spacer()
+                        Image(systemName: "speaker.wave.3.fill")
+                        Text("/\(vocabulary.phonetics)/")
+                            .fontStyle(.mediumLight)
                     }
-                    Text(vocabulary.phonetics)
-                        .fontStyle(.mediumLight)
                 }
-                .padding(.horizontal)
-                .onAppear {
-                    width = geometry.size.width
-                }
-                .overlay(
-                    Image("speaker")
-                        .resizable()
-                        .frame(width: 20, height: 20)
-                        .padding(.trailing)
-                        .offset(x: 0, y: 8)
-                        .onTapGesture {
-                            playSound()
-                        },
-                    alignment: .bottomTrailing
-                )
             }
+            Image(systemName: vocabulary.isStudy ? "checkmark.circle.fill" : "checkmark.circle")
+                .font(.system(size: 24))
+                .foregroundStyle(vocabulary.isStudy ? .green : .black.opacity(0.5))
         }
+        .padding()
         .background(
             RoundedCornersShape(corners: .allCorners, radius: 12)
-                .fill(vocabulary.isStudy ?? false ? .green : .white)
-                .shadow(radius: 2, x: 0, y: 4)
+                .fill(.white)
         )
-        .frame(height: 80)
         .onTapGesture {
             tapHandle()
         }

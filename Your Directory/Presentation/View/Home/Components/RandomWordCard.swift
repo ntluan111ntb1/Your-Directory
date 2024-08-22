@@ -37,6 +37,7 @@ struct RandomWordCard: View {
         }
         .background(
             RoundedCornersShape(corners: .allCorners, radius: 12)
+                .fill(.white)
                 .stroke(Color.blueCustome, lineWidth: 2)
         )
         .padding(.horizontal)
