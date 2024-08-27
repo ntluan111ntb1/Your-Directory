@@ -10,7 +10,6 @@
 		08067FEC2C26C0C0009BBD51 /* DetailVocabularyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08067FEB2C26C0C0009BBD51 /* DetailVocabularyViewModel.swift */; };
 		08875FB92C2316C500C4E6C6 /* HomeView+Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08875FB82C2316C500C4E6C6 /* HomeView+Header.swift */; };
 		08875FBB2C231B3E00C4E6C6 /* ButtonImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08875FBA2C231B3E00C4E6C6 /* ButtonImage.swift */; };
-		08875FBD2C231C6B00C4E6C6 /* HomeView+BottonTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08875FBC2C231C6B00C4E6C6 /* HomeView+BottonTabBar.swift */; };
 		08875FC22C23233900C4E6C6 /* CreateFolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08875FC12C23233900C4E6C6 /* CreateFolderView.swift */; };
 		08E92FBA2C27190F0027E207 /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E92FB92C27190F0027E207 /* Folder.swift */; };
 		08E92FBF2C2723430027E207 /* ConvertColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E92FBE2C2723430027E207 /* ConvertColor.swift */; };
@@ -98,7 +97,6 @@
 		08067FEB2C26C0C0009BBD51 /* DetailVocabularyViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailVocabularyViewModel.swift; sourceTree = "<group>"; };
 		08875FB82C2316C500C4E6C6 /* HomeView+Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeView+Header.swift"; sourceTree = "<group>"; };
 		08875FBA2C231B3E00C4E6C6 /* ButtonImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonImage.swift; sourceTree = "<group>"; };
-		08875FBC2C231C6B00C4E6C6 /* HomeView+BottonTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeView+BottonTabBar.swift"; sourceTree = "<group>"; };
 		08875FC12C23233900C4E6C6 /* CreateFolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFolderView.swift; sourceTree = "<group>"; };
 		08E92FB92C27190F0027E207 /* Folder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
 		08E92FBE2C2723430027E207 /* ConvertColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertColor.swift; sourceTree = "<group>"; };
@@ -210,7 +208,6 @@
 			isa = PBXGroup;
 			children = (
 				08875FB82C2316C500C4E6C6 /* HomeView+Header.swift */,
-				08875FBC2C231C6B00C4E6C6 /* HomeView+BottonTabBar.swift */,
 				0EA6DF8A2C24082F00128A3B /* HomeView+Search.swift */,
 				0EA6DF8C2C240C2900128A3B /* HomeView+ListVocabulary.swift */,
 				08E92FC42C27357E0027E207 /* HomeView+ListCategory.swift */,
@@ -817,7 +814,6 @@
 				0ED4777D2C4A111400B8ACFC /* CreateFolderViewModel.swift in Sources */,
 				0EABCDFB2C34E8350073B7EF /* AuthenticationViewModel.swift in Sources */,
 				0ED477982C4DFEAF00B8ACFC /* ListFolderView.swift in Sources */,
-				08875FBD2C231C6B00C4E6C6 /* HomeView+BottonTabBar.swift in Sources */,
 				0E4DA41A2C6AFD5D003B3B56 /* RandomWordCard.swift in Sources */,
 				0ED2486A2C60B9C600C18BEE /* ListFolderView+Content.swift in Sources */,
 				0ED4778C2C4A46B400B8ACFC /* ToastPopupModifier.swift in Sources */,

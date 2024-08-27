@@ -9,9 +9,10 @@ import SwiftUI
 import GoogleSignIn
 import ExytePopupView
 
-enum BottomTabBarState {
-    case home
-    case listFolder
+enum FilterStateEnum {
+    case all
+    case favorite
+    case studied
 }
 
 struct HomeView: View {
@@ -29,7 +30,7 @@ struct HomeView: View {
     @State var isShowPopupLogout = false
     @State var isShouldRandomWord = false
     @State var typeOfVocabularyView: EventType = .add
-    @State var bottomTabBarState: BottomTabBarState = .home
+    @State var typeOfFilterState: FilterStateEnum = .all
 
     // Toast
     @State var isShowToast = false
@@ -38,38 +39,31 @@ struct HomeView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            switch bottomTabBarState {
-            case .home:
-                VStack(spacing: 16) {
-                    makeHeader()
-                        .foregroundStyle(.white)
-                    makeSearch()
+            VStack(spacing: 16) {
+                makeHeader()
+                    .foregroundStyle(.white)
+                makeSearch()
+            }
+            .padding(.bottom)
+            .background {
+                Image("bg_home_header")
+                    .resizable()
+                    .scaledToFill()
+                    .clipShape(RoundedCornersShape(corners: [.bottomLeft, .bottomRight], radius: 32))
+            }
+            VStack(spacing: 16) {
+                RandomWordCard(vocabulary: viewModel.randomWords ?? AppConstants.vocabulary) {
+                    viewModel.getRandomWords()
                 }
-                .padding(.bottom)
-                .background {
-                    Image("bg_home_header")
-                        .resizable()
-                        .scaledToFill()
-                        .clipShape(RoundedCornersShape(corners: [.bottomLeft, .bottomRight], radius: 32))
+                .onTapGesture {
+                    viewModel.vocabulary = viewModel.randomWords
+                    isShouldRandomWord = true
                 }
-                VStack(spacing: 16) {
-                    RandomWordCard(vocabulary: viewModel.randomWords ?? AppConstants.vocabulary) {
-                        viewModel.getRandomWords()
+                ScrollView(showsIndicators: false) {
+                    VStack(spacing: 16) {
+                        makeListFolder()
+                        makeListVocabulary()
                     }
-                    .onTapGesture {
-                        viewModel.vocabulary = viewModel.randomWords
-                        isShouldRandomWord = true
-                    }
-                    ScrollView(showsIndicators: false) {
-                        VStack(spacing: 16) {
-                            makeListFolder()
-                            makeListVocabulary()
-                        }
-                    }
-                }
-            case .listFolder:
-                ListFolderView(folders: $folders, vocabularies: $vocabularies) { folder in
-                    viewModel.selectedFolder = folder
                 }
             }
         }
