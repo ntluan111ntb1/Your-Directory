@@ -60,7 +60,7 @@ struct VocabularyCardView: View {
         .padding()
         .background(
             RoundedCornersShape(corners: .allCorners, radius: 12)
-                .fill(vocabulary.isFavorite ? Color.lightYellowCustome : Color.lightBlueCustome)
+                .fill(vocabulary.state.color)
         )
         .onTapGesture {
             tapHandle()

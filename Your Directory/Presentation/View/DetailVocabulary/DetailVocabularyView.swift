@@ -71,7 +71,7 @@ struct DetailVocabularyView: View {
         }
         .padding()
         .background (
-            vocabulary?.isFavorite ?? false ? Color.lightYellowCustome : Color.lightBlueCustome
+            vocabulary?.state.color ?? .black
         )
         .onChange(of: note) {
             isDisableButton = false

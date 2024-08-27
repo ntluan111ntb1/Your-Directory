@@ -25,6 +25,18 @@ struct Vocabulary: Codable, Identifiable, Equatable {
     var isStudy: Bool = false
     var isFavorite: Bool = false
 
+    var state: VocabularyStateEnum {
+        if isStudy && isFavorite {
+            return .favoriteAndStudie
+        } else if isFavorite {
+            return .favorite
+        } else if isStudy  {
+            return .studied
+        } else {
+            return .new
+        }
+    }
+
     struct Definition: Codable {
         let definition: String?
         let example: String?

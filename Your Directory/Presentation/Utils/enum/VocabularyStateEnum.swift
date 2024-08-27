@@ -12,15 +12,18 @@ enum VocabularyStateEnum {
     case favorite
     case studied
     case new
+    case favoriteAndStudie
 
-    var color: any ShapeStyle {
+    var color: Color {
         switch self {
         case .favorite:
-            return Color.lightPinkCustome
-        case .new:
-            return Color.blueCustome
+            return Color.lightYellowCustome
         case .studied:
-            return Color.lightGreenCustome
+            return Color.lightBlueCustome
+        case .favoriteAndStudie:
+            return Color.lightOrangeCustome
+        case .new:
+            return Color.lightPurpleCustome
         }
     }
 }
