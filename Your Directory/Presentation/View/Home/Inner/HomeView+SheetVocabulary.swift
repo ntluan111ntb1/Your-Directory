@@ -42,6 +42,7 @@ extension HomeView {
                                 self.vocabularies[index].vocabularyNote = vocabularyUpdated.vocabularyNote
                                 self.vocabularies[index].folderId = vocabularyUpdated.folderId
                                 self.vocabularies[index].isStudy = vocabularyUpdated.isStudy
+                                self.vocabularies[index].isFavorite = vocabularyUpdated.isFavorite
                             } else {
                                 self.vocabularies.remove(at: index)
                             }

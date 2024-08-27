@@ -56,7 +56,8 @@ struct AppConstants {
             folderId: uuid1,
             vocabularyNote: nil,
             publishAt: "",
-            isStudy: true
+            isStudy: true,
+            isFavorite: true
         ),
         Vocabulary(
             word: "draws",

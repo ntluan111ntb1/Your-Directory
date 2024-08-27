@@ -13,7 +13,7 @@ enum VocabularyStateEnum {
     case studied
     case new
 
-    var color: Color {
+    var color: any ShapeStyle {
         switch self {
         case .favorite:
             return Color.lightPinkCustome

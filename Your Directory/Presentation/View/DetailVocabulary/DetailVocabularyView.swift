@@ -61,7 +61,6 @@ struct DetailVocabularyView: View {
                             vocabulary: vocabulary,
                             typeOfHandle: typeOfView,
                             note: note,
-                            isStudy: vocabulary?.isStudy ?? false ,
                             folder: selectedFolder
                         ) { status, message, newVocabulary in
                             resultHandle(status, message, newVocabulary)
@@ -71,12 +70,9 @@ struct DetailVocabularyView: View {
             }
         }
         .padding()
-        .background {
-            Image("bg_vocabulary")
-                .resizable()
-                .scaledToFill()
-                .ignoresSafeArea()
-        }
+        .background (
+            vocabulary?.isFavorite ?? false ? Color.lightYellowCustome : Color.lightBlueCustome
+        )
         .onChange(of: note) {
             isDisableButton = false
         }

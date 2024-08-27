@@ -28,7 +28,6 @@ class DetailVocabularyViewModel: ObservableObject {
         vocabulary: Vocabulary?,
         typeOfHandle: EventType,
         note: String,
-        isStudy: Bool? = false,
         folder: Folder,
         completion: @escaping (Status, String, Vocabulary?) -> Void
     ) {
@@ -56,7 +55,7 @@ class DetailVocabularyViewModel: ObservableObject {
         case .update:
             newVocabulary.vocabularyNote = note
             newVocabulary.folderId = folder.id
-            newVocabulary.isStudy = isStudy ?? false
+            newVocabulary.isStudy = !newVocabulary.isStudy
             FirestoreManager.updateData(
                 collection: AppConstants.vocabularysCollection,
                 document: newVocabulary.word,

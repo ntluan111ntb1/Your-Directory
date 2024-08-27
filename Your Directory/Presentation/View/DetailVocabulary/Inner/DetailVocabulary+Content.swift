@@ -21,6 +21,7 @@ extension DetailVocabularyView {
                         Button {
                             viewModel.favoriteVocabulary(vocabulary: vocabulary) { status, message, vocabularyUpdated in
                                 self.vocabulary?.isFavorite = vocabularyUpdated?.isFavorite ?? false
+                                resultHandle(status, message, vocabularyUpdated)
                             }
                         } label: {
                             Image(systemName: vocabulary.isFavorite ? "star.fill" : "star")

@@ -15,7 +15,7 @@ enum EventType {
         switch self {
         case .update:
             return "Chỉnh Sửa"
-        case .add :
+        case .add:
             return "Thêm Mới"
         }
     }
