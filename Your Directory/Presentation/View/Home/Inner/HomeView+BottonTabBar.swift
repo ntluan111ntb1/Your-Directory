@@ -16,26 +16,11 @@ extension HomeView {
             }
             .padding(.bottom, 16)
             Spacer()
-            Button {
-                isPresentCreateFolder.toggle()
-            } label: {
-                Image("add")
-                    .resizable()
-                    .frame(width: 60, height: 60)
-            }
-            .offset(x:0, y: -34)
-            Spacer()
             ButtonImage(name: "folder", size: 40) {
                 bottomTabBarState = .listFolder
             }
                 .padding(.bottom, 16)
             Spacer()
-        }
-        .padding(.bottom)
-        .background {
-            RoundedCornersShape(corners: [.topLeft, .topRight], radius: 24)
-                .fill(Color.orangeCustomize)
-                .shadow(radius: 4)
         }
     }
 }

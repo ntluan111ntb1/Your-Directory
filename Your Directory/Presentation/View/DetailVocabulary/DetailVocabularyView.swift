@@ -35,12 +35,6 @@ struct DetailVocabularyView: View {
                 Divider()
                 makeInput()
             }
-            .padding(.vertical)
-            .background(
-                RoundedCornersShape(corners: .allCorners, radius: 38)
-                    .fill(.white)
-                    .shadow(radius: 4)
-            )
             HStack {
                 ButtonFullWidthView(
                     lable: typeOfView.textButton,
@@ -76,8 +70,13 @@ struct DetailVocabularyView: View {
                 }
             }
         }
-        .padding(16)
-        .background(Color.background)
+        .padding()
+        .background {
+            Image("bg_vocabulary")
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea()
+        }
         .onChange(of: note) {
             isDisableButton = false
         }

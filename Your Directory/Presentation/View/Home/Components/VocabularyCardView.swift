@@ -1,20 +1,26 @@
 import SwiftUI
 
-struct Triangle: Shape {
-    func path(in rect: CGRect) -> Path {
-        var path = Path()
-        path.move(to: CGPoint(x: rect.minX, y: rect.maxY))
-        path.addLine(to: CGPoint(x: rect.minX, y: rect.maxY))
-        path.addCurve(
-            to: CGPoint(x: rect.maxX, y: rect.minY),
-            control1: CGPoint(
-                x: rect.midX - rect.width/6,
-                y: rect.midY
-            ),
-            control2: CGPoint(x: rect.midX + rect.width/6, y: rect.maxY)
-        )
-        path.addLine(to: CGPoint(x: rect.maxX, y: rect.maxY))
-        return path
+enum BackgroundColor: CaseIterable {
+    case pink
+    case yellow
+    case orange
+    case blue
+
+    var color: Color {
+        switch self {
+        case .pink:
+            return ConvertColor.colorFromHex("fbe9f5")
+        case .yellow:
+            return ConvertColor.colorFromHex("fef5e4")
+        case .orange:
+            return ConvertColor.colorFromHex("fff1f0")
+        case .blue:
+            return ConvertColor.colorFromHex("eaf9fe")
+        }
+    }
+
+    static func random() -> BackgroundColor {
+        return BackgroundColor.allCases.randomElement()!
     }
 }
 
@@ -54,7 +60,7 @@ struct VocabularyCardView: View {
         .padding()
         .background(
             RoundedCornersShape(corners: .allCorners, radius: 12)
-                .fill(.white)
+                .fill(BackgroundColor.random().color)
         )
         .onTapGesture {
             tapHandle()

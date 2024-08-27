@@ -29,6 +29,5 @@ extension DetailVocabularyView {
                     .font(.title2)
             }
         }
-        .padding(.horizontal)
     }
 }

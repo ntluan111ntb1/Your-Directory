@@ -12,33 +12,51 @@ struct RandomWordCard: View {
     let handleRandomNewWord: () -> Void?
     var body: some View {
         ZStack(alignment: .topTrailing) {
-            ButtonIcon(iconsName: "repeat.circle", size: .title, color: Color.ograngeCustome) {
-                handleRandomNewWord()
-            }
-            .padding(8)
-            HStack {
-                GIFView(type: .name("dice"))
-                    .frame(width: 75, height: 75)
+            HStack(alignment: .bottom) {
                 VStack(alignment: .leading) {
                     HStack(alignment: .bottom) {
                         Text(vocabulary.word)
                             .fontStyle(.largeBold)
-                            .foregroundStyle(Color.ograngeCustome)
+                            .foregroundStyle(Color.blueCustome)
                         Text(vocabulary.phonetics)
                             .fontStyle(.mediumLight)
+                            .foregroundStyle(Color.deepPurpleCustome)
                         Spacer()
                     }
                     Text(vocabulary.descriptions[0].definition ?? "")
-                        .foregroundStyle(Color.blueCustome)
-                        .lineLimit(2)
+                        .foregroundStyle(Color.deepPurpleCustome)
+                        .lineLimit(1)
+                    Button {
+                        handleRandomNewWord()
+                    } label: {
+                        HStack {
+                            Image(systemName: "repeat.circle")
+                            Text("Từ Khác")
+                                .fontStyle(.smallBold)
+                        }
+                        .padding(.horizontal, 24)
+                        .padding(.vertical, 8)
+                        .foregroundStyle(.white)
+                    }
+                    .background {
+                        RoundedRectangle(cornerRadius: 62)
+                            .fill(Color.deepPurpleCustome)
+                    }
+                    .cornerRadius(62)
                 }
+                .padding(.leading, 20)
+                .padding(.vertical, 16)
+                Image("random_card_icon")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 120)
+                    .offset(x: 16)
+                    .padding(.bottom, 16)
             }
-            .padding()
         }
         .background(
-            RoundedCornersShape(corners: .allCorners, radius: 12)
-                .fill(.white)
-                .stroke(Color.blueCustome, lineWidth: 2)
+            RoundedCornersShape(corners: .allCorners, radius: 28)
+                .fill(Color.lightPurpleCustome)
         )
         .padding(.horizontal)
     }

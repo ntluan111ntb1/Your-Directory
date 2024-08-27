@@ -50,34 +50,30 @@ struct HomeView: View {
                     Image("bg_home_header")
                         .resizable()
                         .scaledToFill()
+                        .clipShape(RoundedCornersShape(corners: [.bottomLeft, .bottomRight], radius: 32))
                 }
-                VStack(spacing: 0) {
-                    makeListFolder()
-                        .padding(.vertical, 16)
+                VStack(spacing: 16) {
+                    RandomWordCard(vocabulary: viewModel.randomWords ?? AppConstants.vocabulary) {
+                        viewModel.getRandomWords()
+                    }
+                    .onTapGesture {
+                        viewModel.vocabulary = viewModel.randomWords
+                        isShouldRandomWord = true
+                    }
                     ScrollView(showsIndicators: false) {
                         VStack(spacing: 16) {
-                            RandomWordCard(vocabulary: viewModel.randomWords ?? AppConstants.vocabulary) {
-                                viewModel.getRandomWords()
-                            }
-                            .onTapGesture {
-                                viewModel.vocabulary = viewModel.randomWords
-                                isShouldRandomWord = true
-                            }
+                            makeListFolder()
                             makeListVocabulary()
                         }
                     }
                 }
-                .background(
-                    Color.lightBlueCustome
-                        .clipShape(RoundedCornersShape(corners: [.topLeft, .topRight], radius: 32))
-                )
             case .listFolder:
                 ListFolderView(folders: $folders, vocabularies: $vocabularies) { folder in
                     viewModel.selectedFolder = folder
                 }
             }
-            makeBottomTabBar()
         }
+
         .ignoresSafeArea(edges: .bottom)
         .frame(width: UIScreen.main.bounds.size.width)
         .sheet(item: $viewModel.vocabulary, onDismiss: {

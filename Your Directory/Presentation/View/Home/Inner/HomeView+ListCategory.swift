@@ -21,14 +21,14 @@ struct FolderCardHomeView: View {
                         Image(systemName: isSelected ? imageSelected : imageDefaul)
                             .resizable()
                             .frame(width: 24, height: 24)
-                            .foregroundStyle(Color.blueCustome)
+                            .foregroundStyle(.white)
                             .padding(12)
                     }
-                    .background(isSelected ? Color.blueCustome.opacity(0.1) : .white)
+                    .background(Color.deepPurpleCustome)
                     .clipShape(Circle())
                     Text(text)
                         .fontStyle(.smallBold)
-                        .foregroundStyle(Color.blueCustome)
+                        .foregroundStyle(Color.deepPurpleCustome)
                 }
                 Spacer()
             }

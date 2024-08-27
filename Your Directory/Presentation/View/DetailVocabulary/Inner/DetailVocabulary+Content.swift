@@ -29,7 +29,6 @@ extension DetailVocabularyView {
                 }
                 Divider()
             }
-            .padding(.horizontal)
             ScrollView() {
                 VStack(alignment: .leading) {
                     HStack {
@@ -50,7 +49,6 @@ extension DetailVocabularyView {
                         }
                     }
                 }
-                .padding(.horizontal)
             }
         }
     }

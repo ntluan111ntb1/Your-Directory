@@ -17,28 +17,7 @@ extension DetailVocabularyView {
                 sizeImage: 32
             )
             Divider()
-            HStack {
-                GIFView(type: .name("folder"))
-                    .frame(width: 32, height: 32)
-                Picker(
-                    "Chọn danh mục",
-                    selection: $selectedFolder
-                ) {
-                    ForEach(folders) { folder in
-                        HStack {
-                            Circle()
-                                .fill(ConvertColor.colorFromHex(folder.color))
-                                .frame(width: 30, height: 30)
-                            Text(folder.name)
-                                .foregroundColor(.primary)
-                        }
-                        .tag(folder)
-                    }
-                }
-            }
-            .pickerStyle(.navigationLink)
         }
-        .padding(.horizontal)
     }
 }
 

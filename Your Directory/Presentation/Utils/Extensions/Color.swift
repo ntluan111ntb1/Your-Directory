@@ -9,12 +9,16 @@ import Foundation
 import SwiftUI
 
 extension Color {
-    static var purpleCustomize: Color {
-        return Color(UIColor(red: 164 / 255, green: 58 / 255, blue: 255 / 255, alpha: 1.0))
+    static var deepPurpleCustome: Color {
+        return ConvertColor.colorFromHex("8461e2")
     }
 
-    static var lightGreen: Color {
-        return Color(UIColor(red: 206 / 255, green: 235 / 255, blue: 199 / 255, alpha: 1.0))
+    static var purpleCustome: Color {
+        return ConvertColor.colorFromHex("ba80fe")
+    }
+
+    static var lightPurpleCustome: Color {
+        return ConvertColor.colorFromHex("fbe9f5")
     }
 
     static var lightBlueCustome: Color {
@@ -22,7 +26,7 @@ extension Color {
     }
 
     static var blueCustome: Color {
-        return ConvertColor.colorFromHex("174ca2")
+        return ConvertColor.colorFromHex("486ef5")
     }
 
     static var ograngeCustome: Color {
