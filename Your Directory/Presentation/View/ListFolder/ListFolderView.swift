@@ -30,7 +30,7 @@ struct ListFolderView: View {
             makeContent()
         }
         .background {
-            Color.background
+            Color.lightYellowCustome
         }
         .sheet(isPresented: $isUpdateFolder, content: {
             CreateFolderView(

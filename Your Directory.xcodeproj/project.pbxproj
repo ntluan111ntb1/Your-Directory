@@ -55,6 +55,7 @@
 		0EA819592C72F755009D8D01 /* VietNameseEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA819582C72F755009D8D01 /* VietNameseEntities.swift */; };
 		0EA8195B2C72F788009D8D01 /* VietNameseEntityMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA8195A2C72F788009D8D01 /* VietNameseEntityMapper.swift */; };
 		0EA8195D2C72F993009D8D01 /* VietNameseHttp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA8195C2C72F993009D8D01 /* VietNameseHttp.swift */; };
+		0EA819662C7DAD83009D8D01 /* VocabularyStateEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA819652C7DAD83009D8D01 /* VocabularyStateEnum.swift */; };
 		0EABCDFB2C34E8350073B7EF /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EABCDFA2C34E8350073B7EF /* AuthenticationViewModel.swift */; };
 		0EABCDFF2C352B920073B7EF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0EABCDFE2C352B920073B7EF /* GoogleService-Info.plist */; };
 		0EABCE012C3539780073B7EF /* NetworkImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EABCE002C3539780073B7EF /* NetworkImage.swift */; };
@@ -142,6 +143,7 @@
 		0EA819582C72F755009D8D01 /* VietNameseEntities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VietNameseEntities.swift; sourceTree = "<group>"; };
 		0EA8195A2C72F788009D8D01 /* VietNameseEntityMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VietNameseEntityMapper.swift; sourceTree = "<group>"; };
 		0EA8195C2C72F993009D8D01 /* VietNameseHttp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VietNameseHttp.swift; sourceTree = "<group>"; };
+		0EA819652C7DAD83009D8D01 /* VocabularyStateEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyStateEnum.swift; sourceTree = "<group>"; };
 		0EABCDF82C34E6F90073B7EF /* Your-Directory-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Your-Directory-Info.plist"; sourceTree = SOURCE_ROOT; };
 		0EABCDFA2C34E8350073B7EF /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		0EABCDFE2C352B920073B7EF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				08E92FC22C2723FA0027E207 /* ColorEnum.swift */,
 				0EB8A2592C3E69110001C521 /* Status.swift */,
 				0E105BBD2C476ED20073CB46 /* EventType.swift */,
+				0EA819652C7DAD83009D8D01 /* VocabularyStateEnum.swift */,
 			);
 			path = enum;
 			sourceTree = "<group>";
@@ -840,6 +843,7 @@
 				0EA6DF582C21423500128A3B /* TextFieldCustomize.swift in Sources */,
 				0EABCE042C363DFA0073B7EF /* FirestoreManager.swift in Sources */,
 				0EABCE062C3642A90073B7EF /* AppConstants.swift in Sources */,
+				0EA819662C7DAD83009D8D01 /* VocabularyStateEnum.swift in Sources */,
 				0EABCE012C3539780073B7EF /* NetworkImage.swift in Sources */,
 				0EB8A26C2C464F440001C521 /* PopupView.swift in Sources */,
 				0EFB785B2C2556B50013FFD8 /* VocabularyEntities.swift in Sources */,

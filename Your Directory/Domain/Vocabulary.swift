@@ -23,6 +23,7 @@ struct Vocabulary: Codable, Identifiable, Equatable {
     var vocabularyNote: String?
     var publishAt: String
     var isStudy: Bool = false
+    var isFavorite: Bool = false
 
     struct Definition: Codable {
         let definition: String?

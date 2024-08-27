@@ -42,7 +42,6 @@ struct DetailFolderView: View {
         .onAppear {
             viewModel.filterVocabulariesByFolder(vocabularies: vocabularies, folderId: folder.id)
         }
-        .background(Color.background)
         .navigationTitle(folder.name)
         .navigationBarTitleDisplayMode(.inline)
         .popupToast(isPresented: $isShowToast, message: toastMessage, state: toastStatus)

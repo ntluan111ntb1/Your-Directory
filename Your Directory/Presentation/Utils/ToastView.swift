@@ -13,7 +13,7 @@ struct ToastView: View {
     var config: (background: Color, status: String) {
         switch state {
         case .success:
-            return (Color.greenLight, "Success")
+            return (Color.lightGreenCustome, "Success")
         case .fail:
             return (Color.red, "Fail")
         }

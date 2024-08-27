@@ -8,43 +8,55 @@
 import SwiftUI
 
 extension DetailVocabularyView {
+    @ViewBuilder
     func makeContentOfVocabulary() -> some View {
-        VStack {
-            VStack(alignment: .leading) {
-                HStack(alignment: .bottom) {
-                    Text(vocabulary.word)
-                        .font(.largeTitle)
-                    Text("(\(vocabulary.partOfSpeech))")
-                        .fontStyle(.mediumLight)
-                    Spacer()
-                }
-                Button {
-                    viewModel.handleSound(sound: vocabulary.audio)
-                } label: {
-                    HStack {
-                        Image(systemName: viewModel.statePlaySound ? "speaker.wave.3.fill" : "speaker.wave.1.fill")
-                        Text(vocabulary.phonetics)
-                            .fontStyle(.medium)
-                    }
-                }
-                Divider()
-            }
-            ScrollView() {
+        if let vocabulary = vocabulary {
+            VStack {
                 VStack(alignment: .leading) {
-                    HStack {
-                        Text("Definition")
-                            .fontStyle(.mediumBold)
+                    HStack(alignment: .bottom) {
+                        Text(vocabulary.word)
+                            .font(.largeTitle)
+                        Text("(\(vocabulary.partOfSpeech))")
+                            .fontStyle(.mediumLight)
+                        Button {
+                            viewModel.favoriteVocabulary(vocabulary: vocabulary) { status, message, vocabularyUpdated in
+                                self.vocabulary?.isFavorite = vocabularyUpdated?.isFavorite ?? false
+                            }
+                        } label: {
+                            Image(systemName: vocabulary.isFavorite ? "star.fill" : "star")
+                                .font(.system(size: 32))
+                                .foregroundStyle(vocabulary.isFavorite ? .yellow : .gray)
+                        }
                         Spacer()
                     }
-                    VStack(alignment: .leading, spacing: 8) {
-                        ForEach(vocabulary.descriptions, id: \.definition) { description in
-                            if let des = description.definition {
-                                Text("- \(des)")
-                                    .fontStyle(.medium)
-                            }
-                            if let example = description.example {
-                                Text("ex: \(example)")
-                                    .fontStyle(.smallLight)
+                    Button {
+                        viewModel.handleSound(sound: vocabulary.audio)
+                    } label: {
+                        HStack {
+                            Image(systemName: viewModel.statePlaySound ? "speaker.wave.3.fill" : "speaker.wave.1.fill")
+                            Text(vocabulary.phonetics)
+                                .fontStyle(.medium)
+                        }
+                    }
+                    Divider()
+                }
+                ScrollView() {
+                    VStack(alignment: .leading) {
+                        HStack {
+                            Text("Definition")
+                                .fontStyle(.mediumBold)
+                            Spacer()
+                        }
+                        VStack(alignment: .leading, spacing: 8) {
+                            ForEach(vocabulary.descriptions, id: \.definition) { description in
+                                if let des = description.definition {
+                                    Text("- \(des)")
+                                        .fontStyle(.medium)
+                                }
+                                if let example = description.example {
+                                    Text("ex: \(example)")
+                                        .fontStyle(.smallLight)
+                                }
                             }
                         }
                     }

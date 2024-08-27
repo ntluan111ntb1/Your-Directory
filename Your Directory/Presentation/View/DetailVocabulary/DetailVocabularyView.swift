@@ -12,7 +12,7 @@ struct DetailVocabularyView: View {
 
     @StateObject var viewModel = DetailVocabularyViewModel()
 
-    @Binding var vocabulary: Vocabulary
+    @Binding var vocabulary: Vocabulary?
     @Binding var folders: [Folder]
     @State var note: String
     @State var selectedFolder: Folder
@@ -38,7 +38,7 @@ struct DetailVocabularyView: View {
             HStack {
                 ButtonFullWidthView(
                     lable: typeOfView.textButton,
-                    color: .yellowCustome,
+                    color: Color.lightOrangeCustome,
                     foregroundColor: .black,
                     isDisable: isDisableButton
                 ) {
@@ -53,15 +53,15 @@ struct DetailVocabularyView: View {
                 }
                 if typeOfView == .update {
                     ButtonFullWidthView(
-                        lable: vocabulary.isStudy ? "Học Lại" : "Đã Học",
-                        color: .yellowCustome,
+                        lable: vocabulary?.isStudy ?? false ? "Học Lại" : "Đã Học",
+                        color: Color.lightYellowCustome,
                         foregroundColor: .black
                     ) {
                         viewModel.handleVocabulary(
                             vocabulary: vocabulary,
                             typeOfHandle: typeOfView,
                             note: note,
-                            isStudy: !vocabulary.isStudy,
+                            isStudy: vocabulary?.isStudy ?? false ,
                             folder: selectedFolder
                         ) { status, message, newVocabulary in
                             resultHandle(status, message, newVocabulary)

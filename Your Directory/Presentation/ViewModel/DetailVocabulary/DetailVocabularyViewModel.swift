@@ -25,13 +25,14 @@ class DetailVocabularyViewModel: ObservableObject {
     }
 
     func handleVocabulary(
-        vocabulary: Vocabulary,
+        vocabulary: Vocabulary?,
         typeOfHandle: EventType,
         note: String,
         isStudy: Bool? = false,
         folder: Folder,
         completion: @escaping (Status, String, Vocabulary?) -> Void
     ) {
+        guard let vocabulary = vocabulary else { return }
         var newVocabulary = vocabulary
         newVocabulary.vocabularyNote = note
         newVocabulary.folderId = folder.id
@@ -72,13 +73,13 @@ class DetailVocabularyViewModel: ObservableObject {
                     }
                 }
         }
-
     }
 
     func deleteVocabulary(
-        vocabulary: Vocabulary,
+        vocabulary: Vocabulary?,
         completion: @escaping (Status, String) -> Void
     ) {
+        guard let vocabulary = vocabulary else { return }
         FirestoreManager.deleteData(
             collection: AppConstants.vocabularysCollection,
             document: vocabulary.word
@@ -88,9 +89,31 @@ class DetailVocabularyViewModel: ObservableObject {
                 completion(.fail, "Pùn!!! Không thể xóa vocabulary")
             } else {
                 completion(.success, "Xóa vocabulary thành công rồi nè, Hí!!!")
-
             }
-
         }
+    }
+
+    func favoriteVocabulary(
+        vocabulary: Vocabulary?,
+        completion: @escaping (Status, String, Vocabulary?) -> Void
+    ) {
+        guard let vocabulary = vocabulary else { return }
+        var newVocabulary = vocabulary
+        newVocabulary.isFavorite = !vocabulary.isFavorite
+        FirestoreManager.updateData(
+            collection: AppConstants.vocabularysCollection,
+            document: newVocabulary.word,
+            data: newVocabulary) { error in
+                if let error = error {
+                    print("Error update document: \(error)")
+                    completion(.fail, "Pùn!!! Không thể yêu thích từ vựng", nil)
+                } else {
+                    completion(
+                        .success,
+                        "Yêu thích từ vựng thành công rồi nè, Hí!!!",
+                        newVocabulary
+                    )
+                }
+            }
     }
 }

@@ -16,7 +16,7 @@ extension HomeView {
                         .fontStyle(.largeBold)
                     Text("\(user?.profile?.name ?? "")")
                         .fontStyle(.largeBold)
-                        .foregroundStyle(Color.yellowCustome)
+                        .foregroundStyle(Color.lightYellowCustome)
                 }
                 Text("Chào mừng bạn trở lại.")
             }

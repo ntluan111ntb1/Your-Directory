@@ -21,10 +21,6 @@ extension Color {
         return ConvertColor.colorFromHex("fbe9f5")
     }
 
-    static var lightBlueCustome: Color {
-        return ConvertColor.colorFromHex("eef4ff")
-    }
-
     static var blueCustome: Color {
         return ConvertColor.colorFromHex("486ef5")
     }
@@ -33,35 +29,23 @@ extension Color {
         return ConvertColor.colorFromHex("FF5F00")
     }
 
-    static var popupBackground: Color {
-        return ConvertColor.colorFromHex("467e9f")
+    static var lightPinkCustome: Color {
+        return ConvertColor.colorFromHex("fbe9f5")
     }
 
-    static var background: Color {
-        return ConvertColor.colorFromHex("aebebc")
+    static var lightYellowCustome: Color {
+        return ConvertColor.colorFromHex("fef5e4")
     }
 
-    static var orangeCustomize: Color {
-        return ConvertColor.colorFromHex("d6d0b6")
+    static var lightOrangeCustome: Color {
+        return ConvertColor.colorFromHex("fff1f0")
     }
 
-    static var yellowCustome: Color {
-        return ConvertColor.colorFromHex("fdc80a")
+    static var lightBlueCustome: Color {
+        return ConvertColor.colorFromHex("eaf9fe")
     }
 
-    static var greenLight: Color {
-        return ConvertColor.colorFromHex("d6dcc6")
-    }
-
-    static var greenDark: Color {
-        return ConvertColor.colorFromHex("acb7a1")
-    }
-
-    static var lightPink: Color {
-        return Color(UIColor(red: 239 / 255, green: 204 / 255, blue: 255 / 255, alpha: 1.0))
-    }
-
-    static var lightBlue: Color {
-        return Color(UIColor(red: 179 / 255, green: 229 / 255, blue: 255 / 255, alpha: 1.0))
+    static var lightGreenCustome: Color {
+        return ConvertColor.colorFromHex("eafef5")
     }
 }

@@ -33,7 +33,7 @@ struct CreateFolderView: View {
             Spacer()
             ButtonFullWidthView(
                 lable: eventType.textButton,
-                color: .yellowCustome,
+                color: Color.lightYellowCustome,
                 foregroundColor: .black
             ) {
                 viewModel.handleFolder(
@@ -45,6 +45,6 @@ struct CreateFolderView: View {
             }
         }
         .padding(16)
-        .background(Color.orangeCustomize)
+        .background(Color.lightOrangeCustome)
     }
 }

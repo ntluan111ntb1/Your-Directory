@@ -12,7 +12,7 @@ extension HomeView {
         VStack {
             NavigationStack {
                 DetailVocabularyView(
-                    vocabulary: .constant(vocabulary),
+                    vocabulary: $viewModel.vocabulary,
                     folders: $folders,
                     note: vocabulary.vocabularyNote ?? "",
                     selectedFolder: viewModel.getFolder(

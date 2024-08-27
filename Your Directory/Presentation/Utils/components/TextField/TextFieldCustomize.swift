@@ -10,8 +10,6 @@ import SwiftUI
 struct TextFieldCustomize: View {
     @Binding var text: String
 
-    @State var boderColor: Color = .lightBlue
-
     let label: String
     let placeholder: String
     var action: (() -> Void)? = nil

@@ -6,3 +6,21 @@
 //
 
 import Foundation
+import SwiftUI
+
+enum VocabularyStateEnum {
+    case favorite
+    case studied
+    case new
+
+    var color: Color {
+        switch self {
+        case .favorite:
+            return Color.lightPinkCustome
+        case .new:
+            return Color.blueCustome
+        case .studied:
+            return Color.lightGreenCustome
+        }
+    }
+}
