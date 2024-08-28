@@ -46,7 +46,7 @@ struct RandomWordCard: View {
                 }
                 .padding(.leading, 20)
                 .padding(.vertical, 16)
-                Image("random_card_icon")
+                Image("ic_random_card")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 120)

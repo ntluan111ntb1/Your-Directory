@@ -38,20 +38,30 @@ struct HomeView: View {
     @State var toastStatus: Status? = nil
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
+        VStack(spacing: 0) {
             VStack(spacing: 16) {
                 makeHeader()
                     .foregroundStyle(.white)
                 makeSearch()
+                makeListFolder()
+                    .padding(.vertical, 12)
+                    .background {
+                        Color.white
+                            .clipShape(RoundedCornersShape(corners: .allCorners, radius: 64))
+                            .opacity(0.7)
+                    }
+                    .padding(.horizontal)
+                    .padding(.bottom, 64)
             }
-            .padding(.bottom)
-            .background {
+            .background(
                 Image("bg_home_header")
                     .resizable()
-                    .scaledToFill()
-                    .clipShape(RoundedCornersShape(corners: [.bottomLeft, .bottomRight], radius: 32))
-            }
-            VStack(spacing: 16) {
+                    .clipShape(
+                        RoundedCornersShape(corners: [.bottomLeft, .bottomRight], radius: 40)
+                    )
+                    .ignoresSafeArea()
+            )
+            .overlay(alignment: .bottom, content: {
                 RandomWordCard(vocabulary: viewModel.randomWords ?? AppConstants.vocabulary) {
                     viewModel.getRandomWords()
                 }
@@ -59,16 +69,20 @@ struct HomeView: View {
                     viewModel.vocabulary = viewModel.randomWords
                     isShouldRandomWord = true
                 }
+                .offset(y: 80)
+            })
+            .padding(.bottom)
+            .zIndex(1)
+            VStack(spacing: 16) {
                 ScrollView(showsIndicators: false) {
                     VStack(spacing: 16) {
-                        makeListFolder()
                         makeListVocabulary()
                     }
+                    .padding(.top, 80)
                 }
             }
+            .zIndex(0)
         }
-
-        .ignoresSafeArea(edges: .bottom)
         .frame(width: UIScreen.main.bounds.size.width)
         .sheet(item: $viewModel.vocabulary, onDismiss: {
             viewModel.vocabulary = nil

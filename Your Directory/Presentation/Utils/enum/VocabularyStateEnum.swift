@@ -26,4 +26,17 @@ enum VocabularyStateEnum {
             return Color.lightPurpleCustome
         }
     }
+
+    var icons: String {
+        switch self {
+        case .favorite:
+            return "ic_favorited"
+        case .studied:
+            return "ic_studied"
+        case .favoriteAndStudie:
+            return "ic_favorite_and_studied"
+        case .new:
+            return "ic_new"
+        }
+    }
 }

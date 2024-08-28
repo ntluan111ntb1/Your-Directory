@@ -34,9 +34,6 @@ struct VocabularyCardView: View {
 
     var body: some View {
         HStack(spacing: 16) {
-            Image("study")
-                .resizable()
-                .frame(width: 40, height: 40)
             VStack(alignment: .leading) {
                 HStack {
                     Text(vocabulary.word)
@@ -53,15 +50,23 @@ struct VocabularyCardView: View {
                     }
                 }
             }
+            .padding(.vertical)
             Image(systemName: vocabulary.isStudy ? "checkmark.circle.fill" : "checkmark.circle")
                 .font(.system(size: 24))
                 .foregroundStyle(vocabulary.isStudy ? .green : .black.opacity(0.5))
+                .padding(.trailing)
         }
-        .padding()
+        .padding(.leading, 48)
         .background(
-            RoundedCornersShape(corners: .allCorners, radius: 12)
+            RoundedCornersShape(corners: .allCorners, radius: 24)
                 .fill(vocabulary.state.color)
         )
+        .padding(.leading, 20)
+        .overlay(alignment: .leading, content: {
+            Image(vocabulary.state.icons)
+                .resizable()
+                .frame(width: 60, height: 60)
+        })
         .onTapGesture {
             tapHandle()
         }
