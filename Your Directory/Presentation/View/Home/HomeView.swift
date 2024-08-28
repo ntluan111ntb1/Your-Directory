@@ -29,6 +29,7 @@ struct HomeView: View {
     @State var isPresentSearchView = false
     @State var isShowPopupLogout = false
     @State var isShouldRandomWord = false
+    @State var isPresentFavoriteScreen = false
     @State var typeOfVocabularyView: EventType = .add
     @State var typeOfFilterState: FilterStateEnum = .all
 
@@ -104,21 +105,9 @@ struct HomeView: View {
         ) {
             authenticationViewModel.signOut()
         }
-        .navigationDestination(for: Folder.self) { folder in
-            DetailFolderView(
-                folder: $viewModel.selectedFolder,
-                vocabularies: $vocabularies,
-                folders: $folders
-            ) { status, message, folder in
-                guard let folderDeleted = folder else { return }
-                if let index = folders.firstIndex(of: folderDeleted) {
-                    folders.remove(at: index)
-                }
-                self.toastMessage = message
-                self.toastStatus = status
-                isShowToast.toggle()
-            }
-        }
+        .navigationDestination(isPresented: $isPresentFavoriteScreen, destination: {
+            FavoriteVocabilariesView(vocabularies: $vocabularies)
+        })
     }
 }
 

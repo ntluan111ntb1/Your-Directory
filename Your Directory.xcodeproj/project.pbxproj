@@ -55,6 +55,8 @@
 		0EA8195B2C72F788009D8D01 /* VietNameseEntityMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA8195A2C72F788009D8D01 /* VietNameseEntityMapper.swift */; };
 		0EA8195D2C72F993009D8D01 /* VietNameseHttp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA8195C2C72F993009D8D01 /* VietNameseHttp.swift */; };
 		0EA819662C7DAD83009D8D01 /* VocabularyStateEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA819652C7DAD83009D8D01 /* VocabularyStateEnum.swift */; };
+		0EA8196A2C7EF9A6009D8D01 /* FavoriteVocabilariesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA819692C7EF9A6009D8D01 /* FavoriteVocabilariesView.swift */; };
+		0EA8196E2C7EFC24009D8D01 /* BackgoundRoundedCornersModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA8196D2C7EFC24009D8D01 /* BackgoundRoundedCornersModifier.swift */; };
 		0EABCDFB2C34E8350073B7EF /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EABCDFA2C34E8350073B7EF /* AuthenticationViewModel.swift */; };
 		0EABCDFF2C352B920073B7EF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0EABCDFE2C352B920073B7EF /* GoogleService-Info.plist */; };
 		0EABCE012C3539780073B7EF /* NetworkImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EABCE002C3539780073B7EF /* NetworkImage.swift */; };
@@ -142,6 +144,8 @@
 		0EA8195A2C72F788009D8D01 /* VietNameseEntityMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VietNameseEntityMapper.swift; sourceTree = "<group>"; };
 		0EA8195C2C72F993009D8D01 /* VietNameseHttp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VietNameseHttp.swift; sourceTree = "<group>"; };
 		0EA819652C7DAD83009D8D01 /* VocabularyStateEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyStateEnum.swift; sourceTree = "<group>"; };
+		0EA819692C7EF9A6009D8D01 /* FavoriteVocabilariesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteVocabilariesView.swift; sourceTree = "<group>"; };
+		0EA8196D2C7EFC24009D8D01 /* BackgoundRoundedCornersModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgoundRoundedCornersModifier.swift; sourceTree = "<group>"; };
 		0EABCDF82C34E6F90073B7EF /* Your-Directory-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Your-Directory-Info.plist"; sourceTree = SOURCE_ROOT; };
 		0EABCDFA2C34E8350073B7EF /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		0EABCDFE2C352B920073B7EF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -291,6 +295,7 @@
 		0EA6DF3E2C212D3B00128A3B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0EA819682C7EF975009D8D01 /* FavoriteVocabularies */,
 				0ED477962C4DFE9900B8ACFC /* ListFolder */,
 				0EB8A2602C40C8B60001C521 /* ListVocabulary */,
 				08E92FC62C2736590027E207 /* DetailFolder */,
@@ -459,6 +464,14 @@
 			path = DetailVocabulary;
 			sourceTree = "<group>";
 		};
+		0EA819682C7EF975009D8D01 /* FavoriteVocabularies */ = {
+			isa = PBXGroup;
+			children = (
+				0EA819692C7EF9A6009D8D01 /* FavoriteVocabilariesView.swift */,
+			);
+			path = FavoriteVocabularies;
+			sourceTree = "<group>";
+		};
 		0EABCDF92C34E8160073B7EF /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
@@ -588,6 +601,7 @@
 			children = (
 				0ED4778B2C4A46B400B8ACFC /* ToastPopupModifier.swift */,
 				0ED477852C4A406000B8ACFC /* ConfirmPopUpModifier.swift */,
+				0EA8196D2C7EFC24009D8D01 /* BackgoundRoundedCornersModifier.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -858,6 +872,7 @@
 				0E105BC42C48CEE90073CB46 /* LoadingView.swift in Sources */,
 				08875FC22C23233900C4E6C6 /* CreateFolderView.swift in Sources */,
 				0EA819592C72F755009D8D01 /* VietNameseEntities.swift in Sources */,
+				0EA8196A2C7EF9A6009D8D01 /* FavoriteVocabilariesView.swift in Sources */,
 				0ED477792C491C8B00B8ACFC /* ListFolderViewModel.swift in Sources */,
 				0EFB785D2C2557A00013FFD8 /* NetworkError.swift in Sources */,
 				0EA6DF782C23DAA500128A3B /* QLImage.swift in Sources */,
@@ -865,6 +880,7 @@
 				0E5430D62C65F8E80033CD75 /* RandomWordsHttp.swift in Sources */,
 				0EA8195B2C72F788009D8D01 /* VietNameseEntityMapper.swift in Sources */,
 				08E92FC82C2736670027E207 /* DetailFolderVIew.swift in Sources */,
+				0EA8196E2C7EFC24009D8D01 /* BackgoundRoundedCornersModifier.swift in Sources */,
 				08E92FC52C27357E0027E207 /* HomeView+ListCategory.swift in Sources */,
 				0ED4778E2C4A493500B8ACFC /* HomeView+SheetVocabulary.swift in Sources */,
 				0ED477902C4A4DD200B8ACFC /* HomeView+SheetCreateFolder.swift in Sources */,

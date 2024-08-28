@@ -43,12 +43,15 @@ extension HomeView {
         HStack {
             FolderCardHomeView(text: "Tất Cả", imageDefaul: "square.split.2x2", imageSelected: "square.split.2x2.fill", isSelected: typeOfFilterState == .all) {
                 typeOfFilterState = .all
+                isPresentFavoriteScreen = true
             }
             FolderCardHomeView(text: "Yêu Thích", imageDefaul: "heart", imageSelected: "heart.fill", isSelected: typeOfFilterState == .favorite) {
                 typeOfFilterState = .favorite
+                isPresentFavoriteScreen = true
             }
             FolderCardHomeView(text: "Đã Học", imageDefaul: "checkmark.rectangle.stack", imageSelected: "checkmark.rectangle.stack.fill", isSelected: typeOfFilterState == .studied) {
                 typeOfFilterState = .studied
+                isPresentFavoriteScreen = true
             }
         }
     }
