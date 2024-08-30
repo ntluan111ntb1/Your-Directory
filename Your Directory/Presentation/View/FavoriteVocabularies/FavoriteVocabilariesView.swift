@@ -8,12 +8,31 @@
 import SwiftUI
 
 struct FavoriteVocabilariesView: View {
+    @Environment(\.presentationMode) var presentationMode
+
     @Binding var vocabularies: [Vocabulary]
+    @State var selectedVocabulary: Vocabulary? = nil
+
+    // Toast
+    @State var isShowToast = false
+    @State var toastMessage: String? = nil
+    @State var toastStatus: Status? = nil
+
+    var favoriteVocabularies: (vocabularies: [Vocabulary], countStudied: Int) {
+        let vocabularies = vocabularies.filter { $0.isFavorite }
+        return (vocabularies, vocabularies.filter({ $0.isStudy}).count)
+    }
+
+    var progress: CGFloat {
+        CGFloat(favoriteVocabularies.countStudied) / CGFloat(favoriteVocabularies.vocabularies.count)
+    }
+
     var body: some View {
         VStack {
             VStack(spacing: 16) {
                 HStack {
                     Button {
+                        presentationMode.wrappedValue.dismiss()
                     } label: {
                         Image(systemName: "chevron.left")
                             .font(.system(size: 24))
@@ -71,11 +90,11 @@ struct FavoriteVocabilariesView: View {
             .overlay(alignment: .bottom, content: {
                 VStack {
                     HStack {
-                        Text("Tổng số: \(vocabularies.count)")
+                        Text("Tổng số: \(favoriteVocabularies.vocabularies.count)")
                         Spacer()
-                        Text("Đã học: \(vocabularies.count)")
+                        Text("Đã học: \(favoriteVocabularies.countStudied)")
                     }
-                    ProgressView(value: 0.5)
+                    ProgressView(value: progress)
                 }
                 .padding()
                 .background(
@@ -87,13 +106,56 @@ struct FavoriteVocabilariesView: View {
             })
             .zIndex(1)
             ScrollView {
-                ListVocabularyView(vocabularies: vocabularies, folders: []) { _ in
-
+                ListVocabularyView(vocabularies: favoriteVocabularies.vocabularies, folders: []) { vocabulary in
+                    selectedVocabulary = vocabulary
                 }
                 .padding(.top, 88)
                 .zIndex(0)
             }
             Spacer()
+        }
+        .navigationBarBackButtonHidden()
+        .sheet(item: $selectedVocabulary, onDismiss: {
+            selectedVocabulary = nil
+        }, content: { vocabulary in
+            VStack {
+                NavigationStack {
+                    DetailVocabularyView(
+                        vocabulary: $selectedVocabulary,
+                        folders: .constant([]),
+                        note: vocabulary.vocabularyNote ?? "",
+                        selectedFolder: Folder(name: "", color: "", publishAt: ""),
+                        typeOfView: .update,
+                        dismiss: {
+                            selectedVocabulary = nil
+                        }
+                    ) { toastStatus, toastMessage, vocabulary in
+                        self.toastMessage = toastMessage
+                        self.toastStatus = toastStatus
+                        guard let vocabulry = selectedVocabulary else { return }
+                        if let index = self.vocabularies.firstIndex(of: vocabulry) {
+                            if let vocabularyUpdated = vocabulary {
+                                self.vocabularies[index].vocabularyNote = vocabularyUpdated.vocabularyNote
+                                self.vocabularies[index].folderId = vocabularyUpdated.folderId
+                                self.vocabularies[index].isStudy = vocabularyUpdated.isStudy
+                                self.vocabularies[index].isFavorite = vocabularyUpdated.isFavorite
+                            } else {
+                                self.vocabularies.remove(at: index)
+                            }
+                        }
+                        selectedVocabulary = nil
+                        isShowToast = true
+                    }
+                }
+            }
+            .presentationDetents([.medium, .large])
+            .presentationCornerRadius(38)
+        })
+        .popupToast(isPresented: $isShowToast, message: toastMessage, state: toastStatus)
+        .onAppear {
+            print("==> countStudied \(favoriteVocabularies.countStudied)")
+            print("==> count \(favoriteVocabularies.vocabularies.count)")
+            print("==> \(CGFloat(favoriteVocabularies.countStudied/favoriteVocabularies.vocabularies.count))")
         }
     }
 }
