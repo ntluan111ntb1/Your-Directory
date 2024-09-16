@@ -32,6 +32,9 @@ struct FolderCardHomeView: View {
                     Text(text)
                         .fontStyle(.smallBold)
                         .foregroundStyle(Color.deepPurpleCustome)
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 4)
+                        .backgroundRoundedCorners(color: .white, radius: 24)
                 }
                 Spacer()
             }
@@ -41,10 +44,6 @@ struct FolderCardHomeView: View {
 extension HomeView {
     func makeListFolder() -> some View {
         HStack {
-            FolderCardHomeView(text: "Tất Cả", imageDefaul: "square.split.2x2", imageSelected: "square.split.2x2.fill", isSelected: typeOfFilterState == .all) {
-                typeOfFilterState = .all
-                isPresentFavoriteScreen = true
-            }
             FolderCardHomeView(text: "Yêu Thích", imageDefaul: "heart", imageSelected: "heart.fill", isSelected: typeOfFilterState == .favorite) {
                 typeOfFilterState = .favorite
                 isPresentFavoriteScreen = true

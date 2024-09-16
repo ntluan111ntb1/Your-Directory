@@ -17,14 +17,10 @@ struct FavoriteVocabilariesView: View {
     @State var isShowToast = false
     @State var toastMessage: String? = nil
     @State var toastStatus: Status? = nil
-
-    var favoriteVocabularies: (vocabularies: [Vocabulary], countStudied: Int) {
-        let vocabularies = vocabularies.filter { $0.isFavorite }
-        return (vocabularies, vocabularies.filter({ $0.isStudy}).count)
-    }
+    @State var vocabulariesState: VocabulariesState = .favorited
 
     var progress: CGFloat {
-        CGFloat(favoriteVocabularies.countStudied) / CGFloat(favoriteVocabularies.vocabularies.count)
+        CGFloat(VocabulariesState.favoriteAndStudied.vocabularys(from: vocabularies).count) / CGFloat(VocabulariesState.favorited.vocabularys(from: vocabularies).count)
     }
 
     var body: some View {
@@ -48,34 +44,19 @@ struct FavoriteVocabilariesView: View {
                 }
                 .padding(.horizontal)
                 HStack(alignment: .bottom) {
-                    Button {
-
-                    } label: {
-                        HStack {
-                            Spacer()
-                            Text("Unstudy")
-                            Spacer()
-                        }
+                    ButtonFilterView(text: "Tất Cả", isSelected: vocabulariesState == .favorited) {
+                        vocabulariesState = .favorited
                     }
-                    .padding(.horizontal)
-                    .padding(.vertical, 8)
-                    .backgroundRoundedCorners(color: .purpleCustome, radius: 24)
-                    Button {
-
-                    } label: {
-                        HStack {
-                            Spacer()
-                            Text("Studied")
-                            Spacer()
-                        }
+                    ButtonFilterView(text: "Đã Học", isSelected: vocabulariesState == .favoriteAndStudied) {
+                        vocabulariesState = .favoriteAndStudied
                     }
-                    .padding(.horizontal)
-                    .padding(.vertical, 8)
-                    .backgroundRoundedCorners(color: .purpleCustome, radius: 24)
+                    ButtonFilterView(text: "Chưa Học", isSelected: vocabulariesState == .favoriteAndNotStudied) {
+                        vocabulariesState = .favoriteAndNotStudied
+                    }
                 }
                 .padding(8)
-                .backgroundRoundedCorners(color: .white, radius: 64)
-                .padding(.horizontal, 40)
+                .backgroundRoundedCorners(color: .white.opacity(0.5), radius: 64)
+                .padding(.horizontal, 16)
             }
             .background(
                 Image("bg_favorite_vocabularies")
@@ -90,9 +71,9 @@ struct FavoriteVocabilariesView: View {
             .overlay(alignment: .bottom, content: {
                 VStack {
                     HStack {
-                        Text("Tổng số: \(favoriteVocabularies.vocabularies.count)")
+                        Text("Tổng số: \(VocabulariesState.favorited.vocabularys(from: vocabularies).count)")
                         Spacer()
-                        Text("Đã học: \(favoriteVocabularies.countStudied)")
+                        Text("Đã học: \(VocabulariesState.favoriteAndStudied.vocabularys(from: vocabularies).count)")
                     }
                     ProgressView(value: progress)
                 }
@@ -106,7 +87,7 @@ struct FavoriteVocabilariesView: View {
             })
             .zIndex(1)
             ScrollView {
-                ListVocabularyView(vocabularies: favoriteVocabularies.vocabularies, folders: []) { vocabulary in
+                ListVocabularyView(vocabularies: vocabulariesState.vocabularys(from: vocabularies), folders: []) { vocabulary in
                     selectedVocabulary = vocabulary
                 }
                 .padding(.top, 88)
@@ -152,11 +133,6 @@ struct FavoriteVocabilariesView: View {
             .presentationCornerRadius(38)
         })
         .popupToast(isPresented: $isShowToast, message: toastMessage, state: toastStatus)
-        .onAppear {
-            print("==> countStudied \(favoriteVocabularies.countStudied)")
-            print("==> count \(favoriteVocabularies.vocabularies.count)")
-            print("==> \(CGFloat(favoriteVocabularies.countStudied/favoriteVocabularies.vocabularies.count))")
-        }
     }
 }
 

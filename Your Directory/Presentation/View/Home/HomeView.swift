@@ -46,11 +46,6 @@ struct HomeView: View {
                 makeSearch()
                 makeListFolder()
                     .padding(.vertical, 12)
-                    .background {
-                        Color.white
-                            .clipShape(RoundedCornersShape(corners: .allCorners, radius: 64))
-                            .opacity(0.7)
-                    }
                     .padding(.horizontal)
                     .padding(.bottom, 64)
             }
