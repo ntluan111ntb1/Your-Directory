@@ -101,7 +101,7 @@ struct HomeView: View {
             authenticationViewModel.signOut()
         }
         .navigationDestination(isPresented: $isPresentFavoriteScreen, destination: {
-            FavoriteVocabilariesView(vocabularies: $vocabularies)
+            FavoriteVocabulariesView(vocabularies: $vocabularies)
         })
     }
 }
