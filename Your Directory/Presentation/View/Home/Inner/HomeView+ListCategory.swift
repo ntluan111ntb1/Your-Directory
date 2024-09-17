@@ -50,7 +50,7 @@ extension HomeView {
             }
             FolderCardHomeView(text: "Đã Học", imageDefaul: "checkmark.rectangle.stack", imageSelected: "checkmark.rectangle.stack.fill", isSelected: typeOfFilterState == .studied) {
                 typeOfFilterState = .studied
-                isPresentFavoriteScreen = true
+                isPresentStudiedScreen = true
             }
         }
     }

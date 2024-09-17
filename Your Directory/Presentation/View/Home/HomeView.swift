@@ -30,6 +30,7 @@ struct HomeView: View {
     @State var isShowPopupLogout = false
     @State var isShouldRandomWord = false
     @State var isPresentFavoriteScreen = false
+    @State var isPresentStudiedScreen = false
     @State var typeOfVocabularyView: EventType = .add
     @State var typeOfFilterState: FilterStateEnum = .all
 
@@ -102,6 +103,9 @@ struct HomeView: View {
         }
         .navigationDestination(isPresented: $isPresentFavoriteScreen, destination: {
             FavoriteVocabulariesView(vocabularies: $vocabularies)
+        })
+        .navigationDestination(isPresented: $isPresentStudiedScreen, destination: {
+            StudiedVocabulariesView(vocabularies: $vocabularies)
         })
     }
 }
