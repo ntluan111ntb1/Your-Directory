@@ -23,21 +23,19 @@ struct HomeView: View {
 
     @Binding var vocabularies: [Vocabulary]
     @Binding var folders: [Folder]
+    @Binding var isShouldRandomWord: Bool
+    let handleTapVocabularyCard: (Vocabulary) -> Void
 
     @State var search = ""
     @State var isPresentCreateFolder = false
     @State var isPresentSearchView = false
-    @State var isShowPopupLogout = false
-    @State var isShouldRandomWord = false
     @State var isPresentFavoriteScreen = false
     @State var isPresentStudiedScreen = false
-    @State var typeOfVocabularyView: EventType = .add
     @State var typeOfFilterState: FilterStateEnum = .all
+    @State var isShowPopupLogout = false
 
-    // Toast
-    @State var isShowToast = false
-    @State var toastMessage: String? = nil
-    @State var toastStatus: Status? = nil
+
+    
 
     var body: some View {
         VStack(spacing: 0) {
@@ -78,16 +76,6 @@ struct HomeView: View {
             .zIndex(0)
         }
         .frame(width: UIScreen.main.bounds.size.width)
-        .sheet(item: $viewModel.vocabulary, onDismiss: {
-            viewModel.vocabulary = nil
-            typeOfVocabularyView = .add
-        }, content: { vocabulary in
-            makeSheetVocabulary(vocabulary: vocabulary)
-        })
-        .sheet(isPresented: $isPresentCreateFolder) {
-            makeSheetCreateFolder()
-        }
-        .popupToast(isPresented: $isShowToast, message: toastMessage, state: toastStatus)
         .popupConfirm(
             isPresented: $isShowPopupLogout,
             image: "question",
@@ -98,12 +86,6 @@ struct HomeView: View {
         ) {
             authenticationViewModel.signOut()
         }
-        .navigationDestination(isPresented: $isPresentFavoriteScreen, destination: {
-            FavoriteVocabulariesView(vocabularies: $vocabularies)
-        })
-        .navigationDestination(isPresented: $isPresentStudiedScreen, destination: {
-            StudiedVocabulariesView(vocabularies: $vocabularies)
-        })
     }
 }
 
@@ -112,6 +94,7 @@ struct HomeView: View {
     HomeView(
         viewModel: .init(),
         vocabularies: .constant(AppConstants.mockVocabularies),
-        folders: .constant(AppConstants.mockFolders)
-    )
+        folders: .constant(AppConstants.mockFolders),
+        isShouldRandomWord: .constant(false)
+    ) { _ in }
 }

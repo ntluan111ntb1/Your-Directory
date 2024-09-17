@@ -22,8 +22,7 @@ extension HomeView {
             }
             .padding(.horizontal)
             ListVocabularyView(vocabularies: vocabularies, folders: folders) { vocabulary in
-                viewModel.vocabulary = vocabulary
-                typeOfVocabularyView = .update
+                handleTapVocabularyCard(vocabulary)
             }
         }
     }

@@ -19,7 +19,6 @@ extension HomeView {
             TextField("Bạn muốn tìm từ vựng nào?", text: $search)
                 .onSubmit {
                     viewModel.searchVocabulary(word: search)
-                    typeOfVocabularyView = .add
                     isPresentSearchView.toggle()
                 }
             Button {

@@ -12,14 +12,24 @@ struct ContentView: View {
     @Binding var vocabularies: [Vocabulary]
     @Binding var folders: [Folder]
     
+    @State var typeOfVocabularyView: EventType = .add
+    @State var isShouldRandomWord = false
+    // Toast
+    @State var isShowToast = false
+    @State var toastMessage: String? = nil
+    @State var toastStatus: Status? = nil
     var body: some View {
         TabView {
             HomeView(
                 viewModel: viewModel,
                 vocabularies: $vocabularies,
-                folders: $folders
-            )
-            .tabItem {    // 2
+                folders: $folders,
+                isShouldRandomWord: $isShouldRandomWord
+            ) { selectedVocabulary in
+                viewModel.vocabulary = selectedVocabulary
+                typeOfVocabularyView = .update
+            }
+            .tabItem {
                 Image(systemName: "house.fill")
                 Text("Home")
             }
@@ -34,5 +44,15 @@ struct ContentView: View {
                     Text("Video")
                 }
         }
+        .frame(width: UIScreen.main.bounds.size.width)
+        .sheet(item: $viewModel.vocabulary, onDismiss: {
+            viewModel.vocabulary = nil
+            typeOfVocabularyView = .add
+        }, content: { vocabulary in
+            makeDetailVocabulary(vocabulary: vocabulary)
+            .presentationDetents([.medium, .large])
+            .presentationCornerRadius(38)
+        })
+        .popupToast(isPresented: $isShowToast, message: toastMessage, state: toastStatus)
     }
 }
