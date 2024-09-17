@@ -11,8 +11,8 @@ struct FavoriteVocabulariesView: View {
     @Environment(\.presentationMode) var presentationMode
 
     @Binding var vocabularies: [Vocabulary]
-    @State var selectedVocabulary: Vocabulary? = nil
     let handleTapVocabularyCard: (Vocabulary) -> Void
+
     @State var vocabulariesState: VocabulariesState = .favorited
 
     var progress: CGFloat {

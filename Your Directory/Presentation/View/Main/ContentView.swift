@@ -39,7 +39,9 @@ struct ContentView: View {
                     Image(systemName: "gamecontroller.fill")
                     Text("Favorite")
                 }
-            StudiedVocabulariesView(vocabularies: $vocabularies)
+            StudiedVocabulariesView(vocabularies: $vocabularies) { selectedVocabulary in
+                handleTapVocabularyCard(selectedVocabulary)
+            }
                 .tabItem {
                     Image(systemName: "video.circle.fill")
                     Text("Video")

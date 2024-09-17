@@ -11,7 +11,7 @@ extension StudiedVocabulariesView {
     func makeListVocabulary() -> some View {
         ScrollView {
             ListVocabularyView(vocabularies: vocabulariesState.vocabularys(from: vocabularies), folders: []) { vocabulary in
-                selectedVocabulary = vocabulary
+                handleTapVocabularyCard(vocabulary)
             }
         }
     }

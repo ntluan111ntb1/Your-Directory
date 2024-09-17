@@ -11,12 +11,9 @@ struct StudiedVocabulariesView: View {
     @Environment(\.presentationMode) var presentationMode
 
     @Binding var vocabularies: [Vocabulary]
-    @State var selectedVocabulary: Vocabulary? = nil
 
-    // Toast
-    @State var isShowToast = false
-    @State var toastMessage: String? = nil
-    @State var toastStatus: Status? = nil
+    let handleTapVocabularyCard: (Vocabulary) -> Void
+
     @State var vocabulariesState: VocabulariesState = .studied
 
     var progress: CGFloat {
@@ -40,15 +37,9 @@ struct StudiedVocabulariesView: View {
                 )
                 .ignoresSafeArea()
         })
-        .sheet(item: $selectedVocabulary, onDismiss: {
-            selectedVocabulary = nil
-        }, content: { vocabulary in
-            makeDetailVocabulary(vocabulary: vocabulary)
-        })
-        .popupToast(isPresented: $isShowToast, message: toastMessage, state: toastStatus)
     }
 }
 
 #Preview {
-    StudiedVocabulariesView(vocabularies: .constant(AppConstants.mockVocabularies))
+    StudiedVocabulariesView(vocabularies: .constant(AppConstants.mockVocabularies)) { _ in }
 }
