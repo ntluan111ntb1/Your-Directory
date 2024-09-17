@@ -11,7 +11,7 @@ extension FavoriteVocabulariesView {
     func makeListVocabulary() -> some View {
         ScrollView {
             ListVocabularyView(vocabularies: vocabulariesState.vocabularys(from: vocabularies), folders: []) { vocabulary in
-                selectedVocabulary = vocabulary
+                handleTapVocabularyCard(vocabulary)
             }
             .padding(.top, 88)
             .zIndex(0)

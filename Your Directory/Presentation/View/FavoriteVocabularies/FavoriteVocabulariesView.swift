@@ -12,11 +12,7 @@ struct FavoriteVocabulariesView: View {
 
     @Binding var vocabularies: [Vocabulary]
     @State var selectedVocabulary: Vocabulary? = nil
-
-    // Toast
-    @State var isShowToast = false
-    @State var toastMessage: String? = nil
-    @State var toastStatus: Status? = nil
+    let handleTapVocabularyCard: (Vocabulary) -> Void
     @State var vocabulariesState: VocabulariesState = .favorited
 
     var progress: CGFloat {
@@ -45,16 +41,9 @@ struct FavoriteVocabulariesView: View {
             .zIndex(1)
             makeListVocabulary()
         }
-        .navigationBarBackButtonHidden()
-        .sheet(item: $selectedVocabulary, onDismiss: {
-            selectedVocabulary = nil
-        }, content: { vocabulary in
-            makeDetailVocabulary(vocabulary: vocabulary)
-        })
-        .popupToast(isPresented: $isShowToast, message: toastMessage, state: toastStatus)
     }
 }
 
 #Preview {
-    FavoriteVocabulariesView(vocabularies: .constant(AppConstants.mockVocabularies))
+    FavoriteVocabulariesView(vocabularies: .constant(AppConstants.mockVocabularies)) { _ in }
 }

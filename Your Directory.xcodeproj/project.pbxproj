@@ -29,7 +29,6 @@
 		0E5E945C2C97E2AE00C655FA /* VocabulariesState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5E945B2C97E2AE00C655FA /* VocabulariesState.swift */; };
 		0E5E94612C98078400C655FA /* FavoriteVocabulariesView+Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5E94602C98078400C655FA /* FavoriteVocabulariesView+Filter.swift */; };
 		0E5E94632C98081200C655FA /* FavoriteVocabulariesView+Process.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5E94622C98081200C655FA /* FavoriteVocabulariesView+Process.swift */; };
-		0E5E94652C98089800C655FA /* FavoriteVocabulariesView+DetailVocabulary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5E94642C98089800C655FA /* FavoriteVocabulariesView+DetailVocabulary.swift */; };
 		0E5E94672C98098A00C655FA /* FavoriteVocabulariesView+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5E94662C98098A00C655FA /* FavoriteVocabulariesView+Navigation.swift */; };
 		0E5E94692C9809DC00C655FA /* FavoriteVocabulariesView+ListVocabulary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5E94682C9809DC00C655FA /* FavoriteVocabulariesView+ListVocabulary.swift */; };
 		0E5E946E2C980D4300C655FA /* StudiedVocabulariesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5E946D2C980D4300C655FA /* StudiedVocabulariesView.swift */; };
@@ -128,7 +127,6 @@
 		0E5E945B2C97E2AE00C655FA /* VocabulariesState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabulariesState.swift; sourceTree = "<group>"; };
 		0E5E94602C98078400C655FA /* FavoriteVocabulariesView+Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoriteVocabulariesView+Filter.swift"; sourceTree = "<group>"; };
 		0E5E94622C98081200C655FA /* FavoriteVocabulariesView+Process.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoriteVocabulariesView+Process.swift"; sourceTree = "<group>"; };
-		0E5E94642C98089800C655FA /* FavoriteVocabulariesView+DetailVocabulary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoriteVocabulariesView+DetailVocabulary.swift"; sourceTree = "<group>"; };
 		0E5E94662C98098A00C655FA /* FavoriteVocabulariesView+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoriteVocabulariesView+Navigation.swift"; sourceTree = "<group>"; };
 		0E5E94682C9809DC00C655FA /* FavoriteVocabulariesView+ListVocabulary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoriteVocabulariesView+ListVocabulary.swift"; sourceTree = "<group>"; };
 		0E5E946D2C980D4300C655FA /* StudiedVocabulariesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudiedVocabulariesView.swift; sourceTree = "<group>"; };
@@ -276,7 +274,6 @@
 			children = (
 				0E5E94602C98078400C655FA /* FavoriteVocabulariesView+Filter.swift */,
 				0E5E94622C98081200C655FA /* FavoriteVocabulariesView+Process.swift */,
-				0E5E94642C98089800C655FA /* FavoriteVocabulariesView+DetailVocabulary.swift */,
 				0E5E94662C98098A00C655FA /* FavoriteVocabulariesView+Navigation.swift */,
 				0E5E94682C9809DC00C655FA /* FavoriteVocabulariesView+ListVocabulary.swift */,
 			);
@@ -949,7 +946,6 @@
 				0EA6DF402C212D5800128A3B /* SplashView.swift in Sources */,
 				0E5E94772C991C0B00C655FA /* StudiedVocabulariesView+DetailVocabulary.swift in Sources */,
 				08E92FBA2C27190F0027E207 /* Folder.swift in Sources */,
-				0E5E94652C98089800C655FA /* FavoriteVocabulariesView+DetailVocabulary.swift in Sources */,
 				0ED248662C60889100C18BEE /* ButtonIcon.swift in Sources */,
 				0EA8195D2C72F993009D8D01 /* VietNameseHttp.swift in Sources */,
 				0E5E946E2C980D4300C655FA /* StudiedVocabulariesView.swift in Sources */,

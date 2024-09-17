@@ -26,14 +26,15 @@ struct ContentView: View {
                 folders: $folders,
                 isShouldRandomWord: $isShouldRandomWord
             ) { selectedVocabulary in
-                viewModel.vocabulary = selectedVocabulary
-                typeOfVocabularyView = .update
+                handleTapVocabularyCard(selectedVocabulary)
             }
             .tabItem {
                 Image(systemName: "house.fill")
                 Text("Home")
             }
-            FavoriteVocabulariesView(vocabularies: $vocabularies)
+            FavoriteVocabulariesView(vocabularies: $vocabularies) { selectedVocabulary in
+                handleTapVocabularyCard(selectedVocabulary)
+            }
                 .tabItem {
                     Image(systemName: "gamecontroller.fill")
                     Text("Favorite")
@@ -54,5 +55,12 @@ struct ContentView: View {
             .presentationCornerRadius(38)
         })
         .popupToast(isPresented: $isShowToast, message: toastMessage, state: toastStatus)
+    }
+}
+
+extension ContentView {
+    func handleTapVocabularyCard( _ selectedVocabulary: Vocabulary) {
+        viewModel.vocabulary = selectedVocabulary
+        typeOfVocabularyView = .update
     }
 }
