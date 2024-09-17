@@ -27,7 +27,7 @@ struct SplashView: View {
                 } else {
                     switch authenticationViewModel.state {
                     case .signedIn:
-                        HomeView(
+                        ContentView(
                             viewModel: viewModel,
                             vocabularies: $listVocabularyViewModel.vocabularys,
                             folders: $listFolderViewModel.folders

@@ -45,10 +45,7 @@ struct HomeView: View {
                 makeHeader()
                     .foregroundStyle(.white)
                 makeSearch()
-                makeListFolder()
-                    .padding(.vertical, 12)
-                    .padding(.horizontal)
-                    .padding(.bottom, 64)
+                    .padding(.bottom, 80)
             }
             .background(
                 Image("bg_home_header")
