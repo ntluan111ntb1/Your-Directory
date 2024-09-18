@@ -1,0 +1,41 @@
+//
+//  ListVocabularyView.swift
+//  Your Directory
+//
+//  Created by LuanNT29 on 12/07/2024.
+//
+
+import SwiftUI
+
+struct ListVocabulary: View {
+    @StateObject var viewModel = ListVocabularyViewModel()
+
+    let layout = [
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+    ]
+
+    let vocabularies: [Vocabulary]
+    let folders: [Folder]
+    let tapHandle: (Vocabulary) -> Void
+
+    var body: some View {
+        VStack {
+            ForEach(vocabularies, id: \.id) { vocabulary in
+                VocabularyCardView(
+                    vocabulary: vocabulary,
+                    folder: viewModel.getFolder(folders: folders, folderId: vocabulary.folderId ) ?? Folder(name: "", color: "", publishAt: ""),
+                    tapHandle: { tapHandle(vocabulary) },
+                    playSound: { viewModel.handleSound(sound: vocabulary.audio) }
+                )
+            }
+        }
+        .padding(.horizontal)
+    }
+}
+
+#Preview {
+    ListVocabulary(vocabularies: AppConstants.mockVocabularies, folders: AppConstants.mockFolders) { _ in
+
+    }
+}

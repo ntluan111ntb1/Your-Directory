@@ -36,15 +36,15 @@ struct ContentView: View {
                 handleTapVocabularyCard(selectedVocabulary)
             }
                 .tabItem {
-                    Image(systemName: "gamecontroller.fill")
+                    Image(systemName: "star")
                     Text("Favorite")
                 }
             StudiedVocabulariesView(vocabularies: $vocabularies) { selectedVocabulary in
                 handleTapVocabularyCard(selectedVocabulary)
             }
                 .tabItem {
-                    Image(systemName: "video.circle.fill")
-                    Text("Video")
+                    Image(systemName: "text.book.closed")
+                    Text("Studied")
                 }
         }
         .frame(width: UIScreen.main.bounds.size.width)

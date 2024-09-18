@@ -2,40 +2,39 @@
 //  ListVocabularyView.swift
 //  Your Directory
 //
-//  Created by LuanNT29 on 12/07/2024.
+//  Created by LuanNT29 on 17/09/2024.
 //
 
 import SwiftUI
 
 struct ListVocabularyView: View {
-    @StateObject var viewModel = ListVocabularyViewModel()
+    @Binding var vocabularies: [Vocabulary]
 
-    let layout = [
-        GridItem(.flexible()),
-        GridItem(.flexible()),
-    ]
+    let handleTapVocabularyCard: (Vocabulary) -> Void
 
-    let vocabularies: [Vocabulary]
-    let folders: [Folder]
-    let tapHandle: (Vocabulary) -> Void
+    @State var vocabulariesState: VocabulariesState = .all
 
     var body: some View {
         VStack {
-            ForEach(vocabularies, id: \.id) { vocabulary in
-                VocabularyCardView(
-                    vocabulary: vocabulary,
-                    folder: viewModel.getFolder(folders: folders, folderId: vocabulary.folderId ) ?? Folder(name: "", color: "", publishAt: ""),
-                    tapHandle: { tapHandle(vocabulary) },
-                    playSound: { viewModel.handleSound(sound: vocabulary.audio) }
-                )
+            VStack(spacing: 16) {
+                makeNavigation()
             }
+            makeListVocabulary()
         }
-        .padding(.horizontal)
+        .background(alignment: .top, content: {
+            Image("bg_favorite_vocabularies")
+                .resizable()
+                .frame(height: 240)
+                .scaledToFit()
+                .clipShape(
+                    RoundedCornersShape(corners: [.bottomLeft, .bottomRight], radius: 48)
+                )
+                .ignoresSafeArea()
+        })
     }
 }
 
 #Preview {
-    ListVocabularyView(vocabularies: AppConstants.mockVocabularies, folders: AppConstants.mockFolders) { _ in
-
+    ListVocabularyView(vocabularies: .constant(AppConstants.mockVocabularies)) { _ in
     }
 }

@@ -8,17 +8,11 @@
 import SwiftUI
 
 struct StudiedVocabulariesView: View {
-    @Environment(\.presentationMode) var presentationMode
-
     @Binding var vocabularies: [Vocabulary]
 
     let handleTapVocabularyCard: (Vocabulary) -> Void
 
     @State var vocabulariesState: VocabulariesState = .studied
-
-    var progress: CGFloat {
-        CGFloat(VocabulariesState.favoriteAndStudied.vocabularys(from: vocabularies).count) / CGFloat(VocabulariesState.favorited.vocabularys(from: vocabularies).count)
-    }
 
     var body: some View {
         VStack {

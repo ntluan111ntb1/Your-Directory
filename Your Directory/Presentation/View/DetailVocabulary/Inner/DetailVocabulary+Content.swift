@@ -63,6 +63,7 @@ extension DetailVocabularyView {
                     }
                 }
             }
+            .textSelection(.enabled)
         }
     }
 }

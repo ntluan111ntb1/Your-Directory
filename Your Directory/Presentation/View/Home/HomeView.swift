@@ -27,10 +27,8 @@ struct HomeView: View {
     let handleTapVocabularyCard: (Vocabulary) -> Void
 
     @State var search = ""
-    @State var isPresentCreateFolder = false
     @State var isPresentSearchView = false
-    @State var isPresentFavoriteScreen = false
-    @State var isPresentStudiedScreen = false
+    @State var isShowListVocabulary = false
     @State var typeOfFilterState: FilterStateEnum = .all
     @State var isShowPopupLogout = false
 
@@ -85,6 +83,11 @@ struct HomeView: View {
             textButtonCancel: "Thôi"
         ) {
             authenticationViewModel.signOut()
+        }
+        .navigationDestination(isPresented: $isShowListVocabulary) {
+            ListVocabularyView(vocabularies: $vocabularies) { selectedVocabulary in
+                handleTapVocabularyCard(selectedVocabulary)
+            }
         }
     }
 }

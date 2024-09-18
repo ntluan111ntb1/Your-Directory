@@ -1,16 +1,16 @@
 //
-//  FavoriteVocabulariesView+Navigation.swift
+//  ListVocabularyView+Navigation.swift
 //  Your Directory
 //
-//  Created by LuanNT29 on 16/09/2024.
+//  Created by LuanNT29 on 17/09/2024.
 //
 
 import SwiftUI
 
-extension FavoriteVocabulariesView {
+extension ListVocabularyView {
     func makeNavigation() -> some View {
         HStack {
-            Text("Từ Vựng Yêu Thích")
+            Text("Tất Cả Từ Vựng")
                 .font(.title)
                 .fontWeight(.heavy)
                 .foregroundStyle(.white)

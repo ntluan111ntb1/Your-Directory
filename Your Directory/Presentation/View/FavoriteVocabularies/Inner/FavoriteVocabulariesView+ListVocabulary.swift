@@ -10,7 +10,7 @@ import SwiftUI
 extension FavoriteVocabulariesView {
     func makeListVocabulary() -> some View {
         ScrollView {
-            ListVocabularyView(vocabularies: vocabulariesState.vocabularys(from: vocabularies), folders: []) { vocabulary in
+            ListVocabulary(vocabularies: vocabulariesState.vocabularys(from: vocabularies), folders: []) { vocabulary in
                 handleTapVocabularyCard(vocabulary)
             }
             .padding(.top, 88)

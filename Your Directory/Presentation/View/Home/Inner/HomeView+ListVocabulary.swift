@@ -15,13 +15,13 @@ extension HomeView {
                     .fontStyle(.mediumBold)
                 Spacer()
                 Button {
-
+                    isShowListVocabulary = true
                 } label: {
                     Text("Xem toàn bộ")
                 }
             }
             .padding(.horizontal)
-            ListVocabularyView(vocabularies: vocabularies, folders: folders) { vocabulary in
+            ListVocabulary(vocabularies: vocabularies, folders: folders) { vocabulary in
                 handleTapVocabularyCard(vocabulary)
             }
         }
