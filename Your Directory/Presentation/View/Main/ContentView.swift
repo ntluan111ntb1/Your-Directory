@@ -6,48 +6,97 @@
 //
 
 import SwiftUI
+enum TabbedItems: CaseIterable {
+    case home
+    case favorite
+    case studied
 
+    var imageDefault: String {
+        switch self {
+        case .home:
+            "ic_tabar_home"
+        case .favorite:
+            "ic_tabar_favorite"
+        case .studied:
+            "ic_tabar_studied"
+        }
+    }
+
+    var imageSelected: String {
+        switch self {
+        case .home:
+            "ic_selected_tabar_home"
+        case .favorite:
+            "ic_selected_tabar_favorite"
+        case .studied:
+            "ic_selected_tabar_studied"
+        }
+    }
+
+    var label: String {
+        switch self {
+        case .home:
+            "Home"
+        case .favorite:
+            "Favorite"
+        case .studied:
+            "Studied"
+        }
+    }
+}
 struct ContentView: View {
+
     @ObservedObject var viewModel: HomeViewModel
     @Binding var vocabularies: [Vocabulary]
     @Binding var folders: [Folder]
     
     @State var typeOfVocabularyView: EventType = .add
     @State var isShouldRandomWord = false
+    @State var selectedTab: TabbedItems = .home
     // Toast
     @State var isShowToast = false
     @State var toastMessage: String? = nil
     @State var toastStatus: Status? = nil
     var body: some View {
-        TabView {
-            HomeView(
-                viewModel: viewModel,
-                vocabularies: $vocabularies,
-                folders: $folders,
-                isShouldRandomWord: $isShouldRandomWord
-            ) { selectedVocabulary in
-                handleTapVocabularyCard(selectedVocabulary)
-            }
-            .tabItem {
-                Image(systemName: "house.fill")
-                Text("Home")
-            }
-            FavoriteVocabulariesView(vocabularies: $vocabularies) { selectedVocabulary in
-                handleTapVocabularyCard(selectedVocabulary)
-            }
-                .tabItem {
-                    Image(systemName: "star")
-                    Text("Favorite")
+        ZStack(alignment: .bottom) {
+            TabView(selection: $selectedTab) {
+                HomeView(
+                    viewModel: viewModel,
+                    vocabularies: $vocabularies,
+                    folders: $folders,
+                    isShouldRandomWord: $isShouldRandomWord
+                ) { selectedVocabulary in
+                    handleTapVocabularyCard(selectedVocabulary)
                 }
-            StudiedVocabulariesView(vocabularies: $vocabularies) { selectedVocabulary in
-                handleTapVocabularyCard(selectedVocabulary)
-            }
-                .tabItem {
-                    Image(systemName: "text.book.closed")
-                    Text("Studied")
+                .tag(TabbedItems.home)
+                FavoriteVocabulariesView(vocabularies: $vocabularies) { selectedVocabulary in
+                    handleTapVocabularyCard(selectedVocabulary)
                 }
+                .tag(TabbedItems.favorite)
+                StudiedVocabulariesView(vocabularies: $vocabularies) { selectedVocabulary in
+                    handleTapVocabularyCard(selectedVocabulary)
+                }
+                .tag(TabbedItems.studied)
+            }
+            HStack {
+                ForEach(TabbedItems.allCases, id: \.self) { item in
+                    HStack {
+                        Spacer()
+                        TabBarItem(
+                            text: item.label,
+                            imageDefault: item.imageDefault, 
+                            imageSelected: item.imageSelected,
+                            isSelected: selectedTab == item
+                        ) {
+                            selectedTab = item
+                        }
+                        Spacer()
+                    }
+                    .padding(.top, 16)
+                }
+            }
+            .frame(height: 70)
         }
-        .frame(width: UIScreen.main.bounds.size.width)
         .sheet(item: $viewModel.vocabulary, onDismiss: {
             viewModel.vocabulary = nil
             typeOfVocabularyView = .add
@@ -65,4 +114,12 @@ extension ContentView {
         viewModel.vocabulary = selectedVocabulary
         typeOfVocabularyView = .update
     }
+}
+
+#Preview {
+    ContentView(
+        viewModel: .init(),
+        vocabularies: .constant(AppConstants.mockVocabularies), 
+        folders: .constant(AppConstants.mockFolders)
+    )
 }

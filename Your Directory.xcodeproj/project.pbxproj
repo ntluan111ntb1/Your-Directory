@@ -38,6 +38,7 @@
 		0E5E94802C995F0A00C655FA /* ListVocabularyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5E947F2C995F0A00C655FA /* ListVocabularyView.swift */; };
 		0E5E94832C995FB700C655FA /* ListVocabularyView+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5E94822C995FB700C655FA /* ListVocabularyView+Navigation.swift */; };
 		0E5E94852C995FFB00C655FA /* ListVocabularyView+ListVocabulary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5E94842C995FFB00C655FA /* ListVocabularyView+ListVocabulary.swift */; };
+		0E5E948B2C9AAEB800C655FA /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5E948A2C9AAEB800C655FA /* TabBarItem.swift */; };
 		0EA6DF312C212D2B00128A3B /* Your_DirectoryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF302C212D2B00128A3B /* Your_DirectoryApp.swift */; };
 		0EA6DF352C212D2E00128A3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EA6DF342C212D2E00128A3B /* Assets.xcassets */; };
 		0EA6DF382C212D2E00128A3B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EA6DF372C212D2E00128A3B /* Preview Assets.xcassets */; };
@@ -137,6 +138,7 @@
 		0E5E947F2C995F0A00C655FA /* ListVocabularyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVocabularyView.swift; sourceTree = "<group>"; };
 		0E5E94822C995FB700C655FA /* ListVocabularyView+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListVocabularyView+Navigation.swift"; sourceTree = "<group>"; };
 		0E5E94842C995FFB00C655FA /* ListVocabularyView+ListVocabulary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListVocabularyView+ListVocabulary.swift"; sourceTree = "<group>"; };
+		0E5E948A2C9AAEB800C655FA /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
 		0EA6DF2D2C212D2B00128A3B /* Your Directory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Your Directory.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EA6DF302C212D2B00128A3B /* Your_DirectoryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Your_DirectoryApp.swift; sourceTree = "<group>"; };
 		0EA6DF342C212D2E00128A3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 		0E5E94782C99222F00C655FA /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				0E5E94892C9AAEA200C655FA /* Components */,
 				0E5E947B2C992CFF00C655FA /* Inner */,
 				0E5E94792C99223E00C655FA /* ContentView.swift */,
 			);
@@ -331,6 +334,14 @@
 				0E5E94842C995FFB00C655FA /* ListVocabularyView+ListVocabulary.swift */,
 			);
 			path = Inner;
+			sourceTree = "<group>";
+		};
+		0E5E94892C9AAEA200C655FA /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				0E5E948A2C9AAEB800C655FA /* TabBarItem.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		0E85219C2C97D34C00A5492B /* Components */ = {
@@ -988,6 +999,7 @@
 				0ED477922C4A4FF400B8ACFC /* DetailFolderView+VocabularyDetail.swift in Sources */,
 				0E5430D62C65F8E80033CD75 /* RandomWordsHttp.swift in Sources */,
 				0E5E94752C991BD000C655FA /* StudiedVocabulariesView+ListVocabulary.swift in Sources */,
+				0E5E948B2C9AAEB800C655FA /* TabBarItem.swift in Sources */,
 				0EA8195B2C72F788009D8D01 /* VietNameseEntityMapper.swift in Sources */,
 				08E92FC82C2736670027E207 /* DetailFolderVIew.swift in Sources */,
 				0E5E94832C995FB700C655FA /* ListVocabularyView+Navigation.swift in Sources */,

@@ -59,7 +59,7 @@ struct HomeView: View {
                     viewModel.vocabulary = viewModel.randomWords
                     isShouldRandomWord = true
                 }
-                .offset(y: 80)
+                .offset(y: 68)
             })
             .padding(.bottom)
             .zIndex(1)
@@ -68,7 +68,7 @@ struct HomeView: View {
                     VStack(spacing: 16) {
                         makeListVocabulary()
                     }
-                    .padding(.top, 80)
+                    .padding(.top, 68)
                 }
             }
             .zIndex(0)
