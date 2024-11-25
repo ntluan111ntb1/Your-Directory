@@ -100,6 +100,7 @@
 		0ED477922C4A4FF400B8ACFC /* DetailFolderView+VocabularyDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED477912C4A4FF400B8ACFC /* DetailFolderView+VocabularyDetail.swift */; };
 		0ED477982C4DFEAF00B8ACFC /* ListFolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED477972C4DFEAF00B8ACFC /* ListFolderView.swift */; };
 		0ED4779B2C4E037400B8ACFC /* FolderCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED4779A2C4E037400B8ACFC /* FolderCardView.swift */; };
+		0EE2B7332CF45BF500D15C1F /* FirstOnAppearModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE2B7322CF45BF500D15C1F /* FirstOnAppearModifier.swift */; };
 		0EFB78512C253A8D0013FFD8 /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFB78502C253A8D0013FFD8 /* Audio.swift */; };
 		0EFB78552C2554B00013FFD8 /* AlamofireNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFB78542C2554B00013FFD8 /* AlamofireNetworkService.swift */; };
 		0EFB78582C2555260013FFD8 /* DictionaryHttp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFB78572C2555260013FFD8 /* DictionaryHttp.swift */; };
@@ -203,6 +204,7 @@
 		0ED477912C4A4FF400B8ACFC /* DetailFolderView+VocabularyDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailFolderView+VocabularyDetail.swift"; sourceTree = "<group>"; };
 		0ED477972C4DFEAF00B8ACFC /* ListFolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFolderView.swift; sourceTree = "<group>"; };
 		0ED4779A2C4E037400B8ACFC /* FolderCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderCardView.swift; sourceTree = "<group>"; };
+		0EE2B7322CF45BF500D15C1F /* FirstOnAppearModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstOnAppearModifier.swift; sourceTree = "<group>"; };
 		0EFB78502C253A8D0013FFD8 /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 		0EFB78542C2554B00013FFD8 /* AlamofireNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireNetworkService.swift; sourceTree = "<group>"; };
 		0EFB78572C2555260013FFD8 /* DictionaryHttp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryHttp.swift; sourceTree = "<group>"; };
@@ -719,6 +721,7 @@
 			isa = PBXGroup;
 			children = (
 				0ED4778B2C4A46B400B8ACFC /* ToastPopupModifier.swift */,
+				0EE2B7322CF45BF500D15C1F /* FirstOnAppearModifier.swift */,
 				0ED477852C4A406000B8ACFC /* ConfirmPopUpModifier.swift */,
 				0EA8196D2C7EFC24009D8D01 /* BackgoundRoundedCornersModifier.swift */,
 			);
@@ -995,6 +998,7 @@
 				0E5E94802C995F0A00C655FA /* ListVocabularyView.swift in Sources */,
 				0E5E94852C995FFB00C655FA /* ListVocabularyView+ListVocabulary.swift in Sources */,
 				0EFB78552C2554B00013FFD8 /* AlamofireNetworkService.swift in Sources */,
+				0EE2B7332CF45BF500D15C1F /* FirstOnAppearModifier.swift in Sources */,
 				0ED4779B2C4E037400B8ACFC /* FolderCardView.swift in Sources */,
 				0E5E945C2C97E2AE00C655FA /* VocabulariesState.swift in Sources */,
 				0EA6DF8D2C240C2900128A3B /* HomeView+ListVocabulary.swift in Sources */,

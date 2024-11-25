@@ -108,9 +108,10 @@ struct ContentView: View {
             .presentationCornerRadius(38)
         })
         .popupToast(isPresented: $isShowToast, message: toastMessage, state: toastStatus)
-        .onAppear {
+        .firstOnAppear(handle: {
+            viewModel.getRandomWords()
             listVocabularyViewModel.getVocabularys()
-        }
+        })
     }
 }
 
