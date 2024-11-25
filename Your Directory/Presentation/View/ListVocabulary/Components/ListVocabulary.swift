@@ -22,12 +22,19 @@ struct ListVocabulary: View {
     var body: some View {
         VStack {
             ForEach(vocabularies, id: \.id) { vocabulary in
-                VocabularyCardView(
-                    vocabulary: vocabulary,
-                    folder: viewModel.getFolder(folders: folders, folderId: vocabulary.folderId ) ?? Folder(name: "", color: "", publishAt: ""),
-                    tapHandle: { tapHandle(vocabulary) },
-                    playSound: { viewModel.handleSound(sound: vocabulary.audio) }
-                )
+                SwipeView {
+                    VocabularyCardView(
+                        vocabulary: vocabulary,
+                        folder: viewModel.getFolder(folders: folders, folderId: vocabulary.folderId ) ?? Folder(name: "", color: "", publishAt: ""),
+                        tapHandle: { tapHandle(vocabulary) },
+                        playSound: { viewModel.handleSound(sound: vocabulary.audio) }
+                    )
+                } trailingActions: { _ in
+                    SwipeAction("delete", backgroundColor: Color.lightBlueCustome, highlightOpacity: 0.5) {
+
+                    }
+
+                }
             }
         }
         .padding(.horizontal)

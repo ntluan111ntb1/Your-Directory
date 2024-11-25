@@ -39,6 +39,7 @@
 		0E5E94832C995FB700C655FA /* ListVocabularyView+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5E94822C995FB700C655FA /* ListVocabularyView+Navigation.swift */; };
 		0E5E94852C995FFB00C655FA /* ListVocabularyView+ListVocabulary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5E94842C995FFB00C655FA /* ListVocabularyView+ListVocabulary.swift */; };
 		0E5E948B2C9AAEB800C655FA /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5E948A2C9AAEB800C655FA /* TabBarItem.swift */; };
+		0E5E94912C9AB93A00C655FA /* SwipeActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5E94902C9AB93A00C655FA /* SwipeActions.swift */; };
 		0EA6DF312C212D2B00128A3B /* Your_DirectoryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6DF302C212D2B00128A3B /* Your_DirectoryApp.swift */; };
 		0EA6DF352C212D2E00128A3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EA6DF342C212D2E00128A3B /* Assets.xcassets */; };
 		0EA6DF382C212D2E00128A3B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EA6DF372C212D2E00128A3B /* Preview Assets.xcassets */; };
@@ -139,6 +140,7 @@
 		0E5E94822C995FB700C655FA /* ListVocabularyView+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListVocabularyView+Navigation.swift"; sourceTree = "<group>"; };
 		0E5E94842C995FFB00C655FA /* ListVocabularyView+ListVocabulary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListVocabularyView+ListVocabulary.swift"; sourceTree = "<group>"; };
 		0E5E948A2C9AAEB800C655FA /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
+		0E5E94902C9AB93A00C655FA /* SwipeActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeActions.swift; sourceTree = "<group>"; };
 		0EA6DF2D2C212D2B00128A3B /* Your Directory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Your Directory.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EA6DF302C212D2B00128A3B /* Your_DirectoryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Your_DirectoryApp.swift; sourceTree = "<group>"; };
 		0EA6DF342C212D2E00128A3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -344,6 +346,14 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		0E5E948F2C9AB91C00C655FA /* SwipeActions */ = {
+			isa = PBXGroup;
+			children = (
+				0E5E94902C9AB93A00C655FA /* SwipeActions.swift */,
+			);
+			path = SwipeActions;
+			sourceTree = "<group>";
+		};
 		0E85219C2C97D34C00A5492B /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -484,6 +494,7 @@
 		0EA6DF552C2141D100128A3B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				0E5E948F2C9AB91C00C655FA /* SwipeActions */,
 				0ED477842C4A402300B8ACFC /* Extensions */,
 				0EB8A2642C44BAEB0001C521 /* lottie_resources */,
 				08E92FC12C2723EF0027E207 /* enum */,
@@ -988,6 +999,7 @@
 				0E5E945C2C97E2AE00C655FA /* VocabulariesState.swift in Sources */,
 				0EA6DF8D2C240C2900128A3B /* HomeView+ListVocabulary.swift in Sources */,
 				0EA6DF442C2135C500128A3B /* LottieView.swift in Sources */,
+				0E5E94912C9AB93A00C655FA /* SwipeActions.swift in Sources */,
 				0E5E94732C991B7800C655FA /* StudiedVocabulariesView+Navigation.swift in Sources */,
 				0E105BC42C48CEE90073CB46 /* LoadingView.swift in Sources */,
 				08875FC22C23233900C4E6C6 /* CreateFolderView.swift in Sources */,
