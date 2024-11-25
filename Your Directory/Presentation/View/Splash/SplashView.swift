@@ -13,9 +13,6 @@ import GoogleSignIn
 struct SplashView: View {
     @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
 
-    @StateObject var viewModel = HomeViewModel()
-    @StateObject var listVocabularyViewModel = ListVocabularyViewModel()
-    @StateObject var listFolderViewModel = ListFolderViewModel()
     @State var isPresentSplashView = true
 
     var body: some View {
@@ -27,11 +24,7 @@ struct SplashView: View {
                 } else {
                     switch authenticationViewModel.state {
                     case .signedIn:
-                        ContentView(
-                            viewModel: viewModel,
-                            vocabularies: $listVocabularyViewModel.vocabularys,
-                            folders: $listFolderViewModel.folders
-                        )
+                        ContentView()
                     case .signedOut:
                         SignInView()
                     case .unknown:
@@ -42,9 +35,6 @@ struct SplashView: View {
             }
         }
         .onAppear {
-            print(viewModel.getRandomWords())
-            listVocabularyViewModel.getVocabularys()
-            listFolderViewModel.getFolders()
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
                 isPresentSplashView.toggle()
             }

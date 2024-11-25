@@ -46,10 +46,11 @@ enum TabbedItems: CaseIterable {
 }
 struct ContentView: View {
 
-    @ObservedObject var viewModel: HomeViewModel
-    @Binding var vocabularies: [Vocabulary]
-    @Binding var folders: [Folder]
-    
+    @StateObject var viewModel = HomeViewModel()
+    @StateObject var listVocabularyViewModel = ListVocabularyViewModel()
+
+    @State var folders = [Folder]()
+
     @State var typeOfVocabularyView: EventType = .add
     @State var isShouldRandomWord = false
     @State var selectedTab: TabbedItems = .home
@@ -57,23 +58,24 @@ struct ContentView: View {
     @State var isShowToast = false
     @State var toastMessage: String? = nil
     @State var toastStatus: Status? = nil
+
     var body: some View {
         ZStack(alignment: .bottom) {
             TabView(selection: $selectedTab) {
                 HomeView(
                     viewModel: viewModel,
-                    vocabularies: $vocabularies,
+                    vocabularies: $listVocabularyViewModel.vocabularys,
                     folders: $folders,
                     isShouldRandomWord: $isShouldRandomWord
                 ) { selectedVocabulary in
                     handleTapVocabularyCard(selectedVocabulary)
                 }
                 .tag(TabbedItems.home)
-                FavoriteVocabulariesView(vocabularies: $vocabularies) { selectedVocabulary in
+                FavoriteVocabulariesView(vocabularies: $listVocabularyViewModel.vocabularys) { selectedVocabulary in
                     handleTapVocabularyCard(selectedVocabulary)
                 }
                 .tag(TabbedItems.favorite)
-                StudiedVocabulariesView(vocabularies: $vocabularies) { selectedVocabulary in
+                StudiedVocabulariesView(vocabularies: $listVocabularyViewModel.vocabularys) { selectedVocabulary in
                     handleTapVocabularyCard(selectedVocabulary)
                 }
                 .tag(TabbedItems.studied)
@@ -106,6 +108,9 @@ struct ContentView: View {
             .presentationCornerRadius(38)
         })
         .popupToast(isPresented: $isShowToast, message: toastMessage, state: toastStatus)
+        .onAppear {
+            listVocabularyViewModel.getVocabularys()
+        }
     }
 }
 
@@ -117,9 +122,5 @@ extension ContentView {
 }
 
 #Preview {
-    ContentView(
-        viewModel: .init(),
-        vocabularies: .constant(AppConstants.mockVocabularies), 
-        folders: .constant(AppConstants.mockFolders)
-    )
+    ContentView()
 }

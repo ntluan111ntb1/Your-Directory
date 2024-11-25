@@ -27,7 +27,7 @@ extension ContentView {
             switch typeOfVocabularyView {
             case .add:
                 guard let newVocabulary = vocabulary else { return }
-                vocabularies.insert(newVocabulary, at: 0)
+                listVocabularyViewModel.vocabularys.insert(newVocabulary, at: 0)
                 // Check if add vocabulary from card ramdom word
                 // --> should be random new word
                 if isShouldRandomWord {
@@ -35,14 +35,11 @@ extension ContentView {
                 }
             case .update:
                 guard let vocabulry = viewModel.vocabulary else { return }
-                if let index = self.vocabularies.firstIndex(of: vocabulry) {
+                if let index = listVocabularyViewModel.vocabularys.firstIndex(of: vocabulry) {
                     if let vocabularyUpdated = vocabulary {
-                        self.vocabularies[index].vocabularyNote = vocabularyUpdated.vocabularyNote
-                        self.vocabularies[index].folderId = vocabularyUpdated.folderId
-                        self.vocabularies[index].isStudy = vocabularyUpdated.isStudy
-                        self.vocabularies[index].isFavorite = vocabularyUpdated.isFavorite
+                        listVocabularyViewModel.vocabularys[index] = vocabularyUpdated
                     } else {
-                        self.vocabularies.remove(at: index)
+                        listVocabularyViewModel.vocabularys.remove(at: index)
                     }
                 }
             }
